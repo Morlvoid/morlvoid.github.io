@@ -466,6 +466,8 @@
     <content><![CDATA[<h1 id="Mirai-Dice！骰娘搭建教程"><a href="#Mirai-Dice！骰娘搭建教程" class="headerlink" title="Mirai Dice！骰娘搭建教程"></a>Mirai Dice！骰娘搭建教程</h1><p>观看本篇文章前请先跳转至链接：Dice!文档：<a href="https://v2docs.kokona.tech/zh/latest/">https://v2docs.kokona.tech/zh/latest/</a></p>
 <p>请先查看《骰娘是什么》</p>
 <p>如果对跑团或骰娘感兴趣，想要搭建骰娘，请阅读完《Dice!文档》后，点击下方链接查看搭建指南。</p>
+<span id="more"></span>
+
 <p>Dice!导航帖：<a href="https://forum.kokona.tech/d/150-dice-dao-hang-tie">https://forum.kokona.tech/d/150-dice-dao-hang-tie</a></p>
 <p>Mirai Dice 下载及搭建指南：<a href="https://forum.kokona.tech/d/448-mirai-dice-xia-zai-ji-da-jian-zhi-nan-zui-hou-geng-xin-20211214">https://forum.kokona.tech/d/448-mirai-dice-xia-zai-ji-da-jian-zhi-nan-zui-hou-geng-xin-20211214</a></p>
 <p>Mirai Dice 搭建骰娘遇到的问题及解决方法：<a href="https://www.bilibili.com/read/cv13257089?spm_id_from=333.999.0.0">https://www.bilibili.com/read/cv13257089?spm_id_from=333.999.0.0</a></p>
@@ -611,6 +613,8 @@
 <p><a href="https://www.bilibili.com/read/cv1544637?from=articleDetail">MMD兵器库</a></p>
 <p><a href="https://www.bilibili.com/read/cv1090815?spm_id_from=333.880.0.0">MMD入门综合指南3.1（2021修改版)</a></p>
 <p><a href="https://www.bilibili.com/read/cv20273?from=articleDetail">MMD（MikumikuDance）的发展历史</a></p>
+<span id="more"></span>
+
 <h3 id="MMD一般流程"><a href="#MMD一般流程" class="headerlink" title="MMD一般流程"></a>MMD一般流程</h3><p>1.找资源（或制作资源）并载入MMD</p>
 <p>2.渲染</p>
 <p>3.导出</p>

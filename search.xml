@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Exercism.org-Java-Log Levels</title>
+    <url>/2023/08/10/Exercism-org-Java-Log-Levels/</url>
+    <content><![CDATA[<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’ll be processing log-lines.</p>
+<p>Each log line is a string formatted as follows: <code>&quot;[&lt;LEVEL&gt;]: &lt;MESSAGE&gt;&quot;</code>.</p>
+<span id="more"></span>
+
+<p>There are three different log levels:</p>
+<ul>
+<li><code>INFO</code></li>
+<li><code>WARNING</code></li>
+<li><code>ERROR</code></li>
+</ul>
+<p>You have three tasks, each of which will take a log line and ask you to do something with it.</p>
+<h3 id="1-Get-message-from-a-log-line"><a href="#1-Get-message-from-a-log-line" class="headerlink" title="1. Get message from a log line"></a>1. Get message from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.message()</code> method to return a log line’s message:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Invalid operation&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Any leading or trailing white space should be removed:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[WARNING]:  Disk almost full\r\n&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Disk almost full&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Get-log-level-from-a-log-line"><a href="#2-Get-log-level-from-a-log-line" class="headerlink" title="2. Get log level from a log line"></a>2. Get log level from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.logLevel()</code> method to return a log line’s log level, which should be returned in lowercase:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.logLevel(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;error&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Reformat-a-log-line"><a href="#3-Reformat-a-log-line" class="headerlink" title="3. Reformat a log line"></a>3. Reformat a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.reformat()</code> method that reformats the log line, putting the message first and the log level after it in parentheses:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.reformat(<span class="string">&quot;[INFO]: Operation completed&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Operation completed (info)&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><table>
+<thead>
+<tr>
+<th>Modifier and Type</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(int ch)</code><br>Returns the index within this string of the first occurrence of the specified character.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(int ch, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.<br></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(String str)</code><br>Returns the index within this string of the first occurrence of the specified substring.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(String str, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>substring(int beginIndex)</code><br>Returns a new string that a substring of this string.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>substring(int beginIndex,int endIndex)</code><br>Returns a new string that a substring of this string.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>trim()</code><br>Returns a copy of the string, with leading and trailing whitespace omitted.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the default locale.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the given Locale.<br></td>
+</tr>
+</tbody></table>
+<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogLevels</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 1</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">message</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract message part by using substring method</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;:&#x27;</span>) + <span class="number">1</span>).trim();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 2</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">logLevel</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract level part by using substring method, then convert it to lowercase</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;[&#x27;</span>) + <span class="number">1</span>, logLine.indexOf(<span class="string">&#x27;]&#x27;</span>)).toLowerCase();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 3</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reformat</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Use above two methods to extract message and level, then reformat the log line</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> message(logLine);</span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLevel(logLine);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message + <span class="string">&quot; (&quot;</span> + level + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
+<p>process<br>n.<br>(为达到某一目标的)过程;进程;流程;工序;工艺流程;(事物发展，尤指自然变化的)步骤;做事方法<br>v.<br>处理(文件、请求等);加工;数据处理;审核;审阅<br>v.<br>列队行进;缓缓前进<br>adj.<br>(用化学方法等)处理过的;照相制版的;经过特殊加工的;三色版的</p>
+</blockquote>
+<blockquote>
+<p>processing<br>v.<br>处理;审阅，审核，处理(文件、请求等);加工;数据处理<br>v.<br>列队行进;缓缓前进<br>n.<br>加工；处理；运算<br>process的现在分词</p>
+</blockquote>
+<blockquote>
+<p>formatted<br>v.<br>格式化;安排…的版式<br>adj.<br>格式化（的）；格式化了的；有格式的<br>format的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>Implement<br>vt.<br>实施;执行;贯彻;使生效<br>n.<br>工具;器具;(常指)简单的户外用具</p>
+</blockquote>
+<blockquote>
+<p>lowercase<br>n.<br>小写字母;小写字体</p>
+</blockquote>
+<blockquote>
+<p>occurrence<br>n.<br>发生;出现;存在;发生的事情;存在的事物</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>exercism.org</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Exercism.org-Java-Cook your lasagna</title>
+    <url>/2023/08/09/Exercism-org-Java-Cook-your-lasagna/</url>
+    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/lasagna">https://exercism.org/tracks/java/exercises/lasagna</a></p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’re going to write some code to help you cook a brilliant lasagna from your favorite cooking book.</p>
+<p>You have four tasks, all related to the time spent cooking the lasagna.</p>
+<span id="more"></span>
+
+<h3 id="1-Define-the-expected-oven-time-in-minutes"><a href="#1-Define-the-expected-oven-time-in-minutes" class="headerlink" title="1. Define the expected oven time in minutes"></a>1. Define the expected oven time in minutes</h3><p>Define the <code>expectedMinutesInOven()</code> method that does not take any parameters and returns how many minutes the lasagna should be in the oven. According to the cooking book, the expected oven time in minutes is 40:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line"><span class="comment">//Create a Lasagna object using the new keyword</span></span><br><span class="line">lasagna.expectedMinutesInOven();</span><br><span class="line"><span class="comment">//Invoking the expectedMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 40</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Calculate-the-remaining-oven-time-in-minutes"><a href="#2-Calculate-the-remaining-oven-time-in-minutes" class="headerlink" title="2. Calculate the remaining oven time in minutes"></a>2. Calculate the remaining oven time in minutes</h3><p>Define the <code>remainingMinutesInOven()</code> method that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.remainingMinutesInOven(<span class="number">30</span>);</span><br><span class="line"><span class="comment">//Invoking the remainingMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Calculate-the-preparation-time-in-minutes"><a href="#3-Calculate-the-preparation-time-in-minutes" class="headerlink" title="3. Calculate the preparation time in minutes"></a>3. Calculate the preparation time in minutes</h3><p>Define the <code>preparationTimeInMinutes()</code> method that takes the number of layers you added to the lasagna as a parameter and returns how many minutes you spent preparing the lasagna, assuming each layer takes you 2 minutes to prepare.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.preparationTimeInMinutes(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// =&gt; 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Calculate-the-total-working-time-in-minutes"><a href="#4-Calculate-the-total-working-time-in-minutes" class="headerlink" title="4. Calculate the total working time in minutes"></a>4. Calculate the total working time in minutes</h3><p>Define the <code>totalTimeInMinutes()</code> method that takes two parameters: the first parameter is the number of layers you added to the lasagna, and the second parameter is the number of minutes the lasagna has been in the oven. The function should return how many minutes in total you’ve worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.totalTimeInMinutes(<span class="number">3</span>, <span class="number">20</span>);</span><br><span class="line"><span class="comment">// =&gt; 26</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Lasagna</span> &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;expectedMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">expectedMinutesInOven</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">40</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;remainingMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">remainingMinutesInOven</span><span class="params">(<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> expectedMinutesInOven() - time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;preparationTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">preparationTimeInMinutes</span><span class="params">(<span class="type">int</span> layers)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> layers*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;totalTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">totalTimeInMinutes</span><span class="params">(<span class="type">int</span> layers,<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> preparationTimeInMinutes(layers)+remainingMinutesInOven(time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
+<p>Instructions<br>n.<br>(计算机的)指令;指示;说明书;命令;操作指南;吩咐;用法说明<br>instruction的复数</p>
+</blockquote>
+<blockquote>
+<p>brilliant<br>adj.<br>明亮的;很成功的;很好的;巧妙的;聪颖的;技艺高的;使人印象深的<br>n.<br>宝石;钻石</p>
+</blockquote>
+<blockquote>
+<p>lasagna<br>n.<br>(意大利)千层面</p>
+</blockquote>
+<blockquote>
+<p>task<br>n.<br>任务;(尤指艰巨或令人厌烦的)工作;(尤指语言教学中旨在帮助达到某一学习目的的)活动<br>vt.<br>交给某人(任务);派给某人(工作)</p>
+</blockquote>
+<blockquote>
+<p>relate<br>vt.<br>联系;讲(故事);把…联系起来;叙述;使有联系;讲述</p>
+</blockquote>
+<blockquote>
+<p>expect<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望;猜想</p>
+</blockquote>
+<blockquote>
+<p>expected<br>adj.<br>预期的;预料的<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望<br>expect的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>oven<br>n.<br>烤箱;烤炉</p>
+</blockquote>
+<blockquote>
+<p>remaining<br>adj.<br>剩下的;仍需做的;还需处理的<br>v.<br>仍然是;剩余;保持不变;遗留;继续存在;仍需去做(或说、处理)<br>remain的现在分词</p>
+</blockquote>
+<blockquote>
+<p>actual<br>adj.<br>实际的;(强调事情最重要的部分)真正的，…本身;真实的</p>
+</blockquote>
+<blockquote>
+<p>remain<br>v.<br>（事实、问题等）仍然是（表示强调）;剩余，余留;保留，坚持（观点、态度或信念）;保持不变;仍然存在，继续存在;留下，逗留，停留;（最后）属于;（最后）取决于;尚待，留待;仍需去做（或说、处理）<br>n.<br>剩余物，残余（物）;遗体，残骸;（历史）遗迹，残迹</p>
+</blockquote>
+<blockquote>
+<p>previous<br>adj.<br>以前的, 先前的, 以往的;上一次的, 上一个的;&lt;口&gt;过早的, 过急的;(时间上)稍前的</p>
+</blockquote>
+<blockquote>
+<p>preparation<br>n.<br>准备;(医药、化妆品等)配制品，制剂;准备工作;预备</p>
+</blockquote>
+<blockquote>
+<p>layers<br>n.<br>层;表层;层次;阶层<br>v.<br>把…分层堆放<br>layer的第三人称单数和复数</p>
+</blockquote>
+<blockquote>
+<p>assuming<br>conj.<br>假如;假设…为真<br>v.<br>假设;假定;承担(责任);认为;呈现(外观、样子);取得(权力);显露(特征);就(职)<br>adj.<br>傲慢的<br>assume的现在分词</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>exercism.org</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Exercism.org-Java-Annalyn&#39;s Infiltration</title>
+    <url>/2023/08/08/Exercism-org-Java-Annalyn-s-Infiltration/</url>
+    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/annalyns-infiltration">https://exercism.org/tracks/java/exercises/annalyns-infiltration</a></p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise, you’ll be implementing the quest logic for a new RPG game a friend is developing. The game’s main character is Annalyn, a brave girl with a fierce and loyal pet dog. Unfortunately, disaster strikes, as her best friend was kidnapped while searching for berries in the forest. Annalyn will try to find and free her best friend, optionally taking her dog with her on this quest.</p>
+<p>After some time spent following her best friend’s trail, she finds the camp in which her best friend is imprisoned. It turns out there are two kidnappers: a mighty knight and a cunning archer.</p>
+<span id="more"></span>
+
+<p>Having found the kidnappers, Annalyn considers which of the following actions she can engage in:</p>
+<ul>
+<li>Fast attack: a fast attack can be made if the knight is sleeping, as it takes time for him to get his armor on, so he will be vulnerable.</li>
+<li>Spy: the group can be spied upon if at least one of them is awake. Otherwise, spying is a waste of time.</li>
+<li>Signal prisoner: the prisoner can be signalled using bird sounds if the prisoner is awake and the archer is sleeping, as archers are trained in bird signaling, so they could intercept the message.</li>
+<li><em>Free prisoner</em>: Annalyn can try sneaking into the camp to free the prisoner. This is a risky thing to do and can only succeed in one of two ways:<ul>
+<li>If Annalyn has her pet dog with her she can rescue the prisoner if the archer is asleep. The knight is scared of the dog and the archer will not have time to get ready before Annalyn and the prisoner can escape.</li>
+<li>If Annalyn does not have her dog then she and the prisoner must be very sneaky! Annalyn can free the prisoner if the prisoner is awake and the knight and archer are both sleeping, but if the prisoner is sleeping they can’t be rescued: the prisoner would be startled by Annalyn’s sudden appearance and wake up the knight and archer.</li>
+</ul>
+</li>
+</ul>
+<p>You have four tasks: to implement the logic for determining if the above actions are available based on the state of the three characters found in the forest and whether Annalyn’s pet dog is present or not.</p>
+<h3 id="1-Check-if-a-fast-attack-can-be-made"><a href="#1-Check-if-a-fast-attack-can-be-made" class="headerlink" title="1. Check if a fast attack can be made"></a>1. Check if a fast attack can be made</h3><p>Implement the (<em>static</em>) <code>AnnalynsInfiltration.canFastAttack()</code> method that takes a boolean value that indicates if the knight is awake. This method returns <code>true</code> if a fast attack can be made based on the state of the knight. Otherwise, returns <code>false</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">knightIsAwake</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">AnnalynsInfiltration.canFastAttack(knightIsAwake);</span><br><span class="line"><span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Check-if-the-group-can-be-spied-upon"><a href="#2-Check-if-the-group-can-be-spied-upon" class="headerlink" title="2. Check if the group can be spied upon"></a>2. Check if the group can be spied upon</h3><p>Implement the (<em>static</em>) <code>AnnalynsInfiltration.canSpy()</code> method that takes three boolean values, indicating if the knight, archer and the prisoner, respectively, are awake. The method returns <code>true</code> if the group can be spied upon, based on the state of the three characters. Otherwise, returns <code>false</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">knightIsAwake</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">archerIsAwake</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">prisonerIsAwake</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">AnnalynsInfiltration.canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake);</span><br><span class="line"><span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Check-if-the-prisoner-can-be-signalled"><a href="#3-Check-if-the-prisoner-can-be-signalled" class="headerlink" title="3. Check if the prisoner can be signalled"></a>3. Check if the prisoner can be signalled</h3><p>Implement the (<em>static</em>) <code>AnnalynsInfiltration.canSignalPrisoner()</code> method that takes two boolean values, indicating if the archer and the prisoner, respectively, are awake. The method returns <code>true</code> if the prisoner can be signalled, based on the state of the two characters. Otherwise, returns <code>false</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">archerIsAwake</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">prisonerIsAwake</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">AnnalynsInfiltration.canSignalPrisoner(archerIsAwake, prisonerIsAwake);</span><br><span class="line"><span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Check-if-the-prisoner-can-be-freed"><a href="#4-Check-if-the-prisoner-can-be-freed" class="headerlink" title="4. Check if the prisoner can be freed"></a>4. Check if the prisoner can be freed</h3><p>Implement the (<em>static</em>) <code>AnnalynsInfiltration.canFreePrisoner()</code> method that takes four boolean values. The first three parameters indicate if the knight, archer and the prisoner, respectively, are awake. The last parameter indicates if Annalyn’s pet dog is present. The method returns <code>true</code> if the prisoner can be freed based on the state of the three characters and Annalyn’s pet dog presence. Otherwise, it returns <code>false</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">knightIsAwake</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">archerIsAwake</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">prisonerIsAwake</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">petDogIsPresent</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">AnnalynsInfiltration.canFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent);</span><br><span class="line"><span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AnnalynsInfiltration</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">canFastAttack</span><span class="params">(<span class="type">boolean</span> knightIsAwake)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> !knightIsAwake;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">canSpy</span><span class="params">(<span class="type">boolean</span> knightIsAwake, <span class="type">boolean</span> archerIsAwake, <span class="type">boolean</span> prisonerIsAwake)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> knightIsAwake || archerIsAwake || prisonerIsAwake;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">canSignalPrisoner</span><span class="params">(<span class="type">boolean</span> archerIsAwake, <span class="type">boolean</span> prisonerIsAwake)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> prisonerIsAwake &amp;&amp; !archerIsAwake;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">canFreePrisoner</span><span class="params">(<span class="type">boolean</span> knightIsAwake, <span class="type">boolean</span> archerIsAwake, <span class="type">boolean</span> prisonerIsAwake, <span class="type">boolean</span> petDogIsPresent)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (prisonerIsAwake &amp;&amp; !archerIsAwake &amp;&amp; !knightIsAwake) || (!archerIsAwake &amp;&amp; petDogIsPresent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
+<p>represented<br>v.<br>代表，表示;（在竞赛或体育赛事中）代表（国家或地区）;（标志或符号）意味着，代表着，标志着;描绘，（形象地）表现，描写;代理（个人或团体）;代表（个人或团体）出席;使有代表性，使有代表作;使呈现;陈述，诉说;象征;展示;相当于，相等于;作为……的代表（代言人）;表述;想象，设想;演出，扮演;提出异议，提出抗议;维护……的利益;回想;再提出;作为……的象征;典型地反映;成为……实例，成为典型;再呈现;抗议说;再递交;再上演，再演出;集中地体现;再赠送</p>
+</blockquote>
+<blockquote>
+<p>implement<br>vt.<br>实施;执行;贯彻;使生效<br>n.<br>工具;器具;(常指)简单的户外用具</p>
+</blockquote>
+<blockquote>
+<p>implementing<br>v.<br>实施;执行;贯彻;使生效<br>implement的现在分词</p>
+</blockquote>
+<blockquote>
+<p>quest<br>n.<br>追求(幸福等);探索;寻找<br>vi.<br>探索;探求</p>
+</blockquote>
+<blockquote>
+<p>logic<br>n.<br>逻辑;逻辑学;(做某事的)道理，合乎情理的原因;逻辑系统;思维方式;解释方法</p>
+</blockquote>
+<blockquote>
+<p>develop<br>v.<br>发展;发展，变化;开发;加强;研制;出现(问题);使（胶卷）显影;(使)成长;壮大; 患(病);修建;详尽阐述;(问题)开始影响;(疾病)开始侵袭</p>
+</blockquote>
+<blockquote>
+<p>developing<br>adj.<br>发展中的<br>v.<br>(使)成长，发展，壮大;开发;研制;出现(问题); 患(病);(问题)开始影响;(疾病)开始侵袭<br>develop的现在分词</p>
+</blockquote>
+<blockquote>
+<p>Unfortunately<br>adv.<br>不幸地;遗憾地;可惜地;可悲地</p>
+</blockquote>
+<blockquote>
+<p>disaster<br>n.<br>灾害;灾难;灾祸;不幸;祸患;彻底失败的人(或事)</p>
+</blockquote>
+<blockquote>
+<p>strike<br>n.<br>罢工;（有损声誉的）不利因素，打击;袭击;(尤指)空袭;打;击;罢课;踢;罢市;全中;军事进攻;（珍贵东西的）意外发现;击球未中<br>v.<br>罢工;撞击;打;击打，踢(球等);击;碰撞;撞;敲;给（某人以…）印象;突击;擦，划（火柴）;行进;侵袭;碰;弹奏;突然想到;照在…上;开采出;顿时使处于某状态</p>
+</blockquote>
+<blockquote>
+<p>kidnap<br>vt.<br>绑架;劫持;诱拐（小孩等），拐骗<br>n.<br>诱拐;绑架罪</p>
+</blockquote>
+<blockquote>
+<p>kidnappers<br>n.<br>绑架者；绑匪；拐骗犯<br>kidnapper的复数</p>
+</blockquote>
+<blockquote>
+<p>berry<br>n.<br>浆果;莓</p>
+</blockquote>
+<blockquote>
+<p>free<br>adj.<br>自由的;免费的;空闲的;(货物等) 免税的;自然的, 不拘束的;自愿的, 主动的;未固定的，松开的;不受阻碍的;丰盛的;直爽的, 坦率的;受准许的, 可允许的;(用钱) 大手大脚的<br>adv.<br>自由地;免费地;帆脚索被松开地<br>v.<br>释放;使免于;使可用于;使解脱出来;使能腾出时间</p>
+</blockquote>
+<blockquote>
+<p>optionally<br>adv.<br>可选地;随意地</p>
+</blockquote>
+<blockquote>
+<p>trail<br>v.<br>跟踪;(在比赛或其他竞赛中)落后，失利，失败;追踪;(被)拖，拉;蔓生;(尤指跟在他人后面)疲惫地走，没精打采地慢走，磨蹭<br>n.<br>(乡间的)小路，小径;（特定）路线，路径;(尤指打猎时跟踪的)踪迹，臭迹;(长串的)痕迹，踪迹，足迹</p>
+</blockquote>
+<blockquote>
+<p>camp<br>n.<br>营地;阵营;(尤指政府让人长时间住宿的)营房，营帐;兵营;度假营<br>vi.<br>露营;(尤指在假日)野营;宿营;暂住;借住;借宿<br>adj.<br>夸张的，滑稽可笑的(尤指故意逗笑);做作的;故意带女子气的，女性化的(被某些人认为是典型同性恋的特征)</p>
+</blockquote>
+<blockquote>
+<p>imprison<br>vt.<br>监禁;关押</p>
+</blockquote>
+<blockquote>
+<p>mighty<br>adj.<br>强大的;巨大的;非凡的;强而有力的<br>adv.<br>非常;极其;很</p>
+</blockquote>
+<blockquote>
+<p>cunning<br>adj.<br>狡猾的;巧妙的;奸诈的;诡诈的;灵巧的;精巧的<br>n.<br>狡猾;狡黠;诡诈</p>
+</blockquote>
+<blockquote>
+<p>archer<br>n.<br>弓箭手;射箭运动员</p>
+</blockquote>
+<blockquote>
+<p>consider<br>v.<br>考虑;认为;觉得;顾及;(尤指为作出决定而)仔细考虑;以为;细想;体谅;端详</p>
+</blockquote>
+<blockquote>
+<p>action<br>n.<br>行动;（身体部位的）动作，功能;作用;行为;诉讼;起诉;战斗;情节;机械装置，活动部件;所做之事;激动人心的事<br>vt.<br>务必做，确保处理(某事)</p>
+</blockquote>
+<blockquote>
+<p>engage<br>v.<br>从事;（使）衔接，啮合;聘用;雇用;与（某人）交战;吸引住(注意力、兴趣);与…建立密切关系;尽力理解</p>
+</blockquote>
+<blockquote>
+<p>vulnerable<br>adj.<br>脆弱的;(身体上或感情上)易受…伤害的</p>
+</blockquote>
+<blockquote>
+<p>attack<br>n.<br>攻击;袭击;(在战争中使用武器的)进攻;（队员等的）进攻;发作，侵袭;（病、虫等的）损害，伤害;(口头和书面的)抨击，非难;抑制;进攻队员;（情感的）一阵突发<br>v.<br>攻击;袭击;(在战争等中使用武器)进攻;抨击;侵袭;非难;奋力处理</p>
+</blockquote>
+<blockquote>
+<p>armor<br>n.<br>装甲；盔甲<br>v.<br>为…装甲</p>
+</blockquote>
+<blockquote>
+<p>spy<br>n.<br>间谍;密探;暗中监视<br>v.<br>当间谍;发现，注意到;察看，探查;突然看见，突然发现;仔细观察<br>adj.<br>间谍的，间谍活动的</p>
+</blockquote>
+<blockquote>
+<p>upon<br>prep.<br>在……上;在上面;刚一……就;即将发生;用在一些动词后，与on 同义;（用于两个相同的名词之间，强调数量之多）（一个）接（一个），……又……<br>adv.<br>在上面，在物体上;从此，因此</p>
+</blockquote>
+<blockquote>
+<p>signal<br>n.<br>信号;(尤指铁路和公路上的)指示灯，信号灯，红绿灯;标志;预示;暗号<br>v.<br>显示;表示;表明;标志;表达;发信号;示意;预示;发暗号<br>adj.<br>重大的;显要的</p>
+</blockquote>
+<blockquote>
+<p>prisoner<br>n.<br>囚犯;犯人;战俘;俘虏;被(敌人等)关起来的人;羁押候审者</p>
+</blockquote>
+<blockquote>
+<p>intercept<br>vt.<br>拦截;截住;拦阻<br>n.<br>拦截;（数学）截距;截击;截听;拦截者</p>
+</blockquote>
+<blockquote>
+<p>train<br>n.<br>列车;火车;行列;队列;拖裾，裙裾;一系列相关的事情(或行动);列队行进的人(或动物)<br>v.<br>培训;训练(人或动物);教育;进行…训练;接受训练;培养…的能力(或素质);(尤指)进行体育锻炼;使（植物）朝某方向生长</p>
+</blockquote>
+<blockquote>
+<p>trained<br>v.<br>培训;训练(人或动物);教育;进行…训练;接受训练;培养…的能力(或素质);(尤指)进行体育锻炼<br>adj.<br>培训；训练过的，受过培训的<br>train的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>signaling<br>n.<br>打信号，发信号</p>
+</blockquote>
+<blockquote>
+<p>sneak<br>v.<br>溜;偷走(不重要的或小的东西);偷拿;偷偷地走;偷带;（儿童向成人）打小报告，告状;偷偷地做<br>n.<br>打小报告的人，告状者(尤指儿童)<br>adj.<br>突然的;出其不意的</p>
+</blockquote>
+<blockquote>
+<p>risky<br>adj.<br>有风险的;有危险(或风险)的</p>
+</blockquote>
+<blockquote>
+<p>rescue<br>vt.<br>抢救;营救;援救<br>n.<br>救援;抢救;营救;获救;营救行动</p>
+</blockquote>
+<blockquote>
+<p>escape<br>v.<br>逃脱，幸免于难;(从不愉快或危险处境中)逃脱;逃避;逃跑;摆脱;(从监禁或管制中)逃走;逃出;避免(不愉快或危险的事物);漏出;被忘掉;（不自觉地）由…发出<br>n.<br>逃脱;逃避;漏出;逃避现实;解脱;Esc键;消遣;渗出(量)</p>
+</blockquote>
+<blockquote>
+<p>sneaky<br>adj.<br>偷偷摸摸的;鬼鬼祟祟的;悄悄的</p>
+</blockquote>
+<blockquote>
+<p>rescued<br>v.<br>抢救;营救;援救<br>rescue的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>sudden<br>adj.<br>突然的，忽然的;意外的，突然发生的;迅速的，快的;&lt;古&gt;未经事先考虑的，鲁莽的，急速作成的，草率从事的<br>adv.<br>&lt;口&gt;突然地，出乎意料地<br>n.<br>突然发生的事（或情况）</p>
+</blockquote>
+<blockquote>
+<p>appearance<br>n.<br>出现;外观;外表;外貌;出版;公开露面;(尤指突然的)抵达，到来;起源;首次使用</p>
+</blockquote>
+<blockquote>
+<p>implement<br>vt.<br>实施;执行;贯彻;使生效<br>n.<br>工具;器具;(常指)简单的户外用具</p>
+</blockquote>
+<blockquote>
+<p>determining<br>v.<br>确定;测定;决定;影响;形成;安排;裁决;查明;支配;准确算出<br>adj.<br>决定性的<br>determine的现在分词</p>
+</blockquote>
+<blockquote>
+<p>determine<br>v.<br>确定;测定;决定;决定，决心（做某事）;影响;形成;安排;裁决;查明;支配;准确算出</p>
+</blockquote>
+<blockquote>
+<p>available<br>adj.<br>可获得的;有空的;可购得的;可找到的</p>
+</blockquote>
+<blockquote>
+<p>present<br>n.<br>目前;现在;礼物;礼品<br>adj.<br>存在;当前的;出现;出席;在场;现存的<br>vt.<br>提出;(以某种方式)展现，显示，表现;表达，表示;提交;使发生;颁发;交付;授予;把…交给;上演;正式介绍;突然出现;主持播放;正式出席</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>exercism.org</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/08/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>

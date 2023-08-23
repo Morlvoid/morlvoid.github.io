@@ -1,6 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Exercism.org-Java-Log Levels</title>
+    <url>/2023/08/10/Exercism-org-Java-Log-Levels/</url>
+    <content><![CDATA[<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’ll be processing log-lines.</p>
+<p>Each log line is a string formatted as follows: <code>&quot;[&lt;LEVEL&gt;]: &lt;MESSAGE&gt;&quot;</code>.</p>
+<span id="more"></span>
+
+<p>There are three different log levels:</p>
+<ul>
+<li><code>INFO</code></li>
+<li><code>WARNING</code></li>
+<li><code>ERROR</code></li>
+</ul>
+<p>You have three tasks, each of which will take a log line and ask you to do something with it.</p>
+<h3 id="1-Get-message-from-a-log-line"><a href="#1-Get-message-from-a-log-line" class="headerlink" title="1. Get message from a log line"></a>1. Get message from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.message()</code> method to return a log line’s message:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Invalid operation&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Any leading or trailing white space should be removed:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[WARNING]:  Disk almost full\r\n&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Disk almost full&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Get-log-level-from-a-log-line"><a href="#2-Get-log-level-from-a-log-line" class="headerlink" title="2. Get log level from a log line"></a>2. Get log level from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.logLevel()</code> method to return a log line’s log level, which should be returned in lowercase:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.logLevel(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;error&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Reformat-a-log-line"><a href="#3-Reformat-a-log-line" class="headerlink" title="3. Reformat a log line"></a>3. Reformat a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.reformat()</code> method that reformats the log line, putting the message first and the log level after it in parentheses:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.reformat(<span class="string">&quot;[INFO]: Operation completed&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Operation completed (info)&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><table>
+<thead>
+<tr>
+<th>Modifier and Type</th>
+<th>Method and Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(int ch)</code><br>Returns the index within this string of the first occurrence of the specified character.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(int ch, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.<br></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(String str)</code><br>Returns the index within this string of the first occurrence of the specified substring.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>indexOf(String str, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>substring(int beginIndex)</code><br>Returns a new string that a substring of this string.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>substring(int beginIndex,int endIndex)</code><br>Returns a new string that a substring of this string.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>trim()</code><br>Returns a copy of the string, with leading and trailing whitespace omitted.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the default locale.<br></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the given Locale.<br></td>
+</tr>
+</tbody></table>
+<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogLevels</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 1</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">message</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract message part by using substring method</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;:&#x27;</span>) + <span class="number">1</span>).trim();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 2</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">logLevel</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract level part by using substring method, then convert it to lowercase</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;[&#x27;</span>) + <span class="number">1</span>, logLine.indexOf(<span class="string">&#x27;]&#x27;</span>)).toLowerCase();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 3</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reformat</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Use above two methods to extract message and level, then reformat the log line</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> message(logLine);</span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLevel(logLine);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message + <span class="string">&quot; (&quot;</span> + level + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
+<p>process<br>n.<br>(为达到某一目标的)过程;进程;流程;工序;工艺流程;(事物发展，尤指自然变化的)步骤;做事方法<br>v.<br>处理(文件、请求等);加工;数据处理;审核;审阅<br>v.<br>列队行进;缓缓前进<br>adj.<br>(用化学方法等)处理过的;照相制版的;经过特殊加工的;三色版的</p>
+</blockquote>
+<blockquote>
+<p>processing<br>v.<br>处理;审阅，审核，处理(文件、请求等);加工;数据处理<br>v.<br>列队行进;缓缓前进<br>n.<br>加工；处理；运算<br>process的现在分词</p>
+</blockquote>
+<blockquote>
+<p>formatted<br>v.<br>格式化;安排…的版式<br>adj.<br>格式化（的）；格式化了的；有格式的<br>format的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>Implement<br>vt.<br>实施;执行;贯彻;使生效<br>n.<br>工具;器具;(常指)简单的户外用具</p>
+</blockquote>
+<blockquote>
+<p>lowercase<br>n.<br>小写字母;小写字体</p>
+</blockquote>
+<blockquote>
+<p>occurrence<br>n.<br>发生;出现;存在;发生的事情;存在的事物</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Exercises</category>
+      </categories>
+      <tags>
+        <tag>exercism.org</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Exercism.org-Java-Cook your lasagna</title>
+    <url>/2023/08/09/Exercism-org-Java-Cook-your-lasagna/</url>
+    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/lasagna">https://exercism.org/tracks/java/exercises/lasagna</a></p>
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’re going to write some code to help you cook a brilliant lasagna from your favorite cooking book.</p>
+<p>You have four tasks, all related to the time spent cooking the lasagna.</p>
+<span id="more"></span>
+
+<h3 id="1-Define-the-expected-oven-time-in-minutes"><a href="#1-Define-the-expected-oven-time-in-minutes" class="headerlink" title="1. Define the expected oven time in minutes"></a>1. Define the expected oven time in minutes</h3><p>Define the <code>expectedMinutesInOven()</code> method that does not take any parameters and returns how many minutes the lasagna should be in the oven. According to the cooking book, the expected oven time in minutes is 40:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line"><span class="comment">//Create a Lasagna object using the new keyword</span></span><br><span class="line">lasagna.expectedMinutesInOven();</span><br><span class="line"><span class="comment">//Invoking the expectedMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 40</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Calculate-the-remaining-oven-time-in-minutes"><a href="#2-Calculate-the-remaining-oven-time-in-minutes" class="headerlink" title="2. Calculate the remaining oven time in minutes"></a>2. Calculate the remaining oven time in minutes</h3><p>Define the <code>remainingMinutesInOven()</code> method that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.remainingMinutesInOven(<span class="number">30</span>);</span><br><span class="line"><span class="comment">//Invoking the remainingMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 10</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Calculate-the-preparation-time-in-minutes"><a href="#3-Calculate-the-preparation-time-in-minutes" class="headerlink" title="3. Calculate the preparation time in minutes"></a>3. Calculate the preparation time in minutes</h3><p>Define the <code>preparationTimeInMinutes()</code> method that takes the number of layers you added to the lasagna as a parameter and returns how many minutes you spent preparing the lasagna, assuming each layer takes you 2 minutes to prepare.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.preparationTimeInMinutes(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// =&gt; 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Calculate-the-total-working-time-in-minutes"><a href="#4-Calculate-the-total-working-time-in-minutes" class="headerlink" title="4. Calculate the total working time in minutes"></a>4. Calculate the total working time in minutes</h3><p>Define the <code>totalTimeInMinutes()</code> method that takes two parameters: the first parameter is the number of layers you added to the lasagna, and the second parameter is the number of minutes the lasagna has been in the oven. The function should return how many minutes in total you’ve worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.totalTimeInMinutes(<span class="number">3</span>, <span class="number">20</span>);</span><br><span class="line"><span class="comment">// =&gt; 26</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Lasagna</span> &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;expectedMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">expectedMinutesInOven</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">40</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;remainingMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">remainingMinutesInOven</span><span class="params">(<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> expectedMinutesInOven() - time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;preparationTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">preparationTimeInMinutes</span><span class="params">(<span class="type">int</span> layers)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> layers*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;totalTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">totalTimeInMinutes</span><span class="params">(<span class="type">int</span> layers,<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> preparationTimeInMinutes(layers)+remainingMinutesInOven(time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
+<p>Instructions<br>n.<br>(计算机的)指令;指示;说明书;命令;操作指南;吩咐;用法说明<br>instruction的复数</p>
+</blockquote>
+<blockquote>
+<p>brilliant<br>adj.<br>明亮的;很成功的;很好的;巧妙的;聪颖的;技艺高的;使人印象深的<br>n.<br>宝石;钻石</p>
+</blockquote>
+<blockquote>
+<p>lasagna<br>n.<br>(意大利)千层面</p>
+</blockquote>
+<blockquote>
+<p>task<br>n.<br>任务;(尤指艰巨或令人厌烦的)工作;(尤指语言教学中旨在帮助达到某一学习目的的)活动<br>vt.<br>交给某人(任务);派给某人(工作)</p>
+</blockquote>
+<blockquote>
+<p>relate<br>vt.<br>联系;讲(故事);把…联系起来;叙述;使有联系;讲述</p>
+</blockquote>
+<blockquote>
+<p>expect<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望;猜想</p>
+</blockquote>
+<blockquote>
+<p>expected<br>adj.<br>预期的;预料的<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望<br>expect的过去分词和过去式</p>
+</blockquote>
+<blockquote>
+<p>oven<br>n.<br>烤箱;烤炉</p>
+</blockquote>
+<blockquote>
+<p>remaining<br>adj.<br>剩下的;仍需做的;还需处理的<br>v.<br>仍然是;剩余;保持不变;遗留;继续存在;仍需去做(或说、处理)<br>remain的现在分词</p>
+</blockquote>
+<blockquote>
+<p>actual<br>adj.<br>实际的;(强调事情最重要的部分)真正的，…本身;真实的</p>
+</blockquote>
+<blockquote>
+<p>remain<br>v.<br>（事实、问题等）仍然是（表示强调）;剩余，余留;保留，坚持（观点、态度或信念）;保持不变;仍然存在，继续存在;留下，逗留，停留;（最后）属于;（最后）取决于;尚待，留待;仍需去做（或说、处理）<br>n.<br>剩余物，残余（物）;遗体，残骸;（历史）遗迹，残迹</p>
+</blockquote>
+<blockquote>
+<p>previous<br>adj.<br>以前的, 先前的, 以往的;上一次的, 上一个的;&lt;口&gt;过早的, 过急的;(时间上)稍前的</p>
+</blockquote>
+<blockquote>
+<p>preparation<br>n.<br>准备;(医药、化妆品等)配制品，制剂;准备工作;预备</p>
+</blockquote>
+<blockquote>
+<p>layers<br>n.<br>层;表层;层次;阶层<br>v.<br>把…分层堆放<br>layer的第三人称单数和复数</p>
+</blockquote>
+<blockquote>
+<p>assuming<br>conj.<br>假如;假设…为真<br>v.<br>假设;假定;承担(责任);认为;呈现(外观、样子);取得(权力);显露(特征);就(职)<br>adj.<br>傲慢的<br>assume的现在分词</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Exercises</category>
+      </categories>
+      <tags>
+        <tag>exercism.org</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Exercism.org-Java-Annalyn&#39;s Infiltration</title>
     <url>/2023/08/08/Exercism-org-Java-Annalyn-s-Infiltration/</url>
     <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/annalyns-infiltration">https://exercism.org/tracks/java/exercises/annalyns-infiltration</a></p>
@@ -188,205 +367,6 @@
       <tags>
         <tag>exercism.org</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Exercism.org-Java-Cook your lasagna</title>
-    <url>/2023/08/09/Exercism-org-Java-Cook-your-lasagna/</url>
-    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/lasagna">https://exercism.org/tracks/java/exercises/lasagna</a></p>
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’re going to write some code to help you cook a brilliant lasagna from your favorite cooking book.</p>
-<p>You have four tasks, all related to the time spent cooking the lasagna.</p>
-<span id="more"></span>
-
-<h3 id="1-Define-the-expected-oven-time-in-minutes"><a href="#1-Define-the-expected-oven-time-in-minutes" class="headerlink" title="1. Define the expected oven time in minutes"></a>1. Define the expected oven time in minutes</h3><p>Define the <code>expectedMinutesInOven()</code> method that does not take any parameters and returns how many minutes the lasagna should be in the oven. According to the cooking book, the expected oven time in minutes is 40:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line"><span class="comment">//Create a Lasagna object using the new keyword</span></span><br><span class="line">lasagna.expectedMinutesInOven();</span><br><span class="line"><span class="comment">//Invoking the expectedMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 40</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-Calculate-the-remaining-oven-time-in-minutes"><a href="#2-Calculate-the-remaining-oven-time-in-minutes" class="headerlink" title="2. Calculate the remaining oven time in minutes"></a>2. Calculate the remaining oven time in minutes</h3><p>Define the <code>remainingMinutesInOven()</code> method that takes the actual minutes the lasagna has been in the oven as a parameter and returns how many minutes the lasagna still has to remain in the oven, based on the expected oven time in minutes from the previous task.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.remainingMinutesInOven(<span class="number">30</span>);</span><br><span class="line"><span class="comment">//Invoking the remainingMinutesInOven() method in the Lasagna</span></span><br><span class="line"><span class="comment">// =&gt; 10</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Calculate-the-preparation-time-in-minutes"><a href="#3-Calculate-the-preparation-time-in-minutes" class="headerlink" title="3. Calculate the preparation time in minutes"></a>3. Calculate the preparation time in minutes</h3><p>Define the <code>preparationTimeInMinutes()</code> method that takes the number of layers you added to the lasagna as a parameter and returns how many minutes you spent preparing the lasagna, assuming each layer takes you 2 minutes to prepare.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.preparationTimeInMinutes(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// =&gt; 4</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Calculate-the-total-working-time-in-minutes"><a href="#4-Calculate-the-total-working-time-in-minutes" class="headerlink" title="4. Calculate the total working time in minutes"></a>4. Calculate the total working time in minutes</h3><p>Define the <code>totalTimeInMinutes()</code> method that takes two parameters: the first parameter is the number of layers you added to the lasagna, and the second parameter is the number of minutes the lasagna has been in the oven. The function should return how many minutes in total you’ve worked on cooking the lasagna, which is the sum of the preparation time in minutes, and the time in minutes the lasagna has spent in the oven at the moment.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Lasagna</span> <span class="variable">lasagna</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Lasagna</span>();</span><br><span class="line">lasagna.totalTimeInMinutes(<span class="number">3</span>, <span class="number">20</span>);</span><br><span class="line"><span class="comment">// =&gt; 26</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Lasagna</span> &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;expectedMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">expectedMinutesInOven</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">40</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;remainingMinutesInOven()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">remainingMinutesInOven</span><span class="params">(<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> expectedMinutesInOven() - time;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;preparationTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">preparationTimeInMinutes</span><span class="params">(<span class="type">int</span> layers)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> layers*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> define the &#x27;totalTimeInMinutes()&#x27; method</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">totalTimeInMinutes</span><span class="params">(<span class="type">int</span> layers,<span class="type">int</span> time)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> preparationTimeInMinutes(layers)+remainingMinutesInOven(time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
-<p>Instructions<br>n.<br>(计算机的)指令;指示;说明书;命令;操作指南;吩咐;用法说明<br>instruction的复数</p>
-</blockquote>
-<blockquote>
-<p>brilliant<br>adj.<br>明亮的;很成功的;很好的;巧妙的;聪颖的;技艺高的;使人印象深的<br>n.<br>宝石;钻石</p>
-</blockquote>
-<blockquote>
-<p>lasagna<br>n.<br>(意大利)千层面</p>
-</blockquote>
-<blockquote>
-<p>task<br>n.<br>任务;(尤指艰巨或令人厌烦的)工作;(尤指语言教学中旨在帮助达到某一学习目的的)活动<br>vt.<br>交给某人(任务);派给某人(工作)</p>
-</blockquote>
-<blockquote>
-<p>relate<br>vt.<br>联系;讲(故事);把…联系起来;叙述;使有联系;讲述</p>
-</blockquote>
-<blockquote>
-<p>expect<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望;猜想</p>
-</blockquote>
-<blockquote>
-<p>expected<br>adj.<br>预期的;预料的<br>v.<br>预期;预计;期待;要求;指望;预料;等待;盼望<br>expect的过去分词和过去式</p>
-</blockquote>
-<blockquote>
-<p>oven<br>n.<br>烤箱;烤炉</p>
-</blockquote>
-<blockquote>
-<p>remaining<br>adj.<br>剩下的;仍需做的;还需处理的<br>v.<br>仍然是;剩余;保持不变;遗留;继续存在;仍需去做(或说、处理)<br>remain的现在分词</p>
-</blockquote>
-<blockquote>
-<p>actual<br>adj.<br>实际的;(强调事情最重要的部分)真正的，…本身;真实的</p>
-</blockquote>
-<blockquote>
-<p>remain<br>v.<br>（事实、问题等）仍然是（表示强调）;剩余，余留;保留，坚持（观点、态度或信念）;保持不变;仍然存在，继续存在;留下，逗留，停留;（最后）属于;（最后）取决于;尚待，留待;仍需去做（或说、处理）<br>n.<br>剩余物，残余（物）;遗体，残骸;（历史）遗迹，残迹</p>
-</blockquote>
-<blockquote>
-<p>previous<br>adj.<br>以前的, 先前的, 以往的;上一次的, 上一个的;&lt;口&gt;过早的, 过急的;(时间上)稍前的</p>
-</blockquote>
-<blockquote>
-<p>preparation<br>n.<br>准备;(医药、化妆品等)配制品，制剂;准备工作;预备</p>
-</blockquote>
-<blockquote>
-<p>layers<br>n.<br>层;表层;层次;阶层<br>v.<br>把…分层堆放<br>layer的第三人称单数和复数</p>
-</blockquote>
-<blockquote>
-<p>assuming<br>conj.<br>假如;假设…为真<br>v.<br>假设;假定;承担(责任);认为;呈现(外观、样子);取得(权力);显露(特征);就(职)<br>adj.<br>傲慢的<br>assume的现在分词</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Exercises</category>
-      </categories>
-      <tags>
-        <tag>exercism.org</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Exercism.org-Java-Log Levels</title>
-    <url>/2023/08/10/Exercism-org-Java-Log-Levels/</url>
-    <content><![CDATA[<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’ll be processing log-lines.</p>
-<p>Each log line is a string formatted as follows: <code>&quot;[&lt;LEVEL&gt;]: &lt;MESSAGE&gt;&quot;</code>.</p>
-<span id="more"></span>
-
-<p>There are three different log levels:</p>
-<ul>
-<li><code>INFO</code></li>
-<li><code>WARNING</code></li>
-<li><code>ERROR</code></li>
-</ul>
-<p>You have three tasks, each of which will take a log line and ask you to do something with it.</p>
-<h3 id="1-Get-message-from-a-log-line"><a href="#1-Get-message-from-a-log-line" class="headerlink" title="1. Get message from a log line"></a>1. Get message from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.message()</code> method to return a log line’s message:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Invalid operation&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>Any leading or trailing white space should be removed:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.message(<span class="string">&quot;[WARNING]:  Disk almost full\r\n&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Disk almost full&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-Get-log-level-from-a-log-line"><a href="#2-Get-log-level-from-a-log-line" class="headerlink" title="2. Get log level from a log line"></a>2. Get log level from a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.logLevel()</code> method to return a log line’s log level, which should be returned in lowercase:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.logLevel(<span class="string">&quot;[ERROR]: Invalid operation&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;error&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Reformat-a-log-line"><a href="#3-Reformat-a-log-line" class="headerlink" title="3. Reformat a log line"></a>3. Reformat a log line</h3><p>Implement the (<em>static</em>) <code>LogLevels.reformat()</code> method that reformats the log line, putting the message first and the log level after it in parentheses:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LogLevels.reformat(<span class="string">&quot;[INFO]: Operation completed&quot;</span>)</span><br><span class="line"><span class="comment">// =&gt; &quot;Operation completed (info)&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><table>
-<thead>
-<tr>
-<th>Modifier and Type</th>
-<th>Method and Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>indexOf(int ch)</code><br>Returns the index within this string of the first occurrence of the specified character.</td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>indexOf(int ch, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.<br></td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>indexOf(String str)</code><br>Returns the index within this string of the first occurrence of the specified substring.</td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>indexOf(String str, int fromIndex)</code><br>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.<br></td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td><code>substring(int beginIndex)</code><br>Returns a new string that a substring of this string.<br></td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td><code>substring(int beginIndex,int endIndex)</code><br>Returns a new string that a substring of this string.<br></td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td><code>trim()</code><br>Returns a copy of the string, with leading and trailing whitespace omitted.<br></td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the default locale.<br></td>
-</tr>
-<tr>
-<td><code>String</code></td>
-<td><code>toLowerCase()</code><br>Converts all of the characters in this String to lower case using the rules of the given Locale.<br></td>
-</tr>
-</tbody></table>
-<h2 id="Question-Answers"><a href="#Question-Answers" class="headerlink" title="Question Answers"></a>Question Answers</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogLevels</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 1</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">message</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract message part by using substring method</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;:&#x27;</span>) + <span class="number">1</span>).trim();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 2</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">logLevel</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Extract level part by using substring method, then convert it to lowercase</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLine.substring(logLine.indexOf(<span class="string">&#x27;[&#x27;</span>) + <span class="number">1</span>, logLine.indexOf(<span class="string">&#x27;]&#x27;</span>)).toLowerCase();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Method for task 3</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">reformat</span><span class="params">(String logLine)</span> &#123;</span><br><span class="line">        <span class="comment">// Use above two methods to extract message and level, then reformat the log line</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> message(logLine);</span><br><span class="line">        <span class="type">String</span> <span class="variable">level</span> <span class="operator">=</span> logLevel(logLine);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> message + <span class="string">&quot; (&quot;</span> + level + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h2><blockquote>
-<p>process<br>n.<br>(为达到某一目标的)过程;进程;流程;工序;工艺流程;(事物发展，尤指自然变化的)步骤;做事方法<br>v.<br>处理(文件、请求等);加工;数据处理;审核;审阅<br>v.<br>列队行进;缓缓前进<br>adj.<br>(用化学方法等)处理过的;照相制版的;经过特殊加工的;三色版的</p>
-</blockquote>
-<blockquote>
-<p>processing<br>v.<br>处理;审阅，审核，处理(文件、请求等);加工;数据处理<br>v.<br>列队行进;缓缓前进<br>n.<br>加工；处理；运算<br>process的现在分词</p>
-</blockquote>
-<blockquote>
-<p>formatted<br>v.<br>格式化;安排…的版式<br>adj.<br>格式化（的）；格式化了的；有格式的<br>format的过去分词和过去式</p>
-</blockquote>
-<blockquote>
-<p>Implement<br>vt.<br>实施;执行;贯彻;使生效<br>n.<br>工具;器具;(常指)简单的户外用具</p>
-</blockquote>
-<blockquote>
-<p>lowercase<br>n.<br>小写字母;小写字体</p>
-</blockquote>
-<blockquote>
-<p>occurrence<br>n.<br>发生;出现;存在;发生的事情;存在的事物</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Exercises</category>
-      </categories>
-      <tags>
-        <tag>exercism.org</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/08/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>Ubuntu22.04安装MySQL</title>
@@ -720,5 +700,25 @@
       <tags>
         <tag>HTML</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/08/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>

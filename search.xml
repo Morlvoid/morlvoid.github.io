@@ -381,10 +381,9 @@
 
 <h4 id="4、安装成功后查看-MySQL-版本"><a href="#4、安装成功后查看-MySQL-版本" class="headerlink" title="4、安装成功后查看 MySQL 版本"></a>4、安装成功后查看 MySQL 版本</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -V</span><br></pre></td></tr></table></figure>
 
-<p><img src="/ubuntu22installmysql1.png" alt="查看MySQL版本"></p>
 <img src="/2023/05/06/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/ubuntu22installmysql1.png" class="" title="[查看MySQL版本]">
 
-<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1.png" alt="ubuntu22installmysql1"></p>
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1.png" alt="查看MySQL版本"></p>
 <h4 id="5、修改-mysqld-cnf-配置文件"><a href="#5、修改-mysqld-cnf-配置文件" class="headerlink" title="5、修改 mysqld.cnf 配置文件"></a>5、修改 mysqld.cnf 配置文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
 
 <p> （1）在 [mysqld] 最后一行加入：  </p>
@@ -392,18 +391,22 @@
 
 <p> （2）然后点击 ESC ，输入 ‘ ：wq ’ 进行保存和退出；如下图所示；</p>
 <p> <strong>注：如果不修改 mysqld.cnf 配置文件，修改完 MySQL 的用户名和密码后，在进入 MySQL 时可能会有如下错误，即语法错误拒绝被访问：</strong></p>
-<p><img src="/ubuntu22installmysqlvi2.png" alt="修改配置文件"></p>
-<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlvi2.png" alt="ubuntu22installmysqlvi2"></p>
-<h4 id="6、查看默认安装的-MySQL-的用户名和密码；"><a href="#6、查看默认安装的-MySQL-的用户名和密码；" class="headerlink" title="6、查看默认安装的 MySQL 的用户名和密码；"></a>6、查看默认安装的 MySQL 的用户名和密码；</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cat</span> /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
+<img src="/2023/05/06/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/ubuntu22installmysqlvi2.png" class="" title="[修改配置文件]">
 
-<p>![[PF}E](38BPP[_V%MO1[CSCT.png]]</p>
-<p><img src="/ubuntu22installmysql1cnf.png" alt="查看默认安装的用户名和密码"></p>
-<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1cnf.png" alt="ubuntu22installmysql1cnf"></p>
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlvi2.png" alt="修改配置文件"></p>
+<h4 id="6、查看默认安装的-MySQL-的用户名和密码"><a href="#6、查看默认安装的-MySQL-的用户名和密码" class="headerlink" title="6、查看默认安装的 MySQL 的用户名和密码"></a>6、查看默认安装的 MySQL 的用户名和密码</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cat</span> /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/05/06/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/ubuntu22installmysql1cnf.png" class="" title="[修改配置文件]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1cnf.png" alt="修改配置文件"></p>
 <h4 id="7、登录-MySQL-；"><a href="#7、登录-MySQL-；" class="headerlink" title="7、登录 MySQL ；"></a>7、登录 MySQL ；</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p    # 换行后输入上述查到的密码</span><br></pre></td></tr></table></figure>
 
-<p>![[}1S1PAMR%B0(T[5BK]SRFS2.png]]</p>
 <p><img src="/ubuntu22installmysqlu1.png" alt="查看默认安装的用户名和密码"></p>
-<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlu1.png" alt="ubuntu22installmysqlu1.png"></p>
+<img src="/2023/05/06/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/ubuntu22installmysqlu1.png" class="" title="[查看默认安装的用户名和密码]">
+
+<img src="ubuntu22installmysqlu1.png" alt="查看默认安装的用户名和密码">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlu1.png" alt="查看默认安装的用户名和密码"></p>
 <h4 id="8、进入-MySQL-；"><a href="#8、进入-MySQL-；" class="headerlink" title="8、进入 MySQL ；"></a>8、进入 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
 
 <h4 id="9、刷新权限；"><a href="#9、刷新权限；" class="headerlink" title="9、刷新权限；"></a>9、刷新权限；</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
@@ -420,9 +423,9 @@
 
 <h4 id="若以上过程没有效果，进行以下步骤："><a href="#若以上过程没有效果，进行以下步骤：" class="headerlink" title="若以上过程没有效果，进行以下步骤："></a>若以上过程没有效果，进行以下步骤：</h4><h4 id="15、修改-mysqld-cnf-配置文件"><a href="#15、修改-mysqld-cnf-配置文件" class="headerlink" title="15、修改 mysqld.cnf 配置文件"></a>15、修改 mysqld.cnf 配置文件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
 
-<p>![[Pasted image 20230506103659.png]]</p>
-<p><img src="/ubuntu22installmysqlroot.png" alt="修改cnf文件"></p>
-<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlroot.png" alt="ubuntu22installmysqlroot"></p>
+<img src="/2023/05/06/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/ubuntu22installmysqlroot.png" class="" title="[修改cnf文件]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlroot.png" alt="修改cnf文件"></p>
 <h4 id="16、保存退出"><a href="#16、保存退出" class="headerlink" title="16、保存退出"></a>16、保存退出</h4><p>键入<code>i</code> 进入，修改user和password<br>键入<code>Esc</code>，输入<code>:wq</code> 保存退出。退出vi后刷新权限退出MySQL，重启</p>
 <h4 id="17、刷新权限；"><a href="#17、刷新权限；" class="headerlink" title="17、刷新权限；"></a>17、刷新权限；</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 

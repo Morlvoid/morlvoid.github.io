@@ -142,6 +142,988 @@
     
     
     <article
+  id="post-Java基础语法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"
+    >Java基础语法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time datetime="2022-03-03T01:38:48.000Z" itemprop="datePublished">2022-03-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h1><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
+<p><strong>软件对象也由状态和相关行为组成。</strong></p>
+<p><strong>对象将其状态存储在字段（某些编程语言中的变量）中，并通过方法（某些编程语言中的函数）公开其行为。</strong></p>
+<p>字段<code>cadence</code>、<code>speed</code>和<code>gear</code>表示对象的状态，方法（<code>changeCadence</code>、<code>changeGear</code>等<code>speedUp</code>）定义其与外部世界的交互</p>
+<p>方法对对象的内部状态进行操作，并作为对象到对象通信的主要机制。隐藏内部状态并要求通过对象的方法执行所有交互被称为<em>数据封装</em>——面向对象编程的基本原则。</p>
+<p>将代码捆绑到单个软件对象中提供了许多好处，包括：</p>
+<ol>
+<li>模块化：一个对象的源代码可以独立于其他对象的源代码编写和维护。一旦创建，对象可以很容易地在系统内部传递。</li>
+<li>信息隐藏：通过仅与对象的方法交互，其内部实现的细节对外界保持隐藏。</li>
+<li>代码重用：如果一个对象已经存在（可能由另一个软件开发人员编写），您可以在您的程序中使用该对象。这允许专家实现&#x2F;测试&#x2F;调试复杂的、特定于任务的对象，然后您可以信任这些对象在您自己的代码中运行。</li>
+<li>可插入性和易于调试：如果某个特定对象出现问题，您可以简单地将其从应用程序中删除，然后插入一个不同的对象作为替代。这类似于解决现实世界中的机械问题。如果螺栓断裂，则更换<em>它</em>，而不是整台机器。</li>
+</ol>
+</blockquote>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><blockquote>
+<p>在 Java 编程语言中，每个类都可以有一个直接的超类，并且每个超类都可以有无限数量的<em>子类</em></p>
+</blockquote>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote>
+<p>对象通过它们公开的方法来定义它们与外部世界的交互</p>
+<p>方法形成对象与外界的<em>接口</em></p>
+<p>在其最常见的形式中 , 接口是一组具有空主体的相关方法</p>
+<p>实现一个接口可以让一个类对它承诺提供的行为更加正式。接口在类和外部世界之间形成了一个契约，并且这个契约在编译时由编译器强制执行。如果您的类声称实现了一个接口，则该接口定义的所有方法都必须出现在其源代码中，然后该类才能成功编译。</p>
+<p>(要实际编译<code>ACMEBicycle</code>该类，您需要将<code>public</code>关键字添加到已实现接口方法的开头。)</p>
+</blockquote>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><blockquote>
+<p>包是组织一组相关类和接口的命名空间</p>
+<p>Java 平台提供了一个庞大的类库（一组包），适合在您自己的应用程序中使用。这个库被称为“应用程序编程接口”，简称“API”。它的包代表最常与通用编程相关的任务。</p>
+</blockquote>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><blockquote>
+<p>给包,类,方法,变量起名字的符号</p>
+<p>标识符由字母、数字、下划线、美元符号组成</p>
+<p>包名：全部小写，多级包用.隔开。<br>类、接口：一个单词首字母大写，多个单词每个单词的首字母大写。<br>方法和变量：一个单词首字母小写，多个单词从第二个单词开始每个单词的首字母大写<br>常量：如果是一个单词,所有字母大写，如果是多个单词,所有的单词大写,用下划线区分每个单词<br>项目名：全部用小写字母，多个单词之间用横杆-分割</p>
+</blockquote>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h3><p>private<br>访问控制修饰符，在同一类内可见<br>protected<br>访问控制侬饰符，对同一包内的类和所有子类可见<br>public<br>访问控制修饰符，对所有类可见</p>
+<h3 id="类、方法和变量修饰符"><a href="#类、方法和变量修饰符" class="headerlink" title="类、方法和变量修饰符"></a>类、方法和变量修饰符</h3><p>abstract<br>表明类或者成员方法具有抽象展性<br>class<br>声明一个类<br>enum<br>枚举(在J2SE 5.0中添加)<br>extends<br>表明一个类型是另一个类型的子类型<br>final<br>用来说明最终属性<br>implements<br>表明一个类实现接口<br>interface<br>接口<br>native<br>原生方法(非Java实现)<br>new<br>用来创建新实例对象<br>static<br>表明具有静态同性<br>strictfp<br>用于很制浮点计其的精度和舍入(在J2SE 1.2中添加)<br>synchronized<br>表明一段代码需要同步执行<br>transient<br>声明不用序列化的成员域<br>volatile<br>表明两个或音多个变量必须同步地发生变化</p>
+<h3 id="程序控制语句"><a href="#程序控制语句" class="headerlink" title="程序控制语句"></a>程序控制语句</h3><p>break<br>用于结束当前循环体中的执行<br>case<br>用在switch语句之中,表示其中的一个分支<br>continue<br>用于在当前循环体结束时恢复程序执行<br>default<br>默认，例如，用在switch语句中，表明一个默认的分支<br>do<br>用在do-while循环结构中<br>else<br>用在条件语句中，表明当条件不成立时的分支<br>for<br>一种循环结构的引导词<br>if<br>条件语句的引导词<br>instanceof<br>用来测试一个对兔是管是指定类型的实例对象</p>
+<p>return<br>用于完成方法的执行。返回给调用者一个方法定义返回值<br>switch<br>分支语句结构的引导词<br>while<br>用于创建一个while循环</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>assert<br>断言，用来进行程序调试(在J2SE14中添加)<br>catch<br>用在异常处理中，用来捕捉异常<br>finally<br>用来声明处理异常中肯定会被执行到的语句块<br>throw<br>抛出一个异常<br>throws<br>在方法声明中用于搭定在方法中未处理哪些异常</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>try<br>定义具有异常处理的语句块</p>
+<p>包相关</p>
+<p>import<br>表明引入要访问搭定的类或包<br>package<br>包</p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>boolean<br>基本数据类型之一，布尔类型<br>byte<br>基本数据类型之一，字节类型<br>char<br>基本数据类型之一，字符类型<br>double<br>基本数据类型之一，双精度浮点数类型<br>float<br>基本数据类型之一，单精度浮点数类型<br>int<br>基本数据类型之一，整数类型<br>long<br>基本数据类型之一，长整数类型<br>short<br>基本数据类型之一.短整数类型</p>
+<h3 id="变量引用"><a href="#变量引用" class="headerlink" title="变量引用"></a>变量引用</h3><p>super<br>当前对象的父类型的引用或音父类型的构造方法<br>this<br>指向当前实例对象的引用<br>void<br>用于声明方法不返回任何值</p>
+<h3 id="保留关键字"><a href="#保留关键字" class="headerlink" title="保留关键字"></a>保留关键字</h3><p>goto<br>保留关键享，没有具体含义<br>const<br>保留关键享，没有具体含义</p>
+<h6 id="换行输出"><a href="#换行输出" class="headerlink" title="换行输出 :"></a>换行输出 :</h6><p><code>System.out.println(&quot;Hello World&quot;);</code>或<code>System.out.print(&quot;Hello\nWord&quot;)</code></p>
+<p><code>System.out.print(&quot;Hello\tWord&quot;)</code></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *多</span></span><br><span class="line"><span class="comment"> *行</span></span><br><span class="line"><span class="comment"> *注</span></span><br><span class="line"><span class="comment"> *释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**JavaDoc注释*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><ul>
+<li><code>; </code>分号 用来终止一个语句</li>
+<li><code>&#123;&#125; </code>花括号、大括号 用来包括自动初始化的数组的值，也用来定义程序块、类、方法以及局部范围</li>
+<li><code>[]</code>方括号、中括号 用来声明数组的类型，也用来表示撤消对数组值的引用</li>
+<li><code>,</code> 逗号 在变量声明中，区分变量说明的各个变量。在for控制语句中，用来将圆括号内的语句连接起来</li>
+<li><code>.</code> 原点 用来将软件包的名字与它的子包或类分隔。也用来将引用变量与变量或方法分隔</li>
+<li><code>()</code> 圆括号 在定义和调用方法时用来容纳参数表。在控制语句或强制类型转换组成的表达式中用来表示执行或计算的优先权</li>
+</ul>
+<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><blockquote>
+</blockquote>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
+<p>除了赋值运算符之外的所有二元运算符都是从左到右计算的</p>
+<p>赋值运算符从右到左求值</p>
+</blockquote>
+<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p><code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code>  <code>++</code>  <code>--</code>  </p>
+<ul>
+<li><p>1.<code>/ </code>左右两端的类型需要一致</p>
+</li>
+<li><p>2.<code>%</code>最后的符号和被模数相同</p>
+</li>
+<li><p>3.前<code>++</code>；先+1，后运算</p>
+<p>​	后++；先运算 , 后+1</p>
+</li>
+<li><p>4、<code>+</code>：当String字符串与其他数据类型只能做连接运算 , 并且结果为String类型</p>
+</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>==</code>  <code>!=</code>  <code>&lt;</code>  <code>&gt;</code>  <code>&lt;=</code>  <code>&gt;=</code>  <code>instanceof</code></p>
+<p>运算结果都是Boolean类型</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p><code>=</code>  <code>+=</code>  <code>-=</code>  <code>*=</code>  <code>/=</code>  <code>%=</code></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><code>&amp;</code>  <code>|</code>  <code>^</code>  <code>!</code>  <code>&amp;&amp;</code>  <code>||</code></p>
+<p><code>&amp;</code> 逻辑与</p>
+<p> <code>|</code> 逻辑或</p>
+<p> <code>^</code> 逻辑异或</p>
+<p> <code>!</code>  逻辑非</p>
+<p> <code>&amp;&amp;</code> 短路与</p>
+<p> <code>||</code> 短路或</p>
+<ul>
+<li><code>&amp;</code>：左边无论真假，右边都会进行运算；</li>
+<li><code>&amp;&amp;</code>：如果左边为假，则右边不进行运算；</li>
+<li><code>| </code>与 <code>||</code> 的区别同上；在使用的时候建议使用<code>&amp;&amp;</code>和<code>||</code></li>
+<li><code>^</code>与或<code>|</code>的不同之处是：当左右都为true时，结果为false。</li>
+</ul>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p><code>&lt;&lt;</code></p>
+<p><code>&gt;&gt;</code></p>
+<p><code>&lt;&lt;&lt;</code></p>
+<p><code>&amp;</code></p>
+<p><code>|</code></p>
+<p><code>^</code></p>
+<p><code>~</code></p>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><p><code>(条件表达式)?表达式1:表达式2;</code></p>
+<blockquote>
+<p><em>条件运算符</em></p>
+<p>条件表达式为true时,运算后的结果是表达式1<br>条件表达式为false时,运算后的结果是表达式2</p>
+<ul>
+<li>1、表达式1与表达式2的类型必须一致；</li>
+<li>2、使用三元运算符的地方一定可以使用if…else代替，反之不一定成立；</li>
+</ul>
+</blockquote>
+<p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span> <span class="params">(Sting[] args)</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> b=<span class="number">2</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> a&lt;b?(<span class="string">&quot;a大&quot;</span>):(<span class="string">&quot;b大&quot;</span>);</span><br><span class="line">	System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="与equals-的区别"><a href="#与equals-的区别" class="headerlink" title="==与equals() 的区别"></a><code>==</code>与<code>equals()</code> 的区别</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34357962/article/details/85652196?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164660786116781683956704%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164660786116781683956704&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85652196.pc_search_result_control_group&utm_term=equals&spm=1018.2226.3001.4187">Java语法—-Java中equals和&#x3D;&#x3D;的区别</a></p>
+<blockquote>
+<p>结果为布尔类型</p>
+</blockquote>
+<p>例 : </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String sex=<span class="string">&quot;男&quot;</span>;</span><br><span class="line">sex.equals(<span class="string">&quot;男&quot;</span>);</span><br><span class="line"><span class="comment">//此种情况变量sex必须赋值</span></span><br></pre></td></tr></table></figure>
+
+<p>或 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;男&quot;</span>.equals(sex);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><blockquote>
+<p>支持一些特殊的转义序列<code>char</code>和<code>String</code>文字：</p>
+<p><code>String.contains()</code>方法不需要转义</p>
+</blockquote>
+<p><code>\a</code>(响铃)    <code>\b</code>( 退格） <code>\f</code>(换页)   <code>\n</code>(换行)   <code>\r</code>（回车） <code>\t</code>(制表符)<code>\v</code> (垂直制表 )    <code>\\</code>(反斜杠)   <code>\&#39;</code>(单引号)   <code>\&quot;</code>(双引号)    <code>\0</code> (空字符)    <code>\ddd</code> (1到3位八进制所代表的任意字符)   <code>\xhh</code> (1到2位十六进制所代表的任意字符)</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Java 编程语言定义了以下类型的变量：</p>
+<ul>
+<li><strong>实例变量（非静态字段）</strong>从技术上讲，对象将其各自的状态存储在“非静态字段”中，即没有<code>static</code>关键字声明的字段。非静态字段也称为<em>实例变量</em>，因为它们的值对于类的每个<em>实例</em>（换句话说，对于每个对象）都是唯一的</li>
+<li><strong>类变量（静态字段）</strong>类<em>变量</em><code>static</code>是使用修饰符声明的任何字段；这告诉编译器存在这个变量的一个副本，不管这个类被实例化了多少次。定义特定类型自行车的齿轮数量的字段可以标记为<code>static</code> , 因为从概念上讲，相同数量的齿轮将适用于所有实例。该代码<code>static int numGears = 6;</code>将创建这样一个静态字段。此外，可以添加关键字<code>final</code>来表示齿轮的数量永远不会改变。</li>
+<li><strong>局部变量</strong>与对象在字段中存储其状态的方式类似，方法通常会将其临时状态存储在<em>局部变量</em>中。声明局部变量的语法类似于声明字段（例如，<code>int count = 0;</code>）。没有特殊关键字将变量指定为局部变量；该决定完全来自声明变量的位置——位于方法的左大括号和右大括号之间。因此，局部变量仅对声明它们的方法可见；课堂上的其他人无法访问它们。</li>
+<li><strong>参数</strong>您已经在“Hello World!”的<code>Bicycle</code>类和方法中看到了参数示例。<code>main</code>应用。回想一下，该<code>main</code>方法的签名是<code>public static void main(String[] args)</code>. 这里，<code>args</code>变量是这个方法的参数。要记住的重要一点是，参数总是被归类为“变量”而不是“字段”。这也适用于您将在本教程后面了解的其他参数接受构造（例如构造函数和异常处理程序）。</li>
+</ul>
+<p>成员变量( 非静态字段即没有static关键字声明的字段 , 也叫作实例变量&#x2F;对象变量 , 定义在类中 , 属于对象 , 只能对象调用(类的实例调用 ? ) , 堆内存 )</p>
+<p>​		静态成员变量(也叫类变量 , 有static关键字声明 , 属于成员变量的一种 ,  可以直接使用类名调用 , 可以对象调用 ,  共享内存)</p>
+<p>局部变量(在方法体中定义 , 栈内存 , 生命周期只存在在方法中 , 方法结束后就会回收)</p>
+<p>Java没有全局变量 , 但可以用静态成员变量实现全局变量效果</p>
+<h3 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h3><blockquote>
+<p>变量名区分大小写。</p>
+<p>变量的名称可以是任何合法的标识符——一个长度不限的Unicode字母和数字序列，以字母、美元符号<code>$</code>或下划线字符<code>_</code>开头。惯例是变量名总是以字母开头，而不是<code>$</code>或<code>_</code>。</p>
+<p>美元符号字符根本就不会被使用。在某些情况下，自动生成的名称将包含美元符号，但变量名称应该始终避免使用它。对于下划线字符也有类似的约定</p>
+<p>虽然从技术上讲，变量名以<code>_</code>开头是合法的，但这种做法是不鼓励的。</p>
+<p>空格是不允许的。</p>
+<p>后续字符可以是字母、数字、美元符号或下划线字符。为变量选择名称时，请使用完整的单词而不是隐晦的缩写。</p>
+<p>在许多情况下，它还会使您的代码自我记录</p>
+<p>名称不能是关键字或保留字</p>
+<p>如果您选择的名称仅包含一个单词，则将该单词拼写为所有小写字母。如果它包含多个单词，则将每个后续单词的第一个字母大写。</p>
+<p>如果变量存储一个常量值，例如<code>static final int NUM_GEARS = 6</code>，则约定会略有变化，将每个字母大写并用下划线分隔后续单词。下划线字符从不在其他地方使用。</p>
+</blockquote>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><blockquote>
+<p>常量名通常大写</p>
+<p>不同字符使用下划线分隔</p>
+<p>只能被赋值一次 , 通常定义时即对其初始化</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
+<p>原始类型由语言预定义并由保留关键字命名</p>
+<p>原始值不与其他原始值共享状态</p>
+<p>已声明但未初始化的字段将由编译器设置为合理的默认值。一般而言，此默认值将为零或<code>null</code>，具体取决于数据类型</p>
+<p>局部变量略有不同；编译器永远不会为未初始化的局部变量分配默认值。如果无法在声明它的地方初始化局部变量，请确保在尝试使用它之前为其分配一个值。访问未初始化的局部变量将导致编译时错误。</p>
+<p>如果整型字面值以字母<code>L</code>或<code>l</code>结尾，则为长型;否则为<code>int</code>类型。建议使用大写字母<code>L</code>，因为小写字母<code>l</code>与数字<code>1</code>很难区分</p>
+<p>如果浮点字面值以字母<code>F</code>或<code>f</code>结尾，则为<code>float</code>类型 ; 否则，它的类型是<code>double</code>，它可以选择以字母<code>D</code>或<code>d</code>结尾</p>
+<p>字符和字符串文字 : </p>
+<p>文字类型<code>char</code>，<code>String</code>可以包含任何 Unicode (UTF-16) 字符。也可以使用“Unicode 转义”，始终对文字使用“单引号”，对<code>char</code>文字使用“双引号” <code>String</code>。Unicode 转义序列可以在程序的其他地方使用（例如在字段名称中），而不仅仅是在<code>char</code>或<code>String</code>文字中。</p>
+<p><code>null</code>文字可以用作任何引用类型的值。<code>null</code>可以分配给任何变量，除了原始类型的变量。<code>null</code>除了测试它的存在之外，几乎无能为力。因此，<code>null</code>经常在程序中用作标记，表示某些对象不可用。</p>
+<p>有一种特殊的字面量，称为<em>类字面</em>量，由类型名称和附加 “ 组成<code>.class</code>；例如，<code>String.class</code>. 这指的<code>Class</code>是表示类型本身的（类型的）对象。</p>
+<p>在 Java SE 7 及更高版本中，任意数量的下划线字符  <code>_</code>)可以出现在数字文字中数字之间的任何位置。能够分隔数字文字中的数字组，提高代码的可读性。</p>
+</blockquote>
+<h4 id="原始数据类型Primitive-Data"><a href="#原始数据类型Primitive-Data" class="headerlink" title="原始数据类型Primitive Data"></a>原始数据类型Primitive Data</h4><blockquote>
+<p><code>double</code>此数据类型绝不应用于精确值，例如货币。</p>
+</blockquote>
+<ul>
+<li>数值型<ul>
+<li>字节型(byte)</li>
+<li>整数类型(short,int,long)</li>
+<li>浮点类型(float,double)</li>
+</ul>
+</li>
+<li>字符型(char)</li>
+<li>布尔型(boolean)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;张三&quot;</span>;</span><br><span class="line"><span class="comment">//String  双引号</span></span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//char  单引号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><ul>
+<li>类(class)</li>
+<li>接口(interface)</li>
+<li>数组([])</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;%.2f&quot;</span>,f1);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><blockquote>
+<p><em>数组</em>是一个容器对象，它包含固定数量的单一类型的值。数组的长度是在创建数组时确定的。创建后，它的长度是固定的。</p>
+<p>数组中的每一项都称为一个<em>元素</em>，每个元素都通过其数字<em>索引</em>访问</p>
+</blockquote>
+<blockquote>
+<p>标识符</p>
+<p>数组元素</p>
+<p>元素下标 : 从0开始</p>
+<p>元素类型</p>
+</blockquote>
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><h3 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h3><h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><blockquote>
+<p>条件为布尔类型</p>
+</blockquote>
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*if(条件)&#123;</span></span><br><span class="line"><span class="comment"> *执行代码块</span></span><br><span class="line"><span class="comment"> *&#125;*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">if(条件)&#123;</span></span><br><span class="line"><span class="comment">	代码块1</span></span><br><span class="line"><span class="comment">&#125;else&#123;</span></span><br><span class="line"><span class="comment">	代码块2</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="if-else-if"><a href="#if-else-if" class="headerlink" title="if-else-if"></a>if-else-if</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">if(条件)&#123;</span></span><br><span class="line"><span class="comment">	代码块1</span></span><br><span class="line"><span class="comment">&#125;else if(条件2)&#123;</span></span><br><span class="line"><span class="comment">	代码块2</span></span><br><span class="line"><span class="comment">&#125;else if(条件3)&#123;</span></span><br><span class="line"><span class="comment">	代码块3</span></span><br><span class="line"><span class="comment">&#125;else &#123;</span></span><br><span class="line"><span class="comment">代码块4</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><blockquote>
+<p>与<code>if</code>和<code>if-else</code>语句不同，<code>switch</code>语句可以有许多可能的执行路径。</p>
+<p>switch适用于<code>byte</code>、<code>short</code>、<code>char</code>和<code>int</code>基元数据类型。还适用于枚举类型、<code>String</code>类和一些封装某些基本类型的特殊类 : <code>Character</code>、<code>Byte</code>、<code>Short</code>和<code>Integer</code></p>
+<p>语句的主体<code>switch</code>称为<code>switch 块</code>。块中的语句<code>switch</code>可以用一个或多个<code>case</code>或<code>default</code>标签来标记。该<code>switch</code>语句计算其表达式，然后执行匹配<code>case</code>标签后面的所有语句。</p>
+<p><code>switch</code>语句仅基于单个整数、枚举值或<code>String</code>对象测试表达式</p>
+<p>每个<code>break</code>语句都终止封闭<code>switch</code>语句</p>
+</blockquote>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><h4 id="return"><a href="#return" class="headerlink" title="return"></a>return</h4><h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><blockquote>
+<p>迭代一系列值</p>
+<p>初始化表达式初始化循环;它在循环开始时执行一次</p>
+<p>当终止表达式的计算结果为false时，循环终止</p>
+<p>递增表达式在每次循环迭代后被调用;这个表达式可以对一个值递增或递减</p>
+</blockquote>
+<h5 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h5><blockquote>
+<p>or each <strong>element</strong> in <strong>arrayName</strong> do {…}</p>
+<p>for(数据类型 变量名 :遍历的目标){ 数据类型 变量名 :声明一个变量用来接收遍历目标遍历后的元素}</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(ElementType element: arrayName)&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] num = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i: num)&#123;</span><br><span class="line">    System.out.print(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><blockquote>
+<p>while语句计算表达式，表达式必须返回一个布尔值。</p>
+</blockquote>
+<h4 id="do-while"><a href="#do-while" class="headerlink" title="do-while"></a>do-while</h4><blockquote>
+<p><code>do-while</code>和之间的区别在于<code>while</code>它<code>do-while</code>在循环底部而不是顶部评估其表达式。因此，块内的语句<code>do</code>总是至少执行一次</p>
+</blockquote>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><blockquote>
+<p><em>表达式</em>是由变量、运算符和方法调用组成的构造，这些构造根据语言的语法构造，计算结果为单个值。</p>
+<p>表达式返回值的数据类型取决于表达式中使用的元素。</p>
+<p>表达式也可以返回其他类型的值，例如<code>boolean</code>or <code>String</code>。</p>
+<p>只要表达式的一部分所需的数据类型与另一部分的数据类型匹配，Java 编程语言就允许您从各种较小的表达式构造复合表达式。</p>
+<p>一条<em>语句</em>构成一个完整的执行单元。<code>;</code>通过以分号 ( )结束表达式，可以将以下类型的表达式组成语句。</p>
+<ul>
+<li>赋值表达式</li>
+<li>任何使用<code>++</code>或<code>--</code></li>
+<li>方法调用</li>
+<li>对象创建表达式</li>
+</ul>
+<p>这样的语句称为<em>表达式语句</em>。</p>
+<p>还有另外两种语句：声明语句和控制流语句 : 声明语句声明一个变量 , <em>控制流语句</em>控制语句执行的顺序</p>
+<p><em>块</em>是一组位于平衡大括号之间的零个或多个语句，可以在任何允许使用单个语句的地方使用</p>
+</blockquote>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><blockquote>
+<p>同一个引用类型使用不同的实例而执行不同操作</p>
+</blockquote>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-Java基础"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/"
+    >Java基础</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2022-02-24T02:00:24.000Z" itemprop="datePublished">2022-02-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>TIOBE 编程语言排行榜</p>
+<p>Hadoop  分布式系统基础架构</p>
+<p><a target="_blank" rel="noopener" href="https://hadoop.apache.org/">Apache Hadoop</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.oracle.com/index.html">ORALE ( 甲骨文 )</a></p>
+<h4 id="IDE-集成开发环境"><a href="#IDE-集成开发环境" class="headerlink" title="IDE(集成开发环境)"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/298524?fromtitle=IDE&fromid=8232086&fr=aladdin">IDE(集成开发环境)</a></h4><blockquote>
+<p>MyElipse , Eclipse , IDEA</p>
+<p>(MyEclipse 2017 stable)</p>
+</blockquote>
+<h5 id="MyElipse"><a href="#MyElipse" class="headerlink" title="MyElipse"></a>MyElipse</h5><h5 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a><a target="_blank" rel="noopener" href="https://www.eclipse.org/downloads/">Eclipse</a></h5><h6 id="汉化过程"><a href="#汉化过程" class="headerlink" title="汉化过程 :"></a>汉化过程 :</h6><p>依次点击 : <code>help</code> , <code>Install New Software</code>, <code>Add</code> , <code>Location</code> </p>
+<p>输入：<a target="_blank" rel="noopener" href="https://download.eclipse.org/technology/babel/update-site/latest/">https://download.eclipse.org/technology/babel/update-site/latest/</a></p>
+<p>选择<code>Babel Language Packs in Chinese (Simplified)</code> 后点击<code>next</code> , 成功后eclipse自动重启</p>
+<h6 id="解除汉化过程"><a href="#解除汉化过程" class="headerlink" title="解除汉化过程 :"></a>解除汉化过程 :</h6><p>找到eclipse根目录 , 找到<code>eclipse.ini</code>文件右键编辑 , 在最后输入</p>
+<p><code>-Duser.language=en</code>保存退出 </p>
+<p>右键<code>eclipse.exe</code>发送到桌面快捷方式 , 右键选择属性 , 在目标最后输入<code> ln zh</code>点击确定</p>
+<h5 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a><a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">IDEA</a></h5><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><blockquote>
+<p>目前版本JDK8</p>
+<p>包含JRE和JVM</p>
+<p>Java开发需下载完整JDK , 只运行Java只需下载JRE</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/jdk/1011?fr=aladdin">JDK  Java语言的软件开发工具包</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JRE/2902404?fr=aladdin">JRE  Java运行环境</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/JVM/2902369?fr=aladdin">JVM  Java虚拟机</a></p>
+<p>Java SE(基础核心) : </p>
+<ul>
+<li>面向对象</li>
+<li>API</li>
+<li>JVM</li>
+</ul>
+<p>Java ME : </p>
+<ul>
+<li>移动设备</li>
+<li>游戏</li>
+<li>通信</li>
+</ul>
+<p>Java EE : </p>
+<ul>
+<li>JSP</li>
+<li>EJB</li>
+<li>服务</li>
+</ul>
+<p>JDK文件夹中部分文件 : </p>
+<p>COPYRIGHT  版本;版权</p>
+<p>LICENSE  许可证</p>
+<p>release  发布版本</p>
+<p>bin文件夹  : 包含JDK开发工具的可执行性文件</p>
+<p>lib  类库</p>
+<p>include  C语言头文件</p>
+<p>src.zip  java源代码</p>
+<h5 id="path配置过程"><a href="#path配置过程" class="headerlink" title="path配置过程"></a>path配置过程</h5><p>下载JDK后需配置path ( win10系统 )</p>
+<p>复制JDK文件中<code>bin</code>的文件位置</p>
+<p>依次打开 : 控制面板 , 系统 , 高级系统设置 , 高级 , 环境变量 , 选择系统变量中的<code>Path</code>点击编辑 , 将文件位置粘贴保存 , 并上移至第一行</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://thinkwon.blog.csdn.net/article/details/94353907">JDK安装与环境变量配置</a></p>
+<h5 id="查看JDK是否配置成功"><a href="#查看JDK是否配置成功" class="headerlink" title="查看JDK是否配置成功"></a>查看JDK是否配置成功</h5><p>打开windows命令处理程序 ( win+R出入cmd )</p>
+<p>输入 : </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<p>显示版本即为配置成功</p>
+<h2 id="反编译工具"><a href="#反编译工具" class="headerlink" title="反编译工具"></a>反编译工具</h2><h4 id="jad命令"><a href="#jad命令" class="headerlink" title="jad命令"></a>jad命令</h4><p>例 : </p>
+<p><code>Jad -s java Test.class</code></p>
+<p><code>Jad -s java -8 Test.class</code>(含中文时)</p>
+<h4 id="FrontEndPlus"><a href="#FrontEndPlus" class="headerlink" title="FrontEndPlus"></a>FrontEndPlus</h4><blockquote>
+<p>图形化工具 , jad内核</p>
+<p>需要设置 : Configuration  ,  Decompile Options , 选择convert Unicode strings into ANSI string (anti) , Update and Close</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-MMD学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/11/20/MMD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >MMD学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/11/20/MMD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-11-20T11:47:07.000Z" itemprop="datePublished">2021-11-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MMD学习笔记"><a href="#MMD学习笔记" class="headerlink" title="MMD学习笔记"></a>MMD学习笔记</h1><h3 id="本篇学习笔记参考的教程："><a href="#本篇学习笔记参考的教程：" class="headerlink" title="本篇学习笔记参考的教程："></a>本篇学习笔记参考的教程：</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv2659946?spm_id_from=333.999.0.0">最系统的MMD零基础入门教程宝典</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv1544637?from=articleDetail">MMD兵器库</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv1090815?spm_id_from=333.880.0.0">MMD入门综合指南3.1（2021修改版)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv20273?from=articleDetail">MMD（MikumikuDance）的发展历史</a></p> 
+      <a class="article-more-link" href="/2021/11/20/MMD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-Ubuntu服务器搭建Wordpress个人博客过程"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/06/24/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAWordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B/"
+    >Ubuntu服务器搭建Wordpress个人博客过程</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/06/24/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAWordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2021-06-24T00:42:46.000Z" itemprop="datePublished">2021-06-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>目录：</p>
+<p>BT-Panel应用镜像系统建站</p>
+<p>Ubutu系统镜像建站</p>
+<h1 id="BT-Panel应用镜像"><a href="#BT-Panel应用镜像" class="headerlink" title="BT-Panel应用镜像"></a>BT-Panel应用镜像</h1><h4 id="参考教程："><a href="#参考教程：" class="headerlink" title="参考教程："></a>参考教程：</h4><p>B站视频教程视频链接：<br>10分钟拥有真正意义上属于自己的网站！网站搭建！：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D7411B7Yf?t=493">https://www.bilibili.com/video/BV1D7411B7Yf?t=493</a></p>
+<p><strong>( 没有完全按照视频教程，其中一些更改请参照视频和文章内容对比 )</strong></p>
+<p>指导老师：Tokameine：<a target="_blank" rel="noopener" href="https://tokameine.top/">https://tokameine.top/</a></p>
+<p> 
+      <a class="article-more-link" href="/2021/06/24/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAWordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BT-Panel/" rel="tag">BT-Panel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wordpress/" rel="tag">Wordpress</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-cropper剪裁插件的用法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/"
+    >cropper剪裁插件的用法</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2021-05-26T04:46:42.000Z" itemprop="datePublished">2021-05-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>加载的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/lib/cropper/cropper.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">必须按照顺序加载三个js</span><br><span class="line">&lt;script src=&quot;../assets/lib/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;../assets/lib/cropper/Cropper.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;../assets/lib/cropper/jquery-cropper.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>初始化剪裁插件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> $image = $(<span class="string">&#x27;#image&#x27;</span>); <span class="comment">// 找到一张图片（默认显示的那张图片）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置项</span></span><br><span class="line"><span class="keyword">let</span> option = &#123;</span><br><span class="line">  <span class="comment">// 参考下面的 [参数] 部分</span></span><br><span class="line">  <span class="comment">// 比如：aspectRatio 表示剪裁比例</span></span><br><span class="line">  <span class="attr">aspectRatio</span>: <span class="number">400</span> / <span class="number">280</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">$image.<span class="title function_">cropper</span>(option);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>方法的使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$image.<span class="title function_">cropper</span>(<span class="string">&#x27;方法名&#x27;</span>, 方法的参数);</span><br><span class="line"></span><br><span class="line">比如，有一个 replace 方法：<span class="title function_">replace</span>(url)</span><br><span class="line"></span><br><span class="line">$image.<span class="title function_">cropper</span>(<span class="string">&#x27;replace&#x27;</span>, url);</span><br><span class="line"></span><br><span class="line">比如，剪裁得到canvas，原方法是这样说明的：<span class="title function_">getCroppedCanvas</span>(&#123; <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">10</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> canvas = $image.<span class="title function_">cropper</span>(<span class="string">&#x27;getCroppedCanvas&#x27;</span>, &#123; <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">10</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>把canvas转成我们想要的格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 剪裁之后，会得到一个canvas</span></span><br><span class="line"><span class="comment">// 能够把 canvas 转成 base64 格式；转成 文件对象 格式，只能转成这两种格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 转成 base64格式</span></span><br><span class="line"><span class="keyword">let</span> base64 = canvas.<span class="title function_">toDataURL</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转成 文件对象 格式</span></span><br><span class="line">canvas.<span class="title function_">toBlob</span>(<span class="keyword">function</span> (<span class="params">blob</span>) &#123;</span><br><span class="line">  <span class="comment">// blob是二进制大对象格式，把它 append 到 FormData 中，会变为文件对象</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>你可以通过$().cropper(options)方法来设置参数。如果你想改变全局默认参数，可以使用$.fn.cropper.setDefaults(options)方法。</li>
+<li>aspectRatio：类型：Number，默认值NaN。设置剪裁容器的比例。</li>
+<li>crop：类型：Function，默认值null。当改变剪裁容器或图片时的事件函数。</li>
+<li>preview：类型：String(jQuery选择器)，默认值’’。添加额外的元素（容器）的预览。注意：</li>
+<li>最大宽度是剪裁容器的初始化宽度</li>
+<li>最大高度是剪裁容器的初始化高度</li>
+<li>如果你设置了aspectRatio参数，确保预览容器具有相同的比例</li>
+<li>strict：类型：Boolean，默认值true。在strict模式中，canvas不能小于容器，剪裁容器不能再canvas之外。</li>
+<li>responsive：类型：Boolean，默认值true。是否在窗口尺寸改变的时候重置cropper。</li>
+<li>checkImageOrigin：类型：Boolean，默认值true。默认情况下，插件会检测图片的源，如果是跨域图片，图片元素会被添加crossOrigin class，并会为图片的url添加一个时间戳来使getCroppedCanvas变为可用。添加时间戳会使图片重新加载，以使跨域图片能够使用getCroppedCanvas。在图片上添加crossOrigin class会阻止在图片url上添加时间戳，及图片的重新加载。</li>
+<li>background：类型：Boolean，默认值true。是否在容器上显示网格背景。</li>
+<li>modal：类型：Boolean，默认值true。是否在剪裁框上显示黑色的模态窗口。</li>
+<li>guides：类型：Boolean，默认值true。是否在剪裁框上显示虚线。</li>
+<li>highlight：类型：Boolean，默认值true。是否在剪裁框上显示白色的模态窗口。</li>
+<li>autoCrop：类型：Boolean，默认值true。是否在初始化时允许自动剪裁图片。</li>
+<li>autoCropArea：类型：Number，默认值0.8（图片的80%）。0-1之间的数值，定义自动剪裁区域的大小。</li>
+<li>dragCrop：类型：Boolean，默认值true。是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域。</li>
+<li>movable：类型：Boolean，默认值true。是否允许移动剪裁框。</li>
+<li>resizable：类型：Boolean，默认值true。是否允许改变剪裁框的大小。</li>
+<li>zoomable：类型：Boolean，默认值true。是否允许放大缩小图片。</li>
+<li>mouseWheelZoom：类型：Boolean，默认值true。是否允许通过鼠标滚轮来缩放图片。</li>
+<li>touchDragZoom：类型：Boolean，默认值true。是否允许通过触摸移动来缩放图片。</li>
+<li>rotatable：类型：Boolean，默认值true。是否允许旋转图片。</li>
+<li>minContainerWidth：类型：Number，默认值200。容器的最小宽度。</li>
+<li>minContainerHeight：类型：Number，默认值100。容器的最小高度。</li>
+<li>minCanvasWidth：类型：Number，默认值0。canvas 的最小宽度（image wrapper）。</li>
+<li>minCanvasHeight：类型：Number，默认值0。canvas 的最小高度（image wrapper）。</li>
+<li>build：类型：Function，默认值null。build.cropper事件的简写方式。</li>
+<li>built：类型：Function，默认值null。built.cropper事件的简写方式。</li>
+<li>dragstart：类型：Function，默认值null。dragstart.cropper事件的简写方式。</li>
+<li>dragmove：类型：Function，默认值null。dragmove.cropper事件的简写方式。</li>
+<li>dragend：类型：Function，默认值null。dragend.cropper事件的简写方式。</li>
+<li>zoomin：类型：Function，默认值null。zoomin.cropper事件的简写方式。</li>
+<li>zoomout：类型：Function，默认值null。zoomout.cropper事件的简写方式。</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>因为图片是异步加载的，所以你需要在built之后才能调用下面的方法，setAspectRatio、replace和destroy方法例外。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(&#123;`` ``built: ``function` `() &#123;``  ``$().cropper(``&#x27;method&#x27;``, argument1, , argument2, ..., argumentN)`` ``&#125;``&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>move(offsetX, offsetY)：</strong></p>
+<ul>
+<li>offsetX：类型：Number，水平方向上移动的大小，单位像素。</li>
+<li>offsetY：类型：Number，垂直方向上移动的大小，单位像素。</li>
+</ul>
+<p>移动一幅图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;move&#x27;``, 1, 0)``$().cropper(``&#x27;move&#x27;``, 0, -1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>zoom(ratio)：</strong></p>
+<p>ratio：</p>
+<p>类型：Number</p>
+<ul>
+<li>Zoom in：需要一个正数（ratio &gt; 0）</li>
+<li>Zoom out：需要一个负数（ratio &lt; 0）</li>
+</ul>
+<p>缩放一幅图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;zoom&#x27;``, 0.1)``$().cropper(``&#x27;zoom&#x27;``, -0.1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>rotate(degree)：</strong></p>
+<p>ratio：</p>
+<p>类型：Number</p>
+<ul>
+<li>Rotate right：需要一个正数（degree &gt; 0）</li>
+<li>Rotate left：需要一个负数（degree &lt; 0）</li>
+</ul>
+<p>旋转一幅图片，需要CSS3 Transforms3d的支持（IE10+）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;rotate&#x27;``, 90)``$().cropper(``&#x27;rotate&#x27;``, -90</span><br></pre></td></tr></table></figure>
+
+<p><strong>enable()：</strong>使cropper可用。</p>
+<p><strong>disable()：</strong>冻结cropper。</p>
+<p><strong>reset()：</strong>重置剪裁区域的图片到初始状态。</p>
+<p><strong>clear()：</strong>清空剪裁区域。</p>
+<p><strong>replace(url)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url：``替换图片的URL重建cropper。``类型：String``一个新的图片URL</span><br></pre></td></tr></table></figure>
+
+<p><strong>getData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``x：剪裁区域左侧的偏移。``y：剪裁区域距上部的偏移。``width：剪裁区域的宽度。``height：剪裁区域的高度。``rotate：图片的旋转角度。``请参考实例效果</span><br></pre></td></tr></table></figure>
+
+<p><strong>getContainerData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``width：容器的当前宽度。``height：容器的当前高度。``输出容器尺寸数据。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getImageData()：</strong></p>
+<p>返回值：</p>
+<p>类型：Object</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">属性：``left：图片的左侧偏移。``top：图片的上部偏移。``width：图片的宽度。``height：图片的高度。``输出图片的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCanvasData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：canvas的左侧偏移。``top：canvas的上部偏移。``width：canvas的宽度。``height：canvas的高度。``输出canvas（图片容器）的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>setCanvasData(data)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：canvas的距离左侧新的偏移。``top：canvas的距离上部新的偏移。``width：canvas新的宽度。``height：canvas新的高度。``改变canvas（图片容器）的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCropBoxData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：剪裁区域距离左侧的偏移。``top：剪裁区域距离上部的偏移。``width：剪裁区域的宽度。``height：剪裁区域的高度。``输出剪裁区域的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>setCropBoxData(data)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：剪裁区域距离左侧新的偏移。``top：剪裁区域距离上部新的偏移。``width：剪裁区域新的宽度。``height：剪裁区域新的高度。``改变剪裁区域的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCroppedCanvas([options])：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参数（默认值）：``类型：Object``属性：``width：输出的canvas目标宽度。``height：输出的canvas目标高度。``fillColor：canvas中填充的颜色。``返回值：``类型：HTMLCanvasElement``一个画有剪裁图片的canvas。</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-JavaScript对象相关笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/"
+    >JavaScript对象相关笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-05-24T01:44:12.000Z" itemprop="datePublished">2021-05-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h1><hr>
+<h2 id="部分解释"><a href="#部分解释" class="headerlink" title="部分解释 :"></a>部分解释 :</h2><h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><hr>
+<h5 id="原生对象"><a href="#原生对象" class="headerlink" title="原生对象"></a>原生对象</h5><p><u><strong>ECMA-262</strong></u>把<strong>本地对象（native object）定义为 “ 独立于宿主环境的 ECMAScript 实现提供的对象”</strong></p>
+<p>“ 本地对象 ” 包含哪些内容：</p>
+<p>Object、Function、Array、String、Boolean、Number、 Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、 URIError</p>
+<p>由此可以看出，<strong>本地对象就是 ECMA-262 定义的类（引用类型）</strong></p>
+<hr>
+<h5 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h5><p>ECMA-262 把<strong>内置对象（ built-in object ）定义为“由 ECMAScript 实现提供的、独立于宿主环境的所有对象，在 ECMAScript 程序开始执行时出现”。</strong></p>
+<p>这意味着开发者不必明 确实例化内置对象，它已被实例化了 </p>
+<p>同样是“独立于宿主环境”。</p>
+<p>根据定义我们似乎很难分清“内置对象”与“本地对象”的 区别。</p>
+<p><strong>而ECMA-262 只定义了两个内置对象，即 Global 和 Math</strong>（ 它们也是本地对象， 根据定义，每个内置对象都是本地对象 )。<strong>如此就可以理解了。</strong></p>
+<p>**内置对象是本地对象的一种 **</p>
+<hr>
+<h5 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h5><p>何为 “ 宿主对象 ” ？</p>
+<p>主要在这个“宿主”的概念上，<strong>ECMAScript 中的 “ 宿主 ” 当然就是我 们网页的运行环境 ，即 “ 操作系统 ” 和 “ 浏览器 ”</strong></p>
+<p><strong>所有非本地对象都是宿主对象（host object）</strong>，即由 ECMAScript 实现的宿主环境提供 的对象 。</p>
+<p>所有的 BOM 和 DOM 都是宿主对象。因为其对于不同的 “ 宿主 ” 环境所展示的内容不同 。</p>
+<p>其实说白了就是，<strong>ECMAScript 官方未定义的对象都属于宿主对象，因为其未定 义的对象大多数是自己通过 ECMAScript 程序创建的对象</strong></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><p>JavaScript 中有八种数据类型。</p>
+<p>有七种原始类型，因为它们的值只包含一种东西（字符串，数字或者其他）。</p>
+<p>相反，对象则用来存储键值对和更复杂的实体。</p>
+<p><strong>对象是具有一些特殊特性的关联数组。</strong></p>
+<p>“普通对象（plain object）”，或者就叫对象。</p>
+<p>JavaScript 中还有很多其他类型的对象：</p>
+<ul>
+<li><code>Array</code> 用于存储有序数据集合，</li>
+<li><code>Date</code> 用于存储时间日期，</li>
+<li><code>Error</code> 用于存储错误信息。</li>
+<li>……等等。</li>
+</ul>
+<p>“Array 类型”或“Date 类型”，但其实它们并不是自身所属的类型，而是属于一个对象类型即 “object”。它们以不同的方式对 “object” 做了一些扩展。</p>
+<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><h5 id="对象-object"><a href="#对象-object" class="headerlink" title="对象 (object)"></a>对象 (object)</h5><p>对象类型的成员。</p>
+<p>注：对象是属性的集合，并有一个原型对象。原型可以是空值。</p>
+<hr>
+<h5 id="原生对象-1"><a href="#原生对象-1" class="headerlink" title="原生对象"></a>原生对象</h5><p> (native object)</p>
+<p>ECMAScript 实现中，并非由宿主环境，而是完全由本规范定义其语义的对象。</p>
+<p>注：标准的原生对象由本规范定义。一些原生对象是内置的，其他的可在 ECMAScript 程序执行过程中构建。</p>
+<hr>
+<h5 id="内置对象-1"><a href="#内置对象-1" class="headerlink" title="内置对象"></a>内置对象</h5><p>(built-in object)</p>
+<p>由 ECMAScript 实现提供，独立于宿主环境的对象，ECMAScript 程序开始执行时就存在。</p>
+<p>注：标准的内置对象由本规范定义，ECMAScript 实现可以指定和定义其他的。所有内置对象是原生对象。一个内置构造器 (built-in constructor) 是个内置对象，也是个构造器。</p>
+<hr>
+<h5 id="宿主对象-1"><a href="#宿主对象-1" class="headerlink" title="宿主对象"></a>宿主对象</h5><p> (host object)</p>
+<p>由宿主环境提供的对象，用于完善 ECMAScript 执行环境。</p>
+<p>注：任何对象，不是原生对象就是宿主对象。</p>
+<hr>
+<h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p><strong>Native Object</strong></p>
+<p>JavaScript语言提供的不依赖于执行宿主的对象，其中一些是内建对象，如：Global、Math；一些是在脚本运行环境中创建来使用的，如：Array、Boolean、Date、Function、Number、Object、RegExp、Error。</p>
+<hr>
+<p><strong>Build-in Object</strong></p>
+<p>JavaScript语言提供的不依赖于执行宿主的内建对象，如：Global、Math；内建对象都是Native Object。</p>
+<hr>
+<p><strong>Host Object</strong></p>
+<p> JavaScript语言提供的任何依赖于宿主环境的对象，所有非Native Object的对象都是宿主对象，如：IE中的window，WScript中的wscript实例，任何用户创建的类。</p>
+<hr>
+<h4 id="5"><a href="#5" class="headerlink" title="5"></a>5</h4><p><strong>JavaScript 标准内置对象或称全局的对象（global objects）</strong></p>
+<p>不要和 <strong>全局对象（global object）</strong>混淆。</p>
+<p>这里说的全局的对象是说<strong>在全局作用域里的对象</strong>，<strong>全局作用域包含了全局对象的属性，还有它可能继承来的属性。</strong></p>
+<p><strong>JavaScript 标准内置对象的分类：</strong></p>
+<p>\1. 值属性（Infinity、NaN、undefined、null 字面量、globalThis）这些全局属性返回一个简单值，而且这些值没有自己的属性和方法。</p>
+<p>\2. 函数属性（eval()、uneval() 、isFinite()、isNaN()、parseFloat()、parseInt()、decodeURI()、decodeURIComponent()、encodeURI()、encodeURIComponent()、escape() 、unescape()）全局函数可以直接调用，不需要在调用时指定所属对象，执行结束后会将结果直接返回给调用者。</p>
+<p>\3. 基本对象（Object、Function、Boolean、Symbol、Error、EvalError、InternalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError）基本对象是定义或使用其他对象的基础。基本对象包括一般对象、函数对象和错误对象。</p>
+<p>\4. 数字、数学和日期对象（Number、BigInt、Math、Date）用来表示数字、执行数学计算和日期的对象。</p>
+<p>\5. 字符串和正则式对象（String、RegExp）用来表示和操作字符串的对象。</p>
+<p>\6. 可索引的数组对象（Array、Int8Array、Uint8Array、Uint8ClampedArray、Int16Array、Uint16Array、Int32Array、Uint32Array、Float32Array、Float64Array、BigInt64Array、BigUint64Array）这些对象表示按照索引值来排序的数据集合，包括数组和类型数组，以及类数组结构的对象。</p>
+<p>\7. 使用键的集合对象（Map、Set、WeakMap、WeakSet）这些集合对象在存储数据时会使用到键，支持按照插入顺序来迭代元素。</p>
+<p>\8. 构化数据（ArrayBuffer、SharedArrayBuffer 、Atomics 、DataView、JSON）这些对象用来表示和操作结构化的缓冲区数据，或使用 JSON （JavaScript Object Notation）编码的数据。</p>
+<p>\9. 控制抽象对象（Promise、Generator、GeneratorFunction、AsyncFunction ）</p>
+<p>\10. 反射（Reflect、Proxy）</p>
+<p>\11. 国际化（Intl、Intl.Collator、Intl.DateTimeFormat、Intl.ListFormat、Intl.NumberFormat、Intl.PluralRules、Intl.RelativeTimeFormat、Intl.Locale）为了支持多语言处理而加入ECMAScript的对象。</p>
+<p>\12. WebAssembly（WebAssembly、WebAssembly.Module、WebAssembly.Instance、WebAssembly.Memory、WebAssembly.Table、WebAssembly.CompileError、WebAssembly.LinkError、WebAssembly.RuntimeError）</p>
+<p>\13. 其他（arguments）</p>
+<h4 id="6"><a href="#6" class="headerlink" title="6"></a>6</h4><p>编程语言中预先定义的函数。</p>
+<p>具体：嵌入到主调函数中的函数称为内置函数，又称内嵌函数。 作用是提高程序的执行效率，大多编程语言都有自己的内置函数，如javascript内置函数等。 内置函数的存在极大的提升了程序员的效率和程序的阅读。</p>
+<h2 id="部分网页"><a href="#部分网页" class="headerlink" title="部分网页 :"></a>部分网页 :</h2><p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects#%E6%A0%87%E5%87%86%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB">MDN-JavaScript标准内置对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">MDN-对象模型</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects">MDN-对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_collections">MDN-带键的集合</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Global_object">MDN-全局对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://read262.jedfox.com/ecmascript-standard-built-in-objects">ECMAScript Standard Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/javascript/javascript_builtin_functions.htm">JavaScript Built-in Functions</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://velocidadescape.com/js/standard-built-in-objects-javascript/">Standard built-in objects in JavaScript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://devdocs.io/javascript/">JavaScript reference</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://baldur.gitbook.io/js/javascript-objects/introducing-javascript-objects/standard-built-in-methods-to-work-with-arrays">Standard built-in methods to work with Arrays</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://dev.to/elpepebenitez/built-in-methods-in-javascript-4bll">Built-in Methods in Javascript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/office/dev/scripts/develop/javascript-objects">Use built-in JavaScript objects in Office Scripts</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://262.ecma-international.org/11.0/">ECMA-262, 11th edition, June 2020 ECMAScript® 2020 Language Specification</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.bitsrc.io/discovering-javascript-three-objects-new-developers-must-know-fade54355383">https://blog.bitsrc.io/discovering-javascript-three-objects-new-developers-must-know-fade54355383</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://rules.sonarsource.com/javascript/RSPEC-2424">JavaScript static code analysis</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://nodejs.org/api/globals.html">Node.js v16.6.1 documentation</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sufei-duoduo/p/9512560.html">标准对象分类Value Properties</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_object_definition.asp">https://www.w3schools.com/js/js_object_definition.asp</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a">https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://javascript.info/global-object">The Modern JavaScript Tutorial</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://academind.com/tutorials/javascript-functions-are-objects/">JS Functions Are Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://ecmascript2020言語仕様.com/">ECMAScript2020言語仕様　私的日本語訳</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.infoworld.com/article/2077150/using-javascript-s-built-in-objects.html">Using JavaScript’s built-in objects</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.ques10.com/p/29073/explain-built-in-objects-of-javascript/"><strong>Explain built-in objects of JavaScript.</strong></a></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.tutorialride.com/javascript/javascript-built-in-objects.htm">JavaScript Built-in Objects</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/m/articles/10193146">https://ithelp.ithome.com.tw/m/articles/10193146</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://way2tutorial.com/javascript/javascript-built-in-objects.php">JavaScript Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms524716(v=vs.90)">ASP Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45308671/what-is-a-built-in-object-in-javascript">What is a built in object in Javascript? </a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microfocus.com/SM/9.60/Codeless/Content/programming/javascript/wp/Built_in_objects_and_functions.htm">Built-in objects and functions</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.brainkart.com/article/Built----In-Objects---JavaScript-(JS)_10246/">Built –In Objects - JavaScript (JS)</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.htmlgoodies.com/javascript/using-built-in-javascript-code-with-javascript-objects/">Using Built-in JavaScript Code with JavaScript Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://eggjs.org/en/basics/objects.html">Frameork Built-in Objects</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.quora.com/What-are-built-in-objects-in-python">https://www.quora.com/What-are-built-in-objects-in-python</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a">https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://www.startertutorials.com/ajwt/built-objects-javascript.html">Built in objects in javascript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://discuss.codecademy.com/t/faq-advanced-objects-built-in-object-methods/372315">FAQ: Advanced Objects - Built-in Object Methods</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://rdrr.io/r/base/builtins.html">builtins: Returns the Names of All Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/builtins.html">Returns the Names of All Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://support.smartbear.com/testcomplete/docs/reference/program-objects/builtin/index.html">List of Built-In Routines</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://google.com/search?sa=N&q=What+are+built-in+objects?&ved=2ahUKEwjGnMzGx5nyAhXDdd4KHajuDgEQzmd6BAgpEAU&biw=360&bih=640&dpr=3#ip=1">http://google.com/search?sa=N&amp;q=What+are+built-in+objects%3F&amp;ved=2ahUKEwjGnMzGx5nyAhXDdd4KHajuDgEQzmd6BAgpEAU&amp;biw=360&amp;bih=640&amp;dpr=3#ip=1</a></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-HTML学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >HTML学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-01-23T11:28:36.000Z" itemprop="datePublished">2021-01-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><p>结构 : HTML(超文本标记语言)</p>
+<p>表现 : CSS(层叠样式表)</p>
+<p>行为 : JavaScript(脚本语言)</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards">Web 和 Web标准</a></p> 
+      <a class="article-more-link" href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-dos命令"
   class="article article-type-post"
   itemscope

@@ -44,6 +44,29 @@
   </entry>
   
   <entry>
+    <title>原神同人作品</title>
+    <link href="https://morlvoid.github.io/2023/11/07/%E5%8E%9F%E7%A5%9E%E5%90%8C%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+    <id>https://morlvoid.github.io/2023/11/07/%E5%8E%9F%E7%A5%9E%E5%90%8C%E4%BA%BA%E4%BD%9C%E5%93%81/</id>
+    <published>2023-11-07T08:32:43.000Z</published>
+    <updated>2023-11-17T08:43:02.479Z</updated>
+    
+    <content type="html"><![CDATA[<p>有关原神的同人作品</p><span id="more"></span><img src="xinhai.png" alt="心海"><img src="funingna.png" alt="芙宁娜">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;有关原神的同人作品&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="画廊" scheme="https://morlvoid.github.io/categories/%E7%94%BB%E5%BB%8A/"/>
+    
+    
+    <category term="芙宁娜" scheme="https://morlvoid.github.io/tags/%E8%8A%99%E5%AE%81%E5%A8%9C/"/>
+    
+    <category term="插画" scheme="https://morlvoid.github.io/tags/%E6%8F%92%E7%94%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript 数据类型转换-JS中的字符串是不是对象</title>
     <link href="https://morlvoid.github.io/2023/09/15/JavaScript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2-JS%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E8%B1%A1/"/>
     <id>https://morlvoid.github.io/2023/09/15/JavaScript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2-JS%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E8%B1%A1/</id>
@@ -481,30 +504,6 @@
 &lt;li&gt;可插入性和易于调试：如果某个特定对象出现问题，您可以简单地将其从应用程序中删除，然后插入一个不同的对象作为替代。这类似于解决现实世界中的机械问题。如果螺栓断裂，则更换&lt;em&gt;它&lt;/em&gt;，而不是整台机器。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Node" scheme="https://morlvoid.github.io/categories/Node/"/>
-    
-    
-    <category term="Java" scheme="https://morlvoid.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础</title>
-    <link href="https://morlvoid.github.io/2022/02/24/Java%E5%9F%BA%E7%A1%80/"/>
-    <id>https://morlvoid.github.io/2022/02/24/Java%E5%9F%BA%E7%A1%80/</id>
-    <published>2022-02-24T02:00:24.000Z</published>
-    <updated>2023-08-24T02:25:49.185Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>TIOBE 编程语言排行榜</p><p>Hadoop  分布式系统基础架构</p><p><a href="https://hadoop.apache.org/">Apache Hadoop</a></p><p><a href="https://www.oracle.com/index.html">ORALE ( 甲骨文 )</a></p><span id="more"></span><h4 id="IDE-集成开发环境"><a href="#IDE-集成开发环境" class="headerlink" title="IDE(集成开发环境)"></a><a href="https://baike.baidu.com/item/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/298524?fromtitle=IDE&fromid=8232086&fr=aladdin">IDE(集成开发环境)</a></h4><blockquote><p>MyElipse , Eclipse , IDEA</p><p>(MyEclipse 2017 stable)</p></blockquote><h5 id="MyElipse"><a href="#MyElipse" class="headerlink" title="MyElipse"></a>MyElipse</h5><h5 id="Eclipse"><a href="#Eclipse" class="headerlink" title="Eclipse"></a><a href="https://www.eclipse.org/downloads/">Eclipse</a></h5><h6 id="汉化过程"><a href="#汉化过程" class="headerlink" title="汉化过程 :"></a>汉化过程 :</h6><p>依次点击 : <code>help</code> , <code>Install New Software</code>, <code>Add</code> , <code>Location</code> </p><p>输入：<a href="https://download.eclipse.org/technology/babel/update-site/latest/">https://download.eclipse.org/technology/babel/update-site/latest/</a></p><p>选择<code>Babel Language Packs in Chinese (Simplified)</code> 后点击<code>next</code> , 成功后eclipse自动重启</p><h6 id="解除汉化过程"><a href="#解除汉化过程" class="headerlink" title="解除汉化过程 :"></a>解除汉化过程 :</h6><p>找到eclipse根目录 , 找到<code>eclipse.ini</code>文件右键编辑 , 在最后输入</p><p><code>-Duser.language=en</code>保存退出 </p><p>右键<code>eclipse.exe</code>发送到桌面快捷方式 , 右键选择属性 , 在目标最后输入<code> ln zh</code>点击确定</p><h5 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a><a href="https://www.jetbrains.com/idea/">IDEA</a></h5><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><h4 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h4><blockquote><p>目前版本JDK8</p><p>包含JRE和JVM</p><p>Java开发需下载完整JDK , 只运行Java只需下载JRE</p></blockquote><p><a href="https://baike.baidu.com/item/jdk/1011?fr=aladdin">JDK  Java语言的软件开发工具包</a></p><p><a href="https://baike.baidu.com/item/JRE/2902404?fr=aladdin">JRE  Java运行环境</a></p><p><a href="https://baike.baidu.com/item/JVM/2902369?fr=aladdin">JVM  Java虚拟机</a></p><p>Java SE(基础核心) : </p><ul><li>面向对象</li><li>API</li><li>JVM</li></ul><p>Java ME : </p><ul><li>移动设备</li><li>游戏</li><li>通信</li></ul><p>Java EE : </p><ul><li>JSP</li><li>EJB</li><li>服务</li></ul><p>JDK文件夹中部分文件 : </p><p>COPYRIGHT  版本;版权</p><p>LICENSE  许可证</p><p>release  发布版本</p><p>bin文件夹  : 包含JDK开发工具的可执行性文件</p><p>lib  类库</p><p>include  C语言头文件</p><p>src.zip  java源代码</p><h5 id="path配置过程"><a href="#path配置过程" class="headerlink" title="path配置过程"></a>path配置过程</h5><p>下载JDK后需配置path ( win10系统 )</p><p>复制JDK文件中<code>bin</code>的文件位置</p><p>依次打开 : 控制面板 , 系统 , 高级系统设置 , 高级 , 环境变量 , 选择系统变量中的<code>Path</code>点击编辑 , 将文件位置粘贴保存 , 并上移至第一行</p><p>参考文章 : <a href="https://thinkwon.blog.csdn.net/article/details/94353907">JDK安装与环境变量配置</a></p><h5 id="查看JDK是否配置成功"><a href="#查看JDK是否配置成功" class="headerlink" title="查看JDK是否配置成功"></a>查看JDK是否配置成功</h5><p>打开windows命令处理程序 ( win+R出入cmd )</p><p>输入 : </p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure><p>显示版本即为配置成功</p><h2 id="反编译工具"><a href="#反编译工具" class="headerlink" title="反编译工具"></a>反编译工具</h2><h4 id="jad命令"><a href="#jad命令" class="headerlink" title="jad命令"></a>jad命令</h4><p>例 : </p><p><code>Jad -s java Test.class</code></p><p><code>Jad -s java -8 Test.class</code>(含中文时)</p><h4 id="FrontEndPlus"><a href="#FrontEndPlus" class="headerlink" title="FrontEndPlus"></a>FrontEndPlus</h4><blockquote><p>图形化工具 , jad内核</p><p>需要设置 : Configuration  ,  Decompile Options , 选择convert Unicode strings into ANSI string (anti) , Update and Close</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h3&gt;&lt;p&gt;TIOBE 编程语言排行榜&lt;/p&gt;
-&lt;p&gt;Hadoop  分布式系统基础架构&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://hadoop.apache.org/&quot;&gt;Apache Hadoop&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.oracle.com/index.html&quot;&gt;ORALE ( 甲骨文 )&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     

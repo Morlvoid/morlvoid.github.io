@@ -15,6 +15,27 @@
       </tags>
   </entry>
   <entry>
+    <title>原神同人作品</title>
+    <url>/2023/11/07/%E5%8E%9F%E7%A5%9E%E5%90%8C%E4%BA%BA%E4%BD%9C%E5%93%81/</url>
+    <content><![CDATA[<p>有关原神的同人作品</p>
+<span id="more"></span>
+
+
+
+<img src="xinhai.png" alt="心海">
+
+<img src="funingna.png" alt="芙宁娜">
+
+]]></content>
+      <categories>
+        <category>画廊</category>
+      </categories>
+      <tags>
+        <tag>芙宁娜</tag>
+        <tag>插画</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 数据类型转换-JS中的字符串是不是对象</title>
     <url>/2023/09/15/JavaScript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2-JS%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<p>本文在解释 “JS中的字符串是不是对象” 这个问题之前铺垫了许多前置知识，例如JS数据类型、JS对象、JS数据类型转换。若想直接获得问题的答案，寻找目录中的“总结”查看即可。</p>

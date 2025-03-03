@@ -1189,7 +1189,7 @@
   <entry>
     <title>随笔——心理学和哲学的关系</title>
     <url>/2024/09/06/%E9%9A%8F%E7%AC%94%E2%80%94%E2%80%94%E5%BF%83%E7%90%86%E5%AD%A6%E5%92%8C%E5%93%B2%E5%AD%A6%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
-    <content><![CDATA[<p>【随笔日记】</p>
+    <content><![CDATA[<p>【随笔日记】心理学和哲学的关系</p>
 <span id="more"></span>
 
 <p>是否有一种可能，或许，人类的心理学只是把人类表现出来的行为作为依据，来推测人的心理现象及其发生发展规律。其实人类永远也不知道自己和他人的心理究竟是如何想的，一直以来所做的事情都是根据行为去猜测。其实所有的心理测试，得到的结果都只是对外在行为的总结，而非对心理原因的总结。</p>
@@ -1257,7 +1257,8 @@
   <entry>
     <title>视听语言——要点汇总</title>
     <url>/2024/04/06/%E8%A7%86%E5%90%AC%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94%E8%A6%81%E7%82%B9%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>视听语言——要点汇总</p>
+<span id="more"></span>
 
 <p>视听语言既是电影的画面、 声音艺术表现形式的代名词，又是电影艺术表现手法的总称。</p>
 <p>电影语言就是蒙太奇。 </p>
@@ -1468,7 +1469,8 @@
   <entry>
     <title>漫画创造技巧——要点汇总</title>
     <url>/2024/04/06/%E6%BC%AB%E7%94%BB%E5%88%9B%E9%80%A0%E6%8A%80%E5%B7%A7%E2%80%94%E2%80%94%E8%A6%81%E7%82%B9%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>漫画创造技巧——要点汇总</p>
+<span id="more"></span>
 
 <p>漫画作为“连续的艺术”。</p>
 <p>漫画大师：威尔·艾斯纳。</p>
@@ -1556,7 +1558,8 @@
   <entry>
     <title>动画剧本创作——要点汇总</title>
     <url>/2024/04/04/%E5%8A%A8%E7%94%BB%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E2%80%94%E2%80%94%E8%A6%81%E7%82%B9%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>动画剧本创作——要点汇总</p>
+<span id="more"></span>
 
 <p>“别给创意冠上条条框框，创意来去自如，无拘无束。”——卡姆特</p>
 <p>“要创新，不要模仿。”——华特·迪士尼</p>
@@ -2321,7 +2324,8 @@
   <entry>
     <title>Exercism.org-Java-Log Levels</title>
     <url>/2023/08/10/Exercism-org-Java-Log-Levels/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Exercism.org-Java-Log Levels</p>
+<span id="more"></span>
 
 <h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’ll be processing log-lines.</p>
 <p>Each log line is a string formatted as follows: <code>&quot;[&lt;LEVEL&gt;]: &lt;MESSAGE&gt;&quot;</code>.</p>
@@ -2424,7 +2428,8 @@
   <entry>
     <title>Exercism.org-Java-Cook your lasagna</title>
     <url>/2023/08/09/Exercism-org-Java-Cook-your-lasagna/</url>
-    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/lasagna">https://exercism.org/tracks/java/exercises/lasagna</a></p>
+    <content><![CDATA[<p>Exercism.org-Java-Cook your lasagna</p>
+<p><a href="https://exercism.org/tracks/java/exercises/lasagna">https://exercism.org/tracks/java/exercises/lasagna</a></p>
 <span id="more"></span>
 
 <h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise you’re going to write some code to help you cook a brilliant lasagna from your favorite cooking book.</p>
@@ -2500,7 +2505,8 @@
   <entry>
     <title>Exercism.org-Java-Annalyn&#39;s Infiltration</title>
     <url>/2023/08/08/Exercism-org-Java-Annalyn-s-Infiltration/</url>
-    <content><![CDATA[<p><a href="https://exercism.org/tracks/java/exercises/annalyns-infiltration">https://exercism.org/tracks/java/exercises/annalyns-infiltration</a></p>
+    <content><![CDATA[<p>Exercism.org-Java-Annalyn’s Infiltration</p>
+<p><a href="https://exercism.org/tracks/java/exercises/annalyns-infiltration">https://exercism.org/tracks/java/exercises/annalyns-infiltration</a></p>
 <span id="more"></span>
 
 <h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>In this exercise, you’ll be implementing the quest logic for a new RPG game a friend is developing. The game’s main character is Annalyn, a brave girl with a fierce and loyal pet dog. Unfortunately, disaster strikes, as her best friend was kidnapped while searching for berries in the forest. Annalyn will try to find and free her best friend, optionally taking her dog with her on this quest.</p>
@@ -2689,7 +2695,8 @@
   <entry>
     <title>Electron学习笔记</title>
     <url>/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Electron学习笔记</p>
+<span id="more"></span>
 
 <h1 id="Electron-简介"><a href="#Electron-简介" class="headerlink" title="Electron 简介"></a>Electron 简介</h1><p>Electron（官网：<a href="https://www.electronjs.org/zh/">https://www.electronjs.org/zh/</a>）是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源框架。</p>
 <h1 id="官网消息2023-8"><a href="#官网消息2023-8" class="headerlink" title="官网消息2023.8"></a>官网消息2023.8</h1><h3 id="22-x-y-持续支持​"><a href="#22-x-y-持续支持​" class="headerlink" title="22.x.y 持续支持​"></a>22.x.y 持续支持<a href="https://www.electronjs.org/zh/blog/electron-25-0#22xy-%E6%8C%81%E7%BB%AD%E6%94%AF%E6%8C%81" title="链接到 22.x.y 持续支持">​</a></h3><p>正如<a href="https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice">再见 Windows 7&#x2F;8&#x2F;8.1</a> 所述，Electron 22（Chromium 108）的计划寿命终止日期将从 2023 年 5 月 30 日延长至 2023 年 10 月 10 日。 Electron 团队将会继续向 Electron 22 提供本计划中的任何安全修复，直到 2023 年 10 月 10 日。 十月 支持日期遵循 Chromium 和 Microsoft 的延长支持日期。 10 月 11 日，Electron 团队将支持回退到最新的三个稳定主要版本，将不再支持 Windows 7&#x2F;8&#x2F;8.1。</p>
@@ -3445,7 +3452,8 @@
   <entry>
     <title>Ubuntu22.04安装MySQL流程</title>
     <url>/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Ubuntu22.04安装MySQL流程</p>
+<span id="more"></span>
 
 
 <h4 id="1、安装服务器端"><a href="#1、安装服务器端" class="headerlink" title="1、安装服务器端"></a>1、安装服务器端</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install mysql-server</span><br></pre></td></tr></table></figure>
@@ -3685,7 +3693,8 @@
   <entry>
     <title>Java对象和类</title>
     <url>/2022/03/04/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Java对象和类</p>
+<span id="more"></span>
 
 <h1 id="对象与类"><a href="#对象与类" class="headerlink" title="对象与类"></a>对象与类</h1><h2 id="面向对象程序设计概述"><a href="#面向对象程序设计概述" class="headerlink" title="面向对象程序设计概述"></a>面向对象程序设计概述</h2><p>传统的结构化程序设计通过设计一系列的过程（即算法）来求解问题。面向对象程序设计(object-oriented programming , OOP) 将数据放在第一位 , 然后再考虑操作数据的算法 , 更加适合解决规模较大的问题 .</p>
 <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>由类构造（construct）对象的过程称为创建类的实例。<br>封装（encapsulation有时称为数据隐藏）是处理对象的一个重要概念。从形式上看，封装就是将数据和行为组合在一个包中，并对对象的使用者隐藏具体的实现方式。对象中的数据称为实例字段，操作数据的过程称为方法。</p>
@@ -3774,7 +3783,8 @@
   <entry>
     <title>Java基础语法</title>
     <url>/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Java基础语法</p>
+<span id="more"></span>
 
 <h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
 <p><strong>软件对象也由状态和相关行为组成。</strong></p>
@@ -4075,7 +4085,8 @@
   <entry>
     <title>Java基础</title>
     <url>/2022/02/24/Java%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>Java基础</p>
+<span id="more"></span>
 
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>TIOBE 编程语言排行榜</p>
 <p>Hadoop  分布式系统基础架构</p>
@@ -4377,7 +4388,8 @@
   <entry>
     <title>cropper剪裁插件的用法</title>
     <url>/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>cropper剪裁插件的用法</p>
+<span id="more"></span>
 
 <p>使用方法：加载的文件必须按照顺序加载三个js</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../assets/lib/cropper/cropper.css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/cropper/Cropper.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/cropper/jquery-cropper.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -4504,7 +4516,8 @@
   <entry>
     <title>JavaScript对象相关笔记</title>
     <url>/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>JavaScript对象相关笔记</p>
+<span id="more"></span>
 
 <h5 id="原生对象"><a href="#原生对象" class="headerlink" title="原生对象"></a>原生对象</h5><p><u><strong>ECMA-262</strong></u>把<strong>本地对象（native object）定义为 “ 独立于宿主环境的 ECMAScript 实现提供的对象”</strong></p>
 <p>“ 本地对象 ” 包含哪些内容：</p>
@@ -4645,7 +4658,8 @@
   <entry>
     <title>前端技术查询</title>
     <url>/2021/04/20/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%9F%A5%E8%AF%A2/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>前端技术查询</p>
+<span id="more"></span>
 
 <h3 id="PC端网站"><a href="#PC端网站" class="headerlink" title="PC端网站"></a>PC端网站</h3><ul>
 <li>掘金社区</li>
@@ -4695,7 +4709,8 @@
   <entry>
     <title>HTML学习笔记</title>
     <url>/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>HTML学习笔记</p>
+<span id="more"></span>
 
 <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><p>结构 : HTML(超文本标记语言)</p>
 <p>表现 : CSS(层叠样式表)</p>
@@ -4984,7 +4999,8 @@
   <entry>
     <title>dos命令存档</title>
     <url>/2020/08/02/dos%E5%91%BD%E4%BB%A4%E5%AD%98%E6%A1%A3/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>dos命令存档</p>
+<span id="more"></span>
 
 <h4 id="打开命令窗口"><a href="#打开命令窗口" class="headerlink" title="打开命令窗口"></a>打开命令窗口</h4><ol>
 <li>开始+系统+命令提示符</li>

@@ -730,6 +730,18 @@
       </tags>
   </entry>
   <entry>
+    <title>写给自己的启蒙书</title>
+    <url>/2025/06/03/%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%90%AF%E8%92%99%E4%B9%A6/</url>
+    <content><![CDATA[<p>一本写给自己的启蒙书——又名《》……还没有想好。</p>
+<p>目前还是学习笔记，涵盖从数学、英语、物理为基础到计算机组成原理、数据结构等等内容的、从零开始学起的启蒙笔记。这么说可能有点奇怪，真的要从1+1&#x3D;2和电池有正极和负极写到人工智能算法吗？或许会这样写的。日后有机会将这本笔记整理成书。</p>
+<span id="more"></span>
+
+<h1 id="第一章：前置知识：数学、英语与物理基础"><a href="#第一章：前置知识：数学、英语与物理基础" class="headerlink" title="第一章：前置知识：数学、英语与物理基础"></a>第一章：前置知识：数学、英语与物理基础</h1><h2 id="1-1-数学基础"><a href="#1-1-数学基础" class="headerlink" title="1.1 数学基础"></a>1.1 数学基础</h2><h2 id="1-2-英语基础"><a href="#1-2-英语基础" class="headerlink" title="1.2 英语基础"></a>1.2 英语基础</h2><h2 id="1-3-物理基础（电学）"><a href="#1-3-物理基础（电学）" class="headerlink" title="1.3 物理基础（电学）"></a>1.3 物理基础（电学）</h2><h1 id="第二章：计算机组成原理"><a href="#第二章：计算机组成原理" class="headerlink" title="第二章：计算机组成原理"></a>第二章：计算机组成原理</h1>]]></content>
+      <categories>
+        <category>Hello, 赛博世界</category>
+      </categories>
+  </entry>
+  <entry>
     <title>从零开始的Android APP开发——迹忆（InnerTrace-jiyi-Diary）</title>
     <url>/2025/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android-APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E8%BF%B9%E5%BF%86%EF%BC%88InnerTrace-jiyi-Diary%EF%BC%89/</url>
     <content><![CDATA[<p>突发奇想想要开发一款日记APP，用帮助用户多方面观察自己、记录自己、比昨天进步一点点。之前没有接触过Android开发，于是从零开始学起了，本篇为APP：迹忆（InnerTrace-jiyi-Diary）学习路程和开发日记。</p>

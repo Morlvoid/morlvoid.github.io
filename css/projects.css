@@ -2,15 +2,15 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  gap: 45px;
   margin-top: 3rem;
-  margin-left: 10rem;
+  margin-left: 8rem;
 }
 /* 项目卡片样式 */
 .project-card {
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 50px;
+  padding: 40px;
   transition: transform 0.3s;
   overflow: hidden;
   background: #fff;

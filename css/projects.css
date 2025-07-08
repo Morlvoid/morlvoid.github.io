@@ -1,0 +1,50 @@
+/* 项目网格布局 */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 3rem;
+  margin-left: 10rem;
+}
+/* 项目卡片样式 */
+.project-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 50px;
+  transition: transform 0.3s;
+  overflow: hidden;
+  background: #fff;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.project-card img {
+  width: 50%;
+  height: 50%;
+  margin-left: 20%;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+.project-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+}
+.project-card p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+.project-link {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #3498db;
+  color: #fff !important;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.project-link:hover {
+  background: #2980b9;
+}

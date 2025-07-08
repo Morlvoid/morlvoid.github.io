@@ -3,7 +3,8 @@
 
 <html lang="zh-CN">
   
-
+    <!-- 项目页面样式 -->
+    <link rel="stylesheet" href="/css/projects.css">
     <head>
       <meta charset="utf-8" />
        
@@ -56,33 +57,49 @@
     
       
     <main class="content on">
-      {% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
-
-{% block content %}
-  <div class="content-wrapper">
-    <div id="content" class="content">
-      <h1 class="post-title">{{ page.title }}</h1>
-      <div class="post-content">
-        {{ page.content }}
-        <!-- 项目展示区域 -->
-        <div class="project-grid">
-          {% for project in theme.projects %}
-          <div class="project-card">
-            <img src="{{ project.cover }}" alt="{{ project.title }}">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <a href="{{ project.url }}" target="_blank">查看项目</a>
-          </div>
-          {% endfor %}
+      
+  <div class="project-grid">
+    
+      
+        <div class="project-card">
+          <img src="/images/InnerTrace.png" alt="InnerTrace-XinJiDiary">
+          <h3>InnerTrace-XinJiDiary</h3>
+          <p>心记日记</p>
+          <a href="https://xin-ji-diary-web-demo.vercel.app/" target="_blank" class="project-link">
+            查看项目
+          </a>
         </div>
-      </div>
-    </div>
-    {% include '_partial/sidebar.swig' %}
+      
+        <div class="project-card">
+          <img src="/images/mirror.svg" alt="My-Manual">
+          <h3>My-Manual</h3>
+          <p>我的说明书</p>
+          <a href="http://manual.morlvoid.pro/" target="_blank" class="project-link">
+            查看项目
+          </a>
+        </div>
+      
+        <div class="project-card">
+          <img src="/images/kirara.png" alt="Krrara主页">
+          <h3>Krrara主页</h3>
+          <p>Kirara的游戏城</p>
+          <a href="https://kirarakira.github.io/" target="_blank" class="project-link">
+            查看项目
+          </a>
+        </div>
+      
+        <div class="project-card">
+          <img src="/images/SSDS.png" alt="SSDS主页">
+          <h3>SSDS主页</h3>
+          <p>构成14.4班毕业展</p>
+          <a href="https://ssdsbakery.github.io/" target="_blank" class="project-link">
+            查看项目
+          </a>
+        </div>
+      
+    
   </div>
-{% endblock %}
+
       <footer class="footer">
   <div class="outer">
     <ul>

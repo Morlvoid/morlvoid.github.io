@@ -181,9 +181,8 @@
 <li><strong>域名所有权验证 (最重要的一步！)：</strong><ul>
 <li>阿里云会弹出一个窗口，<strong>要求您添加一条CNAME记录到您的域名DNS解析中！</strong></li>
 <li>记录类型： <strong>CNAME</strong></li>
-<li>主机记录： <strong>系统自动生成的值</strong>，通常形如 <code>_dnsauth.www</code> (如果绑定 <code>www.yourdomain.com</code>) 或 <code>_dnsauth</code> (如果绑定根域名 <code>yourdomain.com</code>)。 <strong>务必复制准确！</strong></li>
-<li>记录值： <strong>系统自动生成的值</strong>，形如 <code>xxxxxxx.oss-cn-hangzhou.aliyuncs.com.xxxxx.aliyuncs.com</code>。 <strong>务必复制准确！</strong></li>
-<li><strong>不要关闭这个窗口！</strong></li>
+<li>主机记录： <strong>系统自动生成的值</strong>，通常形如 <code>_dnsauth.www</code> (如果绑定 <code>www.yourdomain.com</code>) 或 <code>_dnsauth</code> (如果绑定根域名 <code>yourdomain.com</code>)。 </li>
+<li>记录值： <strong>系统自动生成的值</strong>，形如 <code>oss-cn-hangzhou.aliyuncs.com.xxxxx.aliyuncs.com</code>。</li>
 </ul>
 </li>
 <li><strong>立即操作DNS：</strong><ul>
@@ -207,7 +206,7 @@
 <li><strong>绑定成功：</strong><ul>
 <li>当验证通过且HTTPS证书部署完成（如果开启），阿里云会提示 <strong>“域名绑定成功”</strong>。</li>
 <li>此时，在“域名管理”列表里，您能看到状态为 <strong>“正常”</strong> 的域名 <code>www.yourdomain.com</code>，并且HTTPS状态为 <strong>“已开启”</strong>。</li>
-<li><strong>最关键信息出现：</strong> 在这个域名旁边或详情里，您会看到阿里云为您的CDN加速生成的 <strong>CNAME地址&#x2F;Endpoint</strong>！它的格式通常是：<code>www.yourdomain.com.&lt;随机字符&gt;.aliyuncs.com</code> 或 <code>my-static-website.&lt;随机字符&gt;.oss-accelerate.aliyuncs.com</code>。 **复制保存好这个地址！(这就是你的配送中心地址！)</li>
+<li><strong>最关键信息出现：</strong> 在这个域名旁边或详情里，您会看到阿里云为您的CDN加速生成的 <strong>CNAME地址&#x2F;Endpoint</strong>！它的格式通常是：<code>www.yourdomain.com.&lt;随机字符&gt;.aliyuncs.com</code> 或 <code>my-static-website.&lt;随机字符&gt;.oss-accelerate.aliyuncs.com</code>。</li>
 </ul>
 </li>
 </ol>

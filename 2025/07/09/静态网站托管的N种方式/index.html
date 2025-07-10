@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">4.9k</span>
+            <span class="post-count">4.7k</span>
         </span>
     </span>
 
@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">18 分钟</span>
+            <span class="post-count">17 分钟</span>
         </span>
     </span>
 </div>
@@ -128,11 +128,11 @@
 <ol>
 <li>登录OSS控制台。</li>
 <li>点击“Bucket列表”，创建 Bucket，选择地域为 <strong>“中国香港”</strong> 或其他海外节点</li>
-<li>填写配置：<ul>
-<li><strong>Bucket名称：</strong> 全局唯一，如 <code>my-static-website</code> (用作店铺地址的一部分)。</li>
-<li><strong>地域：</strong> 选择离您目标用户近的区域，如 <code>华东1（杭州）</code> (选好地皮位置)。</li>
-<li><strong>存储类型：</strong> 选<code>标准存储</code> (适合频繁访问)。</li>
-<li><strong>读写权限：</strong> <strong>务必选 <code>公共读</code></strong> (否则用户无法访问你的文件)。</li>
+<li>填写配置（华东举例）：<ul>
+<li><strong>Bucket名称：</strong> 全局唯一，如 <code>my-static-website</code> 。</li>
+<li><strong>地域：</strong> 选择离您目标用户近的区域，如 <code>华东1（杭州）</code> 。</li>
+<li><strong>存储类型：</strong> 选<code>标准存储</code>。</li>
+<li><strong>读写权限：</strong> <strong>务必选 <code>公共读</code></strong> 。</li>
 <li><strong>其他选项：</strong> 如版本控制、日志等，按需开启，新手可默认。</li>
 </ul>
 </li>
@@ -140,14 +140,14 @@
 <p><strong>Bucket名称最好与你的二级域名一致或相关</strong>（例如 <code>blog-yourdomain-com</code>）。<strong>注意：</strong> Bucket名称全局唯一。</p>
 <p>选择与你的用户靠近的<strong>地域</strong>。</p>
 <p><strong>读写权限</strong>设置为<strong>公共读</strong> (这是托管静态网站必须的)。</p>
-<h4 id="步骤2：开启静态托管"><a href="#步骤2：开启静态托管" class="headerlink" title="步骤2：开启静态托管"></a>步骤2：开启静态托管</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">基础设置 → 静态页面 → 设置：</span><br><span class="line"><span class="bullet">-</span> 状态：开通</span><br><span class="line"><span class="bullet">-</span> 默认首页：index.html</span><br><span class="line"><span class="bullet">-</span> 默认404页：404.html (可选)</span><br></pre></td></tr></table></figure>
+<h4 id="步骤2：开启静态托管"><a href="#步骤2：开启静态托管" class="headerlink" title="步骤2：开启静态托管"></a>步骤2：开启静态托管</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据管理 → 静态页面 → 设置：</span><br><span class="line"><span class="bullet">-</span> 状态：开通</span><br><span class="line"><span class="bullet">-</span> 默认首页：index.html</span><br><span class="line"><span class="bullet">-</span> 默认404页：404.html (可选)</span><br></pre></td></tr></table></figure>
 
 <p>阿里云OSS控制台 -&gt; 进入您刚创建的Bucket (<code>my-static-website</code>) -&gt; 左侧菜单</p>
 <ol>
-<li>在Bucket管理页面，点击左侧菜单 <strong>“基础设置”</strong>。</li>
-<li>找到 <strong>“静态页面”</strong> 或 <strong>“静态网站托管”</strong> 选项。</li>
-<li>点击 <strong>“配置”</strong> 或 <strong>“设置”</strong>。</li>
-<li>选择 <strong>“静态网站托管”</strong> 模式 (通常有“关闭”、“默认首页”、“重定向”等选项，选 <strong>“默认首页”</strong> )。</li>
+<li>在Bucket管理页面，点击左侧菜单 <strong>“数据管理”</strong>。</li>
+<li>找到 <strong>“静态页面”</strong>选项。</li>
+<li>点击或 <strong>“设置”</strong>。</li>
+<li>选择 <strong>“静态网站”</strong> 模式 (通常有“关闭”、“默认首页”、“重定向”等选项，选 <strong>“默认首页”</strong> )。</li>
 <li>设置：<ul>
 <li><strong>默认首页：</strong> 输入 <code>index.html</code> (用户访问根目录时自动加载的文件)。</li>
 <li><strong>默认404页(可选)：</strong> 输入 <code>error.html</code> 或 <code>404.html</code> (访问不存在的路径时显示的文件)。</li>
@@ -156,20 +156,22 @@
 <li><strong>点击“保存”</strong>。</li>
 </ol>
 <h4 id="步骤3：上传文件"><a href="#步骤3：上传文件" class="headerlink" title="步骤3：上传文件"></a>步骤3：上传文件</h4><p>将你的静态网站文件（<code>index.html</code>, 样式表、脚本、图片等）上传到这个Bucket中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件管理 → 文件列表 → 上传文件</span><br></pre></td></tr></table></figure>
+
 <ol>
-<li>点击左侧菜单 <strong>“文件管理”</strong>。</li>
+<li>点击左侧菜单 <strong>“文件管理”</strong>中的“<strong>文件列表</strong>”。</li>
 <li>点击 <strong>“上传文件”</strong>。</li>
 <li>将您本地开发好的网站文件（<code>index.html</code>, <code>about.html</code>, <code>css/style.css</code>, <code>js/main.js</code>, <code>images/logo.png</code> 等）拖拽到上传区域，或点击选择文件。</li>
 <li>确保文件结构正确（例如，<code>index.html</code> 在根目录）。</li>
 <li>点击 <strong>“上传”</strong>。</li>
 </ol>
 <p>网站文件（菜品）已放入仓库（Bucket）。此时可通过OSS提供的临时Endpoint访问网站（能看到 <code>index.html</code> 内容），但速度慢且地址不友好。</p>
-<h4 id="步骤4：绑定域名-HTTPS"><a href="#步骤4：绑定域名-HTTPS" class="headerlink" title="步骤4：绑定域名+HTTPS"></a>步骤4：绑定域名+HTTPS</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">传输管理 → 域名管理 → 绑定域名：</span><br><span class="line"><span class="bullet">-</span> 域名：<span class="code">`blog.yourdomain.com`</span></span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`自动添加CNAME记录`</span>（域名在阿里云时）</span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`开启HTTPS`</span> + <span class="code">`强制跳转HTTPS`</span>（系统自动申请证书）</span><br></pre></td></tr></table></figure>
+<h4 id="步骤4：绑定域名-HTTPS"><a href="#步骤4：绑定域名-HTTPS" class="headerlink" title="步骤4：绑定域名+HTTPS"></a>步骤4：绑定域名+HTTPS</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bucket 配置 → 域名管理 → 绑定域名：</span><br><span class="line"><span class="bullet">-</span> 域名：<span class="code">`blog.yourdomain.com`</span></span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`自动添加CNAME记录`</span>（域名在阿里云时）</span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`开启HTTPS`</span> + <span class="code">`强制跳转HTTPS`</span>（系统自动申请证书）</span><br></pre></td></tr></table></figure>
 
-<p>阿里云OSS控制台 -&gt; 进入您的Bucket (<code>my-static-website</code>) -&gt; 左侧菜单 <strong>“传输管理” -&gt; “域名管理”</strong></p>
+<p>阿里云OSS控制台 -&gt; 进入您的Bucket (<code>my-static-website</code>) -&gt; 左侧菜单 <strong>“Bucket 配置” -&gt; “域名管理”</strong></p>
 <ol>
 <li>点击 <strong>“绑定域名”</strong>。</li>
-<li><strong>输入域名：</strong> 在“域名”框中填写您已购买并准备用于网站的自定义域名，例如 <code>www.yourdomain.com</code> (不能带 <code>http://</code> 或 <code>/</code>)。 <strong>这就是你的店名！</strong></li>
+<li><strong>输入域名：</strong> 在“域名”框中填写您已购买并准备用于网站的自定义域名，例如 <code>www.yourdomain.com</code> (不能带 <code>http://</code> 或 <code>/</code>)。 </li>
 <li><strong>开启HTTPS (强烈推荐)：</strong><ul>
 <li>勾选 <strong>“自动开启HTTPS安全加速”</strong> 或类似选项。</li>
 <li>阿里云会<strong>自动</strong>为您申请并部署免费的 <strong>DigiCert DV 单域名证书</strong> (或 Let’s Encrypt)。过程完全托管，无需手动操作证书。</li>
@@ -212,7 +214,7 @@
 <h4 id="步骤5：获取Endpoint"><a href="#步骤5：获取Endpoint" class="headerlink" title="步骤5：获取Endpoint"></a>步骤5：获取Endpoint</h4><p><strong>获取OSS Bucket的访问端点</strong>，即获取OSS Bucket的CNAME目标地址。</p>
 <p>上一步（绑定域名+HTTPS成功）后自动获得。</p>
 <ol>
-<li>在阿里云OSS控制台 -&gt; Bucket (<code>my-static-website</code>) -&gt; “传输管理” -&gt; “域名管理”。</li>
+<li>在阿里云OSS控制台 -&gt; Bucket (<code>my-static-website</code>) -&gt; “Bucket 配置” -&gt; “域名管理”。</li>
 <li>找到状态为“正常”的已绑定域名 <code>www.yourdomain.com</code>。</li>
 <li>在对应的“CNAME”或“加速域名”列下，找到那个长字符串地址。它就是 <strong>Endpoint &#x2F; CNAME目标地址</strong>。</li>
 <li><strong>复制</strong> 这个完整的Endpoint地址。例如：<code>www.yourdomain.com.w.kunlunca.com</code> 或 <code>my-static-website.oss-accelerate.aliyuncs.com</code> (具体格式阿里云可能会变，认准它是CNAME值)。</li>
@@ -225,35 +227,35 @@
 <thead>
 <tr>
 <th align="left">地域</th>
-<th align="left">Endpoint格式</th>
-<th align="left">实际示例</th>
+<th align="left">Endpoint（地域节点）</th>
+<th align="left">Bucket 域名</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="left">华北1（青岛）</td>
-<td align="left"><code>bucketname.oss-cn-qingdao.aliyuncs.com</code></td>
+<td align="left"><code>oss-cn-qingdao.aliyuncs.com</code></td>
 <td align="left"><code>myblog.oss-cn-qingdao.aliyuncs.com</code></td>
 </tr>
 <tr>
 <td align="left">华东1（杭州）</td>
-<td align="left"><code>bucketname.oss-cn-hangzhou.aliyuncs.com</code></td>
+<td align="left"><code>oss-cn-hangzhou.aliyuncs.com</code></td>
 <td align="left"><code>static.oss-cn-hangzhou.aliyuncs.com</code></td>
 </tr>
 <tr>
 <td align="left">华南1（深圳）</td>
-<td align="left"><code>bucketname.oss-cn-shenzhen.aliyuncs.com</code></td>
+<td align="left"><code>oss-cn-shenzhen.aliyuncs.com</code></td>
 <td align="left"><code>images.oss-cn-shenzhen.aliyuncs.com</code></td>
 </tr>
 <tr>
 <td align="left">香港</td>
-<td align="left"><code>bucketname.oss-cn-hongkong.aliyuncs.com</code></td>
+<td align="left"><code>oss-cn-hongkong.aliyuncs.com</code></td>
 <td align="left"><code>cdn.oss-cn-hongkong.aliyuncs.com</code></td>
 </tr>
 </tbody></table>
 <p><strong>重要注意事项：</strong></p>
 <ol>
 <li><p><strong>必须复制完整域名</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 正确：your-bucket.oss-cn-beijing.aliyuncs.com</span><br><span class="line">- 错误：oss-cn-beijing.aliyuncs.com （缺少Bucket名前缀）</span><br><span class="line">- 错误：your-bucket （不完整）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 正确：oss-cn-beijing.aliyuncs.com</span><br><span class="line">- 错误：your-bucket （不完整）</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>地域匹配验证</strong></p>
 <ul>
@@ -261,18 +263,7 @@
 <li>确保Endpoint中的地域代码（如 <code>cn-beijing</code>）与实际地域一致</li>
 </ul>
 </li>
-<li><p><strong>HTTPS支持</strong><br>所有OSS Endpoint均自动支持HTTPS访问，直接使用即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://your-bucket.oss-cn-region.aliyuncs.com</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p><strong>验证Endpoint是否有效：</strong></p>
-<p>在浏览器地址栏输入（替换为您的实际Endpoint）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://[您的Bucket名称].oss-[地域].aliyuncs.com/测试文件名</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>若显示文件内容 → Endpoint正确</li>
-<li>若提示 <code>NoSuchKey</code> → 文件路径错误（但Endpoint有效）</li>
-<li>若完全无法访问 → Endpoint配置错误</li>
-</ul>
 <h4 id="步骤6：解析域名"><a href="#步骤6：解析域名" class="headerlink" title="步骤6：解析域名"></a>步骤6：解析域名</h4><p><strong>阿里云解析设置 (CNAME)</strong></p>
 <p><strong>进入域名控制台</strong>，<strong>域名注册商控制台</strong> (和之前添加验证记录是同一个地方)</p>
 <ul>

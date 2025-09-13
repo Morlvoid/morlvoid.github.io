@@ -16,7 +16,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>八芒星：荣格八维可视化图表工具--思路日志 |  Mor | void</title>
+      <title>从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary） |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -59,7 +59,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-八芒星：荣格八维可视化图表工具--思路日志"
+  id="post-从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -70,7 +70,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  八芒星：荣格八维可视化图表工具--思路日志
+  从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）
 </h1>
  
 
@@ -78,11 +78,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/07/26/%E5%85%AB%E8%8A%92%E6%98%9F%EF%BC%9A%E8%8D%A3%E6%A0%BC%E5%85%AB%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7--%E6%80%9D%E8%B7%AF%E6%97%A5%E5%BF%97/" class="article-date">
-  <time datetime="2025-07-26T07:14:07.000Z" itemprop="datePublished">2025-07-26</time>
+      <a href="/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" class="article-date">
+  <time datetime="2023-05-26T13:18:43.000Z" itemprop="datePublished">2023-05-26</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%84%91%E5%86%85BUG%E5%AE%9E%E5%BD%95/">脑内BUG实录</a>
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
   </div>
   
 <div class="word_count">
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">478</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -99,7 +99,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -114,31 +114,138 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>这是一个根据荣格八维衍生设计的可视化八芒星模型。</p>
-<p>使用链接：<a target="_blank" rel="noopener" href="https://octagram.morlvoid.pro/">八芒星</a></p>
+  <p>突发奇想想要开发一款日记APP，用帮助用户多方面观察自己、记录自己、比昨天进步一点点。之前没有接触过Android开发，于是从零开始学起了，本篇为APP：心迹日记（InnerTrace-XinJiDiary）学习路程和开发日记。</p>
+<p>WebDemo试用地址：<a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">心迹日记Demo</a></p>
+<p><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">心迹日记（[InnerTrace-XinJiDiary]</a></p>
 <span id="more"></span>
 
-<h2 id="理论依据"><a href="#理论依据" class="headerlink" title="理论依据"></a>理论依据</h2><p>[荣格八维测试](<a target="_blank" rel="noopener" href="https://www.jungus.cn/test/">https://www.jungus.cn/test/</a>)</p>
-<h2 id="初步设计"><a href="#初步设计" class="headerlink" title="初步设计"></a>初步设计</h2><ol>
-<li><strong>意识与无意识的层次（两个圆）：</strong><ul>
-<li><strong>大圆：</strong> 代表整体的心理领域，包含意识（小圆内）和部分靠近意识的无意识（大圆与小圆之间的环带）。</li>
-<li><strong>小圆：</strong> 代表清晰的<strong>意识</strong>层面。</li>
+<h1 id="Day-1–2025-5-26"><a href="#Day-1–2025-5-26" class="headerlink" title="Day 1–2025.5.26"></a>Day 1–2025.5.26</h1><h4 id="一、项目构思与需求分析"><a href="#一、项目构思与需求分析" class="headerlink" title="一、项目构思与需求分析"></a><strong>一、项目构思与需求分析</strong></h4><ol>
+<li><strong>核心理念</strong><ul>
+<li><strong>目标</strong>：通过日记记录帮助用户“<strong>记录自己，观察自己，发现自己，认识自己的需求，提升自己</strong>”。</li>
+<li><strong>核心功能</strong>：<ul>
+<li><strong>动态模板</strong>：学习、减肥、心情自愈等场景化记录模板。</li>
+<li><strong>数据智能</strong>：自动卡路里计算、情绪分析书籍推荐。</li>
+<li><strong>数据可视化</strong>：生成成长曲线与统计图表。</li>
 </ul>
 </li>
-<li><strong>功能态度（两个四芒星）：</strong><ul>
-<li><strong>大四芒星（外倾功能 - e）：</strong> 位于小圆之外、大圆之内，象征外倾功能主要活跃在意识与无意识的交界地带，是意识努力去<strong>整合和运用</strong>的对象（因为它们更适应外部世界）。它们属于意识可触及但可能还未完全熟练掌握或处于发展中的部分。</li>
-<li><strong>小四芒星（内倾功能 - i）：</strong> 完全位于小圆之内，象征内倾功能是<strong>意识的根基和核心</strong>。它们更主观、内省，是判断和感知的内在标准，因此被清晰地包含在意识圈内。</li>
-<li><strong>黑底白边：</strong> 形成鲜明对比，清晰地区分出两组功能。</li>
-<li><strong>四芒星造型：</strong> 比简单的点或线更能代表功能的“方向性”（感知&#x2F;判断）和“态度”（内倾&#x2F;外倾）。四个角代表四种功能（F&#x2F;T&#x2F;S&#x2F;N），两两相对（如 Ti-Fe, Te-Fi, Si-Ne, Se-Ni）。</li>
 </ul>
 </li>
-<li><strong>个体功能发展（黄色八角星）：</strong><ul>
-<li><strong>连接八个端点：</strong> 完美地对应荣格的八个心理功能。</li>
-<li><strong>黄色：</strong> 代表个体的独特性、意识的光芒和实际的发展水平。在黑白背景上非常突出。</li>
-<li><strong>数值映射（0-40）：</strong> 直接使用测试分数，直观显示每个功能的相对强度。端点位置由该功能的分数决定（离中心点的距离按比例计算）。</li>
+<li><strong>用户需求</strong><ul>
+<li>记录日常行为（学习时长、体重变化、情绪波动）。</li>
+<li>获得个性化反馈（如连续情绪低落时推荐心理学书籍）。</li>
+<li>多维度数据回顾（周&#x2F;月&#x2F;年趋势分析）。</li>
+</ul>
+</li>
+<li>详细功能构思<ul>
+<li>在众多社交平台发现一件事情：大家各自有各自的烦恼，然而都是有烦恼但不自知，不知道自己为什么有这个烦恼，没有自己观察过自己都因为什么事情而烦恼，进而也没想过去搜一搜查一查改善一下烦恼。</li>
+<li>日记其实是个很好的东西，他是自我观察自我进步最简便的方式。</li>
+<li>心迹日记这个日记最主要的目的是观察自己从来没观察过的角度，认识每一天的自己，发现自己每一天的变化，提高对自己的认识。</li>
+<li>我将准备21天为一个周期的日记模板，例如：观察自己的心情、观察自己的全面发展、学习情况、减肥情况、身体状况、家庭宠物情况等等。</li>
+<li>模板初级为21天养成计划，21天后模版会变得不太一样，提供一些开放式栏目，配一些专业书籍，比如，减肥营养学、人际关系心理学。即：根据用户使用模板的频率提供能帮助到用户的书。</li>
+<li>hi～你已经写了21天坏情绪日记啦～向你推荐一本书或许会对你有帮助，阅读一下书放松一下吧～</li>
 </ul>
 </li>
 </ol>
+<hr>
+<h4 id="二、技术准备与学习"><a href="#二、技术准备与学习" class="headerlink" title="二、技术准备与学习"></a><strong>二、技术准备与学习</strong></h4><ol>
+<li><strong>技术栈确认</strong><ul>
+<li><strong>语言</strong>：Kotlin（Android 官方推荐）。</li>
+<li><strong>架构</strong>：MVVM + Clean Architecture（分层解耦）。</li>
+<li><strong>数据库</strong>：Room + SQLite（本地存储）。</li>
+<li><strong>网络</strong>：Retrofit（未来集成卡路里 API）。</li>
+<li><strong>界面</strong>：Jetpack Compose（现代声明式 UI）。</li>
+</ul>
+</li>
+<li><strong>学习资源</strong><ul>
+<li>官方文档（Android Developers、Kotlin 指南）。</li>
+<li>开源项目参考（如 SimpleNote、Journey 日记类 App）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="三、项目管理与仓库搭建"><a href="#三、项目管理与仓库搭建" class="headerlink" title="三、项目管理与仓库搭建"></a><strong>三、项目管理与仓库搭建</strong></h4><ol>
+<li><strong>GitHub 仓库创建</strong><ul>
+<li><strong>仓库名</strong>：<code>InnerTrace-XinJiDiary</code></li>
+<li><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-jiyi-Diary">心迹日记（<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">InnerTrace-XinJiDiary</a>）</a></li>
+<li><strong>关键文件</strong>：<ul>
+<li><code>README.md</code>：项目介绍、技术栈、快速开始指南。</li>
+<li><code>CONTRIBUTING.md</code>：贡献规范（分支管理、代码风格）。</li>
+<li><code>LICENSE</code>：GPL3.0 开源协议。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>分支策略</strong><ul>
+<li><code>main</code>：稳定版本分支（仅通过 Pull Request 合并）。</li>
+<li><code>feat/*</code>：功能开发分支（如 <code>feat/setup-core-module</code>）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="四、项目初始化与结构搭建"><a href="#四、项目初始化与结构搭建" class="headerlink" title="四、项目初始化与结构搭建"></a><strong>四、项目初始化与结构搭建</strong></h4><ol>
+<li><strong>模块化架构设计</strong><ul>
+<li><strong>核心模块</strong>：<ul>
+<li><code>app</code>：主应用入口（含启动页、导航）。</li>
+<li><code>core</code>：通用组件（主题、工具类、基础 UI）。</li>
+<li><code>feature</code>：功能模块（日记、统计、推荐）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>关键配置完成</strong><ul>
+<li><strong>Gradle 依赖管理</strong>：统一版本号（<code>libs.versions.toml</code>）。</li>
+<li><strong>settings.gradle</strong>：声明模块依赖关系。</li>
+<li><strong>.gitignore</strong>：排除 IDE 缓存、构建文件。</li>
+</ul>
+</li>
+<li><strong>首次代码提交</strong><ul>
+<li>完成 <code>core</code> 模块基础代码（主题、工具类）。</li>
+<li>提交并推送至 <code>feat/setup-core-module</code> 分支。</li>
+</ul>
+</li>
+</ol>
+<h5 id="4-1标准模块化-Android-项目结构"><a href="#4-1标准模块化-Android-项目结构" class="headerlink" title="4.1标准模块化 Android 项目结构"></a><strong>4.1标准模块化 Android 项目结构</strong></h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">InnerTrace-XinJiDiary/    # 🌟根目录（项目名）</span><br><span class="line">├── app/                  # 🏠主模块（应用入口，必须存在）</span><br><span class="line">│   ├── src/              # 主代码目录</span><br><span class="line">│   │   ├── main/         # 正式环境代码</span><br><span class="line">│   │   │   ├── java/     # Java/Kotlin 代码</span><br><span class="line">│   │   │   ├── res/      # 资源文件（布局、图片、字符串等）</span><br><span class="line">│   │   │   └── AndroidManifest.xml  # 应用清单文件</span><br><span class="line">│   ├── build.gradle      # 🔧模块级配置（依赖、插件）</span><br><span class="line">├── core/                 # 📦基础模块（通用工具、主题、组件）</span><br><span class="line">│   ├── src/main/         # 结构同 app 模块</span><br><span class="line">│   └── build.gradle</span><br><span class="line">├── feature/              # 🧩功能模块（按业务拆分，如日记、统计）</span><br><span class="line">│   ├── diary/            # 日记功能模块</span><br><span class="line">│   │   ├── src/main/</span><br><span class="line">│   │   └── build.gradle</span><br><span class="line">│   └── statistics/       # 数据统计模块</span><br><span class="line">│       ├── src/main/</span><br><span class="line">│       └── build.gradle</span><br><span class="line">├── gradle/               # 🧰Gradle 包装器（确保构建一致性）</span><br><span class="line">│   └── wrapper/</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── build.gradle          # ⚙️项目级配置（全局依赖版本管理）</span><br><span class="line">├── settings.gradle       # 🔗模块依赖声明（必须！）</span><br><span class="line">├── .gitignore            # 🚫排除无需版本控制的文件</span><br><span class="line">├── README.md             # 📖项目说明文档</span><br><span class="line">├── LICENSE               # 📜开源协议</span><br><span class="line">└── CONTRIBUTING.md       # 👥贡献指南</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="五、问题解决与优化"><a href="#五、问题解决与优化" class="headerlink" title="五、问题解决与优化"></a><strong>五、问题解决与优化</strong></h4><ol>
+<li><strong>Git 操作问题</strong><ul>
+<li>修复分支跟踪错误（<code>git branch --set-upstream-to</code>）。</li>
+<li>解决推送后文件未显示问题（检查 <code>.gitignore</code> 与提交范围）。</li>
+</ul>
+</li>
+<li><strong>项目结构调整</strong><ul>
+<li>清理冗余目录（<code>.idea</code>、<code>External Libraries</code>）。</li>
+<li>规范文件位置（<code>LICENSE</code>、<code>README.md</code> 移至根目录）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="六、下一步开发计划"><a href="#六、下一步开发计划" class="headerlink" title="六、下一步开发计划"></a><strong>六、下一步开发计划</strong></h4><ol>
+<li><strong>核心功能实现</strong><ul>
+<li>完成 <code>feature/diary</code> 模块的模板动态渲染。</li>
+<li>集成 Room 数据库（日记数据存储与查询）。</li>
+</ul>
+</li>
+<li><strong>推荐系统开发</strong><ul>
+<li>实现情绪分析规则引擎（负面情绪占比 &gt;70% 时触发推荐）。</li>
+</ul>
+</li>
+<li><strong>测试与优化</strong><ul>
+<li>编写单元测试（卡路里计算逻辑、推荐规则）。</li>
+<li>优化 UI 动画与交互细节。</li>
+</ul>
+</li>
+<li><strong>发布准备</strong><ul>
+<li>配置 GitHub Actions 自动化构建。</li>
+<li>准备 Google Play 上架材料（应用截图、描述文案）。</li>
+</ul>
+</li>
+</ol>
+<h1 id="Day-2–2025-6-5"><a href="#Day-2–2025-6-5" class="headerlink" title="Day 2–2025.6.5"></a>Day 2–2025.6.5</h1><h4 id="一、网页版Demo开发试用"><a href="#一、网页版Demo开发试用" class="headerlink" title="一、网页版Demo开发试用"></a>一、网页版Demo开发试用</h4><p>地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/XinJiDiary-WebDemo">https://github.com/Morlvoid/XinJiDiary-WebDemo</a></p>
+<h1 id="Day-3–2025-6-11"><a href="#Day-3–2025-6-11" class="headerlink" title="Day 3–2025.6.11"></a>Day 3–2025.6.11</h1><h4 id="一、网页版Demo部署"><a href="#一、网页版Demo部署" class="headerlink" title="一、网页版Demo部署"></a>一、网页版Demo部署</h4><p>部署地址：</p>
+<p><a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">http://xinjidiary.morlvoid.pro/</a></p>
  
       <!-- reward -->
       
@@ -203,12 +310,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2025/07/26/%E5%85%AB%E8%8A%92%E6%98%9F%EF%BC%9A%E8%8D%A3%E6%A0%BC%E5%85%AB%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7--%E6%80%9D%E8%B7%AF%E6%97%A5%E5%BF%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%93%B2%E5%AD%A6/" rel="tag">哲学</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-xinyi-Diary%EF%BC%89/" rel="tag">心迹日记（InnerTrace-xinyi-Diary）</a></li></ul>
 
     </footer>
   </div>
@@ -216,19 +323,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2025/09/04/UX-TA%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" class="article-nav-link">
+      <a href="/2023/06/19/YAML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            UX/TA学习开发日志
+            YAML学习笔记
           
         </div>
       </a>
     
     
-      <a href="/2025/07/09/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E7%9A%84N%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="article-nav-link">
+      <a href="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">静态网站托管的N种方式</div>
+        <div class="article-nav-title">Ubuntu22.04安装MySQL流程</div>
       </a>
     
   </nav>

@@ -16,7 +16,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary） |  Mor | void</title>
+      <title>原创企划-游鲸 |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -59,7 +59,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）"
+  id="post-原创企划-游鲸"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -70,7 +70,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）
+  原创企划-游鲸
 </h1>
  
 
@@ -78,11 +78,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" class="article-date">
-  <time datetime="2025-05-26T13:18:43.000Z" itemprop="datePublished">2025-05-26</time>
+      <a href="/2021/05/12/%E5%8E%9F%E5%88%9B%E4%BC%81%E5%88%92-%E6%B8%B8%E9%B2%B8/" class="article-date">
+  <time datetime="2021-05-12T14:49:58.000Z" itemprop="datePublished">2021-05-12</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+    <a class="article-category-link" href="/categories/%E8%84%91%E6%B4%9EOC%E7%AE%A1%E7%90%86%E5%B1%80/">脑洞OC管理局</a>
   </div>
   
 <div class="word_count">
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.4k</span>
+            <span class="post-count">1.6k</span>
         </span>
     </span>
 
@@ -114,138 +114,283 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>突发奇想想要开发一款日记APP，用帮助用户多方面观察自己、记录自己、比昨天进步一点点。之前没有接触过Android开发，于是从零开始学起了，本篇为APP：心迹日记（InnerTrace-XinJiDiary）学习路程和开发日记。</p>
-<p>WebDemo试用地址：<a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">心迹日记Demo</a></p>
-<p><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">心迹日记（[InnerTrace-XinJiDiary]</a></p>
+  <p>[本篇为原创游戏企划相关内容存档]</p>
+<p>企划主页：<a target="_blank" rel="noopener" href="http://jing17.morlvoid.pro/">http://jing17.morlvoid.pro/</a></p>
 <span id="more"></span>
 
-<h1 id="Day-1–2025-5-26"><a href="#Day-1–2025-5-26" class="headerlink" title="Day 1–2025.5.26"></a>Day 1–2025.5.26</h1><h4 id="一、项目构思与需求分析"><a href="#一、项目构思与需求分析" class="headerlink" title="一、项目构思与需求分析"></a><strong>一、项目构思与需求分析</strong></h4><ol>
-<li><strong>核心理念</strong><ul>
-<li><strong>目标</strong>：通过日记记录帮助用户“<strong>记录自己，观察自己，发现自己，认识自己的需求，提升自己</strong>”。</li>
-<li><strong>核心功能</strong>：<ul>
-<li><strong>动态模板</strong>：学习、减肥、心情自愈等场景化记录模板。</li>
-<li><strong>数据智能</strong>：自动卡路里计算、情绪分析书籍推荐。</li>
-<li><strong>数据可视化</strong>：生成成长曲线与统计图表。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>用户需求</strong><ul>
-<li>记录日常行为（学习时长、体重变化、情绪波动）。</li>
-<li>获得个性化反馈（如连续情绪低落时推荐心理学书籍）。</li>
-<li>多维度数据回顾（周&#x2F;月&#x2F;年趋势分析）。</li>
-</ul>
-</li>
-<li>详细功能构思<ul>
-<li>在众多社交平台发现一件事情：大家各自有各自的烦恼，然而都是有烦恼但不自知，不知道自己为什么有这个烦恼，没有自己观察过自己都因为什么事情而烦恼，进而也没想过去搜一搜查一查改善一下烦恼。</li>
-<li>日记其实是个很好的东西，他是自我观察自我进步最简便的方式。</li>
-<li>心迹日记这个日记最主要的目的是观察自己从来没观察过的角度，认识每一天的自己，发现自己每一天的变化，提高对自己的认识。</li>
-<li>我将准备21天为一个周期的日记模板，例如：观察自己的心情、观察自己的全面发展、学习情况、减肥情况、身体状况、家庭宠物情况等等。</li>
-<li>模板初级为21天养成计划，21天后模版会变得不太一样，提供一些开放式栏目，配一些专业书籍，比如，减肥营养学、人际关系心理学。即：根据用户使用模板的频率提供能帮助到用户的书。</li>
-<li>hi～你已经写了21天坏情绪日记啦～向你推荐一本书或许会对你有帮助，阅读一下书放松一下吧～</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h4 id="二、技术准备与学习"><a href="#二、技术准备与学习" class="headerlink" title="二、技术准备与学习"></a><strong>二、技术准备与学习</strong></h4><ol>
-<li><strong>技术栈确认</strong><ul>
-<li><strong>语言</strong>：Kotlin（Android 官方推荐）。</li>
-<li><strong>架构</strong>：MVVM + Clean Architecture（分层解耦）。</li>
-<li><strong>数据库</strong>：Room + SQLite（本地存储）。</li>
-<li><strong>网络</strong>：Retrofit（未来集成卡路里 API）。</li>
-<li><strong>界面</strong>：Jetpack Compose（现代声明式 UI）。</li>
-</ul>
-</li>
-<li><strong>学习资源</strong><ul>
-<li>官方文档（Android Developers、Kotlin 指南）。</li>
-<li>开源项目参考（如 SimpleNote、Journey 日记类 App）。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h4 id="三、项目管理与仓库搭建"><a href="#三、项目管理与仓库搭建" class="headerlink" title="三、项目管理与仓库搭建"></a><strong>三、项目管理与仓库搭建</strong></h4><ol>
-<li><strong>GitHub 仓库创建</strong><ul>
-<li><strong>仓库名</strong>：<code>InnerTrace-XinJiDiary</code></li>
-<li><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-jiyi-Diary">心迹日记（<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">InnerTrace-XinJiDiary</a>）</a></li>
-<li><strong>关键文件</strong>：<ul>
-<li><code>README.md</code>：项目介绍、技术栈、快速开始指南。</li>
-<li><code>CONTRIBUTING.md</code>：贡献规范（分支管理、代码风格）。</li>
-<li><code>LICENSE</code>：GPL3.0 开源协议。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>分支策略</strong><ul>
-<li><code>main</code>：稳定版本分支（仅通过 Pull Request 合并）。</li>
-<li><code>feat/*</code>：功能开发分支（如 <code>feat/setup-core-module</code>）。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h4 id="四、项目初始化与结构搭建"><a href="#四、项目初始化与结构搭建" class="headerlink" title="四、项目初始化与结构搭建"></a><strong>四、项目初始化与结构搭建</strong></h4><ol>
-<li><strong>模块化架构设计</strong><ul>
-<li><strong>核心模块</strong>：<ul>
-<li><code>app</code>：主应用入口（含启动页、导航）。</li>
-<li><code>core</code>：通用组件（主题、工具类、基础 UI）。</li>
-<li><code>feature</code>：功能模块（日记、统计、推荐）。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>关键配置完成</strong><ul>
-<li><strong>Gradle 依赖管理</strong>：统一版本号（<code>libs.versions.toml</code>）。</li>
-<li><strong>settings.gradle</strong>：声明模块依赖关系。</li>
-<li><strong>.gitignore</strong>：排除 IDE 缓存、构建文件。</li>
-</ul>
-</li>
-<li><strong>首次代码提交</strong><ul>
-<li>完成 <code>core</code> 模块基础代码（主题、工具类）。</li>
-<li>提交并推送至 <code>feat/setup-core-module</code> 分支。</li>
-</ul>
-</li>
-</ol>
-<h5 id="4-1标准模块化-Android-项目结构"><a href="#4-1标准模块化-Android-项目结构" class="headerlink" title="4.1标准模块化 Android 项目结构"></a><strong>4.1标准模块化 Android 项目结构</strong></h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">InnerTrace-XinJiDiary/    # 🌟根目录（项目名）</span><br><span class="line">├── app/                  # 🏠主模块（应用入口，必须存在）</span><br><span class="line">│   ├── src/              # 主代码目录</span><br><span class="line">│   │   ├── main/         # 正式环境代码</span><br><span class="line">│   │   │   ├── java/     # Java/Kotlin 代码</span><br><span class="line">│   │   │   ├── res/      # 资源文件（布局、图片、字符串等）</span><br><span class="line">│   │   │   └── AndroidManifest.xml  # 应用清单文件</span><br><span class="line">│   ├── build.gradle      # 🔧模块级配置（依赖、插件）</span><br><span class="line">├── core/                 # 📦基础模块（通用工具、主题、组件）</span><br><span class="line">│   ├── src/main/         # 结构同 app 模块</span><br><span class="line">│   └── build.gradle</span><br><span class="line">├── feature/              # 🧩功能模块（按业务拆分，如日记、统计）</span><br><span class="line">│   ├── diary/            # 日记功能模块</span><br><span class="line">│   │   ├── src/main/</span><br><span class="line">│   │   └── build.gradle</span><br><span class="line">│   └── statistics/       # 数据统计模块</span><br><span class="line">│       ├── src/main/</span><br><span class="line">│       └── build.gradle</span><br><span class="line">├── gradle/               # 🧰Gradle 包装器（确保构建一致性）</span><br><span class="line">│   └── wrapper/</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── build.gradle          # ⚙️项目级配置（全局依赖版本管理）</span><br><span class="line">├── settings.gradle       # 🔗模块依赖声明（必须！）</span><br><span class="line">├── .gitignore            # 🚫排除无需版本控制的文件</span><br><span class="line">├── README.md             # 📖项目说明文档</span><br><span class="line">├── LICENSE               # 📜开源协议</span><br><span class="line">└── CONTRIBUTING.md       # 👥贡献指南</span><br></pre></td></tr></table></figure>
 
 
-
-<hr>
-<h4 id="五、问题解决与优化"><a href="#五、问题解决与优化" class="headerlink" title="五、问题解决与优化"></a><strong>五、问题解决与优化</strong></h4><ol>
-<li><strong>Git 操作问题</strong><ul>
-<li>修复分支跟踪错误（<code>git branch --set-upstream-to</code>）。</li>
-<li>解决推送后文件未显示问题（检查 <code>.gitignore</code> 与提交范围）。</li>
+<h2 id="世界观三大圈层与七大状态"><a href="#世界观三大圈层与七大状态" class="headerlink" title="世界观三大圈层与七大状态"></a>世界观三大圈层与七大状态</h2><h4 id="三大圈层"><a href="#三大圈层" class="headerlink" title="三大圈层"></a>三大圈层</h4><p>1.精神<br>2.原则<br>3.物质</p>
+<h4 id="七大状态"><a href="#七大状态" class="headerlink" title="七大状态"></a>七大状态</h4><p>1.完全依赖精神<br>2.由精神向外延伸影响个人行为原则<br>3.由精神向外延伸影响个人行为原则和整个人的行为举止<br>4.完全依赖物质<br>5.由物质向内延伸影响个人行为原则<br>6.由物质向内延伸影响个人行为原则和个人精神思想<br>7.精神与物质互相影响统一</p>
+<h4 id="七大状态区分逻辑"><a href="#七大状态区分逻辑" class="headerlink" title="七大状态区分逻辑"></a><strong>七大状态区分逻辑</strong></h4><ol>
+<li><strong>本体论纯度</strong><ul>
+<li>类别1与4为极端本体论立场（纯粹精神&#x2F;物质）</li>
+<li>类别7为对立统一的中和路径</li>
 </ul>
 </li>
-<li><strong>项目结构调整</strong><ul>
-<li>清理冗余目录（<code>.idea</code>、<code>External Libraries</code>）。</li>
-<li>规范文件位置（<code>LICENSE</code>、<code>README.md</code> 移至根目录）。</li>
+<li><strong>影响方向性</strong><ul>
+<li>类别2-3：精神向外辐射（从理念到行动）</li>
+<li>类别5-6：物质向内渗透（从环境到认知）</li>
 </ul>
 </li>
-</ol>
-<hr>
-<h4 id="六、下一步开发计划"><a href="#六、下一步开发计划" class="headerlink" title="六、下一步开发计划"></a><strong>六、下一步开发计划</strong></h4><ol>
-<li><strong>核心功能实现</strong><ul>
-<li>完成 <code>feature/diary</code> 模块的模板动态渲染。</li>
-<li>集成 Room 数据库（日记数据存储与查询）。</li>
-</ul>
-</li>
-<li><strong>推荐系统开发</strong><ul>
-<li>实现情绪分析规则引擎（负面情绪占比 &gt;70% 时触发推荐）。</li>
-</ul>
-</li>
-<li><strong>测试与优化</strong><ul>
-<li>编写单元测试（卡路里计算逻辑、推荐规则）。</li>
-<li>优化 UI 动画与交互细节。</li>
-</ul>
-</li>
-<li><strong>发布准备</strong><ul>
-<li>配置 GitHub Actions 自动化构建。</li>
-<li>准备 Google Play 上架材料（应用截图、描述文案）。</li>
+<li><strong>实践深度</strong><ul>
+<li>行为原则（浅层规则） vs 行为举止（深层习惯）</li>
+<li>例如：义务论（规则） vs 斯多葛主义（生活方式）</li>
 </ul>
 </li>
 </ol>
-<h1 id="Day-2–2025-6-5"><a href="#Day-2–2025-6-5" class="headerlink" title="Day 2–2025.6.5"></a>Day 2–2025.6.5</h1><h4 id="一、网页版Demo开发试用"><a href="#一、网页版Demo开发试用" class="headerlink" title="一、网页版Demo开发试用"></a>一、网页版Demo开发试用</h4><p>地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/XinJiDiary-WebDemo">https://github.com/Morlvoid/XinJiDiary-WebDemo</a></p>
-<h1 id="Day-3–2025-6-11"><a href="#Day-3–2025-6-11" class="headerlink" title="Day 3–2025.6.11"></a>Day 3–2025.6.11</h1><h4 id="一、网页版Demo部署"><a href="#一、网页版Demo部署" class="headerlink" title="一、网页版Demo部署"></a>一、网页版Demo部署</h4><p>部署地址：</p>
-<p><a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">http://xinjidiary.morlvoid.pro/</a></p>
+<h2 id="七大状态分类的13神"><a href="#七大状态分类的13神" class="headerlink" title="七大状态分类的13神"></a>七大状态分类的13神</h2><table>
+<thead>
+<tr>
+<th><strong>类别</strong></th>
+<th><strong>定义</strong></th>
+<th><strong>关键词</strong></th>
+<th>对应OC席位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 完全依赖精神</strong></td>
+<td>世界本质完全由精神或意识构成</td>
+<td>理念、直觉、灵性、超越</td>
+<td>7<br>11</td>
+</tr>
+<tr>
+<td><strong>2. 精神→行为原则</strong></td>
+<td>以精神为核心制定行为规范</td>
+<td>道德律令、品格完善、绝对命令</td>
+<td>6<br>10</td>
+</tr>
+<tr>
+<td><strong>3. 精神→行为原则+举止</strong></td>
+<td>精神塑造整体生存方式</td>
+<td>克己、自由选择、知行合一</td>
+<td>3<br>2-1（夜）</td>
+</tr>
+<tr>
+<td><strong>4. 完全依赖物质</strong></td>
+<td>世界本质由物质构成</td>
+<td>物理实体、客观规律、实证</td>
+<td>12<br>4<br></td>
+</tr>
+<tr>
+<td><strong>5. 物质→行为原则</strong></td>
+<td>物质条件决定行为准则</td>
+<td>实效、多数利益、工具理性</td>
+<td>8<br>9</td>
+</tr>
+<tr>
+<td><strong>6. 物质→行为原则+精神</strong></td>
+<td>物质基础反向塑造思想</td>
+<td>经济决定、阶级意识、文化塑造</td>
+<td>5<br>13（阿贝斯）<br>2-2（昼）</td>
+</tr>
+<tr>
+<td><strong>7. 精神与物质统一</strong></td>
+<td>双向动态影响不可分割</td>
+<td>矛盾转化、有机整体、心物一体</td>
+<td>1（菱）</td>
+</tr>
+</tbody></table>
+<h3 id="分类详表"><a href="#分类详表" class="headerlink" title="分类详表"></a><strong>分类详表</strong></h3><table>
+<thead>
+<tr>
+<th><strong>类别</strong></th>
+<th><strong>定义</strong></th>
+<th><strong>典型流派</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 完全依赖精神</strong></td>
+<td>世界本质完全由精神或意识构成</td>
+<td>- 唯心主义  <br>- 神秘主义  <br>- 超验主义<br></td>
+</tr>
+<tr>
+<td><strong>2. 精神→行为原则</strong></td>
+<td>以精神为核心制定行为规范</td>
+<td>- 义务论  <br>- 德性伦理学</td>
+</tr>
+<tr>
+<td><strong>3. 精神→行为原则+举止</strong></td>
+<td>精神塑造整体生存方式</td>
+<td>- 斯多葛主义 <br><br>- 存在主义（责任维度）</td>
+</tr>
+<tr>
+<td><strong>4. 完全依赖物质</strong></td>
+<td>世界本质由物质构成</td>
+<td>- 唯物主义  <br>- 科学实在论</td>
+</tr>
+<tr>
+<td><strong>5. 物质→行为原则</strong></td>
+<td>物质条件决定行为准则</td>
+<td>- 实用主义  <br>- 功利主义<br>- <strong>怀疑主义</strong></td>
+</tr>
+<tr>
+<td><strong>6. 物质→行为原则+精神</strong></td>
+<td>物质基础反向塑造思想</td>
+<td>- 历史唯物论 <br>- <strong>酒神精神</strong><br>- 社会建构主义</td>
+</tr>
+<tr>
+<td><strong>7. 精神与物质统一</strong></td>
+<td>双向动态影响不可分割</td>
+<td>- 辩证法  <br>- 过程哲学  <br>- 泛心论<br>- <strong>荒诞主义</strong><br>- <strong>解构主义</strong></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>哲学流派</th>
+<th><strong>核心特征</strong></th>
+<th>核心思想</th>
+<th>代表名言</th>
+<th>代表人物</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 完全依赖精神</strong></td>
+<td><strong>唯心主义</strong></td>
+<td>否定物质的独立性，强调意识本体</td>
+<td>精神是世界的本源，物质是意识的投射</td>
+<td>“存在即被感知”（Esse est percipi）</td>
+<td>贝克莱、黑格尔</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>神秘主义</strong></td>
+<td></td>
+<td>通过直觉与灵性体验直接触及终极真理</td>
+<td>“真理在寂静中被知晓”</td>
+<td>普罗提诺、埃克哈特</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>超验主义</strong></td>
+<td></td>
+<td>精神超越物质，个体灵魂与宇宙合一</td>
+<td>“世界是精神的象征”（The world is emblematic of spirit）</td>
+<td>爱默生、梭罗</td>
+</tr>
+<tr>
+<td><strong>2. 精神→行为原则</strong></td>
+<td><strong>义务论</strong></td>
+<td>通过内在理念约束外部行为</td>
+<td>行为的道德性取决于是否符合绝对律令</td>
+<td>“要这样行动：你的行为准则能成为普遍法则”</td>
+<td>康德</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>德性伦理学</strong></td>
+<td></td>
+<td>道德的核心是培养卓越品格而非遵循规则</td>
+<td>“德性是一种中庸之道”</td>
+<td>亚里士多德</td>
+</tr>
+<tr>
+<td><strong>3. 精神→行为原则+举止</strong></td>
+<td><strong>斯多葛主义</strong></td>
+<td>内外一致的精神实践</td>
+<td>通过理性控制情感，顺应自然法则生活</td>
+<td>“控制你能控制的，接受你不能控制的”</td>
+<td>爱比克泰德、塞涅卡</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>存在主义（责任维度）</strong></td>
+<td></td>
+<td>自由选择决定存在本质，需承担选择后果</td>
+<td>“人被判定为自由”（L’homme est condamné à être libre）</td>
+<td>萨特</td>
+</tr>
+<tr>
+<td><strong>4. 完全依赖物质</strong></td>
+<td><strong>唯物主义</strong></td>
+<td>精神为物质产物或副现象</td>
+<td>物质是唯一实在，意识是物质的产物</td>
+<td>“不是意识决定存在，而是存在决定意识”</td>
+<td>马克思</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>科学实在论</strong></td>
+<td></td>
+<td>科学描述的物理实体独立于人类感知存在</td>
+<td>“电子真实存在，即使我们看不见”</td>
+<td>罗素、波普尔</td>
+</tr>
+<tr>
+<td><strong>5. 物质→行为原则</strong></td>
+<td><strong>实用主义</strong></td>
+<td>依现实效用调整行动</td>
+<td>真理是能产生实际效用的观念</td>
+<td>“真理即有用”（Truth is what works）</td>
+<td>威廉·詹姆斯、杜威</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>功利主义</strong></td>
+<td></td>
+<td>道德的最高标准是最大化整体幸福</td>
+<td>“最大多数人的最大幸福”</td>
+<td>边沁、密尔</td>
+</tr>
+<tr>
+<td><strong>6. 物质→行为原则+精神</strong></td>
+<td><strong>历史唯物论</strong></td>
+<td>物质环境渗透价值观</td>
+<td>经济基础决定社会结构与意识形态</td>
+<td>“物质生活的生产方式制约着整个社会生活”</td>
+<td>马克思</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>社会建构主义</strong></td>
+<td></td>
+<td>知识与价值观由社会互动与物质实践塑造</td>
+<td>“现实是社会建构的”（The reality is socially constructed）</td>
+<td>伯格、卢克曼</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>酒神精神</strong></td>
+<td></td>
+<td>在毁灭与创造的交织中体验生命的壮美</td>
+<td>“生命必须被肯定，直到它的最后一刻，直到它的痛苦、它的无常、它的谜团都被肯定。”</td>
+<td>尼采</td>
+</tr>
+<tr>
+<td><strong>7. 精神与物质统一</strong></td>
+<td><strong>辩证法</strong></td>
+<td>拒绝主次之分</td>
+<td>矛盾双方通过对立统一推动发展</td>
+<td>“矛盾是一切运动的根源”</td>
+<td>黑格尔、马克思</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>过程哲学</strong></td>
+<td></td>
+<td>实在的本质是动态的生成过程</td>
+<td>“现实即生成”（Reality is a process）</td>
+<td>怀特海</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>泛心论</strong></td>
+<td></td>
+<td>物质与精神是同一实体的两面</td>
+<td>“每一粒尘埃都包含着宇宙的精神”</td>
+<td>斯宾诺莎、莱布尼茨</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>解构主义</strong></td>
+<td></td>
+<td></td>
+<td>“文本之外别无他物”</td>
+<td>德里达</td>
+</tr>
+</tbody></table>
  
       <!-- reward -->
       
@@ -310,12 +455,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2025/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2021/05/12/%E5%8E%9F%E5%88%9B%E4%BC%81%E5%88%92-%E6%B8%B8%E9%B2%B8/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-xinyi-Diary%EF%BC%89/" rel="tag">心迹日记（InnerTrace-xinyi-Diary）</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E5%BF%B5%E8%89%BA%E6%9C%AF/" rel="tag">概念艺术</a></li></ul>
 
     </footer>
   </div>
@@ -323,19 +468,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2025/06/03/%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%90%AF%E8%92%99%E4%B9%A6/" class="article-nav-link">
+      <a href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            写给自己的启蒙书
+            JavaScript对象相关笔记
           
         </div>
       </a>
     
     
-      <a href="/2025/05/19/%E6%88%91%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/" class="article-nav-link">
+      <a href="/2021/04/20/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">“我”的使用说明书</div>
+        <div class="article-nav-title">前端技术总结</div>
       </a>
     
   </nav>

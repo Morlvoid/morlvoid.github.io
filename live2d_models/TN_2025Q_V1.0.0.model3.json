@@ -1,1 +1,0 @@
-{"Version":3,"FileReferences":{"Moc":"TN_2025Q_V1.0.0.moc3","Textures":["TN_2025Q_V1.0.0.4096/texture_00.png","TN_2025Q_V1.0.0.4096/texture_01.png","TN_2025Q_V1.0.0.4096/texture_02.png"],"Physics":"TN_2025Q_V1.0.0.physics3.json","DisplayInfo":"TN_2025Q_V1.0.0.cdi3.json"},"Groups":[{"Target":"Parameter","Name":"LipSync","Ids":[]},{"Target":"Parameter","Name":"EyeBlink","Ids":[]}]}

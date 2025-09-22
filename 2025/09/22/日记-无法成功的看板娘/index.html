@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>日记--无法成功的看板娘 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-日记-无法成功的看板娘"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  日记--无法成功的看板娘
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/09/22/%E6%97%A5%E8%AE%B0-%E6%97%A0%E6%B3%95%E6%88%90%E5%8A%9F%E7%9A%84%E7%9C%8B%E6%9D%BF%E5%A8%98/" class="article-date">
+  <time datetime="2025-09-22T13:46:25.000Z" itemprop="datePublished">2025-09-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">20 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>突发奇想要给博客装一个live2D的看板娘，尝试了一下基本确认是模型本身太复杂导致目前所有的live2D插件都无法兼容，目前兼容最好的是<a target="_blank" rel="noopener" href="https://github.com/oh-my-live2d/oh-my-live2d">oh-my-live2d</a>，但也依然无法正常显示模型。决定留给日后学习自己制作live2D模型时再做简化。</p>
+<span id="more"></span>
+
+<h3 id="1-Vtuber-Studio-中使用的模型文件"><a href="#1-Vtuber-Studio-中使用的模型文件" class="headerlink" title="1. Vtuber Studio 中使用的模型文件"></a>1. Vtuber Studio 中使用的模型文件</h3><p>Vtuber Studio（以及大多数Vtuber软件如VUP、PrprLive等）使用的Live2D模型通常是一个<strong>打包好的成品文件</strong>，目的是为了方便导入和运行。</p>
+<ul>
+<li><strong>核心文件</strong>：<ul>
+<li><code>*.cmo3</code> 文件：这是最常见的格式。它是由Live2D Cubism Editor导出的一种<strong>整合包</strong>，里面已经包含了模型数据（moc3）、纹理（图片）、物理、动作（motion）、表情（expression）等所有必要文件。用户只需要这一个文件即可导入软件。</li>
+<li><code>[模型名称].model3.json</code>：有时软件也会要求这种格式。它本质上是一个<strong>模型配置清单文件</strong>（JSON格式），但它需要与一个包含所有资源（moc3文件、纹理集、动作等）的文件夹配套使用。</li>
+</ul>
+</li>
+<li><strong>支持文件</strong>：<ul>
+<li>纹理图片（通常是<code>.png</code>格式）</li>
+<li>动作文件（<code>.motion3.json</code>）</li>
+<li>表情文件（<code>.exp3.json</code>）</li>
+<li>物理文件（<code>.physics3.json</code>）</li>
+<li>等等。但这些文件通常都被打包在<code>.cmo3</code>里了，用户看不见。</li>
+</ul>
+</li>
+</ul>
+<p><strong>特点</strong>：<strong>封闭、整合</strong>。为了方便普通用户，所有东西都打包在一起，只需一键导入。</p>
+<hr>
+<h3 id="2-个人博客看板娘使用的文件"><a href="#2-个人博客看板娘使用的文件" class="headerlink" title="2. 个人博客看板娘使用的文件"></a>2. 个人博客看板娘使用的文件</h3><p>网页端的Live2D看板娘（例如使用<code>hexo-helper-live2d</code>、<code>Live2D Widget</code>等插件）需要被浏览器加载和渲染，因此文件必须是<strong>离散的、可被网络请求的</strong>。</p>
+<ul>
+<li><strong>核心文件</strong>：<ul>
+<li><code>[模型名称].model3.json</code>：<strong>这是必须的！</strong> 它是模型的“说明书”，告诉JavaScript库如何组装这个模型，比如moc文件在哪、贴图用哪张、动作和表情文件有哪些。</li>
+<li><code>*.moc3</code> 文件：这是模型的<strong>核心骨骼和变形数据</strong>，由Cubism Editor导出，是二进制文件。</li>
+<li><strong>纹理图片</strong>：通常是<code>.png</code>格式的图片，可能有多张（如<code>texture_00.png</code>, <code>texture_01.png</code>）。</li>
+<li><strong>动作文件</strong>：<code>.motion3.json</code> 文件，定义了模型的一系列动作。</li>
+<li><strong>表情文件</strong>：<code>.exp3.json</code> 文件，定义了模型的各种表情。</li>
+<li><strong>物理文件</strong>：<code>.physics3.json</code> 文件，定义了头发、衣物等部位的物理模拟规则。</li>
+<li><strong>其他</strong>：可能还包括<code>pose.json</code>（初始姿势）和<code>userdata.json</code>等。</li>
+</ul>
+</li>
+</ul>
+<p><strong>特点</strong>：<strong>开放、离散</strong>。每个文件都是独立的，需要被网页逐个请求加载。</p>
+<hr>
+<h3 id="3-两者有很大的区别吗？"><a href="#3-两者有很大的区别吗？" class="headerlink" title="3. 两者有很大的区别吗？"></a>3. 两者有很大的区别吗？</h3><p><strong>有很大的区别，但核心模型数据是相通的。</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">Vtuber Studio 模型</th>
+<th align="left">网页看板娘模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>格式</strong></td>
+<td align="left">主要是单一的 <code>.cmo3</code> <strong>整合包</strong></td>
+<td align="left">离散的多个文件（<code>.model3.json</code>, <code>.moc3</code>, <code>.png</code> 等）</td>
+</tr>
+<tr>
+<td align="left"><strong>目的</strong></td>
+<td align="left">为桌面软件优化，一键导入</td>
+<td align="left">为网络加载优化，可分块请求</td>
+</tr>
+<tr>
+<td align="left"><strong>使用方式</strong></td>
+<td align="left">封闭，用户不直接操作内部文件</td>
+<td align="left">开放，需要明确指定每个文件的路径</td>
+</tr>
+<tr>
+<td align="left"><strong>核心数据</strong></td>
+<td align="left">内部包含 <code>.moc3</code> 和纹理</td>
+<td align="left">外部需要 <code>.moc3</code> 和纹理文件</td>
+</tr>
+</tbody></table>
+<p><strong>简单比喻</strong>：</p>
+<ul>
+<li><strong>Vtuber Studio的<code>.cmo3</code></strong> 像一个压缩好的<code>.zip</code>安装包，双击就能安装。</li>
+<li><strong>网页看板娘</strong> 像是一个文件夹里的<strong>源代码</strong>和<strong>资源文件</strong>，需要被程序读取并组装。</li>
+</ul>
+<p>它们的底层都是Live2D Cubism引擎，所以模型本身（moc3数据）是通用的，只是<strong>打包和分发的方式不同</strong>。</p>
+<hr>
+<h3 id="4-如何将Vtuber-Studio的模型变为博客看板娘？"><a href="#4-如何将Vtuber-Studio的模型变为博客看板娘？" class="headerlink" title="4. 如何将Vtuber Studio的模型变为博客看板娘？"></a>4. 如何将Vtuber Studio的模型变为博客看板娘？</h3><p>这是最关键的一步。因为你手里只有<code>.cmo3</code>文件，而网页需要离散的文件。你有以下几个选择，按推荐度排序：</p>
+<h4 id="如果有原始模型文件（最佳方案）"><a href="#如果有原始模型文件（最佳方案）" class="headerlink" title="如果有原始模型文件（最佳方案）"></a>如果有原始模型文件（最佳方案）</h4><p>这是最直接、最完美的方法。<code>.cmo3</code>文件是<strong>无法反向解包</strong>出原始离散文件的。</p>
+<ul>
+<li><strong>联系模型师</strong>：直接联系为你制作模型的画师或模型师，向他说明你需要将模型用于网页端，<strong>请他提供“用于Web发布的模型文件包”</strong>。</li>
+<li><strong>他会提供什么</strong>：一个包含<code>model3.json</code>、<code>.moc3</code>、所有<code>.png</code>贴图、以及<code>motions</code>（动作）文件夹的完整资源包。你只需要把这个文件夹放到你的博客目录下，并在看板娘插件中配置<code>model.json</code>的路径即可。</li>
+</ul>
+<p>文件夹结构通常如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">your_model/</span><br><span class="line">├── your_model.model3.json  &lt;-- 这是核心配置文件</span><br><span class="line">├── your_model.moc3</span><br><span class="line">├── texture_00.png</span><br><span class="line">├── texture_01.png</span><br><span class="line">└── motions/</span><br><span class="line">    ├── idle.motion3.json</span><br><span class="line">    ├── tap_body.motion3.json</span><br><span class="line">    └── ...</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>将整个 <code>your_model</code> 文件夹上传到你的博客服务器或博客相关的目录下（例如 <code>/live2d_models/your_model/</code>）。</p>
+</li>
+<li><p>根据你使用的看板娘插件（如 <code>hexo-helper-live2d</code>），在博客的配置文件中指定模型路径：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">your_model</span> <span class="comment"># 模型文件夹名称</span></span><br><span class="line">    <span class="attr">scale:</span> <span class="number">0.8</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>插件会自动去找到 <code>/live2d_models/your_model/your_model.model3.json</code> 文件并加载。</p>
+</li>
+</ol>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>这里以TN_2025Q_V1.0.0模型举例，模型作者：TN酱</p>
+<p><strong>核心必需文件（有了这些，看板娘就能正常运行）：</strong></p>
+<ul>
+<li><code>TN_2025Q_V1.0.0.model3.json</code>：<strong>这是最重要的配置文件</strong>，是网页看板娘的“大脑”，它会告诉加载器如何使用其他所有文件。</li>
+<li><code>TN_2025Q_V1.0.0.moc3</code>：模型的<strong>核心骨骼和变形数据</strong>。</li>
+<li><code>texture_00.png</code>, <code>texture_01.png</code>, <code>texture_02.png</code>：模型的<strong>纹理贴图</strong>（皮肤、衣服等）。</li>
+</ul>
+<p><strong>增强功能文件（有了这些，看板娘会更生动）：</strong></p>
+<ul>
+<li><code>TN_2025Q_V1.0.0.physics3.json</code>：<strong>物理文件</strong>，负责让头发、尾巴、衣物等部位产生物理晃动效果。</li>
+<li><code>motions/</code> 文件夹（虽然你没列出，但 <code>model3.json</code> 里几乎肯定会引用这个文件夹）：里面应该包含了所有的<strong>动作文件</strong>（<code>.motion3.json</code>），比如 idle（待机）、tap（点击）等动作。</li>
+</ul>
+<p><strong>其他文件（与网页看板娘无关，可忽略）：</strong></p>
+<ul>
+<li><code>TN_2025Q_V1.0.0.model.moc</code>：这是旧版 Live2D Cubism 3 的模型文件，新版使用 <code>.moc3</code>，这个文件可以忽略。</li>
+<li><code>TN_2025Q_V1.0.0.cdi3.json</code>：<strong>参数定义文件</strong>，主要用于在 Live2D Cubism Editor 中编辑或在 Vtuber 软件中设置参数映射，网页端不需要。</li>
+<li><code>TN_2025Q_V1.0.0.vtube.json</code>：专门为 VTube Studio 软件生成的配置文件，包含参数映射、热键设置等，网页端不需要。</li>
+<li><code>TN_2025Q_V1.0.0.xyplugin.json</code>：可能是某个特定插件（如面捕插件）的配置文件，网页端不需要。</li>
+<li><code>items_pinned_to_model.json</code>, <code>package.json</code>：通常是模型编辑项目相关的元数据文件，网页端不需要。</li>
+</ul>
+<h3 id="使用-hexo-oh-my-live2d-插件来部署它的步骤。"><a href="#使用-hexo-oh-my-live2d-插件来部署它的步骤。" class="headerlink" title="使用 hexo-oh-my-live2d 插件来部署它的步骤。"></a>使用 <code>hexo-oh-my-live2d</code> 插件来部署它的步骤。</h3><hr>
+<h4 id="核心步骤指引"><a href="#核心步骤指引" class="headerlink" title="核心步骤指引"></a>核心步骤指引</h4><ol>
+<li><strong>安装插件</strong>：在你的 Hexo 博客根目录下，通过 npm 安装 <code>hexo-oh-my-live2d</code> 插件。</li>
+<li><strong>放置模型</strong>：将你拥有的整个模型文件包（包含 <code>model3.json</code>, <code>moc3</code>, <code>png</code> 等所有文件）放入博客目录中，例如 <code>source/live2d_models/TN_Model/</code>。</li>
+<li><strong>配置插件</strong>：在 Hexo 的全局配置文件 <code>_config.yml</code> 中添加 <code>OhMyLive2d</code> 字段进行配置，关键是指定本地模型 <code>path</code>。</li>
+<li><strong>部署验证</strong>：清理并重新生成博客，启动本地服务器查看效果。</li>
+</ol>
+<h3 id="详细操作步骤"><a href="#详细操作步骤" class="headerlink" title="详细操作步骤"></a>详细操作步骤</h3><h4 id="步骤一：安装插件"><a href="#步骤一：安装插件" class="headerlink" title="步骤一：安装插件"></a>步骤一：安装插件</h4><p>在你的 Hexo 博客根目录下，打开终端（如 Git Bash），运行以下命令安装 <code>hexo-oh-my-live2d</code> 插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-oh-my-live2d</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="步骤二：整理并放置模型文件"><a href="#步骤二：整理并放置模型文件" class="headerlink" title="步骤二：整理并放置模型文件"></a>步骤二：整理并放置模型文件</h4><ol>
+<li><p>在你的 Hexo 博客根目录下，创建一个专门存放模型的文件夹，例如 <code>source/live2d_models/</code>。这样做的好处是当执行 <code>hexo generate</code> 时，该文件夹内的内容会被复制到最终生成的静态网站中。</p>
+</li>
+<li><p>将你拥有的<strong>所有模型文件</strong>（<code>TN_2025Q_V1.0.0.model3.json</code>, <code>*.moc3</code>, <code>texture_00.png</code>, <code>texture_01.png</code>, <code>texture_02.png</code>, 以及 <strong><code>motions</code> 文件夹</strong>（如果提供的话）等）<strong>全部放入</strong>刚刚创建的 <code>source/live2d_models/</code> 文件夹下的一个子文件夹中，例如命名为 <code>TN_Model</code>。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">你的博客目录/</span><br><span class="line">├── source/</span><br><span class="line">│   └── live2d_models/</span><br><span class="line">│       └── TN_Model/</span><br><span class="line">        ├── TN_2025Q_V1.0.0.model3.json</span><br><span class="line">        ├── TN_2025Q_V1.0.0.moc3</span><br><span class="line">        ├── TN_2025Q_V1.0.0.physics3.json</span><br><span class="line">        ├── TN_2025Q_V1.0.0.cdi3.json</span><br><span class="line">        ├── texture_00.png</span><br><span class="line">        ├── texture_01.png</span><br><span class="line">        ├── texture_02.png</span><br><span class="line">        └── motions/</span><br><span class="line">            └── idle.motion3.json</span><br><span class="line">├── _config.yml</span><br><span class="line">└── themes/</span><br><span class="line">    └── ayer/</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>⚠️ <strong>非常重要</strong>：请确保 <code>motions</code> 文件夹（包含动作文件）和模型文件在同一目录下，且 <code>TN_2025Q_V1.0.0.model3.json</code> 文件中对这些资源的引用路径是正确的。通常模型师在导出时已经设置好，所以你只需保证所有文件都在同一个文件夹里即可。</p>
+<h4 id="步骤三：配置插件"><a href="#步骤三：配置插件" class="headerlink" title="步骤三：配置插件"></a>步骤三：配置插件</h4><p>打开 Hexo 博客的全局配置文件 <code>_config.yml</code>。通常位于博客的根目录下。</p>
+<p>在文件的末尾，添加以下配置段落（<strong>注意：</strong> 这是 <code>hexo-oh-my-live2d</code> 的配置，不是旧的 <code>hexo-helper-live2d</code> 的配置）：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">OhMyLive2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">CDN:</span> <span class="string">https://unpkg.com/oh-my-live2d</span></span><br><span class="line">  <span class="attr">option:</span></span><br><span class="line">    <span class="attr">dockedPosition:</span> <span class="string">&#x27;left&#x27;</span></span><br><span class="line">    <span class="attr">mobileDisplay:</span> <span class="literal">false</span> <span class="comment"># 改为false</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 尝试使用不同的Cubism版本（解决遮罩兼容性问题）</span></span><br><span class="line">    <span class="attr">importType:</span> <span class="string">&#x27;cubism5&#x27;</span> <span class="comment"># 专门使用Cubism5版本</span></span><br><span class="line">    <span class="attr">libraryUrls:</span></span><br><span class="line">      <span class="attr">cubism5:</span> <span class="string">https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">models:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/live2d_models/TN_Model/TN_2025Q_V1.0.0.model3.json</span> <span class="comment"># 修正路径</span></span><br><span class="line">        <span class="attr">position:</span> [<span class="number">0</span>, <span class="number">50</span>] <span class="comment"># 调整位置</span></span><br><span class="line">        <span class="attr">scale:</span> <span class="number">0.12</span> <span class="comment"># 调整缩放比例（根据你的模型大小调整）</span></span><br><span class="line">        <span class="attr">stageStyle:</span></span><br><span class="line">          <span class="attr">width:</span> <span class="number">320</span></span><br><span class="line">          <span class="attr">height:</span> <span class="number">400</span></span><br><span class="line">        <span class="attr">mobilePosition:</span> [<span class="number">0</span>, <span class="number">30</span>]</span><br><span class="line">        <span class="attr">mobileScale:</span> <span class="number">0.08</span></span><br><span class="line">        <span class="attr">mobileStageStyle:</span></span><br><span class="line">          <span class="attr">width:</span> <span class="number">200</span></span><br><span class="line">          <span class="attr">height:</span> <span class="number">250</span></span><br><span class="line">        <span class="attr">motionPreloadStrategy:</span> <span class="string">IDLE</span> <span class="comment"># 改为IDLE，减少初始加载压力</span></span><br><span class="line">        <span class="attr">expression:</span> <span class="string">&quot;默认表情&quot;</span>  <span class="comment"># 对应表情文件中的Name</span></span><br><span class="line">        <span class="comment"># 或者直接指定文件</span></span><br><span class="line">        <span class="attr">expressions:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">file:</span> <span class="string">&quot;表情.exp3.json&quot;</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">&quot;默认表情&quot;</span></span><br><span class="line">        </span><br><span class="line">    <span class="attr">parentElement:</span> <span class="string">document.body</span></span><br><span class="line">    <span class="attr">primaryColor:</span> <span class="string">&#x27;var(--btn-bg)&#x27;</span></span><br><span class="line">    <span class="attr">sayHello:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">tips:</span></span><br><span class="line">      <span class="attr">style:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">230</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">120</span></span><br><span class="line">        <span class="attr">left:</span> <span class="string">calc(50%</span> <span class="bullet">-</span> <span class="string">20px)</span></span><br><span class="line">        <span class="attr">top:</span> <span class="string">-100px</span></span><br><span class="line">      <span class="attr">mobileStyle:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">180</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">left:</span> <span class="string">calc(50%</span> <span class="bullet">-</span> <span class="string">30px)</span></span><br><span class="line">        <span class="attr">top:</span> <span class="string">-100px</span></span><br><span class="line">      <span class="attr">idleTips:</span></span><br><span class="line">        <span class="attr">interval:</span> <span class="number">3600</span></span><br><span class="line">        <span class="attr">message:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">你好呀，我是你的看板娘~</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">欢迎来到我的博客~</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建基础动作文件"><a href="#创建基础动作文件" class="headerlink" title="创建基础动作文件"></a>创建基础动作文件</h3><p>创建 <code>motions</code> 文件夹，并在其中创建 <code>idle.motion3.json</code>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Meta&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Duration&quot;</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Fps&quot;</span><span class="punctuation">:</span> <span class="number">30.0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Loop&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;AreBeziersRestricted&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;CurveCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;UserDataCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;TotalSegmentCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;TotalPointCount&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;FadeInTime&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;FadeOutTime&quot;</span><span class="punctuation">:</span> <span class="number">1.0</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Curves&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="快速修复脚本"><a href="#快速修复脚本" class="headerlink" title="快速修复脚本"></a>快速修复脚本</h2><p>创建一个修复脚本 <code>fix_model.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取模型文件</span></span><br><span class="line"><span class="keyword">const</span> modelPath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;source&#x27;</span>, <span class="string">&#x27;live2d_models&#x27;</span>, <span class="string">&#x27;TN_Model&#x27;</span>, <span class="string">&#x27;TN_2025Q_V1.0.0.model3.json&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> modelData = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(modelPath, <span class="string">&#x27;utf8&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修复纹理路径</span></span><br><span class="line"><span class="keyword">if</span> (modelData.<span class="property">FileReferences</span> &amp;&amp; modelData.<span class="property">FileReferences</span>.<span class="property">Textures</span>) &#123;</span><br><span class="line">  modelData.<span class="property">FileReferences</span>.<span class="property">Textures</span> = modelData.<span class="property">FileReferences</span>.<span class="property">Textures</span>.<span class="title function_">map</span>(<span class="function"><span class="params">texturePath</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> texturePath.<span class="title function_">replace</span>(<span class="string">&#x27;TN_2025Q_V1.0.0.4096/&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加基础动作</span></span><br><span class="line"><span class="keyword">if</span> (!modelData.<span class="property">Motions</span>) &#123;</span><br><span class="line">  modelData.<span class="property">Motions</span> = &#123;</span><br><span class="line">    <span class="string">&quot;idle&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;File&quot;</span>: <span class="string">&quot;motions/idle.motion3.json&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存修复后的文件</span></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(modelPath, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(modelData, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;模型文件修复完成&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建motions文件夹和基础动作文件</span></span><br><span class="line"><span class="keyword">const</span> motionsDir = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;source&#x27;</span>, <span class="string">&#x27;live2d_models&#x27;</span>, <span class="string">&#x27;TN_Model&#x27;</span>, <span class="string">&#x27;motions&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (!fs.<span class="title function_">existsSync</span>(motionsDir)) &#123;</span><br><span class="line">  fs.<span class="title function_">mkdirSync</span>(motionsDir, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> idleMotion = &#123;</span><br><span class="line">  <span class="string">&quot;Version&quot;</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="string">&quot;Meta&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;Duration&quot;</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">&quot;Fps&quot;</span>: <span class="number">30.0</span>,</span><br><span class="line">    <span class="string">&quot;Loop&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;AreBeziersRestricted&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;CurveCount&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;UserDataCount&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;TotalSegmentCount&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;TotalPointCount&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;FadeInTime&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;FadeOutTime&quot;</span>: <span class="number">1.0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;Curves&quot;</span>: []</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(path.<span class="title function_">join</span>(motionsDir, <span class="string">&#x27;idle.motion3.json&#x27;</span>), <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(idleMotion, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;基础动作文件创建完成&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行这个脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node fix_model.js</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="测试修复结果"><a href="#测试修复结果" class="headerlink" title="测试修复结果"></a>测试修复结果</h2><p>修复后，在浏览器控制台运行这个测试：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试修复后的模型</span></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/live2d_models/TN_Model/TN_2025Q_V1.0.0.model3.json&#x27;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">modelData</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;修复后检查:&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;纹理路径:&#x27;</span>, modelData.<span class="property">FileReferences</span>.<span class="property">Textures</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;是否有动作:&#x27;</span>, !!modelData.<span class="property">Motions</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 测试纹理加载</span></span><br><span class="line">    modelData.<span class="property">FileReferences</span>.<span class="property">Textures</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">texture, index</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">fetch</span>(<span class="string">&#x27;/live2d_models/TN_Model/&#x27;</span> + texture)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`纹理 <span class="subst">$&#123;texture&#125;</span>: <span class="subst">$&#123;response.status === <span class="number">200</span> ? <span class="string">&#x27;可访问&#x27;</span> : <span class="string">&#x27;不可访问&#x27;</span>&#125;</span>`</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`纹理 <span class="subst">$&#123;texture&#125;</span>: 加载失败`</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="尝试不同的渲染引擎配置"><a href="#尝试不同的渲染引擎配置" class="headerlink" title="尝试不同的渲染引擎配置"></a>尝试不同的渲染引擎配置</h3><p>在你的配置中尝试不同的Cubism版本：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">OhMyLive2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">CDN:</span> <span class="string">https://unpkg.com/oh-my-live2d</span></span><br><span class="line">  <span class="attr">option:</span></span><br><span class="line">    <span class="comment"># 尝试不同的导入类型</span></span><br><span class="line">    <span class="attr">importType:</span> <span class="string">&#x27;complete&#x27;</span>  <span class="comment"># 完整版本，兼容性最好</span></span><br><span class="line">    <span class="comment"># importType: &#x27;cubism5&#x27;  # 或者尝试Cubism5专用版本</span></span><br><span class="line">    <span class="comment"># importType: &#x27;cubism2&#x27;  # 或者尝试旧的Cubism2版本</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="加载表情文件"><a href="#加载表情文件" class="headerlink" title="加载表情文件"></a>加载表情文件</h2><p>1.修改模型配置文件（推荐）</p>
+<p>在你的 <code>TN_2025Q_V1.0.0.model3.json</code> 文件中添加表情文件引用：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Version&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;FileReferences&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Moc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TN_2025Q_V1.0.0.moc3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Textures&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;texture_00.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;texture_01.png&quot;</span><span class="punctuation">,</span> </span><br><span class="line">      <span class="string">&quot;texture_02.png&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Physics&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TN_2025Q_V1.0.0.physics3.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;DisplayInfo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TN_2025Q_V1.0.0.cdi3.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 添加表情文件引用</span></span><br><span class="line">    <span class="attr">&quot;Expressions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;默认表情&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;File&quot;</span><span class="punctuation">:</span> <span class="string">&quot;表情.exp3.json&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Groups&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="comment">// ... 你现有的Groups内容 ...</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;Motions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;idle&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;File&quot;</span><span class="punctuation">:</span> <span class="string">&quot;motions/idle.motion3.json&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="comment">// 添加表情配置</span></span><br><span class="line">  <span class="attr">&quot;Expressions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;默认表情&quot;</span><span class="punctuation">,</span> </span><br><span class="line">      <span class="attr">&quot;File&quot;</span><span class="punctuation">:</span> <span class="string">&quot;表情.exp3.json&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.通过插件配置加载表情</p>
+<p>检查 <code>oh-my-live2d</code> 是否支持直接加载表情文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">OhMyLive2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">option:</span></span><br><span class="line">    <span class="attr">models:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/live2d_models/TN_Model/TN_2025Q_V1.0.0.model3.json</span></span><br><span class="line">        <span class="attr">scale:</span> <span class="number">0.1</span></span><br><span class="line">        <span class="comment"># 尝试通过配置加载表情</span></span><br><span class="line">        <span class="attr">expression:</span> <span class="string">&quot;默认表情&quot;</span>  <span class="comment"># 对应表情文件中的Name</span></span><br><span class="line">        <span class="comment"># 或者直接指定文件</span></span><br><span class="line">        <span class="attr">expressions:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">file:</span> <span class="string">&quot;表情.exp3.json&quot;</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">&quot;默认表情&quot;</span></span><br><span class="line">    <span class="attr">display:</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">right</span></span><br></pre></td></tr></table></figure>
+
+<p>3.手动初始化模型参数</p>
+<p>如果插件不支持直接加载表情，可以通过JavaScript在模型加载后手动应用表情：</p>
+<p>创建一个自定义脚本文件 <code>source/js/live2d-custom.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 等待Live2D加载完成</span></span><br><span class="line">  <span class="keyword">const</span> checkLive2D = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">OhMyLive2D</span> &amp;&amp; <span class="variable language_">window</span>.<span class="property">OhMyLive2D</span>.<span class="property">instances</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">clearInterval</span>(checkLive2D);</span><br><span class="line">      <span class="title function_">applyExpression</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">500</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">applyExpression</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> instance = <span class="variable language_">window</span>.<span class="property">OhMyLive2D</span>.<span class="property">instances</span>[<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加载并应用表情文件</span></span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">&#x27;/live2d_models/TN_Model/表情.exp3.json&#x27;</span>)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">expression</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;加载表情文件成功&#x27;</span>, expression);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 应用表情参数到模型</span></span><br><span class="line">        <span class="keyword">if</span> (instance.<span class="property">model</span> &amp;&amp; instance.<span class="property">model</span>.<span class="property">setExpression</span>) &#123;</span><br><span class="line">          instance.<span class="property">model</span>.<span class="title function_">setExpression</span>(expression);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 如果插件没有暴露API，尝试直接设置参数</span></span><br><span class="line">          <span class="title function_">applyExpressionParameters</span>(expression, instance);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;加载表情文件失败:&#x27;</span>, error);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">applyExpressionParameters</span>(<span class="params">expression, instance</span>) &#123;</span><br><span class="line">    <span class="comment">// 手动应用表情参数</span></span><br><span class="line">    <span class="keyword">if</span> (expression.<span class="property">Parameters</span> &amp;&amp; instance.<span class="property">model</span>.<span class="property">coreModel</span>) &#123;</span><br><span class="line">      expression.<span class="property">Parameters</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          instance.<span class="property">model</span>.<span class="property">coreModel</span>.<span class="title function_">setParameterValueById</span>(param.<span class="property">Id</span>, param.<span class="property">Value</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;设置参数失败:&#x27;</span>, param.<span class="property">Id</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="comment">// 强制重绘</span></span><br><span class="line">      instance.<span class="property">model</span>.<span class="title function_">update</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>然后在主题布局文件中引入这个脚本。</p>
+<h3 id="依然存在的问题"><a href="#依然存在的问题" class="headerlink" title="依然存在的问题"></a>依然存在的问题</h3><p>解决了兼容性、配置等等的问题，依然绕不开模型过于无法无法使用的问题，于是这里放弃</p>
+<ol>
+<li><strong>模型使用了高级的遮罩功能</strong>（mask count 20-21），但当前渲染器不支持</li>
+<li><strong>WebGL着色器程序设置失败</strong>，导致无法渲染模型</li>
+<li><strong>hexo-helper-live2d（经典插件）</strong>也无法兼容</li>
+</ol>
+<p>修改遮罩数量的可行性</p>
+<p>需要的工具</p>
+<ul>
+<li><strong>Live2D Cubism Editor</strong>（官方编辑器，付费软件）</li>
+<li>或者 <strong>第三方工具</strong>（如社区开发的转换工具）</li>
+</ul>
+<p>修改步骤（技术复杂）</p>
+<ol>
+<li><strong>使用Cubism Editor打开模型</strong>：<ul>
+<li>导入你的 <code>.model3.json</code> 文件</li>
+<li>在”蒙版”或”遮罩”设置中调整数量</li>
+<li>重新导出为网页兼容格式</li>
+</ul>
+</li>
+<li><strong>技术挑战</strong>：<ul>
+<li>遮罩数量与模型复杂度直接相关</li>
+<li>减少遮罩可能导致渲染效果丢失</li>
+<li>需要重新调整材质和绘制顺序</li>
+</ul>
+</li>
+</ol>
+<p>如果确实需要修改模型，可以尝试：</p>
+<ol>
+<li><strong>使用Cubism Viewer</strong>（免费工具）：<ul>
+<li>下载Cubism Viewer</li>
+<li>导入模型查看基本兼容性</li>
+<li>尝试导出简化版本</li>
+</ul>
+</li>
+<li><strong>在线转换服务</strong>：<ul>
+<li>搜索”Live2D模型转换”或”Live2D web兼容性转换”</li>
+<li>有些社区提供转换服务</li>
+</ul>
+</li>
+</ol>
+<p>最终备份</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">OhMyLive2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">CDN:</span> <span class="string">https://unpkg.com/oh-my-live2d</span></span><br><span class="line">  <span class="attr">option:</span></span><br><span class="line">    <span class="comment"># 尝试不同的导入类型</span></span><br><span class="line">    <span class="comment">#importType: &#x27;complete&#x27;  # 完整版本，兼容性最好</span></span><br><span class="line">    <span class="comment"># importType: &#x27;cubism5&#x27;  # 或者尝试Cubism5专用版本</span></span><br><span class="line">    <span class="comment"># importType: &#x27;cubism2&#x27;  # 或者尝试旧的Cubism2版本</span></span><br><span class="line">    <span class="attr">importType:</span> <span class="string">&#x27;cubism5&#x27;</span> <span class="comment"># 专门使用Cubism5版本</span></span><br><span class="line">    <span class="attr">libraryUrls:</span></span><br><span class="line">       <span class="comment">#complete: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js</span></span><br><span class="line">       <span class="comment">#cubism2: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js</span></span><br><span class="line">      <span class="attr">cubism5:</span> <span class="string">https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js</span></span><br><span class="line">        <span class="comment"># 如果插件支持，添加渲染器配置</span></span><br><span class="line">    <span class="attr">renderer:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">&#x27;pixi&#x27;</span>  <span class="comment"># 或者 &#x27;webgl&#x27;, &#x27;canvas&#x27;</span></span><br><span class="line">      </span><br><span class="line">    <span class="attr">models:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/live2d_models/TN_Model/TN_2025Q_V1.0.0.model3.json</span> <span class="comment"># 修正路径</span></span><br><span class="line">        <span class="attr">position:</span> [<span class="number">0</span>, <span class="number">50</span>] <span class="comment"># 调整位置</span></span><br><span class="line">        <span class="attr">scale:</span> <span class="number">0.12</span> <span class="comment"># 调整缩放比例（根据你的模型大小调整）</span></span><br><span class="line">        <span class="attr">stageStyle:</span></span><br><span class="line">          <span class="attr">width:</span> <span class="number">320</span></span><br><span class="line">          <span class="attr">height:</span> <span class="number">400</span></span><br><span class="line">        <span class="attr">mobilePosition:</span> [<span class="number">0</span>, <span class="number">30</span>]</span><br><span class="line">        <span class="attr">mobileScale:</span> <span class="number">0.08</span></span><br><span class="line">        <span class="attr">mobileStageStyle:</span></span><br><span class="line">          <span class="attr">width:</span> <span class="number">200</span></span><br><span class="line">          <span class="attr">height:</span> <span class="number">250</span></span><br><span class="line">        <span class="attr">motionPreloadStrategy:</span> <span class="string">IDLE</span> <span class="comment"># 改为IDLE，减少初始加载压力</span></span><br><span class="line">        <span class="attr">expression:</span> <span class="string">&quot;默认表情&quot;</span>  <span class="comment"># 对应表情文件中的Name</span></span><br><span class="line">        <span class="comment"># 或者直接指定文件</span></span><br><span class="line">        <span class="attr">expressions:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">file:</span> <span class="string">&quot;馍馍.exp3.json&quot;</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">&quot;默认表情&quot;</span></span><br><span class="line">        </span><br><span class="line">    <span class="attr">parentElement:</span> <span class="string">document.body</span></span><br><span class="line">    <span class="attr">primaryColor:</span> <span class="string">&#x27;var(--btn-bg)&#x27;</span></span><br><span class="line">    <span class="attr">sayHello:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">tips:</span></span><br><span class="line">      <span class="attr">style:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">230</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">120</span></span><br><span class="line">        <span class="attr">left:</span> <span class="string">calc(50%</span> <span class="bullet">-</span> <span class="string">20px)</span></span><br><span class="line">        <span class="attr">top:</span> <span class="string">-100px</span></span><br><span class="line">      <span class="attr">mobileStyle:</span></span><br><span class="line">        <span class="attr">width:</span> <span class="number">180</span></span><br><span class="line">        <span class="attr">height:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">left:</span> <span class="string">calc(50%</span> <span class="bullet">-</span> <span class="string">30px)</span></span><br><span class="line">        <span class="attr">top:</span> <span class="string">-100px</span></span><br><span class="line">      <span class="attr">idleTips:</span></span><br><span class="line">        <span class="attr">interval:</span> <span class="number">3600</span></span><br><span class="line">        <span class="attr">message:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">你好呀，我是你的看板娘~</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">欢迎来到我的博客~</span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+
+<p>另：live2D模型文件包打包到<a target="_blank" rel="noopener" href="https://unpkg.com/">https://unpkg.com</a></p>
+<h3 id="核心条件：你的文件必须在一个-npm-包中"><a href="#核心条件：你的文件必须在一个-npm-包中" class="headerlink" title="核心条件：你的文件必须在一个 npm 包中"></a>核心条件：你的文件必须在一个 npm 包中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unpkg.com` 是一个为 **npm** 生态系统提供服务的 CDN。它的工作流程是：</span><br><span class="line">`unpkg.com/:package@:version/:file</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>:package</code>: npm 上的包名</li>
+<li><code>:version</code>: 包的版本号 (或 <code>latest</code>)</li>
+<li><code>:file</code>: 包内的具体文件路径</li>
+</ul>
+<p><strong>因此，最关键的一步是：你必须将你的 Live2D 模型文件发布到一个 npm 包中。</strong></p>
+<p>如果你没有 npm 账号，先去 <a target="_blank" rel="noopener" href="https://www.npmjs.com/signup">npmjs.com</a> 注册一个。</p>
+<hr>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><h4 id="1-准备你的-Live2D-模型文件和-package-json"><a href="#1-准备你的-Live2D-模型文件和-package-json" class="headerlink" title="1. 准备你的 Live2D 模型文件和 package.json"></a>1. 准备你的 Live2D 模型文件和 <code>package.json</code></h4><p>创建一个新文件夹，例如 <code>my-live2d-model</code>。</p>
+<ol>
+<li><p><strong>放入文件</strong>：将你的 Live2D 模型文件（如 <code>.model3.json</code>, <code>.moc3</code>, <code>.png</code> 等纹理文件, <code>.physics3.json</code> 等）放入这个文件夹。保持原有的文件结构非常重要，因为 JSON 文件中的路径是相对的。</p>
+</li>
+<li><p>**创建 <code>package.json</code>**：在这个文件夹根目录下运行 <code>npm init</code> 并按照提示填写信息。或者手动创建一个 <code>package.json</code> 文件，内容最少需要包含：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;my-live2d-model&quot;</span><span class="punctuation">,</span> <span class="comment">// 取一个独一无二的包名，先在 npm 上搜索是否被占用</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span>        <span class="comment">// 版本号</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span>        <span class="comment">// 这个对于模型文件不是必须的，但必须要有。可以随便指向一个文件。</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;My Live2D model package&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>package.json</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tn2025q&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;My Live2D model package&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>你的目录结构应该看起来像这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my-live2d-model/</span><br><span class="line">├── package.json</span><br><span class="line">├── shizuku.model3.json</span><br><span class="line">├── shizuku.moc3</span><br><span class="line">├── shizuku.physics3.json</span><br><span class="line">├── textures/</span><br><span class="line">│   └── texture_00.png</span><br><span class="line">└── index.js (可选)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="检查包名是否可用"><a href="#检查包名是否可用" class="headerlink" title="检查包名是否可用"></a>检查包名是否可用</h3><p>在发布前，先检查包名是否可用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm view tn2025q</span><br></pre></td></tr></table></figure>
+
+<p>如果返回 <code>404</code>，表示包名可用；如果返回包信息，则需要选择其他名称。</p>
+<h4 id="2-发布到-npm"><a href="#2-发布到-npm" class="headerlink" title="2. 发布到 npm"></a>2. 发布到 npm</h4><ol>
+<li>在终端中，进入你的项目文件夹 <code>my-live2d-model</code>。</li>
+<li>运行 <code>npm login</code> 登录你的账号。</li>
+<li>运行 <code>npm publish</code> 发布你的包。</li>
+</ol>
+<p>发布成功后，你的包就可以在 npm 上搜索到了。</p>
+<p><strong>npm 包名必须符合以下要求</strong>：</p>
+<ul>
+<li>包名长度应大于零</li>
+<li>所有字符必须是小写字母</li>
+<li>可以包含连字符、数字和下划线，但不能以它们开头或结尾</li>
+<li>不能包含任何非URL安全字符（因为包名会出现在URL中）</li>
+<li>不能与现有包名重复</li>
+</ul>
+<h4 id="3-构建-unpkg-URL"><a href="#3-构建-unpkg-URL" class="headerlink" title="3. 构建 unpkg URL"></a>3. 构建 unpkg URL</h4><p>现在，你可以使用 unpkg 来访问你的文件了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i tn2025q</span><br><span class="line"></span><br><span class="line">npm install --save tn2025q</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/oh-my-live2d/oh-my-live2d">oh-my-live2d</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://oml2d.hacxy.cn/guide/hexo.html#%E5%9C%A8-hexo-%E4%B8%AD%E4%BD%BF%E7%94%A8">在-hexo-中使用</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2025/09/22/%E6%97%A5%E8%AE%B0-%E6%97%A0%E6%B3%95%E6%88%90%E5%8A%9F%E7%9A%84%E7%9C%8B%E6%9D%BF%E5%A8%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Github Page博客搭建
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/09/04/UX-TA%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">UX/TA学习开发日志</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2025
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

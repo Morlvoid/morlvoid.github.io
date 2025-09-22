@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>纪念教程：Mirai Dice！骰娘搭建 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-纪念教程：Mirai Dice！骰娘搭建"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  纪念教程：Mirai Dice！骰娘搭建
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/23/%E7%BA%AA%E5%BF%B5%E6%95%99%E7%A8%8B%EF%BC%9AMirai%20Dice%EF%BC%81%E9%AA%B0%E5%A8%98%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2022-06-23T06:43:04.000Z" itemprop="datePublished">2022-06-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本篇Mirai Dice！骰娘搭建教程，写于2022年，截至2025年，因版本更新过快，该教程已不再支持Mirai Dice！骰娘的搭建与部署，本篇笔记仅保留作纪念。</p>
+<span id="more"></span>
+
+<p>观看本篇文章前请先跳转至链接：Dice!文档：<a target="_blank" rel="noopener" href="https://v2docs.kokona.tech/zh/latest/">https://v2docs.kokona.tech/zh/latest/</a></p>
+<p>请先查看《骰娘是什么》</p>
+<p>如果对跑团或骰娘感兴趣，想要搭建骰娘，请阅读完《Dice!文档》后，点击下方链接查看搭建指南。</p>
+<p>Dice!导航帖：<a target="_blank" rel="noopener" href="https://forum.kokona.tech/d/150-dice-dao-hang-tie">https://forum.kokona.tech/d/150-dice-dao-hang-tie</a></p>
+<p>Mirai Dice 下载及搭建指南：<a target="_blank" rel="noopener" href="https://forum.kokona.tech/d/448-mirai-dice-xia-zai-ji-da-jian-zhi-nan-zui-hou-geng-xin-20211214">https://forum.kokona.tech/d/448-mirai-dice-xia-zai-ji-da-jian-zhi-nan-zui-hou-geng-xin-20211214</a></p>
+<p>Mirai Dice 搭建骰娘遇到的问题及解决方法：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv13257089?spm_id_from=333.999.0.0">https://www.bilibili.com/read/cv13257089?spm_id_from=333.999.0.0</a></p>
+<p>Mirai 开发文档：<a target="_blank" rel="noopener" href="https://docs.mirai.mamoe.net/#%E4%BD%BF%E7%94%A8-mirai">https://docs.mirai.mamoe.net/#%E4%BD%BF%E7%94%A8-mirai</a></p>
+<p>【注：本篇教程主要针对在Windows搭建非24h骰娘、在Ubuntu服务器搭建24h骰娘】</p>
+<p>【Dice不支持centos】</p>
+<p>【本文主要参考以上教程，如想顺利搭建请仔细阅读以上教程，本文根据上诉教程只补充ubuntu部分】</p>
+<p>其他或许有用的教程，选择查看：</p>
+<p>Mirai环境准备：<a target="_blank" rel="noopener" href="https://docs.mirai.mamoe.net/mirai-login-solver-selenium/">https://docs.mirai.mamoe.net/mirai-login-solver-selenium/</a></p>
+<p>mirai-login-solver-selenium：<a target="_blank" rel="noopener" href="https://github.com/project-mirai/mirai-login-solver-selenium">https://github.com/project-mirai/mirai-login-solver-selenium</a></p>
+<p>Mirai qq机器人ubuntu配置踩坑记录：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43380015/article/details/108679731">https://blog.csdn.net/qq_43380015/article/details/108679731</a></p>
+<h2 id="前置Ubuntu要点："><a href="#前置Ubuntu要点：" class="headerlink" title="前置Ubuntu要点："></a>前置Ubuntu要点：</h2><h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> file</span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">ls</span> -l</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看ip地址"><a href="#查看ip地址" class="headerlink" title="查看ip地址"></a>查看ip地址</h4><p>安装 net-tools 工具后使用 <code>ifconfig</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install net-tools</span><br><span class="line"></span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>（服务器中第一个地址是内网ip地址，第二个是本机地址）</p>
+<p>（虚拟机中第一个地址是NAT转换ip地址，第二个地址是桥接ip地址，第三个是本机地址）</p>
+<h4 id="vim使用"><a href="#vim使用" class="headerlink" title="vim使用"></a>vim使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用vim打开文件</span></span><br><span class="line">vim test.txt </span><br><span class="line"></span><br><span class="line"><span class="comment">#输入</span></span><br><span class="line">i</span><br><span class="line"></span><br><span class="line"><span class="comment">#保存并退出</span></span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Ubuntu系统环境部署："><a href="#Ubuntu系统环境部署：" class="headerlink" title="Ubuntu系统环境部署："></a>Ubuntu系统环境部署：</h2><p>ubuntu安装lua：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yzf279533105/article/details/125448956">https://blog.csdn.net/yzf279533105/article/details/125448956</a></p>
+<h4 id="lua下载："><a href="#lua下载：" class="headerlink" title="lua下载："></a>lua下载：</h4><p><a target="_blank" rel="noopener" href="http://www.lua.org/ftp/">http://www.lua.org/ftp/</a></p>
+<p>下载好.gz包后解压，进入目录</p>
+<p>运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libncurses-dev</span><br><span class="line">apt-get install libreadline-dev</span><br><span class="line"></span><br><span class="line">make linux <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="java"><a href="#java" class="headerlink" title="java"></a>java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更新源</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装openjdk-11-jre</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install openjdk-11-jre git</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="正式搭建骰娘"><a href="#正式搭建骰娘" class="headerlink" title="正式搭建骰娘"></a>正式搭建骰娘</h2><h4 id="windows、ubuntu下载Mirai"><a href="#windows、ubuntu下载Mirai" class="headerlink" title="windows、ubuntu下载Mirai"></a>windows、ubuntu下载Mirai</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/w4123/mirai-dice-release-noextra</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> mirai-dice-release-noextra</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="windows、ubuntu启动Mirai，运行"><a href="#windows、ubuntu启动Mirai，运行" class="headerlink" title="windows、ubuntu启动Mirai，运行"></a>windows、ubuntu启动Mirai，运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./LaunchMirai.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="在windows搭建成功后拷贝文件至Ubuntu服务器"><a href="#在windows搭建成功后拷贝文件至Ubuntu服务器" class="headerlink" title="在windows搭建成功后拷贝文件至Ubuntu服务器"></a>在windows搭建成功后拷贝文件至Ubuntu服务器</h4><h4 id="windows搭建教程"><a href="#windows搭建教程" class="headerlink" title="windows搭建教程"></a>windows搭建教程</h4><p>擅长使用git可在github下载：<a target="_blank" rel="noopener" href="https://github.com/w4123/mirai-dice-release-noextra">https://github.com/w4123/mirai-dice-release-noextra</a></p>
+<p>git安装教程：<a target="_blank" rel="noopener" href="http://morlvoid.pro/2022/06/12/git/">http://morlvoid.pro/2022/06/12/git/</a></p>
+<p>打开文件夹，点击“启动Mirai.cmd”</p>
+<h4 id="windows配置自动登录账号"><a href="#windows配置自动登录账号" class="headerlink" title="windows配置自动登录账号"></a>windows配置自动登录账号</h4><p>添加自动登录：autologin add QQ账号 密码</p>
+<p>根据提示进入WebUI界面，进行认主</p>
+<p>认主后已经是Master，在这之后的其他配置请参考本文开头的Master手册</p>
+<h4 id="windows下进行滑块验证"><a href="#windows下进行滑块验证" class="headerlink" title="windows下进行滑块验证"></a>windows下进行滑块验证</h4><p>根据提示进行</p>
+<p>如果出现报错信息为：Statuslogger Log4j2 could not find a logging implementation.Please ad log4j-core to the classpath. lsing SimpleLoger to log to the console…时</p>
+<p>在ubuntu中修改日志文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim data/MiraiNative/config.json</span><br></pre></td></tr></table></figure>
+
+<p>将false 改为 true 后重启Mirai</p>
+<h4 id="windows向ubuntu拷贝文件"><a href="#windows向ubuntu拷贝文件" class="headerlink" title="windows向ubuntu拷贝文件"></a>windows向ubuntu拷贝文件</h4><p>通过Xshell 链接服务器后打开Xftp拷贝文件</p>
+<p>Xmanager Enterprise 5安装教程：<a target="_blank" rel="noopener" href="https://www.xshellcn.com/xmg_column/xshell-hjko.html">https://www.xshellcn.com/xmg_column/xshell-hjko.html</a></p>
+<p>将windows配置好的文件复制进服务器的文件中，例如必须拷贝的文件：bots&#x2F;QQ&#x2F;device.json</p>
+<h4 id="退出Mirai"><a href="#退出Mirai" class="headerlink" title="退出Mirai"></a>退出Mirai</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/stop</span><br></pre></td></tr></table></figure>
+
+<p>如果想要在ubuntu服务器上始终运行，不需要退出命令</p>
+<p>windows中关掉窗口即停止骰娘运行（也可运行命令）</p>
+<h4 id="服务器中后台运行骰娘程序"><a href="#服务器中后台运行骰娘程序" class="headerlink" title="服务器中后台运行骰娘程序"></a>服务器中后台运行骰娘程序</h4><p>（以下为可让程序在后台运行的三种方式，如一种不成功请更换其他方式）</p>
+<h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><p>ubuntu下让进程在后台运行：<a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/MAzAk6MR59/">https://www.shuzhiduo.com/A/MAzAk6MR59/</a></p>
+<p>（1）输入命令：nohup 你的shell命令 &amp; </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./LaunchMirai.sh &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>（2）回车，使终端回到shell命令行</p>
+<p>（3）使用第二第三条，完全屏蔽掉信号。用<code>disown -h jobspec</code>来使某个作业忽略HUP信号。用<code>disown -ah</code> 来使所有的作业都忽略HUP信号。用<code>disown -rh</code> 来使正在运行的作业忽略HUP信号。</p>
+<p>ubuntu查看进程和结束进程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42257666/article/details/124197052">https://blog.csdn.net/qq_42257666/article/details/124197052</a></p>
+<h4 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h4><p>安装screen</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install screen</span><br></pre></td></tr></table></figure>
+
+<p>创建 screen 窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S  name</span><br></pre></td></tr></table></figure>
+
+
+
+<p>name可以设置为ssh、ftp，用于标注该 screen 窗口用途</p>
+<p>​     注意，执行 <code>screen -S name</code> 之后系统会跳进一个新窗口，这个窗口就是我们创建的新进程，用来执行命令，在新窗口里面进行项目的启动即可</p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd mirai-dice-release-noextra</span><br><span class="line"></span><br><span class="line">./LaunchMirai.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<p>退出保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">#完全退出</span><br><span class="line">#不会进行session保存</span><br></pre></td></tr></table></figure>
+
+
+<p>CTRL-a+d </p>
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r</span><br></pre></td></tr></table></figure>
+
+<p>恢复到原来的工作状态</p>
+<p>停止screen：</p>
+<p>首先查看screen列表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果只有一个 screen 进程，命令行输入 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r -d</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 即可如果有多个screen，可以通过它的 PID 进入screen</p>
+<p> <code>screen -r -d PID</code>进入之后CTRL+C，终止</p>
+<h4 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h4><p>Tmux 使用教程：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">https://www.ruanyifeng.com/blog/2019/10/tmux.html</a></p>
+<p>安装Tmux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
+
+
+
+<p>启动与退出</p>
+<p>安装完成后，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
+
+
+
+<p>命令进入 Tmux 窗口</p>
+<h4 id="查看后台运行程序"><a href="#查看后台运行程序" class="headerlink" title="查看后台运行程序"></a>查看后台运行程序</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -a</span><br></pre></td></tr></table></figure>
+
+
+
+<p>显示LaunchMirai.sh表示在后台运行</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2022/06/23/%E7%BA%AA%E5%BF%B5%E6%95%99%E7%A8%8B%EF%BC%9AMirai%20Dice%EF%BC%81%E9%AA%B0%E5%A8%98%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mirai/" rel="tag">Mirai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mirai-Dice%EF%BC%81Ubuntu/" rel="tag">Mirai Dice！Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AA%B0%E5%A8%98/" rel="tag">骰娘</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/07/26/%E5%85%AB%E8%8A%92%E6%98%9F%EF%BC%9A%E8%8D%A3%E6%A0%BC%E5%85%AB%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7--%E6%80%9D%E8%B7%AF%E6%97%A5%E5%BF%97/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            八芒星：荣格八维可视化图表工具--思路日志
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/05/19/%E6%88%91%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">“我”的使用说明书</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2025
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

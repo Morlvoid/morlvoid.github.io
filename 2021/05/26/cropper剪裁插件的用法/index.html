@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>cropper剪裁插件的用法 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-cropper剪裁插件的用法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  cropper剪裁插件的用法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2021-05-26T04:46:42.000Z" itemprop="datePublished">2021-05-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>cropper剪裁插件的用法</p>
+<span id="more"></span>
+
+<p>使用方法：加载的文件必须按照顺序加载三个js</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../assets/lib/cropper/cropper.css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/cropper/Cropper.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../assets/lib/cropper/jquery-cropper.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>初始化剪裁插件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> $image = $(<span class="string">&#x27;#image&#x27;</span>); <span class="comment">// 找到一张图片（默认显示的那张图片）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置项</span></span><br><span class="line"><span class="keyword">let</span> option = &#123;</span><br><span class="line">  <span class="comment">// 参考下面的 [参数] 部分</span></span><br><span class="line">  <span class="comment">// 比如：aspectRatio 表示剪裁比例</span></span><br><span class="line">  <span class="attr">aspectRatio</span>: <span class="number">400</span> / <span class="number">280</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">$image.<span class="title function_">cropper</span>(option);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>方法的使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$image.<span class="title function_">cropper</span>(<span class="string">&#x27;方法名&#x27;</span>, 方法的参数);</span><br><span class="line"></span><br><span class="line">比如，有一个 replace 方法：<span class="title function_">replace</span>(url)</span><br><span class="line"></span><br><span class="line">$image.<span class="title function_">cropper</span>(<span class="string">&#x27;replace&#x27;</span>, url);</span><br><span class="line"></span><br><span class="line">比如，剪裁得到canvas，原方法是这样说明的：<span class="title function_">getCroppedCanvas</span>(&#123; <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">10</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> canvas = $image.<span class="title function_">cropper</span>(<span class="string">&#x27;getCroppedCanvas&#x27;</span>, &#123; <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">height</span>: <span class="number">10</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>把canvas转成我们想要的格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 剪裁之后，会得到一个canvas</span></span><br><span class="line"><span class="comment">// 能够把 canvas 转成 base64 格式；转成 文件对象 格式，只能转成这两种格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 转成 base64格式</span></span><br><span class="line"><span class="keyword">let</span> base64 = canvas.<span class="title function_">toDataURL</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转成 文件对象 格式</span></span><br><span class="line">canvas.<span class="title function_">toBlob</span>(<span class="keyword">function</span> (<span class="params">blob</span>) &#123;</span><br><span class="line">  <span class="comment">// blob是二进制大对象格式，把它 append 到 FormData 中，会变为文件对象</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>你可以通过$().cropper(options)方法来设置参数。如果你想改变全局默认参数，可以使用$.fn.cropper.setDefaults(options)方法。</li>
+<li>aspectRatio：类型：Number，默认值NaN。设置剪裁容器的比例。</li>
+<li>crop：类型：Function，默认值null。当改变剪裁容器或图片时的事件函数。</li>
+<li>preview：类型：String(jQuery选择器)，默认值’’。添加额外的元素（容器）的预览。注意：</li>
+<li>最大宽度是剪裁容器的初始化宽度</li>
+<li>最大高度是剪裁容器的初始化高度</li>
+<li>如果你设置了aspectRatio参数，确保预览容器具有相同的比例</li>
+<li>strict：类型：Boolean，默认值true。在strict模式中，canvas不能小于容器，剪裁容器不能再canvas之外。</li>
+<li>responsive：类型：Boolean，默认值true。是否在窗口尺寸改变的时候重置cropper。</li>
+<li>checkImageOrigin：类型：Boolean，默认值true。默认情况下，插件会检测图片的源，如果是跨域图片，图片元素会被添加crossOrigin class，并会为图片的url添加一个时间戳来使getCroppedCanvas变为可用。添加时间戳会使图片重新加载，以使跨域图片能够使用getCroppedCanvas。在图片上添加crossOrigin class会阻止在图片url上添加时间戳，及图片的重新加载。</li>
+<li>background：类型：Boolean，默认值true。是否在容器上显示网格背景。</li>
+<li>modal：类型：Boolean，默认值true。是否在剪裁框上显示黑色的模态窗口。</li>
+<li>guides：类型：Boolean，默认值true。是否在剪裁框上显示虚线。</li>
+<li>highlight：类型：Boolean，默认值true。是否在剪裁框上显示白色的模态窗口。</li>
+<li>autoCrop：类型：Boolean，默认值true。是否在初始化时允许自动剪裁图片。</li>
+<li>autoCropArea：类型：Number，默认值0.8（图片的80%）。0-1之间的数值，定义自动剪裁区域的大小。</li>
+<li>dragCrop：类型：Boolean，默认值true。是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域。</li>
+<li>movable：类型：Boolean，默认值true。是否允许移动剪裁框。</li>
+<li>resizable：类型：Boolean，默认值true。是否允许改变剪裁框的大小。</li>
+<li>zoomable：类型：Boolean，默认值true。是否允许放大缩小图片。</li>
+<li>mouseWheelZoom：类型：Boolean，默认值true。是否允许通过鼠标滚轮来缩放图片。</li>
+<li>touchDragZoom：类型：Boolean，默认值true。是否允许通过触摸移动来缩放图片。</li>
+<li>rotatable：类型：Boolean，默认值true。是否允许旋转图片。</li>
+<li>minContainerWidth：类型：Number，默认值200。容器的最小宽度。</li>
+<li>minContainerHeight：类型：Number，默认值100。容器的最小高度。</li>
+<li>minCanvasWidth：类型：Number，默认值0。canvas 的最小宽度（image wrapper）。</li>
+<li>minCanvasHeight：类型：Number，默认值0。canvas 的最小高度（image wrapper）。</li>
+<li>build：类型：Function，默认值null。build.cropper事件的简写方式。</li>
+<li>built：类型：Function，默认值null。built.cropper事件的简写方式。</li>
+<li>dragstart：类型：Function，默认值null。dragstart.cropper事件的简写方式。</li>
+<li>dragmove：类型：Function，默认值null。dragmove.cropper事件的简写方式。</li>
+<li>dragend：类型：Function，默认值null。dragend.cropper事件的简写方式。</li>
+<li>zoomin：类型：Function，默认值null。zoomin.cropper事件的简写方式。</li>
+<li>zoomout：类型：Function，默认值null。zoomout.cropper事件的简写方式。</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>因为图片是异步加载的，所以你需要在built之后才能调用下面的方法，setAspectRatio、replace和destroy方法例外。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(&#123;`` ``built: ``function` `() &#123;``  ``$().cropper(``&#x27;method&#x27;``, argument1, , argument2, ..., argumentN)`` ``&#125;``&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>move(offsetX, offsetY)：</strong></p>
+<ul>
+<li>offsetX：类型：Number，水平方向上移动的大小，单位像素。</li>
+<li>offsetY：类型：Number，垂直方向上移动的大小，单位像素。</li>
+</ul>
+<p>移动一幅图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;move&#x27;``, 1, 0)``$().cropper(``&#x27;move&#x27;``, 0, -1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>zoom(ratio)：</strong></p>
+<p>ratio：</p>
+<p>类型：Number</p>
+<ul>
+<li>Zoom in：需要一个正数（ratio &gt; 0）</li>
+<li>Zoom out：需要一个负数（ratio &lt; 0）</li>
+</ul>
+<p>缩放一幅图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;zoom&#x27;``, 0.1)``$().cropper(``&#x27;zoom&#x27;``, -0.1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>rotate(degree)：</strong></p>
+<p>ratio：</p>
+<p>类型：Number</p>
+<ul>
+<li>Rotate right：需要一个正数（degree &gt; 0）</li>
+<li>Rotate left：需要一个负数（degree &lt; 0）</li>
+</ul>
+<p>旋转一幅图片，需要CSS3 Transforms3d的支持（IE10+）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$().cropper(``&#x27;rotate&#x27;``, 90)``$().cropper(``&#x27;rotate&#x27;``, -90</span><br></pre></td></tr></table></figure>
+
+<p><strong>enable()：</strong>使cropper可用。</p>
+<p><strong>disable()：</strong>冻结cropper。</p>
+<p><strong>reset()：</strong>重置剪裁区域的图片到初始状态。</p>
+<p><strong>clear()：</strong>清空剪裁区域。</p>
+<p><strong>replace(url)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url：``替换图片的URL重建cropper。``类型：String``一个新的图片URL</span><br></pre></td></tr></table></figure>
+
+<p><strong>getData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``x：剪裁区域左侧的偏移。``y：剪裁区域距上部的偏移。``width：剪裁区域的宽度。``height：剪裁区域的高度。``rotate：图片的旋转角度。``请参考实例效果</span><br></pre></td></tr></table></figure>
+
+<p><strong>getContainerData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``width：容器的当前宽度。``height：容器的当前高度。``输出容器尺寸数据。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getImageData()：</strong></p>
+<p>返回值：</p>
+<p>类型：Object</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">属性：``left：图片的左侧偏移。``top：图片的上部偏移。``width：图片的宽度。``height：图片的高度。``输出图片的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCanvasData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：canvas的左侧偏移。``top：canvas的上部偏移。``width：canvas的宽度。``height：canvas的高度。``输出canvas（图片容器）的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>setCanvasData(data)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：canvas的距离左侧新的偏移。``top：canvas的距离上部新的偏移。``width：canvas新的宽度。``height：canvas新的高度。``改变canvas（图片容器）的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCropBoxData()：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：剪裁区域距离左侧的偏移。``top：剪裁区域距离上部的偏移。``width：剪裁区域的宽度。``height：剪裁区域的高度。``输出剪裁区域的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>setCropBoxData(data)：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值：``类型：Object``属性：``left：剪裁区域距离左侧新的偏移。``top：剪裁区域距离上部新的偏移。``width：剪裁区域新的宽度。``height：剪裁区域新的高度。``改变剪裁区域的位置和尺寸大小。</span><br></pre></td></tr></table></figure>
+
+<p><strong>getCroppedCanvas([options])：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参数（默认值）：``类型：Object``属性：``width：输出的canvas目标宽度。``height：输出的canvas目标高度。``fillColor：canvas中填充的颜色。``返回值：``类型：HTMLCanvasElement``一个画有剪裁图片的canvas。</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/06/03/%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%90%AF%E8%92%99%E4%B9%A6/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            写给自己的启蒙书
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">JavaScript对象相关笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2025
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

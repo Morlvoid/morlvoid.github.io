@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>从零入门的MMD学习笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-从零入门的MMD学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  从零入门的MMD学习笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/11/20/%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8%E7%9A%84MMD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-11-20T11:47:07.000Z" itemprop="datePublished">2021-11-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%8C%E5%91%A8%E7%9B%AEACG%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/">二周目ACG补完计划</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本篇MMD学习笔记为从零入门，前期铺垫了许多内容，如果需要直接实战请移步B站寻找相关教程。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv20273?from=articleDetail">https://www.bilibili.com/read/cv20273?from=articleDetail</a>)</p>
+<span id="more"></span>
+
+<h3 id="本篇学习笔记参考的教程："><a href="#本篇学习笔记参考的教程：" class="headerlink" title="本篇学习笔记参考的教程："></a>本篇学习笔记参考的教程：</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv2659946?spm_id_from=333.999.0.0">最系统的MMD零基础入门教程宝典</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv1544637?from=articleDetail">MMD兵器库</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv1090815?spm_id_from=333.880.0.0">MMD入门综合指南3.1（2021修改版)</a></p>
+<p>[MMD（MikumikuDance）的发展历史](</p>
+<h3 id="MMD一般流程"><a href="#MMD一般流程" class="headerlink" title="MMD一般流程"></a>MMD一般流程</h3><p>1.找资源（或制作资源）并载入MMD</p>
+<p>2.渲染</p>
+<p>3.导出</p>
+<p>4.后期加音乐，加特效，字幕</p>
+<p>5.导出，压制</p>
+<p>6.投稿 </p>
+<h3 id="部分下载链接-教程链接："><a href="#部分下载链接-教程链接：" class="headerlink" title="部分下载链接&#x2F;教程链接："></a><strong>部分下载链接&#x2F;教程链接：</strong></h3><p><strong>MMD.zip下载链接</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1G-qUnTPzNSbDpT2fzO4gQw?pwd=mqmj">https://pan.baidu.com/s/1G-qUnTPzNSbDpT2fzO4gQw?pwd=mqmj</a><br>提取码：mqmj </p>
+<p><strong>MikuMikuDance.7z软件下载</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XYEUEsb2AvtGbBZZ3-z_aQ">https://pan.baidu.com/s/1XYEUEsb2AvtGbBZZ3-z_aQ</a><br>提取码：2021</p>
+<p><strong>Paper朱基础教学小菜谱.zip链接</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/10k6m0LPKaDVBrmi9Q-SDCA">https://pan.baidu.com/s/10k6m0LPKaDVBrmi9Q-SDCA</a><br>提取码：38pn</p>
+<p><strong>MMD软件链接</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1GxjIKZuPMnNzB37_bB3Ghg?pwd=xasq">https://pan.baidu.com/s/1GxjIKZuPMnNzB37_bB3Ghg?pwd=xasq</a></p>
+<p><strong>Paper朱基础教学小菜谱（7.3更新）.zip</strong>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1-qYk_oAQrCBLzWdyinO2rw">https://pan.baidu.com/s/1-qYk_oAQrCBLzWdyinO2rw</a><br>提取码：5sr4</p>
+<p><strong>Paper朱教程11.4更新MME：</strong><br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1EzJOyx6e22a2urTE4cioTA">https://pan.baidu.com/s/1EzJOyx6e22a2urTE4cioTA</a><br>提取码：yhm9</p>
+<p><strong>穆小泠弹指醉mmd</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1-Wh9MMl63bB3M-TRHqRE6w?pwd=0124#list/path=%2F">https://pan.baidu.com/s/1-Wh9MMl63bB3M-TRHqRE6w?pwd=0124#list/path=%2F</a></p>
+<p><strong>MikuMikuDance</strong>是日本人樋口优所开发，将VOCALOID2的初音未来等角色制作3D模组的免费软件。</p>
+
+
+<p><img src="https://i0.hdslb.com/bfs/article/9bd73b97966d3d6ae58ed3d67a0b4ae74df57b1d.png@452w_620h_progressive.webp" alt="img"></p>
+<h3 id="软件列表篇"><a href="#软件列表篇" class="headerlink" title="软件列表篇"></a>软件列表篇</h3><p>MikuMikuDance</p>
+<p>PmxEditor (PE)</p>
+<p>Notepad++ </p>
+<p>GoldWave</p>
+<p>Bandzip </p>
+<p>小丸工具箱</p>
+<p>PS  PR  AE </p>
+<p>Crazybump </p>
+<p>Aectime </p>
+<p>VPN</p>
+<p>百度云</p>
+<p>翻译工具</p>
+<p>MMD制作所需的资源主要包括人物模型，场景，动作，姿势，镜头，音乐，MME（特效）另外还有贴图文件等。</p>
+<h3 id="MMD相关网站链接"><a href="#MMD相关网站链接" class="headerlink" title="MMD相关网站链接"></a>MMD相关网站链接</h3><h4 id="国内："><a href="#国内：" class="headerlink" title="国内："></a>国内：</h4><ol>
+<li><p>B站：<a target="_blank" rel="noopener" href="https://www.bilibili.com/">https://www.bilibili.com</a></p>
+</li>
+<li><p>MMD贴吧：<a target="_blank" rel="noopener" href="http://tieba.baidu.com/f?kw=mikumikudance">http://tieba.baidu.com/f?kw=mikumikudance</a></p>
+</li>
+<li><p>萌舞论坛：<a target="_blank" rel="noopener" href="http://www.moe5.net/forum.php">http://www.moe5.net/forum.php</a></p>
+</li>
+<li><p>模之屋 ：<a target="_blank" rel="noopener" href="https://www.aplaybox.com/">https://www.aplaybox.com/</a></p>
+</li>
+<li><p>尼特部落：<a target="_blank" rel="noopener" href="http://geek.prdsarea.com/">http://geek.prdsarea.com</a></p>
+</li>
+<li><p>MMD咸鱼维基：<a target="_blank" rel="noopener" href="https://xywiki.com/MMD">https://xywiki.com/MMD</a></p>
+</li>
+<li><p>初音社：<a target="_blank" rel="noopener" href="https://www.mikuclub.org/">https://www.mikuclub.org</a></p>
+</li>
+</ol>
+<h4 id="国外："><a href="#国外：" class="headerlink" title="国外："></a>国外：</h4><ol>
+<li><p>NiceNico：<a target="_blank" rel="noopener" href="http://www.nicovideo.jp/">http://www.nicovideo.jp/</a> </p>
+<p>使用翻墙，翻译工具。一般在静画区，用日文去搜索</p>
+<p>モーション ——动作，モデル—— 模型，ステージ——场景，カメラ——镜头</p>
+</li>
+<li><p>YouTube：<a target="_blank" rel="noopener" href="https://www.youtube.com/">https://www.youtube.com/</a></p>
+</li>
+<li><p>Deviantart：<a target="_blank" rel="noopener" href="http://www.deviantart.com/">http://www.deviantart.com/</a></p>
+</li>
+<li><p>日本MMD资源集中区：<a target="_blank" rel="noopener" href="https://bowlroll.net/file/index">https://bowlroll.net/file/index</a></p>
+</li>
+<li><p>BowlRoll(B碗) 模型下载：<a target="_blank" rel="noopener" href="https://bowlroll.net/file/224701">https://bowlroll.net/file/224701</a></p>
+<p>搜素时中，日，英皆可</p>
+<p>model——模型，stage——场景，motion——动作，camera——镜头</p>
+</li>
+<li><p>官方MMD资源集合站：<a target="_blank" rel="noopener" href="https://www6.atwiki.jp/vpvpwiki">https://www6.atwiki.jp/vpvpwiki</a></p>
+</li>
+<li><p>Deviantart（Da站）</p>
+</li>
+<li><p>LearnMMD：<a target="_blank" rel="noopener" href="https://learnmmd.com/downloads/">https://learnmmd.com/downloads/</a></p>
+</li>
+<li><p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a> </p>
+</li>
+<li><p>wiki</p>
+</li>
+<li><p>3dtextures </p>
+</li>
+<li><p>cc0textures</p>
+</li>
+<li><p>iiidea.cn</p>
+</li>
+</ol>
+<h2 id="MMD相关基础知识"><a href="#MMD相关基础知识" class="headerlink" title="MMD相关基础知识"></a>MMD相关基础知识</h2><h3 id="MMD常用名词"><a href="#MMD常用名词" class="headerlink" title="MMD常用名词"></a>MMD常用名词</h3><p> pmm———MMD的工程文件, 记录使用了那些模型,场景,动作,镜头,特效等</p>
+<p>pmd&#x2F;pmx—-一般是人物模型文件(有时也会是道具)</p>
+<p>x————–一般是场景 ，或者道具模型,还可能是特效文件</p>
+<p>fx————-特效文件</p>
+<p>vmd———-动作文件，一般是角色动作，或者摄像机、灯光的运动记录。</p>
+<p>vqd———–这是姿势文件，载入后，角色就会摆个指定的pose</p>
+<p>MME———MikuMikuEffect , 是用来添加各种特效的文件</p>
+<p>PE————-Pmd Editor , 用来改模型的软件</p>
+<h3 id="常见的软件介绍"><a href="#常见的软件介绍" class="headerlink" title="常见的软件介绍"></a>常见的软件介绍</h3><h4 id="视频处理相关："><a href="#视频处理相关：" class="headerlink" title="视频处理相关："></a>视频处理相关：</h4><p> Adobe Premiere Pro（Pr）———视频剪辑软件</p>
+<p>Adobe After Effects（Ae）———-视频特效包装合成软件</p>
+<p>Adobe Photoshop（Ps）————众所众知的PS软件，修图</p>
+<p>Adobe Media Encoder——-Adobe自家的编码转格式软件。</p>
+<p>Sony Vegas Pro—————-剪辑软件</p>
+<p>小丸工具箱——————–视频压制处理工具</p>
+<p>完美解码+Potplayer———视频解码器和播放器，增加输出编码选项。</p>
+<h4 id="三维相关："><a href="#三维相关：" class="headerlink" title="三维相关："></a>三维相关：</h4><p>CINEMA 4D R18————三维软件，偏向包装制作</p>
+<p>3ds Max———————三维软件，偏向游戏建筑</p>
+<p>Maya————————-三维软件，偏向影视游戏</p>
+<p>Metasequoia 4（水杉）—–三维软件，早期比较适合MMD建模</p>
+<p>Bitmap2Material————制作材质的一款软件</p>
+<p>Marvelous Designer——–衣服制作，以及布料模拟</p>
+<h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h3><p>目前MMD这个软件有众多渲染方式。常见的有：</p>
+<p>Ik渲染(ikpolishshader)，T渲染(T_ToonShader)，Ray渲染，AT渲染(A-Toon)，PS渲染(Power-Shader)，ES渲染(excellentshadow)，N渲染(NCHLShader)，G渲染(G-SToonShader) 作者：Yashoku雫霁 <a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv1090815?spm_id_from=333.880.0.0">https://www.bilibili.com/read/cv1090815?spm_id_from=333.880.0.0</a> 出处：bilibili</p>
+<h4 id="模型的制式"><a href="#模型的制式" class="headerlink" title="模型的制式"></a>模型的制式</h4><p>常见的四种YYB式 TDA式 三妈式(mamama) Sour式</p>
+<p><a target="_blank" rel="noopener" href="http://tieba.baidu.com/p/4750456116">http://tieba.baidu.com/p/4750456116</a> </p>
+
+
+<p><img src="https://i0.hdslb.com/bfs/article/65795c6e9f524bc5e03d6ed246eaa5d1191ad7bc.jpg@942w_531h_progressive.webp" alt="img"></p>
+<h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a><strong>借物表</strong></h3><p>动作：名称+作者  </p>
+<p>镜头：名称+作者  </p>
+<p>舞台：名称+作者</p>
+<p>音乐：名称+歌手</p>
+<p>渲染：渲染主件和附件名称+原作者</p>
+<p>工具：名称</p>
+<h3 id="部分作者"><a href="#部分作者" class="headerlink" title="部分作者"></a><strong>部分作者</strong></h3><p><a target="_blank" rel="noopener" href="https://space.bilibili.com/1111474/">糖斯</a> 场景配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/11831050/">RedialC</a> 教程作者 配布作者 </p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/95853308/">小怪兽粉刷月球</a> 动作配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/8659812/">溯北P</a> 场景配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/446204/">Sour暄</a> 模型配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/7767105/">神帝宇</a> 崩3配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/1301635/">椛暗_Official</a> 模型配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/325745/">永远赤红的幼月</a> 镜头配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/503908/">samsink</a> 模型配布作者</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/1688240/">三目YYB</a> 模型配布作者</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2021/11/20/%E4%BB%8E%E9%9B%B6%E5%85%A5%E9%97%A8%E7%9A%84MMD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Java基础
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/08/01/%E9%9A%8F%E7%AC%94/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">随笔</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2025
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

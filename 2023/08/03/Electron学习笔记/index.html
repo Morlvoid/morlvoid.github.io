@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Electron学习笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Electron学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Electron学习笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-08-03T02:05:56.000Z" itemprop="datePublished">2023-08-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">6.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">28 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Electron学习笔记</p>
+<span id="more"></span>
+
+<h1 id="Electron-简介"><a href="#Electron-简介" class="headerlink" title="Electron 简介"></a>Electron 简介</h1><p>Electron（官网：<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/">https://www.electronjs.org/zh/</a>）是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源框架。</p>
+<h1 id="官网消息2023-8"><a href="#官网消息2023-8" class="headerlink" title="官网消息2023.8"></a>官网消息2023.8</h1><h3 id="22-x-y-持续支持​"><a href="#22-x-y-持续支持​" class="headerlink" title="22.x.y 持续支持​"></a>22.x.y 持续支持<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/blog/electron-25-0#22xy-%E6%8C%81%E7%BB%AD%E6%94%AF%E6%8C%81" title="链接到 22.x.y 持续支持">​</a></h3><p>正如<a target="_blank" rel="noopener" href="https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice">再见 Windows 7&#x2F;8&#x2F;8.1</a> 所述，Electron 22（Chromium 108）的计划寿命终止日期将从 2023 年 5 月 30 日延长至 2023 年 10 月 10 日。 Electron 团队将会继续向 Electron 22 提供本计划中的任何安全修复，直到 2023 年 10 月 10 日。 十月 支持日期遵循 Chromium 和 Microsoft 的延长支持日期。 10 月 11 日，Electron 团队将支持回退到最新的三个稳定主要版本，将不再支持 Windows 7&#x2F;8&#x2F;8.1。</p>
+<table>
+<thead>
+<tr>
+<th>E25（23 年 5 月）</th>
+<th>E26（23 年 8月）</th>
+<th>E27（23 年 10 月）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>25.x.y</td>
+<td>26.x.y</td>
+<td>27.x.y</td>
+</tr>
+<tr>
+<td>24.x.y</td>
+<td>25.x.y</td>
+<td>26.x.y</td>
+</tr>
+<tr>
+<td>23.x.y</td>
+<td>24.x.y</td>
+<td>25.x.y</td>
+</tr>
+<tr>
+<td>22.x.y</td>
+<td>22.x.y</td>
+<td>–</td>
+</tr>
+</tbody></table>
+<h2 id="时间表"><a href="#时间表" class="headerlink" title="时间表"></a>时间表</h2><table>
+<thead>
+<tr>
+<th>Electron</th>
+<th>Alpha</th>
+<th>Beta</th>
+<th>Stable</th>
+<th>EOL</th>
+<th>Chrome</th>
+<th>Node</th>
+<th>Supported</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>26.0.0</td>
+<td>2023-Jun-01</td>
+<td>2023-Jun-27</td>
+<td>2023-Aug-15</td>
+<td>TBD</td>
+<td>M116</td>
+<td>TBD</td>
+<td>√</td>
+</tr>
+<tr>
+<td>25.0.0</td>
+<td>2023-Apr-10</td>
+<td>2023-May-02</td>
+<td>2023-May-30</td>
+<td>2024-Jan-02</td>
+<td>M114</td>
+<td>v18.15</td>
+<td>√</td>
+</tr>
+<tr>
+<td>24.0.0</td>
+<td>2022-Feb-09</td>
+<td>2023-Mar-07</td>
+<td>2023-Apr-04</td>
+<td>2023-Oct-10</td>
+<td>M112</td>
+<td>v18.14</td>
+<td>√</td>
+</tr>
+</tbody></table>
+<p>摘自：<a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/blog/electron-25-0">Electron 25.0.0</a></p>
+<h1 id="Electron-特点"><a href="#Electron-特点" class="headerlink" title="Electron 特点"></a>Electron 特点</h1><p>Electron提供了易用的标记语法解析、绑定支持、灵活的布局排版、图形能力、数据处理、模板支持以及图形处理管线和插件拓展等功能。</p>
+<ol>
+<li><p>易用性和标记语法解析：Electron使用HTML和类似于HTML的标记语法，让你可以轻松创建用户界面。它与Web技术紧密集成，你可以使用熟悉的标记语法来构建界面和布局。</p>
+</li>
+<li><p>支持绑定和组件：Electron可以使用JavaScript框架（如Vue.js、React等）来实现绑定和组件化开发。你可以使用这些框架实现数据绑定和构建可复用的组件，类似于Vue或React。</p>
+</li>
+<li><p>布局排版和插件拓展：Electron提供了灵活的CSS布局排版，你可以使用CSS进行多种布局。此外，Electron还允许你通过插件系统来进行布局的拓展，使你能够自定义和扩展布局功能。</p>
+</li>
+<li><p>图形能力和后处理管线：Electron支持强大的图形能力，你可以使用Canvas API或WebGL来实现延迟渲染和后处理管线（例如使用着色器）。这使得你可以处理复杂的图形渲染和效果。</p>
+</li>
+<li><p>数据处理和模板：通过JavaScript框架，你可以实现数据处理、触发器和数据前后期处理。此外，你可以使用JavaScript的动态特性来实现动态模板，根据设备数据的变化选择不同的模板。</p>
+</li>
+<li><p>图形处理管线和图形插件：Electron允许你使用图形处理管线和图形插件来增强渲染器的图形功能。你可以使用现有的图形库或编写自定义的图形插件来满足你的需求。</p>
+</li>
+</ol>
+<h1 id="如何学习-Electron"><a href="#如何学习-Electron" class="headerlink" title="如何学习 Electron"></a>如何学习 Electron</h1><ol>
+<li><p>Electron官方网站：Electron的官方网站是一个重要的学习资源，提供了全面的文档、API参考和示例代码。你可以在官方网站上找到最新的Electron版本、教程和社区资源。访问Electron的官方网站：<a target="_blank" rel="noopener" href="https://www.electronjs.org/">https://www.electronjs.org/ ↗</a></p>
+</li>
+<li><p>Electron文档：Electron官方提供了详细的文档，涵盖了Electron的核心概念、API参考、应用程序架构和开发流程等内容。你可以在文档中找到关于窗口管理、文件系统访问、进程间通信等方面的信息。访问Electron的文档：<a target="_blank" rel="noopener" href="https://www.electronjs.org/docs">https://www.electronjs.org/docs ↗</a></p>
+</li>
+<li><p>Electron API演示应用程序：Electron官方提供了一个API演示应用程序，其中包含了许多示例代码，涵盖了Electron的各种功能和用法。你可以通过浏览这些示例代码来学习Electron的具体用法和最佳实践。访问API演示应用程序：<a target="_blank" rel="noopener" href="https://github.com/electron/electron-api-demos">https://github.com/electron/electron-api-demos ↗</a></p>
+</li>
+<li><p>Electron Fiddle：Electron Fiddle是一个交互式的学习工具，它允许你在浏览器中编写和运行Electron代码片段。你可以使用Electron Fiddle来实验和学习Electron的各种功能和API。访问Electron Fiddle：<a target="_blank" rel="noopener" href="https://www.electronjs.org/fiddle">https://www.electronjs.org/fiddle ↗</a></p>
+</li>
+<li><p>Electron社区资源：Electron拥有活跃的开发者社区，你可以通过访问Electron的论坛、GitHub存储库、Stack Overflow和其他开发者社区来获取帮助、参与讨论和分享经验。在Electron的官方网站上可以找到相关链接和资源。</p>
+</li>
+</ol>
+<h1 id="安装-Electron-国内"><a href="#安装-Electron-国内" class="headerlink" title="安装 Electron (国内)"></a>安装 Electron (国内)</h1><h2 id="安装-Node-js："><a href="#安装-Node-js：" class="headerlink" title="安装 Node.js："></a>安装 Node.js：</h2><p>首先，确保你的电脑上已经安装了 Node.js。你可以从 Node.js 官方网站（<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org ↗</a>）下载安装程序，并按照安装向导进行安装。</p>
+<h2 id="查看node和npm版本"><a href="#查看node和npm版本" class="headerlink" title="查看node和npm版本"></a>查看node和npm版本</h2><p>安装完成后，你可以在命令提示符或 PowerShell 中验证 Node.js 是否安装成功，通过运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>如果成功显示 Node.js 的版本号，则表示安装成功。</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/catnodeversion.png" class="" title="[验证 Node.js 是否安装成功]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\catnodeversion.png" alt="catnodeversion"></p>
+<h2 id="创建Electron-项目"><a href="#创建Electron-项目" class="headerlink" title="创建Electron 项目"></a>创建Electron 项目</h2><p>在任意位置创建一个新的文件夹作为你的 Electron 项目目录。</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/createhelloworld.png" class="" title="创建一个新的文件夹]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\createhelloworld.png" alt="createhelloworld"></p>
+<h2 id="进入项目目录："><a href="#进入项目目录：" class="headerlink" title="进入项目目录："></a>进入项目目录：</h2><p>在命令提示符或 PowerShell 中，使用 <code>cd</code> 命令进入你的 Electron 项目目录。<br>例如，如果你的项目目录在桌面上的一个名为 <code>HelloWorld</code> 的文件夹中，你可以运行以下命令进入该目录：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:D</span><br><span class="line"><span class="built_in">cd</span> D:\electorn\HelloWorld</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="更换npm国内源"><a href="#更换npm国内源" class="headerlink" title="更换npm国内源"></a>更换npm国内源</h2><p>若原本的npm下载失败，尝试更换国内源</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>（或）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用-npm-进行全局安装"><a href="#使用-npm-进行全局安装" class="headerlink" title="使用 npm 进行全局安装"></a>使用 <code>npm</code> 进行全局安装</h2><p>在终端中运行以下命令来安装 Electron 作为项目的依赖项：<br>这将在项目目录中安装最新版本的 Electron。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron -g</span><br></pre></td></tr></table></figure>
+
+<p>非全局安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron</span><br></pre></td></tr></table></figure>
+
+
+<p>这将下载并安装 Electron 及其相关依赖项。安装完成后，你的项目目录中将出现一个名为 <code>node_modules</code> 的文件夹，其中包含了 Electron 及其依赖项的文件。</p>
+<h2 id="检测是否安装成功"><a href="#检测是否安装成功" class="headerlink" title="检测是否安装成功"></a>检测是否安装成功</h2><p>安装好后，我们可以通过 <code>-v</code> 命令检测 <code>electron</code> 是否安装成功，命令如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">electron -v</span><br></pre></td></tr></table></figure>
+
+<p>显示版本即为安装成功</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/electronversion.png" class="" title="[检测electron是否安装成功]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\electronversion.png" alt="electronversion"></p>
+<p>其他命令：查看可提供的版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm view electron versions</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化-npm"><a href="#初始化-npm" class="headerlink" title="初始化 npm"></a>初始化 npm</h2><p>在项目目录中运行以下命令，初始化 npm 项目，并按照提示填写项目相关信息：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<p>这将生成一个 <code>package.json</code> 文件，其中包含了你的项目的配置信息。</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/npminitelectron.png" class="" title="[初始化 npm 项目]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\npminitelectron.png" alt="npminitelectron"></p>
+<h2 id="创建入口main-js文件"><a href="#创建入口main-js文件" class="headerlink" title="创建入口main.js文件"></a>创建入口main.js文件</h2><p>在项目目录中创建一个新的 JavaScript 文件，例如 <code>main.js</code>，作为 Electron 应用程序的入口文件。<br>在 <code>main.js</code> 文件中编写你的 Electron 应用程序的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, <span class="title class_">BrowserWindow</span> &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createWindow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> win = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>(&#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">800</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">600</span>,</span><br><span class="line">        <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">            <span class="attr">nodeIntegration</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    win.<span class="title function_">loadFile</span>(<span class="string">&#x27;index.html&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">app.<span class="title function_">whenReady</span>().<span class="title function_">then</span>(createWindow);</span><br></pre></td></tr></table></figure>
+
+<p>这段代码创建了一个 Electron 窗口，并加载了一个名为 <code>index.html</code> 的文件。</p>
+<h2 id="创建html文件"><a href="#创建html文件" class="headerlink" title="创建html文件"></a>创建html文件</h2><p>在项目目录中创建一个新的 HTML 文件，例如 <code>index.html</code>。<br>打开 <code>index.html</code> 文件，并将以下代码粘贴到文件中：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是一个简单的 HTML 文件，其中包含一个标题为 “Hello World!” 的 <code>&lt;h1&gt;</code> 元素。</p>
+<h2 id="运行-Electron-应用程序"><a href="#运行-Electron-应用程序" class="headerlink" title="运行 Electron 应用程序"></a>运行 Electron 应用程序</h2><p>在项目目录中执行以下命令来启动 Electron 应用程序：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx electron .</span><br></pre></td></tr></table></figure>
+
+<p>这将在 Electron 中打开一个窗口，并加载 <code>index.html</code> 文件。你应该能够看到一个包含 “Hello World!” 的窗口。</p>
+<p>恭喜！你已经成功创建并运行了一个简单的 Electron HelloWorld 程序。<br>你可以根据需要修改 <code>index.html</code> 文件来实现更复杂的界面和功能。</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/successhelloworld.png" class="" title="[简单的 Electron HelloWorld 程序]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\successhelloworld.png" alt="successhelloworld"></p>
+<h2 id="“Hello-World”-文件结构"><a href="#“Hello-World”-文件结构" class="headerlink" title="“Hello World” 文件结构"></a>“Hello World” 文件结构</h2><p> “Hello World” Electron 应用程序的文件结构通常如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my-electron-app/</span><br><span class="line">├── index.html</span><br><span class="line">├── main.js</span><br><span class="line">├── package.json</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/electronmainjs.png" class="" title="[文件结构]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\electronmainjs.png" alt="electronmainjs"></p>
+<p>每个文件的作用：</p>
+<ol>
+<li><p><code>index.html</code>: 这是应用程序的主要 HTML 文件，用于定义应用程序的用户界面。你可以在其中添加 HTML、CSS 和 JavaScript 代码来创建你想要的界面和功能。</p>
+</li>
+<li><p><code>main.js</code>: 这是 Electron 应用程序的主要启动文件。它包含了创建 Electron 窗口、加载 <code>index.html</code> 文件等核心功能代码。</p>
+</li>
+<li><p><code>package.json</code>: 这是应用程序的配置文件，其中包含了应用程序的元数据、依赖项和脚本等信息。通过运行 <code>npm init</code> 命令可以生成这个文件，并在其中添加你的应用程序的相关信息。</p>
+</li>
+</ol>
+<p>这是一个最简单的 Electron 应用程序的文件结构，它包含一个 HTML 文件和一个 JavaScript 文件。</p>
+<p>你可以根据需要对文件结构进行扩展和修改，例如添加其他的 HTML、CSS 和 JavaScript 文件，或者将资源文件（如图像、样式表等）放在适当的位置。</p>
+<h2 id="查看-Electron-版本号"><a href="#查看-Electron-版本号" class="headerlink" title="查看 Electron 版本号"></a>查看 Electron 版本号</h2><p>如果您的Electron应用程序已打包成可执行文件，则可以通过在命令行或PowerShell窗口中运行该文件，并添加–version参数来获取Electron的版本号。<br>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my-electron-app.exe --version</span><br></pre></td></tr></table></figure>
+
+<p>这将输出您的Electron应用程序所使用的Electron版本号。</p>
+<h1 id="升级-Electron-版本"><a href="#升级-Electron-版本" class="headerlink" title="升级 Electron 版本"></a>升级 Electron 版本</h1><p>要升级Electron的版本，请按照以下步骤操作：</p>
+<ol>
+<li><p>打开您的Electron应用程序的根目录并备份您的代码和配置文件。</p>
+</li>
+<li><p>在package.json文件中将Electron的版本号更新为您想要升级到的版本号，例如：</p>
+</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;electron&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^26.0.0&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>在命令行中运行以下命令，以安装新版本的Electron：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>这将会安装package.json文件中指定的所有依赖项，包括新版本的Electron。</p>
+<ol start="4">
+<li><p>更新您的Electron应用程序的代码和配置文件，以适应新版本的Electron。在新版本的Electron中可能会有一些API更改或功能更新，因此您可能需要相应地更改您的应用程序代码和配置文件。</p>
+</li>
+<li><p>测试您的应用程序，确保它在新版本的Electron中正常运行。</p>
+</li>
+</ol>
+<p>请注意，升级Electron版本可能会导致应用程序出现不兼容或错误。因此，在升级之前，请确保备份您的代码和配置文件，并在测试之前进行更改。</p>
+<h1 id="清除-npm-缓存"><a href="#清除-npm-缓存" class="headerlink" title="清除 npm 缓存"></a>清除 npm 缓存</h1><h2 id="验证代理设置"><a href="#验证代理设置" class="headerlink" title="验证代理设置"></a>验证代理设置</h2><p>如果你在代理后面，请确保代理设置正确。<br>你可以使用<code>npm config</code>命令检查和更新代理设置。在终端中运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config get proxy</span><br><span class="line">npm config get https-proxy</span><br></pre></td></tr></table></figure>
+
+<p>如果这些命令返回一个值，表示已配置代理。<br>如果返回<code>null</code>，表示未设置代理</p>
+<h2 id="删除代理缓存"><a href="#删除代理缓存" class="headerlink" title="删除代理缓存"></a>删除代理缓存</h2><p>如果代理设置不正确或者你不需要代理，可以使用以下命令删除它们：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
+
+<h2 id="临时禁用代理："><a href="#临时禁用代理：" class="headerlink" title="临时禁用代理："></a>临时禁用代理：</h2><p>如果你正在使用代理，并怀疑它导致了问题，可以尝试临时禁用它，以查看npm能否正常连接注册表。</p>
+<h2 id="使用不同的注册表"><a href="#使用不同的注册表" class="headerlink" title="使用不同的注册表"></a>使用不同的注册表</h2><p>默认情况下，npm使用官方注册表（registry.npmjs.org）。<br>尝试切换到其他注册表，看看是否可以解决问题。<br>运行以下命令更改注册表：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<p>更改注册表后，再次尝试运行npm命令。</p>
+<h2 id="清除npm缓存"><a href="#清除npm缓存" class="headerlink" title="清除npm缓存"></a>清除npm缓存</h2><p>有时，npm缓存的问题可能导致连接问题。<br>你可以尝试通过运行以下命令来清除npm缓存：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存后，再次尝试运行npm命令。</p>
+<h1 id="卸载-Electron"><a href="#卸载-Electron" class="headerlink" title="卸载 Electron"></a>卸载 Electron</h1><p>要卸载 Electron，你可以按照以下步骤进行操作：</p>
+<h2 id="全局卸载"><a href="#全局卸载" class="headerlink" title="全局卸载"></a>全局卸载</h2><ol>
+<li>如果你在全局范围内安装了 Electron，请使用以下命令将其卸载：</li>
+</ol>
+<p>使用 npm：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall -g electron</span><br></pre></td></tr></table></figure>
+
+<p>如果你没有在全局范围内安装 Electron，则可以跳过此步骤。</p>
+<h2 id="本地卸载"><a href="#本地卸载" class="headerlink" title="本地卸载"></a>本地卸载</h2><ol start="2">
+<li>如果你在你的项目目录中使用了本地安装的 Electron，请在项目目录下执行以下命令卸载 Electron：</li>
+</ol>
+<p>使用 npm：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall electron</span><br></pre></td></tr></table></figure>
+
+<p>这将从你的项目的 <code>node_modules</code> 目录中移除 Electron。</p>
+<p>请注意，以上命令将仅移除 Electron 包本身，而不会删除你的应用程序代码和其他依赖项。</p>
+<p>如果你想完全删除 Electron 相关的文件，你可以手动删除以下文件和目录：</p>
+<ul>
+<li><p>从全局范围内安装的情况下，删除对应的 Electron 可执行文件的路径（例如 Windows 中的 <code>C:\Users\your-username\AppData\Roaming\npm\node_modules\electron</code>）。</p>
+</li>
+<li><p>从项目目录中删除 <code>node_modules</code> 目录中的 Electron 相关文件。</p>
+</li>
+<li><p>如果你使用了其他构建工具或打包工具（如 webpack、Parcel 或 Electron Builder），请根据相应工具的文档，删除和清理相关的配置文件和构建输出目录。</p>
+</li>
+</ul>
+<p>通过执行上述步骤，你将能够卸载 Electron。</p>
+<h1 id="报错信息及解决方式"><a href="#报错信息及解决方式" class="headerlink" title="报错信息及解决方式"></a>报错信息及解决方式</h1><h2 id="【查看版本时报错】’electron’-不是内部或外部命令，也不是可运行的程序或批处理文件。"><a href="#【查看版本时报错】’electron’-不是内部或外部命令，也不是可运行的程序或批处理文件。" class="headerlink" title="【查看版本时报错】’electron’ 不是内部或外部命令，也不是可运行的程序或批处理文件。"></a>【查看版本时报错】’electron’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</h2><blockquote>
+<p>‘electron’ 不是内部或外部命令，也不是可运行的程序或批处理文件。</p>
+</blockquote>
+<p>使用 <code>electron -v</code> 查看版本时显示：</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/errorelectronversion.png" class="" title="[查看版本时报错]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\errorelectronversion.png" alt="errorelectronversion"></p>
+<p>这个错误表明你尝试在命令行中执行 <code>electron</code> 命令时，系统无法找到 <code>electron</code> 命令。</p>
+<p>这通常是由于 Electron 没有正确安装或没有在全局范围内配置导致的。</p>
+<ol>
+<li>安装 Electron：首先确保你已经在你的项目目录中通过 npm 或 yarn 安装了 Electron。在命令行中进入你的项目目录，并运行以下命令来安装 Electron：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>检查全局安装：如果你希望在命令行中直接运行 <code>electron</code> 命令，你需要全局安装 Electron。使用以下命令来全局安装 Electron：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g electron</span><br></pre></td></tr></table></figure>
+
+<p>请注意，全局安装可能需要管理员权限。</p>
+<ol start="3">
+<li>检查环境变量：如果你已经正确安装了 Electron，但仍然无法在命令行中执行 <code>electron</code> 命令，可能是因为系统的环境变量配置不正确。确保你的系统环境变量中包含 Electron 的可执行文件的路径。</li>
+</ol>
+<p>对于 Windows 用户，你可以检查以下路径是否在系统的 PATH 环境变量中：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\your-username\AppData\Roaming\npm\node_modules\electron\dist</span><br></pre></td></tr></table></figure>
+
+<p>如果路径不在 PATH 环境变量中，可以手动将它添加进去。</p>
+<ol start="4">
+<li>使用 npx 运行：如果你只是想在命令行中临时运行 Electron，而不进行全局安装，你可以使用 <code>npx</code> 命令来执行 Electron。在命令行中进入你的项目目录，并执行以下命令：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx electron</span><br></pre></td></tr></table></figure>
+
+<p>这将临时下载并运行最新版本的 Electron。</p>
+<h2 id="【安装时报错】npm-ERR-RequestError-connect-ETIMEDOUT-20-205-243-166-443"><a href="#【安装时报错】npm-ERR-RequestError-connect-ETIMEDOUT-20-205-243-166-443" class="headerlink" title="【安装时报错】npm ERR! RequestError: connect ETIMEDOUT 20.205.243.166:443"></a>【安装时报错】npm ERR! RequestError: connect ETIMEDOUT 20.205.243.166:443</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code 1</span><br><span class="line">npm ERR! path D:\Electron\test1\node_modules\electron</span><br><span class="line">npm ERR! <span class="built_in">command</span> failed</span><br><span class="line">npm ERR! <span class="built_in">command</span> C:\WINDOWS\system32\cmd.exe /d /s /c node install.js</span><br><span class="line">npm ERR! RequestError: connect ETIMEDOUT 20.205.243.166:443</span><br></pre></td></tr></table></figure>
+
+<p>这个错误表明在尝试安装 Electron 时，npm 遇到了连接超时的问题。</p>
+<p>解决此问题的一种常见方法是切换 npm 的下载源。默认情况下，npm 使用的是官方的 npm registry，但有时该源可能遇到连接问题。</p>
+<p>你可以尝试将 npm 源切换为国内的源，例如淘宝的 npm 镜像。请按照以下步骤进行操作：</p>
+<ol>
+<li><p>打开命令行工具，并进入到你的 Electron 项目目录下。</p>
+</li>
+<li><p>运行以下命令，将 npm 源切换为淘宝的 npm 镜像：</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>这将把 npm 源设置为淘宝的源。</p>
+<ol start="3">
+<li>然后，再次运行 <code>npm install</code> 命令来安装 Electron：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>这将使用淘宝的 npm 镜像来下载 Electron，以避免连接问题。</p>
+<p>请注意，切换源可能会导致下载速度变慢，但能够解决连接超时的问题。如果仍然遇到问题，请确保你的网络连接正常，并检查防火墙或代理设置是否会阻止 npm 的网络访问。</p>
+<h2 id="【安装时报错】npm-ERR-RequestError-read-ECONNRESET"><a href="#【安装时报错】npm-ERR-RequestError-read-ECONNRESET" class="headerlink" title="【安装时报错】npm ERR! RequestError: read ECONNRESET"></a>【安装时报错】npm ERR! RequestError: read ECONNRESET</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code 1</span><br><span class="line">npm ERR! path C:\Users\15234\AppData\Roaming\npm\node_modules\electron</span><br><span class="line">npm ERR! <span class="built_in">command</span> failed</span><br><span class="line">npm ERR! <span class="built_in">command</span> C:\WINDOWS\system32\cmd.exe /d /s /c node install.js</span><br><span class="line">npm ERR! RequestError: <span class="built_in">read</span> ECONNRESET</span><br><span class="line">npm ERR!     at ClientRequest.&lt;anonymous&gt; (C:\Users\15234\AppData\Roaming\npm\node_modules\electron\node_modules\got\<span class="built_in">source</span>\request-as-event-emitter.js:178:14)</span><br><span class="line">npm ERR!     at Object.onceWrapper (node:events:628:26)</span><br><span class="line">npm ERR!     at ClientRequest.emit (node:events:525:35)</span><br><span class="line">npm ERR!     at origin.emit (C:\Users\15234\AppData\Roaming\npm\node_modules\electron\node_modules\@szmarczak\http-timer\<span class="built_in">source</span>\index.js:37:11)</span><br><span class="line">npm ERR!     at TLSSocket.socketErrorListener (node:_http_client:502:9)</span><br><span class="line">npm ERR!     at TLSSocket.emit (node:events:513:28)</span><br><span class="line">npm ERR!     at emitErrorNT (node:internal/streams/destroy:151:8)</span><br><span class="line">npm ERR!     at emitErrorCloseNT (node:internal/streams/destroy:116:3)</span><br><span class="line">npm ERR!     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)</span><br><span class="line"></span><br><span class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>: C:\Users\15234\AppData\Local\npm-cache\_logs\2023-08-03T15_13_34_305Z-debug-0.log</span><br></pre></td></tr></table></figure>
+
+<p>这个错误消息表明在尝试安装Electron时，npm遇到了连接错误。具体来说，它显示了“RequestError: read ECONNRESET”错误，这意味着npm无法从服务器读取数据。</p>
+<p>以下是一些可能的解决方案：</p>
+<ol>
+<li><p>检查您的网络连接是否正常。尝试访问其他网站来确保您的网络连接正常。</p>
+</li>
+<li><p>尝试清除npm缓存，并重新运行<code>npm install</code>命令：</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>如果您使用的是代理，请确保npm已正确配置以使用代理服务器。您可以使用以下命令来设置代理：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy http://proxy.company.com:8080</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://proxy.company.com:8080</span><br></pre></td></tr></table></figure>
+
+<p>请将“proxy.company.com”替换为您的代理服务器地址和端口号。</p>
+<ol start="4">
+<li>如果您使用的是较旧版本的npm，请尝试升级npm版本并重新运行<code>npm install</code>命令。您可以使用以下命令来升级npm版本：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure>
+
+<p>这将会安装最新版本的npm。然后，您可以再次尝试运行<code>npm install</code>命令，查看是否已经解决了该问题。</p>
+<p>请注意，如果您在尝试解决这个问题时对npm进行了更改，请注意备份您的代码和配置文件，并在测试之前仔细检查它们。</p>
+<h2 id="【安装时报错】npm-ERR-path-D-electron-package-json"><a href="#【安装时报错】npm-ERR-path-D-electron-package-json" class="headerlink" title="【安装时报错】npm ERR! path D:\electron&#x2F;package.json"></a>【安装时报错】npm ERR! path D:\electron&#x2F;package.json</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">D:\electron&gt;npm install</span><br><span class="line">npm ERR! code ENOENT</span><br><span class="line">npm ERR! syscall open</span><br><span class="line">npm ERR! path D:\electron/package.json</span><br><span class="line">npm ERR! errno -4058</span><br><span class="line">npm ERR! enoent ENOENT: no such file or directory, open <span class="string">&#x27;D:\electron\package.json&#x27;</span></span><br><span class="line">npm ERR! enoent This is related to npm not being able to find a file.</span><br><span class="line">npm ERR! enoent</span><br><span class="line"></span><br><span class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>: C:\Users\15234\AppData\Local\npm-cache\_logs\2023-08-03T11_58_08_529Z-debug-0.log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>这个错误消息表明在D:\electron目录中找不到package.json文件，因此npm无法运行<code>npm install</code>命令。</p>
+<p>请确保您在D:\electron目录中已经创建了一个package.json文件，并指定了您的Electron应用程序的名称、版本、依赖项等信息。如果没有创建该文件，请使用以下命令来创建它：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<p>该命令将会引导您创建一个新的package.json文件，并询问您的应用程序的名称、版本、作者、许可证等信息。完成后，您可以在D:\electron目录下找到生成的package.json文件。</p>
+<p>如果您已经创建了package.json文件，请确保文件名和路径名称是正确的，并且该文件位于D:\electron目录下。如果它不在该目录中，请将其移动到该目录下。</p>
+<p>如果问题仍然存在，请尝试运行以下命令来清除npm的缓存，并重新运行<code>npm install</code>命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<p>然后再次尝试运行<code>npm install</code>命令。</p>
+<p>请确保您在运行<code>npm install</code>命令之前已经在D:\electron文件夹中创建了一个package.json文件。您可以在该文件中指定您的应用程序的名称、版本、依赖项等信息。</p>
+<p>如果您已经创建了package.json文件，那么可能是文件名或路径不正确。请检查文件名和路径是否正确，并确保您正在运行<code>npm install</code>命令的文件夹路径与package.json文件所在的路径相同。</p>
+<p>此外，如果您使用的是较旧的npm版本，请尝试升级npm版本，并再次运行<code>npm install</code>命令。您可以使用以下命令来升级npm版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure>
+
+<p>这将会安装最新版本的npm。然后，您可以再次尝试运行<code>npm install</code>命令，查看是否已经解决了该问题。</p>
+<h2 id="【安装时报错】npm-WARN-cleanup-Failed-to-remove-some-directories"><a href="#【安装时报错】npm-WARN-cleanup-Failed-to-remove-some-directories" class="headerlink" title="【安装时报错】npm WARN cleanup Failed to remove some directories"></a>【安装时报错】npm WARN cleanup Failed to remove some directories</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm WARN cleanup Failed to remove some directories [</span><br><span class="line">npm WARN cleanup   [</span><br><span class="line">npm WARN cleanup     <span class="string">&#x27;D:\\Electron\\test1\\node_modules\\extract-zip&#x27;</span>,</span><br><span class="line">npm WARN cleanup     [Error: EPERM: operation not permitted, <span class="built_in">rmdir</span> <span class="string">&#x27;D:\Electron\test1\node_modules\extract-zip\node_modules&#x27;</span>] &#123;</span><br><span class="line">npm WARN cleanup       errno: -4048,</span><br><span class="line">npm WARN cleanup       code: <span class="string">&#x27;EPERM&#x27;</span>,</span><br><span class="line">npm WARN cleanup       syscall: <span class="string">&#x27;rmdir&#x27;</span>,</span><br><span class="line">npm WARN cleanup       path: <span class="string">&#x27;D:\\Electron\\test1\\node_modules\\extract-zip\\node_modules&#x27;</span></span><br><span class="line">npm WARN cleanup     &#125;</span><br><span class="line">npm WARN cleanup   ]</span><br><span class="line">npm WARN cleanup ]</span><br></pre></td></tr></table></figure>
+
+<p>在尝试安装 Electron 时，npm 遇到了：</p>
+<p><code>npm WARN cleanup</code>：在清理过程中无法删除某些目录。具体是 <code>D:\Electron\test1\node_modules\extract-zip\node_modules</code> 目录无法被删除，导致了警告。这可能是由于权限不足或其他操作系统相关的问题导致的。</p>
+<ol>
+<li>权限问题：确保你有足够的权限来删除目录。你可以尝试在命令行中以管理员权限运行安装命令，或者手动删除 <code>D:\Electron\test1\node_modules\extract-zip\node_modules</code> 目录。</li>
+</ol>
+<h2 id="【运行时报错】npm-ERR-Missing-script-“start”"><a href="#【运行时报错】npm-ERR-Missing-script-“start”" class="headerlink" title="【运行时报错】npm ERR!  Missing script: “start”"></a>【运行时报错】npm ERR!  Missing script: “start”</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! Missing script: <span class="string">&quot;start&quot;</span></span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Did you mean one of these?</span><br><span class="line">npm ERR!     npm star <span class="comment"># Mark your favorite packages</span></span><br><span class="line">npm ERR!     npm stars <span class="comment"># View packages marked as favorites</span></span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! To see a list of scripts, run:</span><br><span class="line">npm ERR!   npm run</span><br><span class="line"></span><br><span class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\15234\AppData\Local\npm-cache\_logs\2023-08-03T08_07_03_419Z-debug-0.log</span><br></pre></td></tr></table></figure>
+
+<p>缺少脚本：“start”<br>错误信息提示缺少名为 “start” 的脚本，同时给出了一些可能的替代命令。</p>
+<ol>
+<li><p>确认你在正确的目录中运行 npm 命令。你应该在包含 <code>package.json</code> 文件的应用程序根目录下运行 npm 命令。</p>
+</li>
+<li><p>检查你的 <code>package.json</code> 文件，确保其中包含了一个名为 “start” 的脚本。 <code>&quot;scripts&quot;</code> 部分应该包含 <code>&quot;start&quot;</code> 字段，并且对应的值应该是你启动应用程序的命令。</p>
+</li>
+</ol>
+<p>示例 <code>package.json</code> 文件中的 <code>&quot;scripts&quot;</code> 部分：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron .&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你的 <code>package.json</code> 文件中没有 “start” 脚本，你可以根据你的需求添加它。</p>
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/electronpackagejson.png" class="" title="[错误信息]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\electronpackagejson.png" alt="electronpackagejson"></p>
+<p>如图，启动应用程序的命令为：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx electron .</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="【运行时报错】Unable-to-find-Electron-app-at-D-Electron"><a href="#【运行时报错】Unable-to-find-Electron-app-at-D-Electron" class="headerlink" title="【运行时报错】Unable to find Electron app at D:\Electron"></a>【运行时报错】Unable to find Electron app at D:\Electron</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error launching app</span><br><span class="line">Unable to find Electron app at D:\Electron</span><br><span class="line">Cannot find module <span class="string">&#x27;D:\Electron&#x27;</span></span><br><span class="line">Require stack:</span><br><span class="line">C:\Users\15234VAppData\LocalNnpm-cachel_npx\1323dbbc85759269\node... main.js</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/errorlauchingapp.png" class="" title="[错误信息]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\errorlauchingapp.png" alt="errorlauchingapp"></p>
+<p>根据提供的错误信息，出现了一个与 Electron 应用程序启动相关的错误。错误信息显示了以下内容：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error launching app</span><br><span class="line">Unable to find Electron app at D:\Electron</span><br><span class="line">Cannot find module <span class="string">&#x27;D:\Electron&#x27;</span></span><br><span class="line">Require stack:</span><br><span class="line">C:\Users\15234VAppData\LocalNnpm-cachel_npx\1323dbbc85759269\node... main.js</span><br></pre></td></tr></table></figure>
+
+<p>这个错误表明 Electron 无法找到位于 <code>D:\Electron</code> 目录下的应用程序，并且在 <code>D:\Electron</code> 目录中找不到名为 <code>D:\Electron</code> 的模块。</p>
+<p>请注意，根据提供的错误信息，似乎存在一个路径错误。错误信息中的路径为 <code>D:\Electron</code>，它被认为是一个模块路径，而不是一个应用程序路径。</p>
+<p>请按照以下步骤检查和解决这个问题：</p>
+<ol>
+<li><p>检查应用程序路径：确认应用程序所在的路径是否正确。检查路径中的拼写错误、缺少斜杠等问题。</p>
+</li>
+<li><p>检查启动命令：确保你在启动 Electron 应用程序时使用了正确的命令。常见的启动命令是 <code>electron .</code> 或者 <code>electron main.js</code>。确保命令中的路径和文件名与你的项目结构一致。</p>
+</li>
+<li><p>确认应用程序目录结构：在应用程序的目录中，确保存在一个有效的 <code>package.json</code> 文件和一个入口文件（通常命名为 <code>main.js</code> 或 <code>index.js</code>）。<code>package.json</code> 文件应包含一个有效的 <code>&quot;main&quot;</code> 入口字段，指向你的应用程序的入口文件。</p>
+</li>
+</ol>
+<h2 id="【运行时报错】Unable-to-find-Electron-app-at-D-Electron-my-electron-app"><a href="#【运行时报错】Unable-to-find-Electron-app-at-D-Electron-my-electron-app" class="headerlink" title="【运行时报错】Unable to find Electron app at D:\Electron\my-electron-app"></a>【运行时报错】Unable to find Electron app at D:\Electron\my-electron-app</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error launching app</span><br><span class="line">Unable to find Electron app at D:\Electron\my-electron-app</span><br><span class="line">Cannot find module <span class="string">&#x27;D:\Electron\my-electron-app\index.js&#x27;</span>. Please verify that the package.json has a valid <span class="string">&quot;main&quot;</span> entry</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/errorlaunchingapp2.png" class="" title="[错误信息]">
+
+<p><img src="D:\Morlvoid\Morlvoid.github.io\source_posts\Electron学习笔记\errorlaunchingapp2.png" alt="errorlaunchingapp2"></p>
+<p>错误启动应用程序<br>无法在 D:\electron\my-electron-app 找到 Electron 应用程序<br>无法找到模块 ‘D:\electron\my-electron-app\index.js’。请验证 package.json 文件中是否有有效的 “main” 入口</p>
+<p>这个错误提示表明在指定的路径 <code>D:\Electron\my-electron-app</code> 下找不到 Electron 应用程序。同时，它还指出需要验证 <code>package.json</code> 文件中是否有有效的 <code>&quot;main&quot;</code> 入口。</p>
+<p>请确保以下几点：</p>
+<ol>
+<li><p>检查指定的路径是否正确，确保你的 Electron 应用程序确实存在于 <code>D:\Electron\my-electron-app</code> 目录中。</p>
+</li>
+<li><p>验证 <code>package.json</code> 文件是否存在，并且确保其中包含了有效的 <code>&quot;main&quot;</code> 入口。<code>&quot;main&quot;</code> 入口应该指向 Electron 应用程序的主要启动文件（通常是 <code>index.js</code> 或 <code>main.js</code>）。</p>
+</li>
+<li><p>可能是 Electron 版本不匹配。<br>最新的 Electron 版本可能已经更新，因此旧版本的 Electron 可能无法正常工作。</p>
+</li>
+</ol>
+<p>为了解决这个问题，你可以尝试更新 Electron 的版本，或者使用一个更稳定的版本。以下是更新 <code>package.json</code> 文件的示例，将 Electron 版本更新为最新版本：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;test1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron .&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;electron&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^25.4.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，我将 Electron 版本更新为 <code>&quot;^25.4.0&quot;</code>，这是一个较新且稳定的版本。请注意，你也可以使用其他版本号，但建议使用较新的稳定版本。</p>
+<p>更新 <code>package.json</code> 文件后，运行 <code>npm install</code> 命令来安装最新版本的 Electron：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>然后，尝试再次启动 Electron 应用程序：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+
+<p>示例 <code>package.json</code> 文件：</p>
+   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;my-electron-app&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron .&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	    <span class="attr">&quot;electron&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^25.4.0&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>请确保 <code>&quot;main&quot;</code> 字段的值正确指向你的应用程序的主要启动文件。</p>
+<ol start="3">
+<li>确保你已经在应用程序的根目录下运行了正确的命令来启动 Electron 应用程序。通常，可以使用如下命令来启动应用程序：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">electron .</span><br></pre></td></tr></table></figure>
+
+<p>这将在当前目录下查找 <code>package.json</code> 文件，并使用 <code>&quot;main&quot;</code> 字段指定的入口文件来启动 Electron 应用程序。</p>
+<h1 id="Hello-World示例"><a href="#Hello-World示例" class="headerlink" title="Hello World示例"></a>Hello World示例</h1><h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;electron&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^25.4.0&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;helloworld&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;main.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;electron .&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;mor&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^25.4.0&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, <span class="title class_">BrowserWindow</span> &#125; = <span class="built_in">require</span>(<span class="string">&#x27;electron&#x27;</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createWindow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> win = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>(&#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">800</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">600</span>,</span><br><span class="line">        <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">            <span class="attr">nodeIntegration</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    win.<span class="title function_">loadFile</span>(<span class="string">&#x27;index.html&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">app.<span class="title function_">whenReady</span>().<span class="title function_">then</span>(createWindow);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="http://t.csdn.cn/WdTAY">Electron详解（一）：基本介绍</a><br><a target="_blank" rel="noopener" href="http://t.csdn.cn/nBUo0">Electron详解（二）：基本使用与项目打包</a><br><a target="_blank" rel="noopener" href="http://t.csdn.cn/k63l0">Electron简介、安装、实践</a><br><a target="_blank" rel="noopener" href="http://t.csdn.cn/nFRiX">React使用Electron开发桌面端</a></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electron/" rel="tag">Electron</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/08/08/Exercism-org-Java-Annalyn-s-Infiltration/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Exercism.org-Java-Annalyn&#39;s Infiltration
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/06/19/YAML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">YAML学习笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2025
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

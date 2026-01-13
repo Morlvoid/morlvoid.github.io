@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>静态网站托管的N种方式 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-静态网站托管的N种方式"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  静态网站托管的N种方式
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/07/09/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E7%9A%84N%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time datetime="2025-07-09T06:04:33.000Z" itemprop="datePublished">2025-07-09</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本篇为静态网站托管的多种方法。截止至2025年7月9日可行的托管方式有：<strong>Github</strong> <strong>Pages</strong>、阿里云对象储存<strong>OSS</strong>、<strong>Vercel</strong>。</p>
+<span id="more"></span>
+
+<h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a><strong>Github</strong> <strong>Pages</strong></h1><p><strong>Github</strong> <strong>Pages</strong>的全流程搭建方式在本站已经写过，详情查看：<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Github-Page博客搭建</a></p>
+<h2 id="阿里云对象储存OSS-CDN"><a href="#阿里云对象储存OSS-CDN" class="headerlink" title="阿里云对象储存OSS+CDN"></a>阿里云对象储存<strong>OSS</strong>+CDN</h2><p>本方法的前提是在阿里云购买了且备案了自己的域名。（如果在其他地方购买了域名并在阿里云部署OSS可参考）</p>
+<p>以 <strong>阿里云OSS</strong> 为例，其他云厂商（腾讯云COS, AWS S3+CloudFront等）逻辑类似，界面略有不同</p>
+<h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建Bucket → 开启静态托管 → 上传文件 → 绑定域名+HTTPS → 获取Endpoint → 解析域名</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="步骤1：创建与配置Bucket"><a href="#步骤1：创建与配置Bucket" class="headerlink" title="步骤1：创建与配置Bucket"></a>步骤1：<strong>创建与配置Bucket</strong></h4><p><strong>创建Bucket &amp; 开启静态托管 &amp; 上传文件：</strong>这是基础准备工作，创建存储空间，启用其作为网站的功能，并上传内容。</p>
+<p>【注：】阿里云要求：<strong>所有绑定至中国内地 Bucket 的域名（包括二级域名）必须完成工信部 ICP 备案</strong>。例外情况：若 Bucket 位于 <strong>海外地域（如中国香港）</strong>，则绑定域名无需备案。</p>
+<p><strong>域名备案（内地 Bucket 必选）</strong></p>
+<p>阿里云OSS控制台 (<code>https://oss.console.aliyun.com/</code>)</p>
+<p><strong>海外Bucket</strong>举例：</p>
+<ol>
+<li>登录OSS控制台。</li>
+<li>点击“Bucket列表”，创建 Bucket，选择地域为 <strong>“中国香港”</strong> 或其他海外节点</li>
+<li>填写配置（华东举例）：<ul>
+<li><strong>Bucket名称：</strong> 全局唯一，如 <code>my-static-website</code> 。</li>
+<li><strong>地域：</strong> 选择离您目标用户近的区域，如 <code>华东1（杭州）</code> 。</li>
+<li><strong>存储类型：</strong> 选<code>标准存储</code>。</li>
+<li><strong>读写权限：</strong> <strong>务必选 <code>公共读</code></strong> 。</li>
+<li><strong>其他选项：</strong> 如版本控制、日志等，按需开启，新手可默认。</li>
+</ul>
+</li>
+</ol>
+<p><strong>Bucket名称最好与你的二级域名一致或相关</strong>（例如 <code>blog-yourdomain-com</code>）。<strong>注意：</strong> Bucket名称全局唯一。</p>
+<p>选择与你的用户靠近的<strong>地域</strong>。</p>
+<p><strong>读写权限</strong>设置为<strong>公共读</strong> (这是托管静态网站必须的)。</p>
+<h4 id="步骤2：开启静态托管"><a href="#步骤2：开启静态托管" class="headerlink" title="步骤2：开启静态托管"></a>步骤2：开启静态托管</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据管理 → 静态页面 → 设置：</span><br><span class="line"><span class="bullet">-</span> 状态：开通</span><br><span class="line"><span class="bullet">-</span> 默认首页：index.html</span><br><span class="line"><span class="bullet">-</span> 默认404页：404.html (可选)</span><br></pre></td></tr></table></figure>
+
+<p>阿里云OSS控制台 -&gt; 进入您刚创建的Bucket (<code>my-static-website</code>) -&gt; 左侧菜单</p>
+<ol>
+<li>在Bucket管理页面，点击左侧菜单 <strong>“数据管理”</strong>。</li>
+<li>找到 <strong>“静态页面”</strong>选项。</li>
+<li>点击或 <strong>“设置”</strong>。</li>
+<li>选择 <strong>“静态网站”</strong> 模式 (通常有“关闭”、“默认首页”、“重定向”等选项，选 <strong>“默认首页”</strong> )。</li>
+<li>设置：<ul>
+<li><strong>默认首页：</strong> 输入 <code>index.html</code> (用户访问根目录时自动加载的文件)。</li>
+<li><strong>默认404页(可选)：</strong> 输入 <code>error.html</code> 或 <code>404.html</code> (访问不存在的路径时显示的文件)。</li>
+</ul>
+</li>
+<li><strong>点击“保存”</strong>。</li>
+</ol>
+<h4 id="步骤3：上传文件"><a href="#步骤3：上传文件" class="headerlink" title="步骤3：上传文件"></a>步骤3：上传文件</h4><p>将你的静态网站文件（<code>index.html</code>, 样式表、脚本、图片等）上传到这个Bucket中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件管理 → 文件列表 → 上传文件</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>点击左侧菜单 <strong>“文件管理”</strong>中的“<strong>文件列表</strong>”。</li>
+<li>点击 <strong>“上传文件”</strong>。</li>
+<li>将您本地开发好的网站文件（<code>index.html</code>, <code>about.html</code>, <code>css/style.css</code>, <code>js/main.js</code>, <code>images/logo.png</code> 等）拖拽到上传区域，或点击选择文件。</li>
+<li>确保文件结构正确（例如，<code>index.html</code> 在根目录）。</li>
+<li>点击 <strong>“上传”</strong>。</li>
+</ol>
+<p>网站文件（菜品）已放入仓库（Bucket）。此时可通过OSS提供的临时Endpoint访问网站（能看到 <code>index.html</code> 内容），但速度慢且地址不友好。</p>
+<h4 id="步骤4：绑定域名-HTTPS"><a href="#步骤4：绑定域名-HTTPS" class="headerlink" title="步骤4：绑定域名+HTTPS"></a>步骤4：绑定域名+HTTPS</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bucket 配置 → 域名管理 → 绑定域名：</span><br><span class="line"><span class="bullet">-</span> 域名：<span class="code">`blog.yourdomain.com`</span></span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`自动添加CNAME记录`</span>（域名在阿里云时）</span><br><span class="line"><span class="bullet">-</span> 勾选 <span class="code">`开启HTTPS`</span> + <span class="code">`强制跳转HTTPS`</span>（系统自动申请证书）</span><br></pre></td></tr></table></figure>
+
+<p>阿里云OSS控制台 -&gt; 进入您的Bucket (<code>my-static-website</code>) -&gt; 左侧菜单 <strong>“Bucket 配置” -&gt; “域名管理”</strong></p>
+<ol>
+<li>点击 <strong>“绑定域名”</strong>。</li>
+<li><strong>输入域名：</strong> 在“域名”框中填写您已购买并准备用于网站的自定义域名，例如 <code>www.yourdomain.com</code> (不能带 <code>http://</code> 或 <code>/</code>)。 </li>
+<li><strong>开启HTTPS (强烈推荐)：</strong><ul>
+<li>勾选 <strong>“自动开启HTTPS安全加速”</strong> 或类似选项。</li>
+<li>阿里云会<strong>自动</strong>为您申请并部署免费的 <strong>DigiCert DV 单域名证书</strong> (或 Let’s Encrypt)。过程完全托管，无需手动操作证书。</li>
+</ul>
+</li>
+<li><strong>点击“下一步”或“确认” (这里触发关键验证！)</strong></li>
+<li><strong>域名所有权验证 (最重要的一步！)：</strong><ul>
+<li>阿里云会弹出一个窗口，<strong>要求您添加一条CNAME记录到您的域名DNS解析中！</strong></li>
+<li>记录类型： <strong>CNAME</strong></li>
+<li>主机记录： <strong>系统自动生成的值</strong>，通常形如 <code>_dnsauth.www</code> (如果绑定 <code>www.yourdomain.com</code>) 或 <code>_dnsauth</code> (如果绑定根域名 <code>yourdomain.com</code>)。 </li>
+<li>记录值： <strong>系统自动生成的值</strong>，形如 <code>oss-cn-hangzhou.aliyuncs.com.xxxxx.aliyuncs.com</code>。</li>
+</ul>
+</li>
+<li><strong>立即操作DNS：</strong><ul>
+<li>打开一个新的浏览器标签页，登录您的<strong>域名注册商控制台</strong> (如阿里云域名控制台、腾讯云DNSPod、Cloudflare等)。</li>
+<li>找到域名 <code>yourdomain.com</code> 的 <strong>DNS解析设置</strong>。</li>
+<li>添加一条 <strong>CNAME记录</strong>：<ul>
+<li>主机记录： 粘贴阿里云要求的主机记录 (如 <code>_dnsauth.www</code>)。</li>
+<li>记录值： 粘贴阿里云提供的记录值。</li>
+<li>TTL： 一般选默认或10分钟。</li>
+</ul>
+</li>
+<li><strong>保存</strong>这条DNS记录。</li>
+</ul>
+</li>
+<li><strong>回到阿里云OSS窗口：</strong><ul>
+<li>确认已添加好验证记录，点击 <strong>“验证”</strong> 或 <strong>“我已添加”</strong>。</li>
+<li>**等待验证通过 (需要几分钟，DNS刷新)**。阿里云会不断检查DNS，直到找到您添加的正确验证记录。</li>
+<li><strong>(如果开启HTTPS) 证书申请自动进行：</strong> 验证通过后，阿里云会自动为 <code>www.yourdomain.com</code> 申请并部署SSL证书，此过程可能需要额外几分钟 (2-15分钟)。</li>
+</ul>
+</li>
+<li><strong>绑定成功：</strong><ul>
+<li>当验证通过且HTTPS证书部署完成（如果开启），阿里云会提示 <strong>“域名绑定成功”</strong>。</li>
+<li>此时，在“域名管理”列表里，您能看到状态为 <strong>“正常”</strong> 的域名 <code>www.yourdomain.com</code>，并且HTTPS状态为 <strong>“已开启”</strong>。</li>
+<li><strong>最关键信息出现：</strong> 在这个域名旁边或详情里，您会看到阿里云为您的CDN加速生成的 <strong>CNAME地址&#x2F;Endpoint</strong>！它的格式通常是：<code>www.yourdomain.com.&lt;随机字符&gt;.aliyuncs.com</code> 或 <code>my-static-website.&lt;随机字符&gt;.oss-accelerate.aliyuncs.com</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="步骤5：获取Endpoint"><a href="#步骤5：获取Endpoint" class="headerlink" title="步骤5：获取Endpoint"></a>步骤5：获取Endpoint</h4><p><strong>获取OSS Bucket的访问端点</strong>，即获取OSS Bucket的CNAME目标地址。</p>
+<p>上一步（绑定域名+HTTPS成功）后自动获得。</p>
+<ol>
+<li>在阿里云OSS控制台 -&gt; Bucket (<code>my-static-website</code>) -&gt; “Bucket 配置” -&gt; “域名管理”。</li>
+<li>找到状态为“正常”的已绑定域名 <code>www.yourdomain.com</code>。</li>
+<li>在对应的“CNAME”或“加速域名”列下，找到那个长字符串地址。它就是 <strong>Endpoint &#x2F; CNAME目标地址</strong>。</li>
+<li><strong>复制</strong> 这个完整的Endpoint地址。例如：<code>www.yourdomain.com.w.kunlunca.com</code> 或 <code>my-static-website.oss-accelerate.aliyuncs.com</code> (具体格式阿里云可能会变，认准它是CNAME值)。</li>
+</ol>
+<ul>
+<li><strong>结果：</strong> 拿到将域名流量指向阿里云CDN网络的 **关键地址 (Endpoint)**。</li>
+</ul>
+<p><strong>各区域Endpoint示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left">Endpoint（地域节点）</th>
+<th align="left">Bucket 域名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">华北1（青岛）</td>
+<td align="left"><code>oss-cn-qingdao.aliyuncs.com</code></td>
+<td align="left"><code>myblog.oss-cn-qingdao.aliyuncs.com</code></td>
+</tr>
+<tr>
+<td align="left">华东1（杭州）</td>
+<td align="left"><code>oss-cn-hangzhou.aliyuncs.com</code></td>
+<td align="left"><code>static.oss-cn-hangzhou.aliyuncs.com</code></td>
+</tr>
+<tr>
+<td align="left">华南1（深圳）</td>
+<td align="left"><code>oss-cn-shenzhen.aliyuncs.com</code></td>
+<td align="left"><code>images.oss-cn-shenzhen.aliyuncs.com</code></td>
+</tr>
+<tr>
+<td align="left">香港</td>
+<td align="left"><code>oss-cn-hongkong.aliyuncs.com</code></td>
+<td align="left"><code>cdn.oss-cn-hongkong.aliyuncs.com</code></td>
+</tr>
+</tbody></table>
+<p><strong>重要注意事项：</strong></p>
+<ol>
+<li><p><strong>必须复制完整域名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 正确：oss-cn-beijing.aliyuncs.com</span><br><span class="line">- 错误：your-bucket （不完整）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>地域匹配验证</strong></p>
+<ul>
+<li>在概览页的 <strong>“基本信息”</strong> 中确认Bucket所在地域</li>
+<li>确保Endpoint中的地域代码（如 <code>cn-beijing</code>）与实际地域一致</li>
+</ul>
+</li>
+</ol>
+<h4 id="步骤6：解析域名"><a href="#步骤6：解析域名" class="headerlink" title="步骤6：解析域名"></a>步骤6：解析域名</h4><p><strong>阿里云解析设置 (CNAME)</strong></p>
+<p><strong>进入域名控制台</strong>，<strong>域名注册商控制台</strong> (和之前添加验证记录是同一个地方)</p>
+<ul>
+<li><p><strong>详细步骤：</strong></p>
+<ol>
+<li>登录您的域名注册商&#x2F;DNS托管商控制台 (如阿里云域名控制台、DNSPod、Cloudflare)。</li>
+<li>进入域名 <code>yourdomain.com</code> 的 <strong>DNS解析设置&#x2F;域名解析</strong> 页面。</li>
+<li><strong>添加最终的CNAME记录 ：</strong></li>
+</ol>
+<p>在弹出的表单中填写以下关键信息：</p>
+<p><strong>记录类型</strong>：最常用的是：</p>
+<ul>
+<li><p><strong>A 记录</strong>：将域名指向一个 <strong>IPv4 地址</strong>（例如服务器的IP）。这是最常用的，用于网站、服务器。</p>
+</li>
+<li><p><strong>CNAME 记录</strong>：将域名指向<strong>另一个域名</strong>（例如，指向阿里云OSS的Bucket域名、CDN的加速域名、或腾讯云的服务器域名等）。当目标地址是域名而不是IP时使用。</p>
+</li>
+<li><p><strong>AAAA 记录</strong>：将域名指向一个 <strong>IPv6 地址</strong>。</p>
+</li>
+<li><p><strong>MX 记录</strong>：用于邮箱服务器解析（如果你要为 <code>mail.yourdomain.com</code> 设置邮件服务）。</p>
+</li>
+<li><p><strong>主机记录</strong>：<strong>这里填写的就是你要创建的二级域名的前缀部分！</strong></p>
+<ul>
+<li>例如：要创建 <code>blog.yourdomain.com</code>，就填写 <code>blog</code>。</li>
+<li>要创建 <code>shop.yourdomain.com</code>，就填写 <code>shop</code>。</li>
+<li>要创建 <code>www.yourdomain.com</code>，就填写 <code>www</code>。</li>
+<li>特殊值：<ul>
+<li><code>@</code>：表示直接解析主域名 <code>yourdomain.com</code>（本身不是二级域名，但记录类型也在这里设置）。</li>
+<li><code>*</code>：表示泛解析，匹配所有未单独设置的二级域名（例如 <code>anything.yourdomain.com</code> 都会指向这里设置的目标）。<strong>谨慎使用。</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>解析线路</strong>：一般选择 <strong>“默认”</strong>。如果需要根据访问者的网络运营商（如电信、联通）或地理位置（如境外）提供不同解析结果，可以选择相应线路。免费版也提供基础线路（默认、搜索引擎、境外）。</p>
+<p><strong>记录值</strong>：</p>
+<ul>
+<li>如果<strong>记录类型</strong>是 <strong>A</strong>，这里填写你的服务器或服务的 <strong>IPv4 地址</strong> (例如 <code>123.123.123.123</code>)。</li>
+<li>如果<strong>记录类型</strong>是 <strong>CNAME</strong>，这里填写<strong>目标域名</strong> (例如 <code>your-bucket.oss-cn-hangzhou.aliyuncs.com</code> 或 <code>cdn.example.net</code>)。<strong>注意：</strong> 目标域名后面通常需要加一个点 <code>.</code>，但阿里云控制台一般会自动处理或提示，按界面要求填写即可（有时不加点也可以）。</li>
+<li>如果<strong>记录类型</strong>是 <strong>AAAA</strong>，填写 <strong>IPv6 地址</strong>。</li>
+<li>如果<strong>记录类型</strong>是 <strong>MX</strong>，填写邮件服务器域名，并设置优先级。</li>
+</ul>
+<p><strong>TTL（生存时间）</strong>：表示DNS记录在本地缓存中保留的时间。一般选择 <strong>“10分钟”</strong>（默认）即可。数值越小，更新生效越快，但对权威DNS查询压力略大；数值越大，生效越慢，但能减少查询次数。非特殊需求保持默认。</p>
+</li>
+</ul>
+<p>填写完成后，点击 <strong>“确认”</strong> 按钮。</p>
+</li>
+</ul>
+<h4 id="等待生效-测试"><a href="#等待生效-测试" class="headerlink" title="等待生效 &amp; 测试"></a>等待生效 &amp; 测试</h4><p><strong>DNS生效：</strong> 保存最终CNAME记录后，需要等待DNS全球刷新（根据您设置的TTL，通常几分钟到几小时）。可以使用 <code>dig www.yourdomain.com</code> 或 <code>nslookup www.yourdomain.com</code> 命令查看解析结果是否变成了您的Endpoint地址。</p>
+<p><strong>访问测试：</strong></p>
+<ul>
+<li>在浏览器中输入您的自定义域名 <code>https://www.yourdomain.com</code> (注意是 <code>https</code>!)。</li>
+<li>首次访问可能稍慢（CDN节点需要回源到OSS Bucket拉取文件并缓存）。</li>
+<li>刷新几次后，速度应显著提升（文件已缓存在CDN边缘节点）。</li>
+<li>检查浏览器地址栏是否有绿色的锁图标（HTTPS生效）。</li>
+</ul>
+<p>使用以下方法检测DNS是否生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows 命令提示符</span></span><br><span class="line">nslookup 您的二级域名</span><br><span class="line"><span class="comment"># 示例：nslookup blog.yourdomain.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Linux/Mac终端</span></span><br><span class="line">dig 您的二级域名 CNAME</span><br><span class="line"><span class="comment"># 示例：dig blog.yourdomain.com CNAME</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ 正确响应应显示您的OSS Endpoint地址</p>
+<h3 id="备案与配置常见问题汇总"><a href="#备案与配置常见问题汇总" class="headerlink" title="备案与配置常见问题汇总"></a><strong>备案与配置常见问题汇总</strong></h3><ul>
+<li><strong>Q：为什么已备案主域名下的子域名仍绑定失败？</strong><br>A：请检查主域名备案是否接入阿里云。若备案在其他服务商，需在阿里云做 <strong>「接入备案」</strong>10。</li>
+<li><strong>Q：开启静态页面后访问域名仍下载文件？</strong><br>A：检查文件 Content-Type 是否为 <code>text/html</code>（可在 OSS 文件详情中修改）8。</li>
+<li><strong>Q：HTTPS 访问提示不安全？</strong><br>A：在域名绑定页面开启 <strong>「强制 HTTPS」</strong> 并上传 SSL 证书（阿里云可申请免费证书）</li>
+</ul>
+<h3 id="Q：为什么一定要使用OSS-CDN？"><a href="#Q：为什么一定要使用OSS-CDN？" class="headerlink" title="Q：为什么一定要使用OSS+CDN？"></a>Q：为什么一定要使用OSS+CDN？</h3><p><strong>CDN（内容分发网络）</strong> 是一种分布式网络架构，由分布在不同地理位置的边缘节点服务器组成，旨在通过缓存内容并将其分发到离用户最近的节点，提升内容传输速度、减少延迟并优化用户体验。CDN广泛应用于网站加速、视频流媒体、文件下载等场景。</p>
+<p>CDN的工作原理</p>
+<p>CDN通过将源站的内容缓存到各地的边缘节点，当用户发起请求时，系统会根据用户的地理位置、网络运营商等因素，将请求引导到最近的缓存节点。如果缓存节点已有所需内容，则直接返回；否则会从源站获取内容并缓存到节点，供后续用户访问。</p>
+<p>以下是CDN的主要流程：</p>
+<p>用户请求内容时，DNS解析会将请求指向最优的CDN节点。如果节点已有缓存内容，直接返回给用户。若无缓存内容，节点会向源站请求并缓存，随后返回给用户。</p>
+<p>使用CDN的优势</p>
+<p><strong>提升访问速度</strong>：通过就近访问缓存节点，减少物理距离和网络延迟，显著提升页面加载速度。<strong>降低带宽成本</strong>：缓存技术减少源站的直接请求次数，从而降低带宽消耗。<strong>提高可用性</strong>：分布式架构能有效应对高流量和硬件故障，确保服务稳定。<strong>增强安全性</strong>：通过DDoS防护、TLS&#x2F;SSL加密等技术，提升网站的安全性。<strong>减轻源站压力</strong>：分担源站负载，避免因流量激增导致的宕机。</p>
+<p>CDN的典型应用场景</p>
+<p><strong>网站加速</strong>：静态资源（如图片、CSS、JS文件）通过CDN分发，提升加载速度。<strong>视频点播与直播</strong>：支持大文件下载、视频流媒体分发，优化用户观看体验。<strong>移动应用加速</strong>：加速APP更新包、短视频等内容的分发，提升用户访问效率。<strong>跨地域访问优化</strong>：解决不同运营商或地域间的网络互通问题，确保全球用户流畅访问。</p>
+<p>重要术语</p>
+<p><strong>边缘节点</strong>：距离用户最近的缓存服务器，用于快速响应用户请求。<strong>回源率</strong>：缓存未命中时向源站请求的比例，回源率越低，CDN效率越高。<strong>命中率</strong>：用户请求直接命中缓存的比例，命中率越高，用户体验越好。</p>
+<p>结论一：OSS 本身<strong>可以独立运行，不强制依赖 CDN</strong></p>
+<ul>
+<li><strong>OSS 本身是对象存储服务</strong>：它核心功能是安全、可靠、低成本地存储海量文件（图片、视频、静态网页文件等）。</li>
+<li><strong>OSS 自带访问端点（Endpoint）</strong>：每个 Bucket 都有一个形如 <code>your-bucket.oss-cn-hangzhou.aliyuncs.com</code> 的 URL。您可以直接通过这个 URL 访问 Bucket 里的文件。</li>
+<li><strong>OSS 支持静态网站托管</strong>：开启此功能后，OSS 可以自动处理 <code>index.html</code>, <code>error.html</code> 等，让 Bucket 像一个基础 Web 服务器一样工作。</li>
+<li><strong>技术上可行</strong>：如果您：<ul>
+<li>对访问速度要求不高（用户能忍受几秒加载时间）。</li>
+<li>用户主要集中在一个区域（如仅国内华东用户）。</li>
+<li>流量很小（没有突发高并发）。</li>
+<li>不太在意 HTTPS 证书管理（OSS 静态托管本身不支持自定义域名 HTTPS，需搭配 CDN 或云函数等实现）。</li>
+<li>能接受 OSS 外网流出流量费用（可能比 CDN 回源流量贵）。<br><strong>那么，仅使用 OSS 部署静态网站是完全可以工作的！不需要 CDN。</strong></li>
+</ul>
+</li>
+</ul>
+<p>结论二：<strong>但在绝大多数生产环境场景中，强烈推荐 OSS + CDN 组合！</strong> CDN 为 OSS 带来的核心价值远超“提速”</p>
+<p>CDN 绝不仅仅是“锦上添花”的加速器，它解决了 OSS 直接暴露给公网访问的<strong>多个关键痛点</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="left">痛点</th>
+<th align="left">仅用 OSS 的问题</th>
+<th align="left">OSS + CDN 的解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. 访问速度慢 (全球&#x2F;跨区域用户)</strong></td>
+<td align="left">用户直接连接 OSS 数据中心（如杭州）。美国用户访问延迟可能高达 200-300ms+，体验极差。</td>
+<td align="left"><strong>CDN 边缘节点就近响应</strong>：美国用户访问美国边缘节点 (可能 &lt; 20ms)，节点缓存命中则瞬间返回。<strong>核心价值！</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>2. 高并发&#x2F;突发流量扛不住</strong></td>
+<td align="left">OSS 虽然高可靠，但公网带宽和连接数有限。突发流量（如被分享）易导致响应变慢或超时。</td>
+<td align="left"><strong>CDN 海量边缘节点分散压力</strong>：请求被分散到全球数千节点，单点压力小。节点缓存扛住绝大部分请求，**保护源站 (OSS)**。</td>
+</tr>
+<tr>
+<td align="left"><strong>3. 成本可能更高</strong></td>
+<td align="left">OSS 的<strong>外网流出流量费</strong>相对较高。用户下载越多，费用越高。</td>
+<td align="left"><strong>CDN 回源流量费更低</strong>：CDN 从 OSS 取数据（回源）享受更低单价。用户从 CDN 下载，CDN 流出流量费通常低于 OSS 外网流出费。<strong>大流量下显著省钱！</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>4. 无法自定义域名 HTTPS</strong></td>
+<td align="left">OSS 静态托管<strong>原生不支持</strong>绑定自定义域名且开启 HTTPS (需额外配置，依赖其他服务)。</td>
+<td align="left"><strong>CDN 天然支持</strong>：一键绑定自定义域名，自动申请&#x2F;部署&#x2F;续费 Let’s Encrypt 证书，强制 HTTPS，提升安全与 SEO。</td>
+</tr>
+<tr>
+<td align="left"><strong>5. 安全风险增加</strong></td>
+<td align="left">直接暴露 OSS Endpoint：</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* 易被扫描、攻击。</span><br><span class="line">* 源站 IP 可能被 DDoS。</span><br><span class="line">* 热链接盗刷流量。 | **CDN 作为安全屏障**：</span><br><span class="line">* 隐藏真实 OSS Endpoint。</span><br><span class="line">* 边缘节点提供 DDoS 基础防护、WAF (需配置)。</span><br><span class="line">* 支持 Referer 防盗链、URL 鉴权等，**在边缘拦截非法请求**，保护 OSS 和节省流量。 |</span><br></pre></td></tr></table></figure>
+
+<p>| <strong>6. 功能局限</strong> | OSS 主要功能是存储，Web 高级功能弱（如缓存策略、压缩、HTTP&#x2F;2, Brotli）。 | <strong>CDN 提供丰富优化功能</strong>：灵活缓存规则、Gzip&#x2F;Brotli 压缩、HTTP&#x2F;2&#x2F;HTTP3、页面优化、QUIC 协议等，<strong>进一步提升性能与体验</strong>。 |</p>
+<p>总结：什么时候可以不用 CDN？什么时候强烈建议用？</p>
+<ul>
+<li><strong>可以不用 CDN (仅 OSS)：</strong><ul>
+<li><strong>内部系统&#x2F;工具：</strong> 仅限公司内网或特定区域访问的后台、工具页面。</li>
+<li><strong>极低流量测试&#x2F;演示环境：</strong> 访问量忽略不计，速度要求不高。</li>
+<li><strong>纯粹的数据备份&#x2F;归档：</strong> 文件不需要被频繁公网访问。</li>
+</ul>
+</li>
+<li><strong>强烈建议搭配 CDN：</strong><ul>
+<li><strong>面向公网用户的网站&#x2F;应用：</strong> 博客、官网、H5、小程序后端、产品文档等。<strong>速度、稳定性、安全、成本、HTTPS 都至关重要！</strong></li>
+<li><strong>包含大量静态资源 (图片&#x2F;JS&#x2F;CSS&#x2F;视频)：</strong> 这类文件最适合缓存，CDN 加速效果立竿见影，省流量明显。</li>
+<li><strong>用户分布广泛 (全球&#x2F;全国)：</strong> 必须靠 CDN 边缘节点解决物理延迟问题。</li>
+<li><strong>预期有流量波动或增长：</strong> CDN 能轻松应对突发流量，避免 OSS 被打垮。</li>
+<li><strong>重视安全与盗链防护：</strong> CDN 提供第一道防线和防盗链能力。</li>
+</ul>
+</li>
+</ul>
+<h1 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h1> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2025/07/09/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E6%89%98%E7%AE%A1%E7%9A%84N%E7%A7%8D%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2025/09/04/2025-2026%E5%B9%B4%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E5%A4%87%E7%94%A8%E5%AD%98%E6%A1%A3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            2025-2026年学习日志——备用存档
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2025/07/03/SSDSBakery--%E6%9E%84%E6%88%9014.4%E7%8F%AD%E6%AF%95%E4%B8%9A%E5%90%88%E7%BB%98%EF%BC%9A%E5%8D%81%E5%9B%9B%E7%82%B9%E5%9B%9B%E7%83%98%E7%84%99%E6%88%BF/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">SSDSBakery--构成14.4班毕业合绘：十四点四烘焙房</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

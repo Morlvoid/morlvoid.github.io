@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Java基础语法 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Java基础语法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Java基础语法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time datetime="2022-03-03T01:38:48.000Z" itemprop="datePublished">2022-03-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Java基础语法</p>
+<span id="more"></span>
+
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
+<p><strong>软件对象也由状态和相关行为组成。</strong></p>
+<p><strong>对象将其状态存储在字段（某些编程语言中的变量）中，并通过方法（某些编程语言中的函数）公开其行为。</strong></p>
+<p>字段<code>cadence</code>、<code>speed</code>和<code>gear</code>表示对象的状态，方法（<code>changeCadence</code>、<code>changeGear</code>等<code>speedUp</code>）定义其与外部世界的交互</p>
+<p>方法对对象的内部状态进行操作，并作为对象到对象通信的主要机制。隐藏内部状态并要求通过对象的方法执行所有交互被称为<em>数据封装</em>——面向对象编程的基本原则。</p>
+<p>将代码捆绑到单个软件对象中提供了许多好处，包括：</p>
+<ol>
+<li>模块化：一个对象的源代码可以独立于其他对象的源代码编写和维护。一旦创建，对象可以很容易地在系统内部传递。</li>
+<li>信息隐藏：通过仅与对象的方法交互，其内部实现的细节对外界保持隐藏。</li>
+<li>代码重用：如果一个对象已经存在（可能由另一个软件开发人员编写），您可以在您的程序中使用该对象。这允许专家实现&#x2F;测试&#x2F;调试复杂的、特定于任务的对象，然后您可以信任这些对象在您自己的代码中运行。</li>
+<li>可插入性和易于调试：如果某个特定对象出现问题，您可以简单地将其从应用程序中删除，然后插入一个不同的对象作为替代。这类似于解决现实世界中的机械问题。如果螺栓断裂，则更换<em>它</em>，而不是整台机器。</li>
+</ol>
+</blockquote>
+<!--more-->
+
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><blockquote>
+<p>在 Java 编程语言中，每个类都可以有一个直接的超类，并且每个超类都可以有无限数量的<em>子类</em></p>
+</blockquote>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote>
+<p>对象通过它们公开的方法来定义它们与外部世界的交互</p>
+<p>方法形成对象与外界的<em>接口</em></p>
+<p>在其最常见的形式中 , 接口是一组具有空主体的相关方法</p>
+<p>实现一个接口可以让一个类对它承诺提供的行为更加正式。接口在类和外部世界之间形成了一个契约，并且这个契约在编译时由编译器强制执行。如果您的类声称实现了一个接口，则该接口定义的所有方法都必须出现在其源代码中，然后该类才能成功编译。</p>
+<p>(要实际编译<code>ACMEBicycle</code>该类，您需要将<code>public</code>关键字添加到已实现接口方法的开头。)</p>
+</blockquote>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><blockquote>
+<p>包是组织一组相关类和接口的命名空间</p>
+<p>Java 平台提供了一个庞大的类库（一组包），适合在您自己的应用程序中使用。这个库被称为“应用程序编程接口”，简称“API”。它的包代表最常与通用编程相关的任务。</p>
+</blockquote>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><blockquote>
+<p>给包,类,方法,变量起名字的符号</p>
+<p>标识符由字母、数字、下划线、美元符号组成</p>
+<p>包名：全部小写，多级包用.隔开。<br>类、接口：一个单词首字母大写，多个单词每个单词的首字母大写。<br>方法和变量：一个单词首字母小写，多个单词从第二个单词开始每个单词的首字母大写<br>常量：如果是一个单词,所有字母大写，如果是多个单词,所有的单词大写,用下划线区分每个单词<br>项目名：全部用小写字母，多个单词之间用横杆-分割</p>
+</blockquote>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h3><p>private<br>访问控制修饰符，在同一类内可见<br>protected<br>访问控制侬饰符，对同一包内的类和所有子类可见<br>public<br>访问控制修饰符，对所有类可见</p>
+<h3 id="类、方法和变量修饰符"><a href="#类、方法和变量修饰符" class="headerlink" title="类、方法和变量修饰符"></a>类、方法和变量修饰符</h3><p>abstract<br>表明类或者成员方法具有抽象展性<br>class<br>声明一个类<br>enum<br>枚举(在J2SE 5.0中添加)<br>extends<br>表明一个类型是另一个类型的子类型<br>final<br>用来说明最终属性<br>implements<br>表明一个类实现接口<br>interface<br>接口<br>native<br>原生方法(非Java实现)<br>new<br>用来创建新实例对象<br>static<br>表明具有静态同性<br>strictfp<br>用于很制浮点计其的精度和舍入(在J2SE 1.2中添加)<br>synchronized<br>表明一段代码需要同步执行<br>transient<br>声明不用序列化的成员域<br>volatile<br>表明两个或音多个变量必须同步地发生变化</p>
+<h3 id="程序控制语句"><a href="#程序控制语句" class="headerlink" title="程序控制语句"></a>程序控制语句</h3><p>break<br>用于结束当前循环体中的执行<br>case<br>用在switch语句之中,表示其中的一个分支<br>continue<br>用于在当前循环体结束时恢复程序执行<br>default<br>默认，例如，用在switch语句中，表明一个默认的分支<br>do<br>用在do-while循环结构中<br>else<br>用在条件语句中，表明当条件不成立时的分支<br>for<br>一种循环结构的引导词<br>if<br>条件语句的引导词<br>instanceof<br>用来测试一个对兔是管是指定类型的实例对象</p>
+<p>return<br>用于完成方法的执行。返回给调用者一个方法定义返回值<br>switch<br>分支语句结构的引导词<br>while<br>用于创建一个while循环</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>assert<br>断言，用来进行程序调试(在J2SE14中添加)<br>catch<br>用在异常处理中，用来捕捉异常<br>finally<br>用来声明处理异常中肯定会被执行到的语句块<br>throw<br>抛出一个异常<br>throws<br>在方法声明中用于搭定在方法中未处理哪些异常</p>
+<h3 id><a href="#" class="headerlink" title></a></h3><p>try<br>定义具有异常处理的语句块</p>
+<p>包相关</p>
+<p>import<br>表明引入要访问搭定的类或包<br>package<br>包</p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>boolean<br>基本数据类型之一，布尔类型<br>byte<br>基本数据类型之一，字节类型<br>char<br>基本数据类型之一，字符类型<br>double<br>基本数据类型之一，双精度浮点数类型<br>float<br>基本数据类型之一，单精度浮点数类型<br>int<br>基本数据类型之一，整数类型<br>long<br>基本数据类型之一，长整数类型<br>short<br>基本数据类型之一.短整数类型</p>
+<h3 id="变量引用"><a href="#变量引用" class="headerlink" title="变量引用"></a>变量引用</h3><p>super<br>当前对象的父类型的引用或音父类型的构造方法<br>this<br>指向当前实例对象的引用<br>void<br>用于声明方法不返回任何值</p>
+<h3 id="保留关键字"><a href="#保留关键字" class="headerlink" title="保留关键字"></a>保留关键字</h3><p>goto<br>保留关键享，没有具体含义<br>const<br>保留关键享，没有具体含义</p>
+<h6 id="换行输出"><a href="#换行输出" class="headerlink" title="换行输出 :"></a>换行输出 :</h6><p><code>System.out.println(&quot;Hello World&quot;);</code>或<code>System.out.print(&quot;Hello\nWord&quot;)</code></p>
+<p><code>System.out.print(&quot;Hello\tWord&quot;)</code></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *多</span></span><br><span class="line"><span class="comment"> *行</span></span><br><span class="line"><span class="comment"> *注</span></span><br><span class="line"><span class="comment"> *释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**JavaDoc注释*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><ul>
+<li><code>; </code>分号 用来终止一个语句</li>
+<li><code>&#123;&#125; </code>花括号、大括号 用来包括自动初始化的数组的值，也用来定义程序块、类、方法以及局部范围</li>
+<li><code>[]</code>方括号、中括号 用来声明数组的类型，也用来表示撤消对数组值的引用</li>
+<li><code>,</code> 逗号 在变量声明中，区分变量说明的各个变量。在for控制语句中，用来将圆括号内的语句连接起来</li>
+<li><code>.</code> 原点 用来将软件包的名字与它的子包或类分隔。也用来将引用变量与变量或方法分隔</li>
+<li><code>()</code> 圆括号 在定义和调用方法时用来容纳参数表。在控制语句或强制类型转换组成的表达式中用来表示执行或计算的优先权</li>
+</ul>
+<h2 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h2><blockquote>
+</blockquote>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
+<p>除了赋值运算符之外的所有二元运算符都是从左到右计算的</p>
+<p>赋值运算符从右到左求值</p>
+</blockquote>
+<h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3><p><code>+</code>  <code>-</code>  <code>*</code>  <code>/</code>  <code>%</code>  <code>++</code>  <code>--</code>  </p>
+<ul>
+<li><p>1.<code>/ </code>左右两端的类型需要一致</p>
+</li>
+<li><p>2.<code>%</code>最后的符号和被模数相同</p>
+</li>
+<li><p>3.前<code>++</code>；先+1，后运算</p>
+<p>​	后++；先运算 , 后+1</p>
+</li>
+<li><p>4、<code>+</code>：当String字符串与其他数据类型只能做连接运算 , 并且结果为String类型</p>
+</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p><code>==</code>  <code>!=</code>  <code>&lt;</code>  <code>&gt;</code>  <code>&lt;=</code>  <code>&gt;=</code>  <code>instanceof</code></p>
+<p>运算结果都是Boolean类型</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p><code>=</code>  <code>+=</code>  <code>-=</code>  <code>*=</code>  <code>/=</code>  <code>%=</code></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><code>&amp;</code>  <code>|</code>  <code>^</code>  <code>!</code>  <code>&amp;&amp;</code>  <code>||</code></p>
+<p><code>&amp;</code> 逻辑与</p>
+<p> <code>|</code> 逻辑或</p>
+<p> <code>^</code> 逻辑异或</p>
+<p> <code>!</code>  逻辑非</p>
+<p> <code>&amp;&amp;</code> 短路与</p>
+<p> <code>||</code> 短路或</p>
+<ul>
+<li><code>&amp;</code>：左边无论真假，右边都会进行运算；</li>
+<li><code>&amp;&amp;</code>：如果左边为假，则右边不进行运算；</li>
+<li><code>| </code>与 <code>||</code> 的区别同上；在使用的时候建议使用<code>&amp;&amp;</code>和<code>||</code></li>
+<li><code>^</code>与或<code>|</code>的不同之处是：当左右都为true时，结果为false。</li>
+</ul>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p><code>&lt;&lt;</code></p>
+<p><code>&gt;&gt;</code></p>
+<p><code>&lt;&lt;&lt;</code></p>
+<p><code>&amp;</code></p>
+<p><code>|</code></p>
+<p><code>^</code></p>
+<p><code>~</code></p>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><p><code>(条件表达式)?表达式1:表达式2;</code></p>
+<blockquote>
+<p><em>条件运算符</em></p>
+<p>条件表达式为true时,运算后的结果是表达式1<br>条件表达式为false时,运算后的结果是表达式2</p>
+<ul>
+<li>1、表达式1与表达式2的类型必须一致；</li>
+<li>2、使用三元运算符的地方一定可以使用if…else代替，反之不一定成立；</li>
+</ul>
+</blockquote>
+<p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span> <span class="params">(Sting[] args)</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> b=<span class="number">2</span>;</span><br><span class="line">	<span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> a&lt;b?(<span class="string">&quot;a大&quot;</span>):(<span class="string">&quot;b大&quot;</span>);</span><br><span class="line">	System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="与equals-的区别"><a href="#与equals-的区别" class="headerlink" title="==与equals() 的区别"></a><code>==</code>与<code>equals()</code> 的区别</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34357962/article/details/85652196?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164660786116781683956704%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164660786116781683956704&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85652196.pc_search_result_control_group&utm_term=equals&spm=1018.2226.3001.4187">Java语法—-Java中equals和&#x3D;&#x3D;的区别</a></p>
+<blockquote>
+<p>结果为布尔类型</p>
+</blockquote>
+<p>例 : </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String sex=<span class="string">&quot;男&quot;</span>;</span><br><span class="line">sex.equals(<span class="string">&quot;男&quot;</span>);</span><br><span class="line"><span class="comment">//此种情况变量sex必须赋值</span></span><br></pre></td></tr></table></figure>
+
+<p>或 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;男&quot;</span>.equals(sex);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><blockquote>
+<p>支持一些特殊的转义序列<code>char</code>和<code>String</code>文字：</p>
+<p><code>String.contains()</code>方法不需要转义</p>
+</blockquote>
+<p><code>\a</code>(响铃)    <code>\b</code>( 退格） <code>\f</code>(换页)   <code>\n</code>(换行)   <code>\r</code>（回车） <code>\t</code>(制表符)<code>\v</code> (垂直制表 )    <code>\\</code>(反斜杠)   <code>\&#39;</code>(单引号)   <code>\&quot;</code>(双引号)    <code>\0</code> (空字符)    <code>\ddd</code> (1到3位八进制所代表的任意字符)   <code>\xhh</code> (1到2位十六进制所代表的任意字符)</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Java 编程语言定义了以下类型的变量：</p>
+<ul>
+<li><strong>实例变量（非静态字段）</strong>从技术上讲，对象将其各自的状态存储在“非静态字段”中，即没有<code>static</code>关键字声明的字段。非静态字段也称为<em>实例变量</em>，因为它们的值对于类的每个<em>实例</em>（换句话说，对于每个对象）都是唯一的</li>
+<li><strong>类变量（静态字段）</strong>类<em>变量</em><code>static</code>是使用修饰符声明的任何字段；这告诉编译器存在这个变量的一个副本，不管这个类被实例化了多少次。定义特定类型自行车的齿轮数量的字段可以标记为<code>static</code> , 因为从概念上讲，相同数量的齿轮将适用于所有实例。该代码<code>static int numGears = 6;</code>将创建这样一个静态字段。此外，可以添加关键字<code>final</code>来表示齿轮的数量永远不会改变。</li>
+<li><strong>局部变量</strong>与对象在字段中存储其状态的方式类似，方法通常会将其临时状态存储在<em>局部变量</em>中。声明局部变量的语法类似于声明字段（例如，<code>int count = 0;</code>）。没有特殊关键字将变量指定为局部变量；该决定完全来自声明变量的位置——位于方法的左大括号和右大括号之间。因此，局部变量仅对声明它们的方法可见；课堂上的其他人无法访问它们。</li>
+<li><strong>参数</strong>您已经在“Hello World!”的<code>Bicycle</code>类和方法中看到了参数示例。<code>main</code>应用。回想一下，该<code>main</code>方法的签名是<code>public static void main(String[] args)</code>. 这里，<code>args</code>变量是这个方法的参数。要记住的重要一点是，参数总是被归类为“变量”而不是“字段”。这也适用于您将在本教程后面了解的其他参数接受构造（例如构造函数和异常处理程序）。</li>
+</ul>
+<p>成员变量( 非静态字段即没有static关键字声明的字段 , 也叫作实例变量&#x2F;对象变量 , 定义在类中 , 属于对象 , 只能对象调用(类的实例调用 ? ) , 堆内存 )</p>
+<p>​		静态成员变量(也叫类变量 , 有static关键字声明 , 属于成员变量的一种 ,  可以直接使用类名调用 , 可以对象调用 ,  共享内存)</p>
+<p>局部变量(在方法体中定义 , 栈内存 , 生命周期只存在在方法中 , 方法结束后就会回收)</p>
+<p>Java没有全局变量 , 但可以用静态成员变量实现全局变量效果</p>
+<h3 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h3><blockquote>
+<p>变量名区分大小写。</p>
+<p>变量的名称可以是任何合法的标识符——一个长度不限的Unicode字母和数字序列，以字母、美元符号<code>$</code>或下划线字符<code>_</code>开头。惯例是变量名总是以字母开头，而不是<code>$</code>或<code>_</code>。</p>
+<p>美元符号字符根本就不会被使用。在某些情况下，自动生成的名称将包含美元符号，但变量名称应该始终避免使用它。对于下划线字符也有类似的约定</p>
+<p>虽然从技术上讲，变量名以<code>_</code>开头是合法的，但这种做法是不鼓励的。</p>
+<p>空格是不允许的。</p>
+<p>后续字符可以是字母、数字、美元符号或下划线字符。为变量选择名称时，请使用完整的单词而不是隐晦的缩写。</p>
+<p>在许多情况下，它还会使您的代码自我记录</p>
+<p>名称不能是关键字或保留字</p>
+<p>如果您选择的名称仅包含一个单词，则将该单词拼写为所有小写字母。如果它包含多个单词，则将每个后续单词的第一个字母大写。</p>
+<p>如果变量存储一个常量值，例如<code>static final int NUM_GEARS = 6</code>，则约定会略有变化，将每个字母大写并用下划线分隔后续单词。下划线字符从不在其他地方使用。</p>
+</blockquote>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><blockquote>
+<p>常量名通常大写</p>
+<p>不同字符使用下划线分隔</p>
+<p>只能被赋值一次 , 通常定义时即对其初始化</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">double</span> <span class="variable">PI</span> <span class="operator">=</span> <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
+<p>原始类型由语言预定义并由保留关键字命名</p>
+<p>原始值不与其他原始值共享状态</p>
+<p>已声明但未初始化的字段将由编译器设置为合理的默认值。一般而言，此默认值将为零或<code>null</code>，具体取决于数据类型</p>
+<p>局部变量略有不同；编译器永远不会为未初始化的局部变量分配默认值。如果无法在声明它的地方初始化局部变量，请确保在尝试使用它之前为其分配一个值。访问未初始化的局部变量将导致编译时错误。</p>
+<p>如果整型字面值以字母<code>L</code>或<code>l</code>结尾，则为长型;否则为<code>int</code>类型。建议使用大写字母<code>L</code>，因为小写字母<code>l</code>与数字<code>1</code>很难区分</p>
+<p>如果浮点字面值以字母<code>F</code>或<code>f</code>结尾，则为<code>float</code>类型 ; 否则，它的类型是<code>double</code>，它可以选择以字母<code>D</code>或<code>d</code>结尾</p>
+<p>字符和字符串文字 : </p>
+<p>文字类型<code>char</code>，<code>String</code>可以包含任何 Unicode (UTF-16) 字符。也可以使用“Unicode 转义”，始终对文字使用“单引号”，对<code>char</code>文字使用“双引号” <code>String</code>。Unicode 转义序列可以在程序的其他地方使用（例如在字段名称中），而不仅仅是在<code>char</code>或<code>String</code>文字中。</p>
+<p><code>null</code>文字可以用作任何引用类型的值。<code>null</code>可以分配给任何变量，除了原始类型的变量。<code>null</code>除了测试它的存在之外，几乎无能为力。因此，<code>null</code>经常在程序中用作标记，表示某些对象不可用。</p>
+<p>有一种特殊的字面量，称为<em>类字面</em>量，由类型名称和附加 “ 组成<code>.class</code>；例如，<code>String.class</code>. 这指的<code>Class</code>是表示类型本身的（类型的）对象。</p>
+<p>在 Java SE 7 及更高版本中，任意数量的下划线字符  <code>_</code>)可以出现在数字文字中数字之间的任何位置。能够分隔数字文字中的数字组，提高代码的可读性。</p>
+</blockquote>
+<h4 id="原始数据类型Primitive-Data"><a href="#原始数据类型Primitive-Data" class="headerlink" title="原始数据类型Primitive Data"></a>原始数据类型Primitive Data</h4><blockquote>
+<p><code>double</code>此数据类型绝不应用于精确值，例如货币。</p>
+</blockquote>
+<ul>
+<li>数值型<ul>
+<li>字节型(byte)</li>
+<li>整数类型(short,int,long)</li>
+<li>浮点类型(float,double)</li>
+</ul>
+</li>
+<li>字符型(char)</li>
+<li>布尔型(boolean)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;张三&quot;</span>;</span><br><span class="line"><span class="comment">//String  双引号</span></span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//char  单引号</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><ul>
+<li>类(class)</li>
+<li>接口(interface)</li>
+<li>数组([])</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;%.2f&quot;</span>,f1);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><blockquote>
+<p><em>数组</em>是一个容器对象，它包含固定数量的单一类型的值。数组的长度是在创建数组时确定的。创建后，它的长度是固定的。</p>
+<p>数组中的每一项都称为一个<em>元素</em>，每个元素都通过其数字<em>索引</em>访问</p>
+</blockquote>
+<blockquote>
+<p>标识符</p>
+<p>数组元素</p>
+<p>元素下标 : 从0开始</p>
+<p>元素类型</p>
+</blockquote>
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><h3 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h3><h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><blockquote>
+<p>条件为布尔类型</p>
+</blockquote>
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*if(条件)&#123;</span></span><br><span class="line"><span class="comment"> *执行代码块</span></span><br><span class="line"><span class="comment"> *&#125;*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="if-else"><a href="#if-else" class="headerlink" title="if-else"></a>if-else</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">if(条件)&#123;</span></span><br><span class="line"><span class="comment">	代码块1</span></span><br><span class="line"><span class="comment">&#125;else&#123;</span></span><br><span class="line"><span class="comment">	代码块2</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="if-else-if"><a href="#if-else-if" class="headerlink" title="if-else-if"></a>if-else-if</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">if(条件)&#123;</span></span><br><span class="line"><span class="comment">	代码块1</span></span><br><span class="line"><span class="comment">&#125;else if(条件2)&#123;</span></span><br><span class="line"><span class="comment">	代码块2</span></span><br><span class="line"><span class="comment">&#125;else if(条件3)&#123;</span></span><br><span class="line"><span class="comment">	代码块3</span></span><br><span class="line"><span class="comment">&#125;else &#123;</span></span><br><span class="line"><span class="comment">代码块4</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><blockquote>
+<p>与<code>if</code>和<code>if-else</code>语句不同，<code>switch</code>语句可以有许多可能的执行路径。</p>
+<p>switch适用于<code>byte</code>、<code>short</code>、<code>char</code>和<code>int</code>基元数据类型。还适用于枚举类型、<code>String</code>类和一些封装某些基本类型的特殊类 : <code>Character</code>、<code>Byte</code>、<code>Short</code>和<code>Integer</code></p>
+<p>语句的主体<code>switch</code>称为<code>switch 块</code>。块中的语句<code>switch</code>可以用一个或多个<code>case</code>或<code>default</code>标签来标记。该<code>switch</code>语句计算其表达式，然后执行匹配<code>case</code>标签后面的所有语句。</p>
+<p><code>switch</code>语句仅基于单个整数、枚举值或<code>String</code>对象测试表达式</p>
+<p>每个<code>break</code>语句都终止封闭<code>switch</code>语句</p>
+</blockquote>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><h4 id="return"><a href="#return" class="headerlink" title="return"></a>return</h4><h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><blockquote>
+<p>迭代一系列值</p>
+<p>初始化表达式初始化循环;它在循环开始时执行一次</p>
+<p>当终止表达式的计算结果为false时，循环终止</p>
+<p>递增表达式在每次循环迭代后被调用;这个表达式可以对一个值递增或递减</p>
+</blockquote>
+<h5 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h5><blockquote>
+<p>or each <strong>element</strong> in <strong>arrayName</strong> do {…}</p>
+<p>for(数据类型 变量名 :遍历的目标){ 数据类型 变量名 :声明一个变量用来接收遍历目标遍历后的元素}</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(ElementType element: arrayName)&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] num = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i: num)&#123;</span><br><span class="line">    System.out.print(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><blockquote>
+<p>while语句计算表达式，表达式必须返回一个布尔值。</p>
+</blockquote>
+<h4 id="do-while"><a href="#do-while" class="headerlink" title="do-while"></a>do-while</h4><blockquote>
+<p><code>do-while</code>和之间的区别在于<code>while</code>它<code>do-while</code>在循环底部而不是顶部评估其表达式。因此，块内的语句<code>do</code>总是至少执行一次</p>
+</blockquote>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><blockquote>
+<p><em>表达式</em>是由变量、运算符和方法调用组成的构造，这些构造根据语言的语法构造，计算结果为单个值。</p>
+<p>表达式返回值的数据类型取决于表达式中使用的元素。</p>
+<p>表达式也可以返回其他类型的值，例如<code>boolean</code>or <code>String</code>。</p>
+<p>只要表达式的一部分所需的数据类型与另一部分的数据类型匹配，Java 编程语言就允许您从各种较小的表达式构造复合表达式。</p>
+<p>一条<em>语句</em>构成一个完整的执行单元。<code>;</code>通过以分号 ( )结束表达式，可以将以下类型的表达式组成语句。</p>
+<ul>
+<li>赋值表达式</li>
+<li>任何使用<code>++</code>或<code>--</code></li>
+<li>方法调用</li>
+<li>对象创建表达式</li>
+</ul>
+<p>这样的语句称为<em>表达式语句</em>。</p>
+<p>还有另外两种语句：声明语句和控制流语句 : 声明语句声明一个变量 , <em>控制流语句</em>控制语句执行的顺序</p>
+<p><em>块</em>是一组位于平衡大括号之间的零个或多个语句，可以在任何允许使用单个语句的地方使用</p>
+</blockquote>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><blockquote>
+<p>同一个引用类型使用不同的实例而执行不同操作</p>
+</blockquote>
+<h2 id="-1"><a href="#-1" class="headerlink" title></a></h2> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/03/04/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Java对象和类
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Java基础</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

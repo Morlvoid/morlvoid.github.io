@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Ubuntu22.04安装MySQL流程 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Ubuntu22.04安装MySQL流程"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Ubuntu22.04安装MySQL流程
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time datetime="2023-05-06T05:38:03.000Z" itemprop="datePublished">2023-05-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Ubuntu22.04安装MySQL流程</p>
+<span id="more"></span>
+
+
+<h4 id="1、安装服务器端"><a href="#1、安装服务器端" class="headerlink" title="1、安装服务器端"></a>1、安装服务器端</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、安装客户端"><a href="#2、安装客户端" class="headerlink" title="2、安装客户端"></a>2、安装客户端</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install mysql-client</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、安装-mysql-相关库"><a href="#3、安装-mysql-相关库" class="headerlink" title="3、安装 mysql 相关库"></a>3、安装 mysql 相关库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、安装成功后查看-MySQL-版本"><a href="#4、安装成功后查看-MySQL-版本" class="headerlink" title="4、安装成功后查看 MySQL 版本"></a>4、安装成功后查看 MySQL 版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -V</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysql1.png" alt="[查看MySQL版本]" class="article-img">
+
+<p><img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1.png" alt="查看MySQL版本"></p>
+<h4 id="5、修改-mysqld-cnf-配置文件"><a href="#5、修改-mysqld-cnf-配置文件" class="headerlink" title="5、修改 mysqld.cnf 配置文件"></a>5、修改 mysqld.cnf 配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
+
+<p> （1）在 [mysqld] 最后一行加入：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># skip-grant-tables　　　　&lt;-- add # here</span></span><br></pre></td></tr></table></figure>
+
+<p> （2）然后点击 ESC ，输入 ‘ ：wq ’ 进行保存和退出；如下图所示；</p>
+<p> <strong>注：如果不修改 mysqld.cnf 配置文件，修改完 MySQL 的用户名和密码后，在进入 MySQL 时可能会有如下错误，即语法错误拒绝被访问：</strong></p>
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysqlvi2.png" alt="[修改配置文件]" class="article-img">
+
+<p><img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlvi2.png" alt="修改配置文件"></p>
+<h4 id="6、查看默认安装的-MySQL-的用户名和密码"><a href="#6、查看默认安装的-MySQL-的用户名和密码" class="headerlink" title="6、查看默认安装的 MySQL 的用户名和密码"></a>6、查看默认安装的 MySQL 的用户名和密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cat</span> /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysql1cnf.png" alt="[修改配置文件]" class="article-img">
+
+<p><img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysql1cnf.png" alt="修改配置文件"></p>
+<h4 id="7、登录-MySQL-；"><a href="#7、登录-MySQL-；" class="headerlink" title="7、登录 MySQL ；"></a>7、登录 MySQL ；</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p    # 换行后输入上述查到的密码</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysqlu1.png" alt="[查看默认安装的用户名和密码]" class="article-img">
+
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysqlu1.png" alt="查看默认安装的用户名和密码">
+
+<p><img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlu1.png" alt="查看默认安装的用户名和密码"></p>
+<h4 id="8、进入-MySQL-；"><a href="#8、进入-MySQL-；" class="headerlink" title="8、进入 MySQL ；"></a>8、进入 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9、刷新权限；"><a href="#9、刷新权限；" class="headerlink" title="9、刷新权限；"></a>9、刷新权限；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="10、修改用户名和密码；"><a href="#10、修改用户名和密码；" class="headerlink" title="10、修改用户名和密码；"></a>10、修改用户名和密码；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH caching_sha2_password BY <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="11、刷新权限；"><a href="#11、刷新权限；" class="headerlink" title="11、刷新权限；"></a>11、刷新权限；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12、退出；"><a href="#12、退出；" class="headerlink" title="12、退出；"></a>12、退出；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure>
+
+<h4 id="13、重启-MySQL-；"><a href="#13、重启-MySQL-；" class="headerlink" title="13、重启 MySQL ；"></a>13、重启 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="14、进入-MySQL-；"><a href="#14、进入-MySQL-；" class="headerlink" title="14、进入 MySQL ；"></a>14、进入 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p    <span class="comment"># 回车后输入自己修改后的密码即可</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="若以上过程没有效果，进行以下步骤："><a href="#若以上过程没有效果，进行以下步骤：" class="headerlink" title="若以上过程没有效果，进行以下步骤："></a>若以上过程没有效果，进行以下步骤：</h4><h4 id="15、修改-mysqld-cnf-配置文件"><a href="#15、修改-mysqld-cnf-配置文件" class="headerlink" title="15、修改 mysqld.cnf 配置文件"></a>15、修改 mysqld.cnf 配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
+
+<img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/ubuntu22installmysqlroot.png" alt="[修改cnf文件]" class="article-img">
+
+<p><img src="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/Morlvoid\Morlvoid.github.io\source_posts\Ubuntu22-04安装MySQL\ubuntu22installmysqlroot.png" alt="修改cnf文件"></p>
+<h4 id="16、保存退出"><a href="#16、保存退出" class="headerlink" title="16、保存退出"></a>16、保存退出</h4><p>键入<code>i</code> 进入，修改user和password<br>键入<code>Esc</code>，输入<code>:wq</code> 保存退出。退出vi后刷新权限退出MySQL，重启</p>
+<h4 id="17、刷新权限；"><a href="#17、刷新权限；" class="headerlink" title="17、刷新权限；"></a>17、刷新权限；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="18、退出；"><a href="#18、退出；" class="headerlink" title="18、退出；"></a>18、退出；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit;</span><br></pre></td></tr></table></figure>
+
+<h4 id="19、重启-MySQL-；"><a href="#19、重启-MySQL-；" class="headerlink" title="19、重启 MySQL ；"></a>19、重启 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="20、进入-MySQL-；"><a href="#20、进入-MySQL-；" class="headerlink" title="20、进入 MySQL ；"></a>20、进入 MySQL ；</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p    <span class="comment"># 回车后输入自己修改后的密码即可</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="修改成功"><a href="#修改成功" class="headerlink" title="修改成功"></a>修改成功</h4><h3 id="MySQL中help手册翻译"><a href="#MySQL中help手册翻译" class="headerlink" title="MySQL中help手册翻译"></a>MySQL中help手册翻译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">List of all MySQL commands:</span><br><span class="line">Note that all text commands must be first on line and end with <span class="string">&#x27;;&#x27;</span></span><br><span class="line">?         (\?) Synonym <span class="keyword">for</span> `<span class="built_in">help</span><span class="string">&#x27;.</span></span><br><span class="line"><span class="string">clear     (\c) Clear the current input statement.</span></span><br><span class="line"><span class="string">connect   (\r) Reconnect to the server. Optional arguments are db and host.</span></span><br><span class="line"><span class="string">delimiter (\d) Set statement delimiter.</span></span><br><span class="line"><span class="string">edit      (\e) Edit command with $EDITOR.</span></span><br><span class="line"><span class="string">ego       (\G) Send command to mysql server, display result vertically.</span></span><br><span class="line"><span class="string">exit      (\q) Exit mysql. Same as quit.</span></span><br><span class="line"><span class="string">go        (\g) Send command to mysql server.</span></span><br><span class="line"><span class="string">help      (\h) Display this help.</span></span><br><span class="line"><span class="string">nopager   (\n) Disable pager, print to stdout.</span></span><br><span class="line"><span class="string">notee     (\t) Don&#x27;</span>t write into outfile.</span><br><span class="line">pager     (\P) Set PAGER [to_pager]. Print the query results via PAGER.</span><br><span class="line"><span class="built_in">print</span>     (\p) Print current <span class="built_in">command</span>.</span><br><span class="line">prompt    (\R) Change your mysql prompt.</span><br><span class="line">quit      (\q) Quit mysql.</span><br><span class="line"><span class="built_in">rehash</span>    (\#) Rebuild completion <span class="built_in">hash</span>.</span><br><span class="line"><span class="built_in">source</span>    (\.) Execute an SQL script file. Takes a file name as an argument.</span><br><span class="line">status    (\s) Get status information from the server.</span><br><span class="line">system    (\!) Execute a system shell <span class="built_in">command</span>.</span><br><span class="line"><span class="built_in">tee</span>       (\T) Set outfile [to_outfile]. Append everything into given outfile.</span><br><span class="line">use       (\u) Use another database. Takes database name as argument.</span><br><span class="line">charset   (\C) Switch to another charset. Might be needed <span class="keyword">for</span> processing binlog with multi-byte charsets.</span><br><span class="line">warnings  (\W) Show warnings after every statement.</span><br><span class="line">nowarning (\w) Don<span class="string">&#x27;t show warnings after every statement.</span></span><br><span class="line"><span class="string">resetconnection(\x) Clean session context.</span></span><br><span class="line"><span class="string">query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.</span></span><br><span class="line"><span class="string">ssl_session_data_print Serializes the current SSL session data to stdout or file</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">所有MySQL命令的列表：</span><br><span class="line">请注意，所有文本命令都必须位于第一行，并以“；”结尾</span><br><span class="line">?         （\？）“帮助”的同义词。</span><br><span class="line">clear（\c）清除当前输入语句。</span><br><span class="line">connect（\r）重新连接到服务器。可选参数为db和host。</span><br><span class="line">delimiter（\d）设置语句分隔符。</span><br><span class="line">edit（\e）使用<span class="variable">$EDITOR</span>编辑命令。</span><br><span class="line">ego（\G）向mysql服务器发送命令，垂直显示结果。</span><br><span class="line"><span class="built_in">exit</span>（\q）退出mysql。与退出相同。</span><br><span class="line">go（\g）将命令发送到mysql服务器。</span><br><span class="line"><span class="built_in">help</span>（\h）显示此帮助。</span><br><span class="line">nopage（\n）禁用寻呼机，打印到标准输出。</span><br><span class="line">notee（\t）不要写入outfile。</span><br><span class="line">寻呼机（\P）设置pager[到页面]。通过PAGER打印查询结果。</span><br><span class="line"><span class="built_in">print</span>（\p）打印当前命令。</span><br><span class="line">prompt（\R）更改您的mysql提示符。</span><br><span class="line">quit（\q）退出mysql。</span><br><span class="line"><span class="built_in">rehash</span>（\#）重新生成完成哈希。</span><br><span class="line"><span class="built_in">source</span>（\.）执行SQL脚本文件。将文件名作为参数。</span><br><span class="line">status（\s）从服务器获取状态信息。</span><br><span class="line">system（\！）执行系统shell命令。</span><br><span class="line"><span class="built_in">tee</span>（\T）设置输出文件[to_outfile]。将所有内容附加到给定的外文件中。</span><br><span class="line">use（\u）使用另一个数据库。将数据库名称作为参数。</span><br><span class="line">charset（\C）切换到另一个字符集。可能需要处理具有多字节字符集的binlog。</span><br><span class="line">warnings（\W）在每条语句后显示警告。</span><br><span class="line">nowarning（\w）不要在每条语句后都显示警告。</span><br><span class="line">resetconnection（\x）清除会话上下文。</span><br><span class="line">query_attributes为下一个要提取的查询设置字符串参数（名称1值1名称2值2…）。</span><br><span class="line">ssl_session_data_print将当前ssl会话数据序列化到stdout或文件</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="其他命令："><a href="#其他命令：" class="headerlink" title="其他命令："></a>其他命令：</h3><h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update   </span><br></pre></td></tr></table></figure>
+
+<h4 id="免密码进入mysql："><a href="#免密码进入mysql：" class="headerlink" title="免密码进入mysql："></a>免密码进入mysql：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mysql -uroot</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考教程：</p>
+<p><a target="_blank" rel="noopener" href="http://t.csdn.cn/x34S">Ubuntu 20.04 + mysql 8.0.27 用户名和密码修改</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu22-04/" rel="tag">Ubuntu22.04</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu22-04%E5%AE%89%E8%A3%85MySQL/" rel="tag">Ubuntu22.04安装MySQL</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/07/26/%E5%85%AB%E8%8A%92%E6%98%9F%EF%BC%9A%E8%8D%A3%E6%A0%BC%E5%85%AB%E7%BB%B4%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7--%E6%80%9D%E8%B7%AF%E6%97%A5%E5%BF%97/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">八芒星：荣格八维可视化图表工具--思路日志</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

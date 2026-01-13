@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>properties文件或类笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-properties文件或类笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  properties文件或类笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/08/24/properties%E6%96%87%E4%BB%B6%E6%88%96%E7%B1%BB%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-08-24T04:00:55.000Z" itemprop="datePublished">2023-08-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>有关properties配置文件的详细（并非）研究</p>
+<span id="more"></span>
+
+<p>properties文件是java所支持的配置文件类型，java中的properties文件是一种配置文件，  主要用于表达配置信息，  文件类型为*.properties，  格式为文本文件，  在properties文件中，可以用”#”来作注释。</p>
+<p>文件的内容是格式是 “键&#x3D;值”的格式，  </p>
+<p>properties是配置文件。</p>
+<p>主要的作用是通过修改配置文件可以方便地修改代码中的参数，实现不用改class文件即可灵活变更参数。</p>
+<p>解释：java运行中java文件会变成class文件，之后无法通过反编译找到原样的代码，这样的话，如果java类中某个参数变更，就很难灵活的实现参数修改，这个时候properties 文件就能很灵活的实现配置，减少代码的维护成本和提高开发效率。</p>
+<h3 id="jdbc-properties-database-properties示例："><a href="#jdbc-properties-database-properties示例：" class="headerlink" title="jdbc.properties&#x2F;database.properties示例："></a>jdbc.properties&#x2F;database.properties示例：</h3><p>在SMM项目中，JDBC配置文件用于配置应用程序与数据库之间的连接。<br>通常，JDBC配置文件中应该包含以下属性：</p>
+<ol>
+<li><code>jdbc.driver</code>: 数据库驱动程序的类名，例如com.mysql.jdbc.Driver。</li>
+<li><code>jdbc.url</code>: 数据库的URL地址，例如jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;mydatabase。</li>
+<li><code>jdbc.username</code>: 连接数据库所需的用户名。</li>
+<li><code>jdbc.password</code>: 连接数据库所需的密码。</li>
+<li><code>jdbc.initialSize</code>: 连接池初始化时创建的连接数。</li>
+<li><code>jdbc.maxActive</code>: 连接池中最大的活动连接数。</li>
+<li><code>jdbc.maxIdle</code>: 连接池中最大的空闲连接数。</li>
+<li><code>jdbc.minIdle</code>: 连接池中最小的空闲连接数。</li>
+</ol>
+<p>以上属性是最常见的JDBC配置属性，当然，还有其他一些属性可以根据具体应用场景进行配置，例如连接超时时间、查询超时时间、验证语句等。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driverClassName</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment">#com.mysql.cj.jdbc.Driver为MySQL8.0版本以上</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/kgc</span></span><br><span class="line"><span class="attr">user</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">root  </span></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">5  </span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">10</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/appinfodb?useUnicode=true&amp;amp&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=round</span></span><br><span class="line"><span class="attr">driver</span>=<span class="string">com.mysql.jdbc.Driver  </span></span><br><span class="line"><span class="comment">#这是JDBC连接字符串，指定了MySQL数据库的地址和要连接的数据库名称。</span></span><br><span class="line"><span class="comment">#com.mysql.jdbc.Driver 为MySQL5.0版本左右</span></span><br><span class="line"><span class="comment">#`useUnicode=true`指定要使用Unicode字符集，</span></span><br><span class="line"><span class="comment">#`characterEncoding=utf-8`指定字符集为UTF-8</span></span><br><span class="line"><span class="comment">#`zeroDateTimeBehavior=round`指定当数据库中的日期时间字段为零时，应将其舍入到最接近的值。</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root  </span></span><br><span class="line"><span class="attr">password</span>=<span class="string">root  </span></span><br><span class="line"><span class="attr">minIdle</span>=<span class="string">45  </span></span><br><span class="line"><span class="attr">maxIdle</span>=<span class="string">50  </span></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">5  </span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">100  </span></span><br><span class="line"><span class="attr">maxWait</span>=<span class="string">100  </span></span><br><span class="line"><span class="attr">removeAbandonedTimeout</span>=<span class="string">180  </span></span><br><span class="line"><span class="comment">#这是连接被认为是遗弃的时间，以秒为单位，在这段时间内未被使用的连接将被关闭，这里配置为180秒。</span></span><br><span class="line"><span class="attr">removeAbandoned</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#这是一个布尔值，指示是否启用连接的遗弃检查。如果设置为true，则连接池将在`removeAbandonedTimeout`时间内检查连接是否被遗弃，如果是，则关闭该连接。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="读取properties文件示例代码"><a href="#读取properties文件示例代码" class="headerlink" title="读取properties文件示例代码"></a>读取properties文件示例代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Properties <span class="title function_">getProperties</span><span class="params">(String config)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"><span class="comment">//获取properties文件</span></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        InputStreamReader in=<span class="literal">null</span>;<span class="comment">//输入流</span></span><br><span class="line">        FileInputStream inStream=<span class="literal">null</span> ;<span class="comment">//文件输入</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            inStream = <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(config));</span><br><span class="line">            in = <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(inStream,(<span class="string">&quot;UTF-8&quot;</span>));    </span><br><span class="line">            <span class="comment">// 处理中文字符流</span></span><br><span class="line">            properties.load(in);</span><br><span class="line">            <span class="comment">//加载properties文件</span></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;无法找到并使用配置文件: [ &quot;</span> + config+<span class="string">&quot; ]&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (inStream!=<span class="literal">null</span>) &#123;</span><br><span class="line">                inStream.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (in!=<span class="literal">null</span>) &#123;</span><br><span class="line">                in.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> properties;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Properties类"><a href="#Properties类" class="headerlink" title="Properties类"></a>Properties类</h3><p>主要用于读取Java的配置文件.<br>Properties类表示一组持久的属性。<br>properties属性可以保存到流中或从流中加载。<br>properties属性列表中的每个键及其对应的值都是一个字符串。<br>properties属性列表可以包含另一个属性列表作为其“默认值”;<br>如果在原始属性列表中找不到属性键，则会搜索此第二个属性列表。</p>
+<p>方法：<br>load—加载;<br>store–存储;<br>load（Reader）&#x2F;store（Writer，String）方法以一个简单的面向行的格式从以下格式加载和存储属性到基于字符的流。<br>load（InputStream）&#x2F;store（OutputStream，String）方法的工作方式与加载（Reader）&#x2F;存储（Writer，String）对相同，只是输入&#x2F;输出流以ISO 8859-1字符编码编码。</p>
+<p><strong>Properties 类表示了一个持久的属性集。</strong><br>Properties 可保存在流中或从流中加载。属性列表中每个键及其对应值都是一个字符串。</p>
+<p>一个属性列表可包含另一个属性列表作为它的“默认值”;<br>如果未能在原有的属性列表中搜索到属性键，则搜索第二个属性列表。</p>
+<blockquote>
+<p>因为 Properties 继承于 Hashtable，所以可对 Properties 对象应用 put 和 putAll 方法。<strong>但不建议使用这两个方法，因为它们允许调用者插入其键或值不是 String 的项。</strong><br>相反，应该使用 setProperty 方法。如果在“不安全”的 Properties 对象(即包含非 String 的键或值)上调用 store 或 save 方法，则该调用将失败。<br>类似地，如果在“不安全”的Properties 对象(即包含非 String 的键)上调用 propertyNames 或 list 方法，则该调用将失败。</p>
+</blockquote>
+<h3 id="简单用例"><a href="#简单用例" class="headerlink" title="简单用例"></a>简单用例</h3><h4 id="1打印自定义-properties-文件中的值"><a href="#1打印自定义-properties-文件中的值" class="headerlink" title="-1打印自定义.properties 文件中的值"></a>-1打印自定义.properties 文件中的值</h4><p>在src&#x2F;main&#x2F;resources 目录下，放置 jdbc.properties 文件，是数据库的配置文件。<br>![[Pasted image 20230617144233.png]]</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jdbc.driver</span>=<span class="string">com.mysql.jdbc.Driverjdbc</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf8jdbc</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<p>list 输出到控制台 用绝对路径加载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name1Test</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">		<span class="comment">//磁盘符的绝对路径</span></span><br><span class="line">		InputStream input=<span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\jdbc.properties&quot;</span>));</span><br><span class="line">		properties.load(input);</span><br><span class="line">		properties.list(System.out);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2propertyNames-输出-getClass-加载"><a href="#2propertyNames-输出-getClass-加载" class="headerlink" title="-2propertyNames 输出 getClass() 加载"></a>-2propertyNames 输出 getClass() 加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name2Test</span><span class="params">()</span>&#123;        </span><br><span class="line">	<span class="keyword">try</span>&#123;            </span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();  </span><br><span class="line">		<span class="comment">// 用/文件名， / 表示根目录            </span></span><br><span class="line">		InputStream input=PropertiesTest.class.getClass().getResourceAsStream(<span class="string">&quot;/jdbc.properties&quot;</span>);            </span><br><span class="line">		properties.load(input);            </span><br><span class="line">		Enumeration&lt;String&gt; names=(Enumeration&lt;String&gt;) properties.propertyNames();            </span><br><span class="line">		<span class="keyword">while</span>(names.hasMoreElements())&#123;</span><br><span class="line">		<span class="comment">//这是key值            </span></span><br><span class="line">			String key=names.nextElement();            </span><br><span class="line">			String value=properties.getProperty(key);            </span><br><span class="line">			System.out.println(key+<span class="string">&quot;=&quot;</span>+value);   </span><br><span class="line">			&#125;              </span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;   	 </span><br><span class="line">		e.printStackTrace();    </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3stringPropertyNames-输出-getClassLoader-加载-推荐"><a href="#3stringPropertyNames-输出-getClassLoader-加载-推荐" class="headerlink" title="-3stringPropertyNames 输出 getClassLoader 加载 (推荐)"></a>-3stringPropertyNames 输出 getClassLoader 加载 (推荐)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name3Test</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;        </span><br><span class="line">	Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();        </span><br><span class="line">	<span class="comment">//直接写src 类路径下的文件名        </span></span><br><span class="line">	InputStream input=PropertiesTest.class.getClassLoader().getResourceAsStream(<span class="string">&quot;jdbc.properties&quot;</span>);        </span><br><span class="line">	properties.load(input);                </span><br><span class="line">	<span class="comment">//把key值转换成set 的形式，遍历set        </span></span><br><span class="line">	Set&lt;String&gt; names=properties.stringPropertyNames();        Iterator&lt;String&gt; iterator=names.iterator();        </span><br><span class="line">	<span class="keyword">while</span>(iterator.hasNext())&#123;        </span><br><span class="line">		String key=iterator.next();        </span><br><span class="line">		String value=properties.getProperty(key);        </span><br><span class="line">		System.out.println(key+<span class="string">&quot;=&quot;</span>+value);    </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;    	</span><br><span class="line">			e.printStackTrace();    </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4获取值-getProperties"><a href="#4获取值-getProperties" class="headerlink" title="-4获取值 getProperties"></a>-4获取值 getProperties</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">name3Test</span><span class="params">()</span>&#123;	    </span><br><span class="line">	<span class="keyword">try</span>&#123;		</span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();		</span><br><span class="line">		InputStream input=PropertiesTest.class.getClassLoader().getResourceAsStream(<span class="string">&quot;jdbc.properties&quot;</span>);		</span><br><span class="line">		properties.load(input);		</span><br><span class="line">		<span class="comment">//String value=properties.getProperty(&quot;jdbc.url&quot;);		</span></span><br><span class="line">		String value=properties.getProperty(<span class="string">&quot;jdbc.url1&quot;</span>,<span class="string">&quot;没有该key值&quot;</span>);		</span><br><span class="line">		System.out.println(<span class="string">&quot;输出值：&quot;</span>+value);		</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;		</span><br><span class="line">			e.printStackTrace();	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="5普通写入，中文时乱码"><a href="#5普通写入，中文时乱码" class="headerlink" title="-5普通写入，中文时乱码"></a>-5普通写入，中文时乱码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeTest</span><span class="params">()</span>&#123;	    </span><br><span class="line">	<span class="keyword">try</span>&#123;		</span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();		</span><br><span class="line">		InputStream input=PropertiesTest.class.getClassLoader().getResourceAsStream(<span class="string">&quot;jdbc.properties&quot;</span>);		</span><br><span class="line">		properties.load(input);				</span><br><span class="line">		<span class="comment">//多添加几个值。		</span></span><br><span class="line">		properties.setProperty(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;两个蝴蝶飞&quot;</span>);		</span><br><span class="line">		properties.setProperty(<span class="string">&quot;sex&quot;</span>,<span class="string">&quot;男&quot;</span>);		</span><br><span class="line">		<span class="comment">//properties.put(&quot;name&quot;,&quot;两个蝴蝶飞&quot;);  </span></span><br><span class="line">		<span class="comment">//可以用继承Hashtable 的put 方法写入值		</span></span><br><span class="line">		<span class="comment">// properties.put(&quot;sex&quot;,&quot;男&quot;);				</span></span><br><span class="line">		<span class="comment">//将添加的值，连同以前的值一起写入 新的属性文件里面。		</span></span><br><span class="line">		OutputStream out=<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:\\jdbc.properties&quot;</span>);		</span><br><span class="line">		properties.store(out,<span class="string">&quot;填充数据&quot;</span>);			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;		</span><br><span class="line">		e.printStackTrace();	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="6解决乱码写入的问题"><a href="#6解决乱码写入的问题" class="headerlink" title="-6解决乱码写入的问题"></a>-6解决乱码写入的问题</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">write2Test</span><span class="params">()</span>&#123;	    </span><br><span class="line">	<span class="keyword">try</span>&#123;        </span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();        </span><br><span class="line">		<span class="comment">//用绝对路径        </span></span><br><span class="line">		InputStream input=<span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\workspace\\JavaLearn\\src\\jdbc.properties&quot;</span>));    </span><br><span class="line">		properties.load(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(input,<span class="string">&quot;utf-8&quot;</span>));        </span><br><span class="line">		<span class="comment">//多添加几个值。        </span></span><br><span class="line">		properties.setProperty(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;两个蝴蝶飞&quot;</span>);        </span><br><span class="line">		properties.setProperty(<span class="string">&quot;sex&quot;</span>,<span class="string">&quot;男&quot;</span>);        </span><br><span class="line">		OutputStream output=<span class="keyword">new</span> </span><br><span class="line">		<span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:\\jdbc.properties&quot;</span>);        </span><br><span class="line">		OutputStreamWriter out=<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(output,<span class="string">&quot;utf-8&quot;</span>); </span><br><span class="line">		properties.store(out,<span class="string">&quot;填充数据&quot;</span>);			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;		</span><br><span class="line">			e.printStackTrace();	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="7导出到-xml-配置文件-storeToXML"><a href="#7导出到-xml-配置文件-storeToXML" class="headerlink" title="-7导出到 .xml 配置文件 storeToXML"></a>-7导出到 .xml 配置文件 storeToXML</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">xmlWriteTest</span><span class="params">()</span>&#123;	    </span><br><span class="line">	<span class="keyword">try</span>&#123;        </span><br><span class="line">		<span class="comment">//处理成编码样式。        </span></span><br><span class="line">		Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();        </span><br><span class="line">		<span class="comment">//多添加几个值。        </span></span><br><span class="line">		properties.setProperty(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;两个蝴蝶飞&quot;</span>);        </span><br><span class="line">		properties.setProperty(<span class="string">&quot;sex&quot;</span>,<span class="string">&quot;男&quot;</span>);        </span><br><span class="line">		OutputStream output=<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:\\jdbc.xml&quot;</span>);      </span><br><span class="line">		<span class="comment">//编码设置成utf-8的形式。         </span></span><br><span class="line">		properties.storeToXML(output,<span class="string">&quot;填充到xml&quot;</span>,<span class="string">&quot;utf-8&quot;</span>);			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;		</span><br><span class="line">			e.printStackTrace();	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="8导出XML-配置文件-loadFromXML"><a href="#8导出XML-配置文件-loadFromXML" class="headerlink" title="-8导出XML 配置文件 loadFromXML"></a>-8导出XML 配置文件 loadFromXML</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">xmlReadTest</span><span class="params">()</span>&#123;	     </span><br><span class="line">	 <span class="keyword">try</span>&#123;        </span><br><span class="line">		 Properties properties=<span class="keyword">new</span> <span class="title class_">Properties</span>();        </span><br><span class="line">		 InputStream input=<span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\jdbc.xml&quot;</span>));        </span><br><span class="line">		 properties.loadFromXML(input);        </span><br><span class="line">		 properties.list(System.out);			</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;		</span><br><span class="line">		e.printStackTrace();	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaofeifei-wang/p/7477324.html">properties文件 , properties类, 的作用</a><br><a target="_blank" rel="noopener" href="http://t.csdn.cn/PULXS">properties文件</a><br><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1709864980321470535&wfr=spider&for=pc">Java基础——Properties类</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/08/24/properties%E6%96%87%E4%BB%B6%E6%88%96%E7%B1%BB%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/properties/" rel="tag">properties</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/09/04/%E8%A7%A3%E5%86%B3-Failed-to-connect-to-github-com-port-443-%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            解决 Failed to connect to github.com port 443 的问题
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/08/10/Exercism-org-Java-Log-Levels/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Exercism.org-Java-Log Levels</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

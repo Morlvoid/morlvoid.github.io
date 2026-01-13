@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>YAML学习笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-YAML学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  YAML学习笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/06/19/YAML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-06-19T03:58:06.000Z" itemprop="datePublished">2023-06-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">6.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">27 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>还算详尽的YAML学习笔记</p>
+<span id="more"></span>
+
+<h1 id="什么是-YAML？"><a href="#什么是-YAML？" class="headerlink" title="什么是 YAML？"></a>什么是 YAML？</h1><p><a target="_blank" rel="noopener" href="https://yaml.org/">yaml官网</a></p>
+<blockquote>
+<p>YAML: YAML Ain’t Markup Language™<br>What It Is:<br>YAML is a human-friendly data serialization<br>language for all programming languages.<br>It uses Unicode <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#character-set">printable</a> characters, <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#indicator-characters">some</a> of which provide structural information and the rest containing the data itself.<br>There are many kinds of <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#dump">data structures</a>, but they can all be adequately <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">represented</a> with three basic primitives: <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">mappings</a> (hashes&#x2F;dictionaries), <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#sequence">sequences</a> (arrays&#x2F;lists) and <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalars">scalars</a> (strings&#x2F;numbers).<br>YAML was specifically created to work well for common use cases such as: configuration files, log files, interprocess messaging, cross-language data sharing, object persistence and debugging of complex data structures.</p>
+</blockquote>
+<!--more-->
+
+<blockquote>
+<p>YAML：YAML Ain’t Markup Language™<br>它是什么：<br>YAML是一种人性化的数据序列化语言，适用于所有编程语言。<br>它使用Unicode <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#character-set">可打印</a> 的字符，其中一些提供结构信息，其余包含数据本身。<br>有许多种数据结构，但它们都可以用三个基本原语充分<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">表示</a>：映射（哈希&#x2F;字典）、序列（数组&#x2F;列表）和标量（字符串&#x2F;数字）。<br>YAML是专门为常见用例而创建的，例如：配置文件、日志文件、进程间消息传递、跨语言数据共享、对象持久化和调试复杂数据结构。</p>
+</blockquote>
+<blockquote>
+<p>YAML 文件使用 .yml 或 .yaml 扩展名，并遵循特定的语法规则。<br>YAML是一种简单、表达力强的、以数据为导向的语言，它不是一种标记语言 (YAML)，作为配置格式时非常易读。<br>它具有直观的可视化结构，并且其逻辑非常简单：&#x3D;&#x3D;缩进的项目继承父项目的属性&#x3D;&#x3D;。<br>YAML 拥有 Perl、C、XML、HTML 和其他编程语言的特性。<br>YAML 也是 JSON 的超集，所以 &#x3D;&#x3D;JSON 文件在 YAML 中有效&#x3D;&#x3D;。<br>没有通常的格式符号，如大括号、方括号、结束标记或引号。YAML 文件更容易阅读，因为其使用 Python 风格的缩进来确定结构并表示嵌套。为了保持跨系统的可移植性，设计时不允许使用制表符，因此改用空格（字面意义的空格字符）。<br>注释可以用井号或哈希符号（#）。使用注释始终是最佳实践，因为其可描述代码的意图。&#x3D;&#x3D;YAML 不支持多行注释，每行都需要以井号字符为后缀&#x3D;&#x3D;。<br>YAML 文件的结构是映射或列表，遵循层次结构，具体取决于缩进以及定义键值的方式。它以映射来关联键值对。每个键必须是唯一的，而且顺序并不重要。这跟 Python 字典或 Bash 脚本中的变量赋值相似。<br>YAML 中的映射必须经过解析后才能关闭，然后创建新的映射。新的映射可以通过增加缩进级别或解析之前的映射并新建一个相邻映射来创建。<br>列表包括以特定顺序列出的值，可以包含任何数量的所需项目。&#x3D;&#x3D;一个列表序列以破折号（-）和空格开始，而缩进则将其与父级分开&#x3D;&#x3D;。<br>我们可以把序列看作是一个 Python 列表或者 Bash 或 Perl 中的数组。一个列表可以嵌入到一个映射中。<br>YAML 还包含标量，它是以 Unicode 编码的任意数据，可以用作字符串、整数、日期、数字或布尔等值。<br>在创建 YAML 文件时，需要确保遵循这些语法规则，而且文件必须有效。</p>
+</blockquote>
+<p>（摘自Red Hat红帽<a target="_blank" rel="noopener" href="https://www.redhat.com/en/topics/automation/what-is-yaml">What is YAML?</a>）</p>
+<h1 id="YAML-有什么用途？"><a href="#YAML-有什么用途？" class="headerlink" title="YAML 有什么用途？"></a>YAML 有什么用途？</h1><p>配置文件：YAML是一种常用的配置文件格式，它可以轻松地表示各种配置选项和参数。相比 JSON，因为 YAML 有更好的可读性，对用户更友好，所以通常建议用 YAML 来编写配置文件，尽管它们在大多数情况下可以互换使用。</p>
+<p>数据传输：YAML可以用于在不同的应用程序或系统之间传输数据，因为它是一种跨平台的数据格式，易于解析和处理。</p>
+<p>持久化存储：YAML可以用于将数据序列化为文本格式并进行持久化存储，例如将数据存储到文件或数据库中。</p>
+<blockquote>
+<p>除了在 Ansible 中使用之外，YAML 还用于 Kubernetes 资源和部署<br>（Ansible是新出现的自动化运维工具，基于Python开发，集合了众多运维工具（puppet、chef、func、fabric）的优点，实现了批量系统配置、批量程序部署、批量运行命令等功能）<br>（网页Kubernetes 也称为 K8s，是用于自动部署、扩缩和管理容器化应用程序的开源系统）<br>使用 YAML 的一大好处是，YAML 文件可以添加到源代码控制中，比如 Github，这样就可以跟踪和审计变更。<br>(摘自自Red Hat红帽<a target="_blank" rel="noopener" href="https://www.redhat.com/sysadmin/yaml-beginners">YAML for beginners</a>)</p>
+</blockquote>
+<h1 id="YAML基本语法"><a href="#YAML基本语法" class="headerlink" title="YAML基本语法"></a>YAML基本语法</h1><ul>
+<li>&#x3D;&#x3D;大小写敏感&#x3D;&#x3D;</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用 Tab 键，只允许使用空格。</li>
+<li>缩进的空格数不重要，但同级元素必须左侧对齐。</li>
+<li>‘#’表示注释</li>
+</ul>
+<h2 id="集（Collections）"><a href="#集（Collections）" class="headerlink" title="集（Collections）"></a>集（Collections）</h2><blockquote>
+<p>YAML’s <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#block-collection-styles">block collections</a> use <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#indentation-spaces">indentation</a> for scope and begin each entry on its own line. <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#block-sequences">Block sequences</a> indicate each entry with a dash and space (“<code>-</code> ”). <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">Mappings</a> use a colon and space (“<code>:</code> ”) to mark each <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">key&#x2F;value pair</a>. <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#comments">Comments</a> begin with an octothorpe (also called a “hash”, “sharp”, “pound” or “number sign” - “<code>#</code>”).<br>YAML also has <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-style-productions">flow styles</a>, using explicit <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#indicator-characters">indicators</a> rather than <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#indentation-spaces">indentation</a> to denote scope. The <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-sequences">flow sequence</a> is written as a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-collection-styles">comma</a> separated list within <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-sequences">square</a> <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-sequences">brackets</a>. In a similar manner, the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-mappings">flow mapping</a> uses <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-mappings">curly</a> <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-mappings">braces</a>.</p>
+</blockquote>
+<blockquote>
+<p>YAML的<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#block-collection-styles">block collections</a>(块集)使用缩进表示作用域，并在每个条目的单独一行上开始。<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#block-sequences">Block sequences</a>(块序列)使用破折号和空格(“<code>-</code> “)表示每个条目。<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">Mappings</a>(映射)使用冒号和空格(“<code>:</code> “)分隔<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">键&#x2F;值对</a>。<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#comments">Comments</a>(注释)以八角符号（也称为“hash”、“sharp”、“pound”或“number sign” - “<code>#</code>“）开头。<br>YAML还具有<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-style-productions">flow styles</a>(流程样式)，使用显式的指示符而不是缩进表示作用域。<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-sequences">Flow sequence</a>(流序列)以逗号分隔的列表形式写在方括号内。类似地，<a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#flow-mappings">flow mapping</a>(流映射)使用花括号表示。</p>
+</blockquote>
+<h2 id="结构（Structures）"><a href="#结构（Structures）" class="headerlink" title="结构（Structures）"></a>结构（Structures）</h2><blockquote>
+<p>YAML uses three dashes (“<code>---</code>”) to separate <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#directives">directives</a> from <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#documents">document</a> <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">content</a>. This also serves to signal the start of a document if no <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#directives">directives</a> are present. Three dots ( “<code>...</code>”) indicate the end of a document without starting a new one, for use in communication channels.</p>
+</blockquote>
+<blockquote>
+<p>YAML使用三个破折号（“—”）将指令与文档内容分开。如果没有指令，这也表示文档的开始。三个点（“…”）表示文档的结束，不会开始新的文档，适用于通信渠道。</p>
+</blockquote>
+<h1 id="YAML数据类型"><a href="#YAML数据类型" class="headerlink" title="YAML数据类型"></a>YAML数据类型</h1><blockquote>
+<p>YAML <em>represents</em> any <em>native data structure</em> using three <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node kinds</a>: <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#sequence">sequence</a> - an ordered series of entries; <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">mapping</a> - an unordered association of <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#node-comparison">unique</a> <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">keys</a> to <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">values</a>; and <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">scalar</a> - any datum with opaque structure presentable as a series of Unicode characters.<br>Nodes<br>A YAML node represents a single native data structure. Such nodes have content of one of three kinds: scalar, sequence or mapping. In addition, each node has a tag which serves to restrict the set of possible values the content can have.</p>
+</blockquote>
+<blockquote>
+<p>YAML使用三种节点类型来表示任何本地数据结构：序列（sequence）- 有序的条目序列；映射（mapping）- 无序的键值对；标量（scalar）- 任何具有不透明结构的数据，可以表示为一系列Unicode字符。<br>节点<br>一个YAML节点表示一个单一的本地数据结构。这样的节点有三种内容种类：标量（scalar）、序列（sequence）或映射（mapping）。此外，每个节点都有一个标记，用于限制内容可能具有的可能值集。</p>
+</blockquote>
+<p>YAML 支持以下几种数据类型：</p>
+<ul>
+<li>标量（scalar）：单个的、不可再分的值</li>
+<li>序列（sequence）：一组按次序排列的值，又称为列表（list）</li>
+<li>映射（mapping）：键值对的集合，又称为哈希（hashes） &#x2F; 字典（dictionary）</li>
+</ul>
+<h2 id="标量（scalar）"><a href="#标量（scalar）" class="headerlink" title="标量（scalar）"></a>标量（scalar）</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar content</a> can be written in <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalars">block</a> notation, using a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#literal-style">literal style</a> (indicated by “<code>|</code>”) where all <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#line-break-characters">line breaks</a> are significant. Alternatively, they can be written with the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#folded-style">folded style</a> (denoted by “<code>&gt;</code>”) where each <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#line-break-characters">line break</a> is <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#line-folding">folded</a> to a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#white-space-characters">space</a> unless it ends an <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#empty-lines">empty</a> or a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#example-more-indented-lines">more-indented</a> line.</p>
+</blockquote>
+<blockquote>
+<p>标量内容可以使用块表示法编写，使用字面样式（由“|”表示），其中所有换行都是重要的。或者，它们可以使用折叠样式（由“&gt;”表示）编写，其中每个换行符折叠成空格，除非它结束一个空行或更多缩进的行。</p>
+</blockquote>
+<ul>
+<li>字符串</li>
+<li>布尔值</li>
+<li>整数</li>
+<li>浮点数</li>
+<li>Null</li>
+<li>时间</li>
+<li>日期<br>纯量直接写在键值对的“value”中。<br>使用<code>key:[空格]value</code>的形式表示一对键值对（空格不能省略）</li>
+</ul>
+<h3 id="字符串（String）"><a href="#字符串（String）" class="headerlink" title="字符串（String）"></a>字符串（String）</h3><blockquote>
+<p>Generic String<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar</a><br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> a Unicode string, a sequence of zero or more Unicode characters. This type is usually <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">bound</a> to the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> language’s string type or, for languages lacking one (such as C), to a character array.</p>
+</blockquote>
+<blockquote>
+<p>通用字符串<br>类型<br>标量<br>定义<br>表示Unicode字符串，即零个或多个Unicode字符的序列。该类型通常绑定到本地语言的字符串类型，或者对于缺乏该类型的语言（如C语言）绑定到字符数组。</p>
+</blockquote>
+<p>字符串是一系列字符序列，可以使用单引号或双引号括起来，也可以不使用引号。如果字符串中包含特殊字符，应使用引号括起来。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&#x27;Alice&#x27;</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">address:</span> <span class="string">&quot;123 Main St, New York&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="单引号和双引号的使用情况"><a href="#单引号和双引号的使用情况" class="headerlink" title="单引号和双引号的使用情况"></a>单引号和双引号的使用情况</h4><p>单引号：使用单引号表示一个纯量字符串，该字符串&#x3D;&#x3D;不会被转义，也不会被解析为特殊字符或变量&#x3D;&#x3D;。<br>单引号字符串中的任何特殊字符都会被视为普通字符。例如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&#x27;zhangsan \n lisi&#x27;</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&#x27;John Doe&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zhangsan \n lisi</span><br><span class="line">John Doe</span><br></pre></td></tr></table></figure>
+
+<p>双引号：使用双引号表示一个字符串，&#x3D;&#x3D;该字符串可以包含转义字符和变量，也可以包含特殊字符序列，特殊字符会输出为其本身想表达的含义，例如可以包含换行符，&#x3D;&#x3D;。<br>双引号字符串中的变量&#x3D;&#x3D;可以使用${}语法进行插值&#x3D;&#x3D;。例如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span> <span class="string">\n</span> <span class="string">lisi</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&quot;My name is $&#123;name&#125;.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">zhangsan</span></span><br><span class="line"><span class="string">lisi</span></span><br><span class="line"></span><br><span class="line"><span class="string">My</span> <span class="string">name</span> <span class="string">is</span> <span class="string">$&#123;name&#125;</span>  </span><br><span class="line"><span class="comment">#若name有传值，例如Anna，则为My name is $&#123;Anna&#125; </span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="数字（Number）"><a href="#数字（Number）" class="headerlink" title="数字（Number）"></a>数字（Number）</h3><p>数字可以是整数或浮点数。</p>
+<blockquote>
+<p>Integer<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar</a>.<br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> arbitrary sized finite mathematical integers. Scalars of this type should be <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">bound</a> to a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> integer data type, if possible.<br>Some languages (such as Perl) provide only a “number” type that allows for both integer and floating-point values. A YAML <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#processes-and-models">processor</a> may use such a type for integers as long as they round-trip properly.<br>In some languages (such as C), an integer may overflow the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> type’s storage capability. A YAML <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#processes-and-models">processor</a> may reject such a value as an error, truncate it with a warning or find some other manner to round-trip it. In general, integers representable using 32 binary digits should safely round-trip through most systems.</p>
+</blockquote>
+<blockquote>
+<p>整数<br>类型<br>标量<br>定义<br>表示任意大小的有限数学整数。如果可能，此类型的标量应绑定到本地的整数数据类型。<br>一些语言（如Perl）仅提供允许整数和浮点数值的“数字”类型。只要它们正确地往返传输，YAML处理器可以将这种类型用于整数。<br>在一些语言中（如C语言）中，整数可能会超出本地类型的存储能力。YAML处理器可以将这样的值拒绝为错误，使用警告截断它或找到其他方法往返传输。一般来说，可以使用32位二进制数字表示的整数应该能够安全地通过大多数系统往返传输。</p>
+</blockquote>
+<blockquote>
+<p>Floating Point<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar</a>.<br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> an approximation to real numbers, including three special values (positive and negative infinity and “not a number”).<br>Some languages (such as Perl) provide only a “number” type that allows for both integer and floating-point values. A YAML <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#processes-and-models">processor</a> may use such a type for floating-point numbers, as long as they round-trip properly.<br>Not all floating-point values can be stored exactly in any given <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> type. Hence a float value may change by “a small amount” when round-tripped. The supported range and accuracy depends on the implementation, though 32 bit IEEE floats should be safe. Since YAML does not specify a particular accuracy, using floating-point <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">mapping keys</a> requires great care and is not recommended.</p>
+</blockquote>
+<blockquote>
+<p>浮点数<br>类型<br>标量<br>定义<br>表示实数的近似值，包括三个特殊值（正无穷、负无穷和“非数字”）。<br>一些语言（如Perl）仅提供允许整数和浮点值的“数字”类型。只要它们正确地往返传输，YAML处理器可以将这种类型用于浮点数。<br>并非所有浮点数值都可以在任何给定的本地类型中精确存储。因此，浮点值可能在往返传输时“略微变化”。支持的范围和精度取决于实现，但32位IEEE浮点数应该是安全的。由于YAML不指定特定的精度，因此使用浮点映射键需要格外小心，不建议使用。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">number:</span> <span class="number">42</span></span><br><span class="line"><span class="attr">float:</span> <span class="number">3.14</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="布尔值（Boolean）"><a href="#布尔值（Boolean）" class="headerlink" title="布尔值（Boolean）"></a>布尔值（Boolean）</h3><blockquote>
+<p>Boolean<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar</a>.<br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> a true&#x2F;false value. In languages without a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> Boolean type (such as C), they are usually <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">bound</a> to a native integer type, using one for true and zero for false.</p>
+</blockquote>
+<blockquote>
+<p>布尔值<br>类型<br>标量<br>定义<br>表示真或假的值。在没有本地布尔类型的语言（如C语言）中，它们通常绑定到本地的整数类型，使用1表示true，使用0表示false</p>
+</blockquote>
+<p>布尔值可以是true或false。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">is_student:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">is_adult:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="空值（Null）"><a href="#空值（Null）" class="headerlink" title="空值（Null）"></a>空值（Null）</h3><blockquote>
+<p>Null<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">Scalar</a>.<br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> the lack of a value. This is typically <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">bound</a> to a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> null-like value (e.g., <code>undef</code> in Perl, <code>None</code> in Python). Note that a null is different from an empty string. Also, a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">mapping</a> entry with some <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">key</a> and a null <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">value</a> is valid and different from not having that <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">key</a> in the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#mapping">mapping</a>.</p>
+</blockquote>
+<blockquote>
+<p>空值<br>类型<br>标量<br>定义<br>表示缺少值。这通常绑定到本地的类似null的值（如Perl中的undef，Python中的None）。请注意，null与空字符串不同。此外，具有某个键和null值的映射条目是有效的，并且与在映射中没有该键不同。</p>
+</blockquote>
+<p>空值表示缺少一个值，可以使用null关键字表示，也可以用<code>~</code>表示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">value:</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="日期和时间（Date-and-Time）"><a href="#日期和时间（Date-and-Time）" class="headerlink" title="日期和时间（Date and Time）"></a>日期和时间（Date and Time）</h3><p>日期和时间时间采用 ISO8601 格式表示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">date:</span> <span class="number">2022-08-01</span></span><br><span class="line"><span class="attr">time:</span> <span class="number">20</span><span class="string">:30:00</span></span><br><span class="line"><span class="attr">datetime:</span> <span class="number">2022-08-01T20:30:00Z</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据类型示例</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&#x27;Alice&#x27;</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">is_student:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">weight:</span> <span class="number">65.5</span></span><br><span class="line"><span class="attr">birthday:</span> <span class="number">1990-01-01</span></span><br><span class="line"></span><br><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;Hello world&#x27;</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018-02-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018-02-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>YAML 允许使用两个感叹号，强制转换数据类型</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">e:</span> <span class="type">!!str</span> <span class="number">123</span></span><br><span class="line"><span class="attr">f:</span> <span class="type">!!str</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="序列（Sequence）"><a href="#序列（Sequence）" class="headerlink" title="序列（Sequence）"></a>序列（Sequence）</h2><blockquote>
+<p>Generic Mapping<br>Kind<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#sequence">Sequence</a>.<br>Definition<br><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representation-graph">Represents</a> a collection indexed by sequential integers starting with zero. Example <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#constructing-native-data-structures">bindings</a> to <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#representing-native-data-structures">native</a> types include Perl’s array, Python’s list or tuple and Java’s array or Vector.</p>
+</blockquote>
+<blockquote>
+<p>通用序列<br>类型<br>序列<br>定义<br>表示一组以从零开始的顺序整数索引的集合。绑定到本地类型的示例包括Perl的数组、Python的列表或元组和Java的数组或向量。</p>
+</blockquote>
+<p>序列（Sequence）：序列是一种元素的有序集合，每个元素可以是任何类型的值，例如字符串、数字、布尔值、映射或序列。</p>
+<p>使用短横线和空格表示一个新的元素。<br>使用<code>-</code>表示序列中的元素。<br>序列使用方括号来表示，元素之间使用逗号分隔。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 序列示例</span></span><br><span class="line"><span class="attr">fruits:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Apple</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Banana</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Orange</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> [<span class="string">dog</span>,<span class="string">cat</span>,<span class="string">pig</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value1</span>, <span class="string">value2</span>, <span class="string">...</span>]</span><br></pre></td></tr></table></figure>
+
+<p>一个相对复杂的例子：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
+
+<p>意思是 companies 属性是一个序列，每一个序列元素又是由 id、name、price 三个属性构成。</p>
+<p>序列也可以使用流式(flow)的方式表示：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span> [&#123;<span class="attr">id:</span> <span class="number">1</span>,<span class="attr">name:</span> <span class="string">company1</span>,<span class="attr">price:</span> <span class="string">200W</span>&#125;,&#123;<span class="attr">id:</span> <span class="number">2</span>,<span class="attr">name:</span> <span class="string">company2</span>,<span class="attr">price:</span> <span class="string">500W</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="映射（Mapping）"><a href="#映射（Mapping）" class="headerlink" title="映射（Mapping）"></a>映射（Mapping）</h2><blockquote>
+<p>Generic Mapping<br>Kind<br>Mapping<br>Definition<br>Represents an associative container, where each key is unique in the association and mapped to exactly one value. YAML places no restrictions on the type of keys; in particular, they are not restricted to being scalars. Example bindings to native types include Perl’s hash, Python’s dictionary and Java’s Hashtable.</p>
+</blockquote>
+<blockquote>
+<p>通用映射<br>类型<br>映射<br>定义<br>表示一个关联容器，其中每个键在关联中是唯一的，并映射到一个值。YAML对键的类型没有限制；特别是，它们不限于标量。绑定到本地类型的示例包括Perl的哈希、Python的字典和Java的哈希表。</p>
+</blockquote>
+<p>映射（Map）：使用冒号来分隔键值对，使用短横线和空格来表示一个新的键值对。&#x3D;&#x3D;<strong>key: value</strong>&#x3D;&#x3D;<br>映射使用大括号来表示，键值对之间使用逗号分隔。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key:</span> <span class="string">value</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">website:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">bianchengbang</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">www.biancheng.net</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 映射示例</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">Alice</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">address:</span></span><br><span class="line">    <span class="attr">city:</span> <span class="string">New</span> <span class="string">York</span></span><br><span class="line">    <span class="attr">street:</span> <span class="number">123</span> <span class="string">Main</span> <span class="string">St</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key:&#123;key1: value1, key2: value2, ...&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">website:</span> &#123;<span class="attr">name:</span> <span class="string">bianchengbang</span>,<span class="attr">url:</span> <span class="string">www.biancheng.net</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="复杂的映射Mapping"><a href="#复杂的映射Mapping" class="headerlink" title="复杂的映射Mapping"></a>复杂的映射Mapping</h3><p>较为复杂的映射格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
+
+<p>意思即映射的属性是一个序列 [complexkey1,complexkey2]，对应的值也是一个序列 [complexvalue1,complexvalue2]</p>
+<h1 id="注释（Comment）"><a href="#注释（Comment）" class="headerlink" title="注释（Comment）"></a>注释（Comment）</h1><p>注释以井号（#）开头，可以出现在行末或行中间。<br>注释可以帮助我们记录和解释YAML文档中的内容。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释示例</span></span><br><span class="line"><span class="comment"># 这是一个映射</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="comment"># 这是一个字符串键</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">Alice</span></span><br><span class="line">  <span class="comment"># 这是一个整数键</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h1><p>以上三种数据结构可以任意组合使用，以实现不同的用户需求，例如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">pets:</span></span><br><span class="line">    <span class="string">-dog</span></span><br><span class="line">    <span class="string">-cat</span></span><br><span class="line">    <span class="string">-pig</span></span><br><span class="line">  <span class="attr">car:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">QQ</span></span><br><span class="line">  <span class="attr">child:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">zhangxiaosan</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
+
+<p>转换为 json 为：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  <span class="attr">languages:</span> [ <span class="string">&#x27;Ruby&#x27;</span>, <span class="string">&#x27;Perl&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>],</span><br><span class="line">  <span class="attr">websites:</span> &#123;</span><br><span class="line">    <span class="attr">YAML:</span> <span class="string">&#x27;yaml.org&#x27;</span>,</span><br><span class="line">    <span class="attr">Ruby:</span> <span class="string">&#x27;ruby-lang.org&#x27;</span>,</span><br><span class="line">    <span class="attr">Python:</span> <span class="string">&#x27;python.org&#x27;</span>,</span><br><span class="line">    <span class="attr">Perl:</span> <span class="string">&#x27;use.perl.org&#x27;</span> </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="组织结构"><a href="#组织结构" class="headerlink" title="组织结构"></a>组织结构</h1><h2 id="缩进（Indentation）"><a href="#缩进（Indentation）" class="headerlink" title="缩进（Indentation）"></a>缩进（Indentation）</h2><h3 id="缩进空格-Indentation-Spaces"><a href="#缩进空格-Indentation-Spaces" class="headerlink" title="缩进空格 Indentation Spaces"></a>缩进空格 Indentation Spaces</h3><blockquote>
+<p>Indentation Spaces<br>In YAML block styles, structure is determined by indentation. In general, indentation is defined as a zero or more space characters at the start of a line.<br>To maintain portability, tab characters must not be used in indentation, since different systems treat tabs differently. Note that most modern editors may be configured so that pressing the tab key results in the insertion of an appropriate number of spaces.<br>The amount of indentation is a presentation detail and must not be used to convey content information.<br>Each <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a> must be indented further than its parent <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a>. All sibling <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">nodes</a> must use the exact same indentation level. However the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">content</a> of each sibling <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a> may be further indented independently.</p>
+</blockquote>
+<blockquote>
+<p>缩进空格<br>缩进是用来表示嵌套结构的方式。<br>每当一个新的映射或序列开始时，都必须缩进两个或四个空格，以表明其嵌套级别。<br>缩进的空格数量必须是相同的，不能混用。<br>另外，缩进也可以用来对齐相同级别的键值对或元素。<br>每个节点必须比其父节点缩进更多。所有兄弟节点必须使用完全相同的缩进级别。但是，每个兄弟节点的内容可以独立地进一步缩进。</p>
+</blockquote>
+<h3 id="分隔空格Separation-Spaces"><a href="#分隔空格Separation-Spaces" class="headerlink" title="分隔空格Separation Spaces"></a>分隔空格Separation Spaces</h3><blockquote>
+<p>Separation Spaces<br>Outside <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#indentation-spaces">indentation</a> and <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#scalar">scalar content</a>, YAML uses <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#white-space-characters">white space</a> characters for <em>separation</em> between tokens within a line. Note that such <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#white-space-characters">white space</a> may safely include <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#white-space-characters">tab</a> characters.<br>Separation spaces are a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#presenting-the-serialization-tree">presentation detail</a> and must not be used to convey <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">content</a> information.</p>
+</blockquote>
+<blockquote>
+<p>分隔空格<br>在缩进和标量内容之外，YAML使用空白字符在行内标记之间进行分隔。请注意，这样的空格可以安全地包括制表符。<br>分隔空格是表示细节，不能用于传达内容信息。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 缩进示例</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">Alice</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">address:</span></span><br><span class="line">    <span class="attr">city:</span> <span class="string">New</span> <span class="string">York</span></span><br><span class="line">    <span class="attr">street:</span> <span class="number">123</span> <span class="string">Main</span> <span class="string">St</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="锚点、引用、合并"><a href="#锚点、引用、合并" class="headerlink" title="锚点、引用、合并"></a>锚点、引用、合并</h2><h3 id="锚点（Anchor）"><a href="#锚点（Anchor）" class="headerlink" title="&amp; 锚点（Anchor）"></a>&amp; 锚点（Anchor）</h3><p>“&amp;”符号用于创建一个锚点（Anchor）。<br>锚点允许在YAML文档中创建可重用的节点，从而避免重复定义相同的节点。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line"><span class="comment">#defaults映射</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line"><span class="comment">#development映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line"><span class="comment">#test映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，锚点<code>defaults</code>定义了一个包含<code>adapter</code>和<code>host</code>键的映射。然后，在<code>development</code>和<code>test</code>映射中，使用<code>&lt;&lt;</code>合并键将锚点<code>defaults</code>与这些映射合并，从而&#x3D;&#x3D;继承锚点中定义的键值对&#x3D;&#x3D;。</p>
+<p>具体来说，<code>&lt;&lt;</code>合并键表示&#x3D;&#x3D;将当前映射与另一个映射合并，从而继承另一个映射中的键值对&#x3D;&#x3D;。<br><code>*</code>后面跟着锚点的名称，表示要使用该锚点中定义的键值对。在示例中，<code>&lt;&lt;: *defaults</code>表示将<code>defaults</code>锚点中定义的键值对合并到当前映射中。</p>
+<p>因此，在给定的YAML示例中，”&amp;”符号的作用是创建一个锚点，并使用”&lt;&lt;”合并键将锚点中定义的键值对合并到其他映射中，从而避免了重复定义相同的键值对的问题。</p>
+<h3 id="引用（Alias）"><a href="#引用（Alias）" class="headerlink" title="* 引用（Alias）"></a>* 引用（Alias）</h3><blockquote>
+<p>Alias Nodes<br>Subsequent occurrences of a previously <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#serializing-the-representation-graph">serialized</a> node are <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#presenting-the-serialization-tree">presented</a> as <em>alias nodes</em>. The first occurrence of the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a> must be marked by an <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#anchors-and-aliases">anchor</a> to allow subsequent occurrences to be <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#presenting-the-serialization-tree">presented</a> as alias nodes.<br>An alias node is denoted by the “<code>*</code>” indicator. The alias refers to the most recent preceding <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a> having the same <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#anchors-and-aliases">anchor</a>. It is an error for an alias node to use an <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#anchors-and-aliases">anchor</a> that does not previously occur in the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#documents">document</a>. It is not an error to specify an <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#anchors-and-aliases">anchor</a> that is not used by any alias node.<br>Note that an alias node must not specify any <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#node-properties">properties</a> or <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">content</a>, as these were already specified at the first occurrence of the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#nodes">node</a>.</p>
+</blockquote>
+<blockquote>
+<p>别名节点<br>先前序列化的节点的后续出现形式被表示为别名节点。必须通过锚点标记节点的第一次出现，以允许后续出现形式表示为别名节点。<br>别名节点由<code>*</code>指示符表示。该别名引用具有相同锚点的最近的先前节点。如果别名节点使用尚未在文档中出现的锚点，则会出现错误。指定一个别名节点未使用的锚点不是错误。<br>请注意，别名节点不得指定任何属性或内容，因为这些已在节点的第一次出现时指定。</p>
+</blockquote>
+<p><code>*</code>符号是一个引用标记（anchor reference），用于引用先前定义的锚点（anchor）。</p>
+<p>&amp; 锚点和 * 别名，可以用来引用。<code>*</code>符号后跟着锚点的名称，表示要引用该锚点中定义的节点。</p>
+<p>引用标记<code>*</code>可以在YAML文档的任何地方使用，包括映射、序列和标量值。它允许在文档中创建可重用的节点，并在需要时引用它们。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line"><span class="comment">#defaults映射</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line"><span class="comment">#development映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line"><span class="comment">#test映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+
+<p>相当于:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br></pre></td></tr></table></figure>
+
+
+<p>下面是另一个例子:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">*showell</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>转为 JavaScript 代码如下:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">&#x27;Steve&#x27;</span>, <span class="string">&#x27;Clark&#x27;</span>, <span class="string">&#x27;Brian&#x27;</span>, <span class="string">&#x27;Oren&#x27;</span>, <span class="string">&#x27;Steve&#x27;</span> ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="合并（Merge）"><a href="#合并（Merge）" class="headerlink" title="&lt;&lt; 合并（Merge）"></a>&lt;&lt; 合并（Merge）</h3><p>“&lt;&lt;”符号是一个合并键（merge key），它用于将一个映射或者哈希表与另一个映射或哈希表合并。表示合并到当前数据，用来引用锚点。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#示例</span></span><br><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line"><span class="comment">#defaults映射</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line"><span class="comment">#development映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line"><span class="comment">#test映射</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+
+<p>在给定的示例中，<code>&lt;&lt;: *defaults</code>表示将当前映射与名为<code>default</code>的映射合并。</p>
+<p><code>*defaults</code>是一个锚点（anchor），它是一个可重用的命名节点，可以在其他位置引用它，<code>*defaults</code>引用了名为<code>default</code>的锚点。</p>
+<p>如果<code>default</code>锚点被定义为一个映射，那么<code>&lt;&lt;: *defaults</code>将会将当前映射与<code>default</code>映射进行合并。</p>
+<p>合并的方式如下：</p>
+<ol>
+<li><p>当前映射中没有”default”中的键时，将”default”中的所有键值对添加到当前映射中。</p>
+</li>
+<li><p>当前映射中有”default”中的键时，将”default”中的键值对覆盖当前映射中对应的键值对。</p>
+</li>
+</ol>
+<h2 id="标签（Tags）"><a href="#标签（Tags）" class="headerlink" title="标签（Tags）"></a>标签（Tags）</h2><blockquote>
+<p>In YAML, <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#resolved-tags">untagged nodes</a> are given a type depending on the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#processes-and-models">application</a>. The examples in this specification generally use the <code>seq</code>, <code>map</code> and <code>str</code> types from the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#failsafe-schema">fail safe schema</a>. A few examples also use the <code>int</code>, <code>float</code> and <code>null</code> types from the <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#json-schema">JSON schema</a>.<br>Explicit typing is denoted with a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#tags">tag</a> using the exclamation point (“<code>!</code>”) symbol. <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#tags">Global tags</a> are URIs and may be specified in a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#tag-shorthands">tag shorthand</a> notation using a <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#tag-handles">handle</a>. <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#processes-and-models">Application</a>-specific <a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#tags">local tags</a> may also be used.</p>
+</blockquote>
+<blockquote>
+<p>在YAML中，未标记的节点根据应用程序赋予一种类型。本规范中的示例通常使用故障安全模式下的seq、map和str类型。一些示例还使用JSON模式下的int、float和null类型。<br>显式类型使用感叹号（“!”）符号标记。全局标记是URI，可以使用句柄的标记缩写表示。也可以使用特定于应用程序的本地标记。</p>
+</blockquote>
+<p>标签用”!”表示，可以用来标识数据类型或格式。标签可以是内置标签或自定义标签。内置标签包括”!!str”（字符串）、”!!int”（整数）、”!!float”（浮点数）等，自定义标签则可以根据需要进行定义。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="type">!!str</span> <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="type">!!int</span> <span class="string">&quot;456&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="type">!!float</span> <span class="string">&quot;3.14&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，使用了内置标签<code>!!str</code>、<code>!!int</code>和<code>!!float</code>来标识不同的数据类型。</p>
+<h2 id="文档分隔符"><a href="#文档分隔符" class="headerlink" title="---文档分隔符"></a><code>---</code>文档分隔符</h2><p>一个 YAML 文件可以由一个或多个文档组成，文档之间使用<code>---</code>作为分隔符，且个文档相互独立，互不干扰。<br>如果 YAML 文件只包含一个文档，则<code>---</code>分隔符可以省略。  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">website:</span></span><br><span class="line">   <span class="attr">name:</span> <span class="string">bianchengbang</span></span><br><span class="line">   <span class="attr">url:</span> <span class="string">www.biancheng.net</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">website:</span> &#123;<span class="attr">name:</span> <span class="string">bianchengbang</span>,<span class="attr">url:</span> <span class="string">www.biancheng.net</span>&#125;</span><br><span class="line"><span class="attr">pets:</span></span><br><span class="line">   <span class="string">-dog</span></span><br><span class="line">   <span class="string">-cat</span></span><br><span class="line">   <span class="string">-pig</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">pets:</span> [<span class="string">dog</span>,<span class="string">cat</span>,<span class="string">pig</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">&quot;zhangsan \n lisi&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&#x27;zhangsan \n lisi&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="日志文件完整YAML示例"><a href="#日志文件完整YAML示例" class="headerlink" title="日志文件完整YAML示例"></a>日志文件完整YAML示例</h1><blockquote>
+<p>a sample log file</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Time:</span> <span class="number">2001-11-23 15:01:42 -5</span></span><br><span class="line"><span class="attr">User:</span> <span class="string">ed</span></span><br><span class="line"><span class="attr">Warning:</span></span><br><span class="line">  <span class="string">This</span> <span class="string">is</span> <span class="string">an</span> <span class="string">error</span> <span class="string">message</span></span><br><span class="line">  <span class="string">for</span> <span class="string">the</span> <span class="string">log</span> <span class="string">file</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Time:</span> <span class="number">2001-11-23 15:02:31 -5</span></span><br><span class="line"><span class="attr">User:</span> <span class="string">ed</span></span><br><span class="line"><span class="attr">Warning:</span></span><br><span class="line">  <span class="string">A</span> <span class="string">slightly</span> <span class="string">different</span> <span class="string">error</span></span><br><span class="line">  <span class="string">message.</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Date:</span> <span class="number">2001-11-23 15:03:17 -5</span></span><br><span class="line"><span class="attr">User:</span> <span class="string">ed</span></span><br><span class="line"><span class="attr">Fatal:</span></span><br><span class="line">  <span class="string">Unknown</span> <span class="string">variable</span> <span class="string">&quot;bar&quot;</span></span><br><span class="line"><span class="attr">Stack:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">file:</span> <span class="string">TopClass.py</span></span><br><span class="line">  <span class="attr">line:</span> <span class="number">23</span></span><br><span class="line">  <span class="attr">code:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    x = MoreObject(&quot;345\n&quot;)</span></span><br><span class="line"><span class="string"></span><span class="bullet">-</span> <span class="attr">file:</span> <span class="string">MoreClass.py</span></span><br><span class="line">  <span class="attr">line:</span> <span class="number">58</span></span><br><span class="line">  <span class="attr">code:</span> <span class="string">|-</span></span><br><span class="line">    <span class="string">foo</span> <span class="string">=</span> <span class="string">bar</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring-Boot-常用yml示例："><a href="#Spring-Boot-常用yml示例：" class="headerlink" title="Spring Boot 常用yml示例："></a>Spring Boot 常用yml示例：</h1><p>application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/myapp</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mydb</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">myuser</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">mypassword</span></span><br><span class="line">  <span class="attr">jpa:</span></span><br><span class="line">    <span class="attr">hibernate:</span></span><br><span class="line">      <span class="attr">ddl-auto:</span> <span class="string">update</span></span><br><span class="line">    <span class="attr">show-sql:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">INFO</span></span><br><span class="line">    <span class="attr">com.example.mypackage:</span> <span class="string">DEBUG</span></span><br><span class="line"><span class="attr">myapp:</span></span><br><span class="line">  <span class="attr">greeting:</span> <span class="string">Hello,</span> <span class="string">World!</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2.2/#chapter-1-introduction-to-yaml">YAML Ain’t Markup Language (YAML™) version 1.2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/07/yaml.html">YAML 语言教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.redhat.com/sysadmin/yaml-beginners">YAML for beginners</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.redhat.com/en/topics/automation/what-is-yaml">What is YAML?</a></li>
+<li><a target="_blank" rel="noopener" href="https://yaml.com/doc/glossary/">YAML Glossary</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/spring_boot/yaml.html"># YAML教程（快速入门版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/yaml-intro.html">## YAML 入门教程</a></li>
+</ul>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/06/19/YAML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YAML/" rel="tag">YAML</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/08/03/Electron%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Electron学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>JavaScript对象相关笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-JavaScript对象相关笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  JavaScript对象相关笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-05-24T01:44:12.000Z" itemprop="datePublished">2021-05-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>JavaScript对象相关笔记</p>
+<span id="more"></span>
+
+<h5 id="原生对象"><a href="#原生对象" class="headerlink" title="原生对象"></a>原生对象</h5><p><u><strong>ECMA-262</strong></u>把<strong>本地对象（native object）定义为 “ 独立于宿主环境的 ECMAScript 实现提供的对象”</strong></p>
+<p>“ 本地对象 ” 包含哪些内容：</p>
+<p>Object、Function、Array、String、Boolean、Number、 Date、RegExp、Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、 URIError</p>
+<p>由此可以看出，<strong>本地对象就是 ECMA-262 定义的类（引用类型）</strong></p>
+<hr>
+<h5 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h5><p>ECMA-262 把<strong>内置对象（ built-in object ）定义为“由 ECMAScript 实现提供的、独立于宿主环境的所有对象，在 ECMAScript 程序开始执行时出现”。</strong></p>
+<p>这意味着开发者不必明 确实例化内置对象，它已被实例化了 </p>
+<p>同样是“独立于宿主环境”。</p>
+<p>根据定义我们似乎很难分清“内置对象”与“本地对象”的 区别。</p>
+<p><strong>而ECMA-262 只定义了两个内置对象，即 Global 和 Math</strong>（ 它们也是本地对象， 根据定义，每个内置对象都是本地对象 )。<strong>如此就可以理解了。</strong></p>
+<p>**内置对象是本地对象的一种 **</p>
+<hr>
+<h5 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h5><p>何为 “ 宿主对象 ” ？</p>
+<p>主要在这个“宿主”的概念上，<strong>ECMAScript 中的 “ 宿主 ” 当然就是我 们网页的运行环境 ，即 “ 操作系统 ” 和 “ 浏览器 ”</strong></p>
+<p><strong>所有非本地对象都是宿主对象（host object）</strong>，即由 ECMAScript 实现的宿主环境提供 的对象 。</p>
+<p>所有的 BOM 和 DOM 都是宿主对象。因为其对于不同的 “ 宿主 ” 环境所展示的内容不同 。</p>
+<p>其实说白了就是，<strong>ECMAScript 官方未定义的对象都属于宿主对象，因为其未定 义的对象大多数是自己通过 ECMAScript 程序创建的对象</strong></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><p>JavaScript 中有八种数据类型。</p>
+<p>有七种原始类型，因为它们的值只包含一种东西（字符串，数字或者其他）。</p>
+<p>相反，对象则用来存储键值对和更复杂的实体。</p>
+<p><strong>对象是具有一些特殊特性的关联数组。</strong></p>
+<p>“普通对象（plain object）”，或者就叫对象。</p>
+<p>JavaScript 中还有很多其他类型的对象：</p>
+<ul>
+<li><code>Array</code> 用于存储有序数据集合，</li>
+<li><code>Date</code> 用于存储时间日期，</li>
+<li><code>Error</code> 用于存储错误信息。</li>
+<li>……等等。</li>
+</ul>
+<p>“Array 类型”或“Date 类型”，但其实它们并不是自身所属的类型，而是属于一个对象类型即 “object”。它们以不同的方式对 “object” 做了一些扩展。</p>
+<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><h5 id="对象-object"><a href="#对象-object" class="headerlink" title="对象 (object)"></a>对象 (object)</h5><p>对象类型的成员。</p>
+<p>注：对象是属性的集合，并有一个原型对象。原型可以是空值。</p>
+<hr>
+<h5 id="原生对象-1"><a href="#原生对象-1" class="headerlink" title="原生对象"></a>原生对象</h5><p> (native object)</p>
+<p>ECMAScript 实现中，并非由宿主环境，而是完全由本规范定义其语义的对象。</p>
+<p>注：标准的原生对象由本规范定义。一些原生对象是内置的，其他的可在 ECMAScript 程序执行过程中构建。</p>
+<hr>
+<h5 id="内置对象-1"><a href="#内置对象-1" class="headerlink" title="内置对象"></a>内置对象</h5><p>(built-in object)</p>
+<p>由 ECMAScript 实现提供，独立于宿主环境的对象，ECMAScript 程序开始执行时就存在。</p>
+<p>注：标准的内置对象由本规范定义，ECMAScript 实现可以指定和定义其他的。所有内置对象是原生对象。一个内置构造器 (built-in constructor) 是个内置对象，也是个构造器。</p>
+<hr>
+<h5 id="宿主对象-1"><a href="#宿主对象-1" class="headerlink" title="宿主对象"></a>宿主对象</h5><p> (host object)</p>
+<p>由宿主环境提供的对象，用于完善 ECMAScript 执行环境。</p>
+<p>注：任何对象，不是原生对象就是宿主对象。</p>
+<hr>
+<h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p><strong>Native Object</strong></p>
+<p>JavaScript语言提供的不依赖于执行宿主的对象，其中一些是内建对象，如：Global、Math；一些是在脚本运行环境中创建来使用的，如：Array、Boolean、Date、Function、Number、Object、RegExp、Error。</p>
+<hr>
+<p><strong>Build-in Object</strong></p>
+<p>JavaScript语言提供的不依赖于执行宿主的内建对象，如：Global、Math；内建对象都是Native Object。</p>
+<hr>
+<p><strong>Host Object</strong></p>
+<p> JavaScript语言提供的任何依赖于宿主环境的对象，所有非Native Object的对象都是宿主对象，如：IE中的window，WScript中的wscript实例，任何用户创建的类。</p>
+<hr>
+<h4 id="5"><a href="#5" class="headerlink" title="5"></a>5</h4><p><strong>JavaScript 标准内置对象或称全局的对象（global objects）</strong></p>
+<p>不要和 <strong>全局对象（global object）</strong>混淆。</p>
+<p>这里说的全局的对象是说<strong>在全局作用域里的对象</strong>，<strong>全局作用域包含了全局对象的属性，还有它可能继承来的属性。</strong></p>
+<p><strong>JavaScript 标准内置对象的分类：</strong></p>
+<p>\1. 值属性（Infinity、NaN、undefined、null 字面量、globalThis）这些全局属性返回一个简单值，而且这些值没有自己的属性和方法。</p>
+<p>\2. 函数属性（eval()、uneval() 、isFinite()、isNaN()、parseFloat()、parseInt()、decodeURI()、decodeURIComponent()、encodeURI()、encodeURIComponent()、escape() 、unescape()）全局函数可以直接调用，不需要在调用时指定所属对象，执行结束后会将结果直接返回给调用者。</p>
+<p>\3. 基本对象（Object、Function、Boolean、Symbol、Error、EvalError、InternalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError）基本对象是定义或使用其他对象的基础。基本对象包括一般对象、函数对象和错误对象。</p>
+<p>\4. 数字、数学和日期对象（Number、BigInt、Math、Date）用来表示数字、执行数学计算和日期的对象。</p>
+<p>\5. 字符串和正则式对象（String、RegExp）用来表示和操作字符串的对象。</p>
+<p>\6. 可索引的数组对象（Array、Int8Array、Uint8Array、Uint8ClampedArray、Int16Array、Uint16Array、Int32Array、Uint32Array、Float32Array、Float64Array、BigInt64Array、BigUint64Array）这些对象表示按照索引值来排序的数据集合，包括数组和类型数组，以及类数组结构的对象。</p>
+<p>\7. 使用键的集合对象（Map、Set、WeakMap、WeakSet）这些集合对象在存储数据时会使用到键，支持按照插入顺序来迭代元素。</p>
+<p>\8. 构化数据（ArrayBuffer、SharedArrayBuffer 、Atomics 、DataView、JSON）这些对象用来表示和操作结构化的缓冲区数据，或使用 JSON （JavaScript Object Notation）编码的数据。</p>
+<p>\9. 控制抽象对象（Promise、Generator、GeneratorFunction、AsyncFunction ）</p>
+<p>\10. 反射（Reflect、Proxy）</p>
+<p>\11. 国际化（Intl、Intl.Collator、Intl.DateTimeFormat、Intl.ListFormat、Intl.NumberFormat、Intl.PluralRules、Intl.RelativeTimeFormat、Intl.Locale）为了支持多语言处理而加入ECMAScript的对象。</p>
+<p>\12. WebAssembly（WebAssembly、WebAssembly.Module、WebAssembly.Instance、WebAssembly.Memory、WebAssembly.Table、WebAssembly.CompileError、WebAssembly.LinkError、WebAssembly.RuntimeError）</p>
+<p>\13. 其他（arguments）</p>
+<h4 id="6"><a href="#6" class="headerlink" title="6"></a>6</h4><p>编程语言中预先定义的函数。</p>
+<p>具体：嵌入到主调函数中的函数称为内置函数，又称内嵌函数。 作用是提高程序的执行效率，大多编程语言都有自己的内置函数，如javascript内置函数等。 内置函数的存在极大的提升了程序员的效率和程序的阅读。</p>
+<h2 id="部分网页"><a href="#部分网页" class="headerlink" title="部分网页 :"></a>部分网页 :</h2><p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects#%E6%A0%87%E5%87%86%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB">MDN-JavaScript标准内置对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">MDN-对象模型</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects">MDN-对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_collections">MDN-带键的集合</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Global_object">MDN-全局对象</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://read262.jedfox.com/ecmascript-standard-built-in-objects">ECMAScript Standard Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/javascript/javascript_builtin_functions.htm">JavaScript Built-in Functions</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://velocidadescape.com/js/standard-built-in-objects-javascript/">Standard built-in objects in JavaScript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://devdocs.io/javascript/">JavaScript reference</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://baldur.gitbook.io/js/javascript-objects/introducing-javascript-objects/standard-built-in-methods-to-work-with-arrays">Standard built-in methods to work with Arrays</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://dev.to/elpepebenitez/built-in-methods-in-javascript-4bll">Built-in Methods in Javascript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/office/dev/scripts/develop/javascript-objects">Use built-in JavaScript objects in Office Scripts</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://262.ecma-international.org/11.0/">ECMA-262, 11th edition, June 2020 ECMAScript® 2020 Language Specification</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.bitsrc.io/discovering-javascript-three-objects-new-developers-must-know-fade54355383">https://blog.bitsrc.io/discovering-javascript-three-objects-new-developers-must-know-fade54355383</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://rules.sonarsource.com/javascript/RSPEC-2424">JavaScript static code analysis</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://nodejs.org/api/globals.html">Node.js v16.6.1 documentation</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sufei-duoduo/p/9512560.html">标准对象分类Value Properties</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_object_definition.asp">https://www.w3schools.com/js/js_object_definition.asp</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a">https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://javascript.info/global-object">The Modern JavaScript Tutorial</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://academind.com/tutorials/javascript-functions-are-objects/">JS Functions Are Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://ecmascript2020言語仕様.com/">ECMAScript2020言語仕様　私的日本語訳</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.infoworld.com/article/2077150/using-javascript-s-built-in-objects.html">Using JavaScript’s built-in objects</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.ques10.com/p/29073/explain-built-in-objects-of-javascript/"><strong>Explain built-in objects of JavaScript.</strong></a></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.tutorialride.com/javascript/javascript-built-in-objects.htm">JavaScript Built-in Objects</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/m/articles/10193146">https://ithelp.ithome.com.tw/m/articles/10193146</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://way2tutorial.com/javascript/javascript-built-in-objects.php">JavaScript Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/previous-versions/iis/6.0-sdk/ms524716(v=vs.90)">ASP Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45308671/what-is-a-built-in-object-in-javascript">What is a built in object in Javascript? </a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microfocus.com/SM/9.60/Codeless/Content/programming/javascript/wp/Built_in_objects_and_functions.htm">Built-in objects and functions</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.brainkart.com/article/Built----In-Objects---JavaScript-(JS)_10246/">Built –In Objects - JavaScript (JS)</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://www.htmlgoodies.com/javascript/using-built-in-javascript-code-with-javascript-objects/">Using Built-in JavaScript Code with JavaScript Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://eggjs.org/en/basics/objects.html">Frameork Built-in Objects</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.quora.com/What-are-built-in-objects-in-python">https://www.quora.com/What-are-built-in-objects-in-python</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a">https://medium.com/nerd-for-tech/understanding-objects-and-prototypes-in-javascript-d847baa50f9a</a></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://www.startertutorials.com/ajwt/built-objects-javascript.html">Built in objects in javascript</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://discuss.codecademy.com/t/faq-advanced-objects-built-in-object-methods/372315">FAQ: Advanced Objects - Built-in Object Methods</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://rdrr.io/r/base/builtins.html">builtins: Returns the Names of All Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/builtins.html">Returns the Names of All Built-in Objects</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://support.smartbear.com/testcomplete/docs/reference/program-objects/builtin/index.html">List of Built-In Routines</a></strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://google.com/search?sa=N&q=What+are+built-in+objects?&ved=2ahUKEwjGnMzGx5nyAhXDdd4KHajuDgEQzmd6BAgpEAU&biw=360&bih=640&dpr=3#ip=1">http://google.com/search?sa=N&amp;q=What+are+built-in+objects%3F&amp;ved=2ahUKEwjGnMzGx5nyAhXDdd4KHajuDgEQzmd6BAgpEAU&amp;biw=360&amp;bih=640&amp;dpr=3#ip=1</a></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            cropper剪裁插件的用法
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/05/12/%E5%8E%9F%E5%88%9BOC%E6%A6%82%E5%BF%B5%E8%AE%BE%E8%AE%A1%E7%BD%91%E7%AB%99-%E6%B8%B8%E9%B2%B8JING17/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">原创OC概念设计网站-游鲸JING17</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

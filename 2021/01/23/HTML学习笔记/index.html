@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>HTML学习笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-HTML学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTML学习笔记
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2021-01-23T11:28:36.000Z" itemprop="datePublished">2021-01-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>HTML学习笔记</p>
+<span id="more"></span>
+
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><p>结构 : HTML(超文本标记语言)</p>
+<p>表现 : CSS(层叠样式表)</p>
+<p>行为 : JavaScript(脚本语言)</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards">Web 和 Web标准</a></p>
+<h4 id="文档参考网站"><a href="#文档参考网站" class="headerlink" title="文档参考网站 :"></a>文档参考网站 :</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">MDN</a>(推荐)</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/h.asp">W3School</a>(推荐)</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/html/html-intro.html">菜鸟教程</a></p>
+<h4 id="书籍推荐-英文原版"><a href="#书籍推荐-英文原版" class="headerlink" title="书籍推荐 ( 英文原版 ) :"></a>书籍推荐 ( 英文原版 ) :</h4><p><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/BXa6TSA7GPQ">Head First - HTML with CSS &amp; XHTML</a></p>
+<p><a href="%E3%80%8CHead.First.HTMLwithCSS&XHTML.pdf%E3%80%8Dhttps://www.aliyundrive.com/s/Rz8H8q9dYRj">Head First HTML5 Programming Building Web Apps with JavaScript</a></p>
+<p>(添加桌面pdf文件)</p>
+<h4 id="基本快捷键"><a href="#基本快捷键" class="headerlink" title="基本快捷键"></a>基本快捷键</h4><p>Ctrl + C 复制</p>
+<p>Ctrl + V 粘贴</p>
+<p>Ctrl + X 剪切</p>
+<p>Ctrl + Z 撤销</p>
+<p>Ctrl + &#x2F; 注释</p>
+<p>Ctrl + S 保存</p>
+<p>Ctrl + F 查找</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tianshan2010/article/details/112437752?ops_request_misc=&request_id=&biz_id=102&utm_term=%E7%94%B5%E8%84%91%E5%BF%AB%E6%8D%B7%E9%94%AE&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-112437752.nonecase&spm=1018.2226.3001.4187">基本快捷键</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38265674/article/details/112061632?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164603992816780271516406%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164603992816780271516406&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-2-112061632.pc_search_result_control_group&utm_term=%E7%94%B5%E8%84%91%E5%BF%AB%E6%8D%B7%E9%94%AE&spm=1018.2226.3001.4187">常用快捷键</a></p>
+<h4 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h4><p><a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.dcloud.io/hbuilderx.html">HbuliderX</a></p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">visual studio code</a></p>
+<p>WebStorm10</p>
+<p>DWCS6</p>
+<h4 id="浏览器分类"><a href="#浏览器分类" class="headerlink" title="浏览器分类"></a>浏览器分类</h4><p>IE  内核Trident</p>
+<p>Firefox(火狐)  内核Gecko</p>
+<p>Safari  内核Webkit</p>
+<p>Chrome(谷歌)  Oprea  内核Blik</p>
+<p>Edge  内核Chromiun和Blink</p>
+<h4 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h4><p>http</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/HTTP/243074?fr=aladdin">HTTP</a></p>
+<p>https</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/HTTPS/285356?fr=aladdin">HTTPS</a></p>
+<h4 id="怪异模式和标准模式"><a href="#怪异模式和标准模式" class="headerlink" title="怪异模式和标准模式"></a>怪异模式和标准模式</h4><p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">怪异模式和标准模式</a></p>
+<h4 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h4><p>浏览器Web标准&#x2F;W3C(万维网联盟)</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/W3C%E6%A0%87%E5%87%86/8367679?fr=aladdin">W3C标准</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/w3c/w3c_intro.asp">W3C简介</a></p>
+<h4 id="VScode快捷键"><a href="#VScode快捷键" class="headerlink" title="VScode快捷键"></a>VScode快捷键</h4><p>快速生成HTML骨架快捷键</p>
+<ul>
+<li>英文”!” + Tab</li>
+<li>英文”!” + Enter</li>
+<li>html + : (既英文冒号) + 5</li>
+</ul>
+<p>Ctrl + Enter 双标签中转为下一行</p>
+<p>Shift + Alt + ↓ 双标签中向下复制整行</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>超文本<strong>标记语言</strong></p>
+<p>HTML 标记标签通常被称为 HTML 标签 (HTML tag)</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/learn/HTML/Introduction_to_HTML/Getting_started">开始学习HTML</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_jianjie.asp">HTML简介</a></p>
+<h3 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>网页标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">boby</span>&gt;</span></span><br><span class="line">    网页内容</span><br><span class="line">    <span class="tag">&lt;/<span class="name">boby</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文件 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_head.asp">HTML头部</a></p>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- en英文  zh-CN中文  fr法文--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/html_ref_language_codes.asp">HTML语言代码参考手册</a></p>
+<h3 id="字符集Charset"><a href="#字符集Charset" class="headerlink" title="字符集Charset"></a>字符集Charset</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">Charset</span>=<span class="string">&quot; &quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- GB2312简体中文  BIG5繁体中文  GBK简体繁体中文  UTF-8(utf-8)所有语言--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_charset.asp">HTML编码(字符集)</a></p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 注释 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_comments.asp">HTML注释</a></p>
+<h3 id="基本约定"><a href="#基本约定" class="headerlink" title="基本约定"></a>基本约定</h3><p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_charset.asp">HTML(5)样式指南和代码约定</a></p>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素( Element )指的是从开始标签（start tag）到结束标签（end tag）的所有代码</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Element">Element元素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_elements.asp">HTML元素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html5_semantic_elements.asp">HTML5 语义元素</a></p>
+<h4 id="块级元素-块元素"><a href="#块级元素-块元素" class="headerlink" title="块级元素(块元素)"></a>块级元素(块元素)</h4><p>独占一行 , 只能出现在<code>&lt;body&gt; &lt;/body&gt;</code>元素内。</p>
+<p>例 : </p>
+<p> <strong><code>&lt;h1&gt;</code>~&#96;<h6>&#96;</h6></strong> <strong><code>&lt;form&gt;</code></strong> <strong><code>dl </code>  <code>&lt;dd&gt;</code></strong> <strong><code>&lt;hr&gt;</code></strong>  <strong><code>&lt;ol&gt;</code></strong> <strong><code>&lt;ul&gt;</code></strong>  <strong><code>&lt;p&gt;</code> <code>&lt;table&gt;</code> <code>&lt;div&gt;</code></strong> <code>&lt;adress&gt;</code> , <code>&lt;article&gt;</code> , <code>&lt;aside&gt;</code> , <code>&lt;bolckquote&gt;</code> , <code>&lt;fieldest&gt;</code> , <code>&lt;figcaption&gt;</code> , <code>&lt;figure&gt;</code> , <code>&lt;footer&gt;</code>, <code>&lt;header</code> , <code>&lt;hgroup&gt;</code>, ,<code>&lt;pre&gt;</code> , <code>&lt;section&gt;</code> , </p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements">块级元素</a></p>
+<h4 id="行内元素-内联元素"><a href="#行内元素-内联元素" class="headerlink" title="行内元素(内联元素)"></a>行内元素(内联元素)</h4><p>只占据它对应标签的边框所包含的空间。</p>
+<p>例 : <strong><code>&lt;b&gt;</code> <code>&lt;strong&gt;</code> —— 字体加粗</strong> </p>
+<p><strong><code>&lt;big&gt;</code>  <code>&lt;small&gt;</code> —— 字体改变大小</strong></p>
+<p> <strong><code>&lt;i&gt;</code>  <code>&lt;em&gt;</code>  —— 字体倾斜</strong></p>
+<p><strong><code>&lt;u&gt;</code> <code>&lt;ins&gt;</code> —— 字体添加下划线</strong></p>
+<p><strong><code>&lt;s&gt;</code>  <code>&lt;del&gt;</code>  —— 字体添加删除线</strong></p>
+<p><strong><code>&lt;br&gt;</code> —— 换行</strong></p>
+<p><strong><code>&lt;input&gt; </code></strong> <strong><code>&lt;textarea&gt;</code></strong> <strong><code>&lt;img&gt;</code> —— 添加图片</strong><strong><code>&lt;span&gt;</code></strong></p>
+<p> <strong><code>&lt;q&gt;</code>  ——引用标签</strong></p>
+<p><strong><code>&lt;label&gt;</code>—— 定义标注标签 , 配合<code>&lt;input&gt;</code>按钮使用增加用户体验</strong> </p>
+<p> <code>&lt;tt&gt;</code> , <code>&lt;abbr&gt;</code> , <code>&lt;acronym&gt;</code> , <code>&lt;cite&gt;</code> , <code>&lt;code&gt;</code> , <code>&lt;dfn&gt;</code> ,  <code>&lt;kbd&gt;</code> ,  <code>&lt;samp&gt;</code>, <code>&lt;var.a&gt;</code> , <code>&lt;bdo&gt;</code>,  , <code>&lt;map&gt;</code> , <code>&lt;object&gt;</code> ,,  <code>&lt;script&gt;</code>,  , <code>&lt;sub&gt;</code> , <code>&lt;supbutton&gt;</code> ,<code>&lt;select&gt;</code> </p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Inline_elements">行内元素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_blocks.asp">HYMLdiv和span</a></p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h5 id="声明标签"><a href="#声明标签" class="headerlink" title="声明标签"></a>声明标签</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="meta">&lt;!DOCTYPE&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 文档类型声明标签 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- doc文档,type类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/html_ref_dtd.asp">HTML&lt;!DOCTYPE&gt;</a></p>
+<h5 id="根标签"><a href="#根标签" class="headerlink" title="根标签"></a>根标签</h5><p><code>&lt;html&gt;  &lt;/html&gt;</code></p>
+<h5 id="骨架标签"><a href="#骨架标签" class="headerlink" title="骨架标签"></a>骨架标签</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="标签-1"><a href="#标签-1" class="headerlink" title="&lt;meta&gt; 标签"></a><code>&lt;meta&gt;</code> 标签</h5><p>提供有关页面的元信息。位于文档的头部，不包含任何内容。 在 HTML 中，<meta> 标签没有结束标签。</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/tag_meta.asp">HTMLmeta标签</a></p>
+<h4 id="双标签"><a href="#双标签" class="headerlink" title="双标签"></a>双标签</h4><h6 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h6><p><code>&lt;h1&gt;&lt;/h1&gt;</code>~&#96;</p><h6></h6>&#96;<p></p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_headings.asp">HTML标题</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Heading_Elements">h1–h6：HTML 区域标题元素</a></p>
+<h6 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h6><p><code>&lt;p&gt;&lt;/p&gt;</code></p>
+<p>可根据浏览器页面大小改变每行字数</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_paragraphs.asp">HTML段落</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">p</a></p>
+<h6 id="盒子标签"><a href="#盒子标签" class="headerlink" title="盒子标签"></a>盒子标签</h6><p><code>&lt;div&gt; &lt;/div&gt;</code> —— 单独占一行 , 此标签内可存放任何标签和内容</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div">div：内容划分元素</a></p>
+<p><code>&lt;span&gt; &lt;/span&gt;</code> —— 一行可存在多个</p>
+<p>等</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/span">span</a></p>
+<h6 id="有序列表标签"><a href="#有序列表标签" class="headerlink" title="有序列表标签"></a>有序列表标签</h6><p><code>&lt;ol&gt; &lt;/ol&gt;</code> , <code>&lt;li&gt; &lt;/li&gt;</code></p>
+<p><code>&lt;li&gt; &lt;/li&gt; </code>—— 标签内可存放任何标签和内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ol">ol</a></p>
+<h6 id="无序列表标签"><a href="#无序列表标签" class="headerlink" title="无序列表标签"></a>无序列表标签</h6><p><code>&lt;ul&gt; &lt;/ul&gt;</code> , <code>&lt;li&gt; &lt;/li&gt;</code></p>
+<p><code>&lt;li&gt; &lt;/li&gt; </code>—— 标签内可存放任何标签和内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/ul">ul</a></p>
+<h6 id="自定义列表标签"><a href="#自定义列表标签" class="headerlink" title="自定义列表标签"></a>自定义列表标签</h6><p><code>&lt;dl&gt; &lt;/dl&gt;</code> , <code>&lt;dt&gt; &lt;/dt&gt;</code> , <code>&lt;dd&gt; &lt;/dd&gt;</code></p>
+<p><code>dt</code>只有一个 , <code>dd</code>有很多个</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dt</span>&gt;</span><span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/dl"><dl></dl></a></p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_lists.asp">HTML列表</a></p>
+<h4 id="单标签"><a href="#单标签" class="headerlink" title="单标签"></a>单标签</h4><p><code>&lt;br&gt;</code>或<code>&lt;br/&gt;</code>—— 换行 ( 只能在HTML5中去掉 “&#x2F;“ ) ,</p>
+<p><code>&lt;nobr&gt;</code>或<code>&lt;nobr/&gt;</code> —— 不换行 , </p>
+<p><code>&lt;hr&gt;</code>或<code>&lt;hr/&gt; </code>—— 水平线 , </p>
+<p><code>&lt;img&gt; </code>—— (必带属性 : <code>src=&quot; ”</code>) 插入图片 , </p>
+<p><code>&lt;input&gt;</code> —— 输入，表单控件 ,  </p>
+<p><code>&lt;link&gt;</code> —— 链接，关联</p>
+<p>等</p>
+<h3 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h3><p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_entities.asp">HTML字符实体</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_symbols.asp">HTML符号</a></p>
+<h5 id="空格实体"><a href="#空格实体" class="headerlink" title="空格实体"></a>空格实体</h5><p><code>&amp;nbsp;</code> —— 不换行空格 , 既空格键 </p>
+<p><code>&amp;ensp;</code> ——半角空格 , 字体度的一半</p>
+<p><code>&amp;emsp;</code> —— 全角空格 , 16px </p>
+<p><code>&amp;thinsp;</code> ——窄空格 </p>
+<p><code>&amp;zwnj;</code> ——零宽不连字 </p>
+<p><code>&amp;zwj;</code>  —— 零宽连字 </p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014781844/article/details/84859693">HTML中的&amp; nbsp; &amp; ensp; &amp; emsp;等6种空格标记</a></p>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><h4 id="相对路径-常用"><a href="#相对路径-常用" class="headerlink" title="相对路径(常用)"></a>相对路径(常用)</h4><p><code>../</code> —— 向上一个文件夹返回查找文件 , 不能跨储存盘</p>
+<p><code>./</code> —— 可查找当前根目录所有文件</p>
+<h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p><code>\</code> ——可跨储存盘</p>
+<p>或直接输入文件地址</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_filepaths.asp">HTML文件路径</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths">路径</a></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>直接插入图片 : </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>图片替换的文字 : <code>alt=&quot; &quot;</code></p>
+<p>提示文本 : <code>title=&quot;  &quot;</code></p>
+<p>修改图片大小 : 图片的width(宽)和height(高)可一起修改 , 若只写其中一个 , 图片等比例缩放</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_images.asp">HTML图像</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img">img：图像嵌入元素</a></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><h4 id="链接外地网址"><a href="#链接外地网址" class="headerlink" title="链接外地网址 :"></a>链接外地网址 :</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--不写target属性则默认在当前网页打开--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--target=&quot;_self&quot;在当前网页打开--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--target=&quot;_blank&quot;在新的网页打开--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="链接内部网址"><a href="#链接内部网址" class="headerlink" title="链接内部网址"></a>链接内部网址</h4><ol>
+<li><p>添加其他的html文件 : <code>&lt;a href=&quot;&quot;(文件位置)&gt;&lt;/a&gt;</code></p>
+</li>
+<li><p>回到顶部 : <code>&lt;a href=&quot; &quot;&gt;</code> 或 <code>&lt;a href=&quot;#&quot;&gt;</code></p>
+</li>
+<li><p>不回顶部 : <code>&lt;a href=&quot;javascript:;&quot;&gt;&lt;/a&gt;</code></p>
+</li>
+</ol>
+<h4 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h4><p>添加zip文件 : <code>&lt;a href=&quot; &quot;(zip文件位置)&gt;&lt;/a&gt;</code></p>
+<h4 id="锚链接"><a href="#锚链接" class="headerlink" title="锚链接"></a>锚链接</h4><p>寻找 : <code>&lt;a href=&quot;#+锚链接名字&quot;&gt;名字&lt;/a&gt;</code></p>
+<p>定位 : <code>&lt;id = &quot;锚链接名字&quot;&gt;</code></p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_links.asp">HTML链接</a></p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><h4 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h4><p><code>&lt;table&gt; &lt;/table&gt;</code>——表格</p>
+<p><code>&lt;tbody&gt; &lt;/tbody&gt;</code> ——表格主体</p>
+<p><code>&lt;thead&gt; &lt;/thead&gt; </code>——表格头部</p>
+<p><code>&lt;th&gt; &lt;/th&gt;</code> ——表头单元格</p>
+<p><code>&lt;tr&gt; &lt;/tr&gt;</code> ——行</p>
+<p><code>&lt;td&gt; &lt;/td&gt;</code>——单元格</p>
+<p><code>&lt;ul&gt;&lt;lul&gt;</code>——无序的列表</p>
+<p><code>&lt;li&gt;&lt;/li&gt;</code>——列表项</p>
+<h4 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h4><p><code>height </code>——表格高</p>
+<p><code>width</code> ———表格宽</p>
+<p><code>border </code>———表格边框——默认1 , “ “——代表没有边框</p>
+<p><code>align</code> ———表格对齐方式</p>
+<p><code>lift</code>——居左</p>
+<p><code>center</code> ———居中</p>
+<p><code>right</code> ——居右</p>
+<p><code>cellpadding</code> ——像素值——单元格与内容的距离——默认1像素</p>
+<p><code>cellspacing</code> ——像素值——单元格之间距离——默认2像素</p>
+<h4 id="合并表格"><a href="#合并表格" class="headerlink" title="合并表格"></a>合并表格</h4><p><strong>跨行合并</strong>——<code>rowspan=&quot;</code>——从上到下合并，最上面开始，以下删除<br><strong>跨列合并</strong>——<code>colspan=&quot; &quot;</code>——从左到右合并，最左边开始，以右删除</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table">table </a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_tables.asp">HTML表格</a></p>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p><strong>表单在网页中主要负责数据采集的功能，和向服务器传送数据</strong></p>
+<p>表单标签 : 包含了处理表单<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%95%B0%E6%8D%AE&spm=1001.2101.3001.7020">数据</a>所用 CGI 程序的 URL, 以及数据提交到服务器的方法</p>
+<p> 表单域 : 包含了<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%96%87%E6%9C%AC%E6%A1%86&spm=1001.2101.3001.7020">文本框</a>、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框、和文件上传框等。</p>
+<p>表单按钮 :包括提交按钮，复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作。</p>
+<p>后台地址 : xxx.php</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_forms.asp">HTML表单</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_forms_attributes.asp">HTML表单属性</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_form_elements.asp">HTML表单元素</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_form_input_types.asp">HTML输入类型</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/html/html_form_attributes.asp">HTML input属性</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event">input</a></p>
+<h4 id="表单控件"><a href="#表单控件" class="headerlink" title="表单控件 :"></a>表单控件 :</h4><p><code>&lt;input&gt;</code> : 输入列表  <code>&lt;input type=&quot;属性值&quot;&gt;</code> </p>
+<p>默认属性值为<code>text</code> , 即 <code>&lt;input type=&quot;text&quot;&gt;</code> , 文本框 , 单行 , 默认20个字符</p>
+<p><code>password</code> : 密码框</p>
+<p><code>value</code> : 规定input元素的值 , 用户自定义</p>
+<p><code>placehloder</code> : 占位符 , 提示作用</p>
+<p><code>select</code> : 下拉列表</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--至少要含有一对option标签--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;textare&gt;</code> : 文本域 : 文本框可放大缩小</p>
+<p><code>&lt;textare cols=&quot; &quot;(每行的字数)&gt;</code>(一般用css制作)</p>
+<p><code>&lt;textare rows=&quot;  &quot;(显示的行数)&gt;</code>(一般用css制作)</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event">input</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea">textarea</a></p>
+<p><strong>只能在表单内使用的按钮</strong>(可放入图标&#x2F;图片)</p>
+<p><code>&lt;input type=&quot;submit&quot;&gt;</code> : 默认按钮内文字 “ 提交 “ </p>
+<p><code>&lt;input type=&quot;reset&quot;&gt;</code> : 默认功能重置 , 清除以上所有信息</p>
+<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><p>没有位置限制的按钮 : </p>
+<p><code>&lt;input type=&quot;button&quot;&gt;</code> : 普通按钮 , 没有实质作用 , 需后期js添加功能</p>
+<p><code>&lt;button&gt; &lt;/button&gt;</code> </p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button">button</a></p>
+<p>上传文件的按钮 : </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>图片按钮 : </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;image src=&quot;</span> &quot; &quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>隐藏域</p>
+<p><code>hidden</code> : 属性 , 隐藏的输入字段 , 不给用户使用 , 程序员写给后台进行其他用途</p>
+<p>参考文章 : <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/hidden">hidden</a></p>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><img src="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/HTML知识点.png" alt="[HTML知识点]" class="article-img">
+
+
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/04/20/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            前端技术总结
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/10/21/%E6%88%91%E6%98%AF%E8%B0%81%EF%BC%9F%E6%88%91%E5%9C%A8%E5%93%AA%EF%BC%9F%E4%BD%A0%E6%98%AF%E8%B0%81%EF%BC%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">《我是谁？我在哪？你是谁？》</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

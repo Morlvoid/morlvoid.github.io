@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary） |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" class="article-date">
+  <time datetime="2023-05-26T13:18:43.000Z" itemprop="datePublished">2023-05-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>突发奇想想要开发一款日记APP，用帮助用户多方面观察自己、记录自己、比昨天进步一点点。之前没有接触过Android开发，于是从零开始学起了，本篇为APP：心迹日记（InnerTrace-XinJiDiary）学习路程和开发日记。</p>
+<p>WebDemo试用地址：<a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">心迹日记Demo</a></p>
+<p><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">心迹日记（[InnerTrace-XinJiDiary]</a></p>
+<span id="more"></span>
+
+<h1 id="Day-1–2025-5-26"><a href="#Day-1–2025-5-26" class="headerlink" title="Day 1–2025.5.26"></a>Day 1–2025.5.26</h1><h4 id="一、项目构思与需求分析"><a href="#一、项目构思与需求分析" class="headerlink" title="一、项目构思与需求分析"></a><strong>一、项目构思与需求分析</strong></h4><ol>
+<li><strong>核心理念</strong><ul>
+<li><strong>目标</strong>：通过日记记录帮助用户“<strong>记录自己，观察自己，发现自己，认识自己的需求，提升自己</strong>”。</li>
+<li><strong>核心功能</strong>：<ul>
+<li><strong>动态模板</strong>：学习、减肥、心情自愈等场景化记录模板。</li>
+<li><strong>数据智能</strong>：自动卡路里计算、情绪分析书籍推荐。</li>
+<li><strong>数据可视化</strong>：生成成长曲线与统计图表。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>用户需求</strong><ul>
+<li>记录日常行为（学习时长、体重变化、情绪波动）。</li>
+<li>获得个性化反馈（如连续情绪低落时推荐心理学书籍）。</li>
+<li>多维度数据回顾（周&#x2F;月&#x2F;年趋势分析）。</li>
+</ul>
+</li>
+<li>详细功能构思<ul>
+<li>在众多社交平台发现一件事情：大家各自有各自的烦恼，然而都是有烦恼但不自知，不知道自己为什么有这个烦恼，没有自己观察过自己都因为什么事情而烦恼，进而也没想过去搜一搜查一查改善一下烦恼。</li>
+<li>日记其实是个很好的东西，他是自我观察自我进步最简便的方式。</li>
+<li>心迹日记这个日记最主要的目的是观察自己从来没观察过的角度，认识每一天的自己，发现自己每一天的变化，提高对自己的认识。</li>
+<li>我将准备21天为一个周期的日记模板，例如：观察自己的心情、观察自己的全面发展、学习情况、减肥情况、身体状况、家庭宠物情况等等。</li>
+<li>模板初级为21天养成计划，21天后模版会变得不太一样，提供一些开放式栏目，配一些专业书籍，比如，减肥营养学、人际关系心理学。即：根据用户使用模板的频率提供能帮助到用户的书。</li>
+<li>hi～你已经写了21天坏情绪日记啦～向你推荐一本书或许会对你有帮助，阅读一下书放松一下吧～</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="二、技术准备与学习"><a href="#二、技术准备与学习" class="headerlink" title="二、技术准备与学习"></a><strong>二、技术准备与学习</strong></h4><ol>
+<li><strong>技术栈确认</strong><ul>
+<li><strong>语言</strong>：Kotlin（Android 官方推荐）。</li>
+<li><strong>架构</strong>：MVVM + Clean Architecture（分层解耦）。</li>
+<li><strong>数据库</strong>：Room + SQLite（本地存储）。</li>
+<li><strong>网络</strong>：Retrofit（未来集成卡路里 API）。</li>
+<li><strong>界面</strong>：Jetpack Compose（现代声明式 UI）。</li>
+</ul>
+</li>
+<li><strong>学习资源</strong><ul>
+<li>官方文档（Android Developers、Kotlin 指南）。</li>
+<li>开源项目参考（如 SimpleNote、Journey 日记类 App）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="三、项目管理与仓库搭建"><a href="#三、项目管理与仓库搭建" class="headerlink" title="三、项目管理与仓库搭建"></a><strong>三、项目管理与仓库搭建</strong></h4><ol>
+<li><strong>GitHub 仓库创建</strong><ul>
+<li><strong>仓库名</strong>：<code>InnerTrace-XinJiDiary</code></li>
+<li><strong>项目地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-jiyi-Diary">心迹日记（<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/InnerTrace-XinJiDiary">InnerTrace-XinJiDiary</a>）</a></li>
+<li><strong>关键文件</strong>：<ul>
+<li><code>README.md</code>：项目介绍、技术栈、快速开始指南。</li>
+<li><code>CONTRIBUTING.md</code>：贡献规范（分支管理、代码风格）。</li>
+<li><code>LICENSE</code>：GPL3.0 开源协议。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>分支策略</strong><ul>
+<li><code>main</code>：稳定版本分支（仅通过 Pull Request 合并）。</li>
+<li><code>feat/*</code>：功能开发分支（如 <code>feat/setup-core-module</code>）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="四、项目初始化与结构搭建"><a href="#四、项目初始化与结构搭建" class="headerlink" title="四、项目初始化与结构搭建"></a><strong>四、项目初始化与结构搭建</strong></h4><ol>
+<li><strong>模块化架构设计</strong><ul>
+<li><strong>核心模块</strong>：<ul>
+<li><code>app</code>：主应用入口（含启动页、导航）。</li>
+<li><code>core</code>：通用组件（主题、工具类、基础 UI）。</li>
+<li><code>feature</code>：功能模块（日记、统计、推荐）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>关键配置完成</strong><ul>
+<li><strong>Gradle 依赖管理</strong>：统一版本号（<code>libs.versions.toml</code>）。</li>
+<li><strong>settings.gradle</strong>：声明模块依赖关系。</li>
+<li><strong>.gitignore</strong>：排除 IDE 缓存、构建文件。</li>
+</ul>
+</li>
+<li><strong>首次代码提交</strong><ul>
+<li>完成 <code>core</code> 模块基础代码（主题、工具类）。</li>
+<li>提交并推送至 <code>feat/setup-core-module</code> 分支。</li>
+</ul>
+</li>
+</ol>
+<h5 id="4-1标准模块化-Android-项目结构"><a href="#4-1标准模块化-Android-项目结构" class="headerlink" title="4.1标准模块化 Android 项目结构"></a><strong>4.1标准模块化 Android 项目结构</strong></h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">InnerTrace-XinJiDiary/    # 🌟根目录（项目名）</span><br><span class="line">├── app/                  # 🏠主模块（应用入口，必须存在）</span><br><span class="line">│   ├── src/              # 主代码目录</span><br><span class="line">│   │   ├── main/         # 正式环境代码</span><br><span class="line">│   │   │   ├── java/     # Java/Kotlin 代码</span><br><span class="line">│   │   │   ├── res/      # 资源文件（布局、图片、字符串等）</span><br><span class="line">│   │   │   └── AndroidManifest.xml  # 应用清单文件</span><br><span class="line">│   ├── build.gradle      # 🔧模块级配置（依赖、插件）</span><br><span class="line">├── core/                 # 📦基础模块（通用工具、主题、组件）</span><br><span class="line">│   ├── src/main/         # 结构同 app 模块</span><br><span class="line">│   └── build.gradle</span><br><span class="line">├── feature/              # 🧩功能模块（按业务拆分，如日记、统计）</span><br><span class="line">│   ├── diary/            # 日记功能模块</span><br><span class="line">│   │   ├── src/main/</span><br><span class="line">│   │   └── build.gradle</span><br><span class="line">│   └── statistics/       # 数据统计模块</span><br><span class="line">│       ├── src/main/</span><br><span class="line">│       └── build.gradle</span><br><span class="line">├── gradle/               # 🧰Gradle 包装器（确保构建一致性）</span><br><span class="line">│   └── wrapper/</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── build.gradle          # ⚙️项目级配置（全局依赖版本管理）</span><br><span class="line">├── settings.gradle       # 🔗模块依赖声明（必须！）</span><br><span class="line">├── .gitignore            # 🚫排除无需版本控制的文件</span><br><span class="line">├── README.md             # 📖项目说明文档</span><br><span class="line">├── LICENSE               # 📜开源协议</span><br><span class="line">└── CONTRIBUTING.md       # 👥贡献指南</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h4 id="五、问题解决与优化"><a href="#五、问题解决与优化" class="headerlink" title="五、问题解决与优化"></a><strong>五、问题解决与优化</strong></h4><ol>
+<li><strong>Git 操作问题</strong><ul>
+<li>修复分支跟踪错误（<code>git branch --set-upstream-to</code>）。</li>
+<li>解决推送后文件未显示问题（检查 <code>.gitignore</code> 与提交范围）。</li>
+</ul>
+</li>
+<li><strong>项目结构调整</strong><ul>
+<li>清理冗余目录（<code>.idea</code>、<code>External Libraries</code>）。</li>
+<li>规范文件位置（<code>LICENSE</code>、<code>README.md</code> 移至根目录）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="六、下一步开发计划"><a href="#六、下一步开发计划" class="headerlink" title="六、下一步开发计划"></a><strong>六、下一步开发计划</strong></h4><ol>
+<li><strong>核心功能实现</strong><ul>
+<li>完成 <code>feature/diary</code> 模块的模板动态渲染。</li>
+<li>集成 Room 数据库（日记数据存储与查询）。</li>
+</ul>
+</li>
+<li><strong>推荐系统开发</strong><ul>
+<li>实现情绪分析规则引擎（负面情绪占比 &gt;70% 时触发推荐）。</li>
+</ul>
+</li>
+<li><strong>测试与优化</strong><ul>
+<li>编写单元测试（卡路里计算逻辑、推荐规则）。</li>
+<li>优化 UI 动画与交互细节。</li>
+</ul>
+</li>
+<li><strong>发布准备</strong><ul>
+<li>配置 GitHub Actions 自动化构建。</li>
+<li>准备 Google Play 上架材料（应用截图、描述文案）。</li>
+</ul>
+</li>
+</ol>
+<h1 id="Day-2–2025-6-5"><a href="#Day-2–2025-6-5" class="headerlink" title="Day 2–2025.6.5"></a>Day 2–2025.6.5</h1><h4 id="一、网页版Demo开发试用"><a href="#一、网页版Demo开发试用" class="headerlink" title="一、网页版Demo开发试用"></a>一、网页版Demo开发试用</h4><p>地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/XinJiDiary-WebDemo">https://github.com/Morlvoid/XinJiDiary-WebDemo</a></p>
+<h1 id="Day-3–2025-6-11"><a href="#Day-3–2025-6-11" class="headerlink" title="Day 3–2025.6.11"></a>Day 3–2025.6.11</h1><h4 id="一、网页版Demo部署"><a href="#一、网页版Demo部署" class="headerlink" title="一、网页版Demo部署"></a>一、网页版Demo部署</h4><p>部署地址：</p>
+<p><a target="_blank" rel="noopener" href="http://xinjidiary.morlvoid.pro/">http://xinjidiary.morlvoid.pro/</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2023/05/26/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Android%20APP%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-XinJiDiary%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%83%E8%BF%B9%E6%97%A5%E8%AE%B0%EF%BC%88InnerTrace-xinyi-Diary%EF%BC%89/" rel="tag">心迹日记（InnerTrace-xinyi-Diary）</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/06/19/YAML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            YAML学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2023/05/06/Ubuntu22.04%E5%AE%89%E8%A3%85MySQL%E6%B5%81%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Ubuntu22.04安装MySQL流程</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

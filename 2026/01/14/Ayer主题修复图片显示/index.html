@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Ayer主题修复图片显示 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Ayer主题修复图片显示"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Ayer主题修复图片显示
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/01/14/Ayer%E4%B8%BB%E9%A2%98%E4%BF%AE%E5%A4%8D%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/" class="article-date">
+  <time datetime="2026-01-13T23:21:02.000Z" itemprop="datePublished">2026-01-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>起因是我突然发现，我目前使用的这个博客网站的图片无法显示了，查阅了原主题作者的开源链接，<a target="_blank" rel="noopener" href="https://github.com/shen-yu/hexo-theme-ayer">Ayer</a>，发现原作者已经在2022年就停止更新，图片无法显示的问题一直没能修复。查阅了一年以来的fork也没有人解决这个问题，于是我出手了（不是）</p>
+<p>我也fork了原主题项目，更名为Ayerr，开始bug修复和高强度自定义设置，打算以后一直更新下去。</p>
+<p>总之这是一篇更新日志，v1.0，来记录这个衍生主题Ayerr的首次更新：修复原主题Ayer无法显示图片的问题。</p>
+<p>✨ 同时也欢迎一起更新！项目地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/hexo-theme-ayerr">https://github.com/Morlvoid/hexo-theme-ayerr</a></p>
+<span id="more"></span>
+
+<h1 id="为-Hexo-主题-Ayer-修复图片显示问题"><a href="#为-Hexo-主题-Ayer-修复图片显示问题" class="headerlink" title="为 Hexo 主题 Ayer 修复图片显示问题"></a>为 Hexo 主题 Ayer 修复图片显示问题</h1><h2 id="1-修复内容说明"><a href="#1-修复内容说明" class="headerlink" title="1. 修复内容说明"></a>1. 修复内容说明</h2><h3 id="1-1-问题描述"><a href="#1-1-问题描述" class="headerlink" title="1.1 问题描述"></a>1.1 问题描述</h3><p>Ayer 主题原作者已经停止更新，主题中存在图片显示问题，无法正常使用 <code>&#123;% asset_img %&#125;</code> 标签和传统 Markdown 语法添加图片。</p>
+<h3 id="1-2-修改文件列表"><a href="#1-2-修改文件列表" class="headerlink" title="1.2 修改文件列表"></a>1.2 修改文件列表</h3><table>
+<thead>
+<tr>
+<th>文件路径</th>
+<th>修改内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>scripts/asset-image.js</code></td>
+<td>新增文件，实现 <code>&#123;% asset_img %&#125;</code> 标签支持</td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td>更新文档，添加图片使用说明</td>
+</tr>
+<tr>
+<td><code>package.json</code></td>
+<td>更新主题名称和相关信息</td>
+</tr>
+<tr>
+<td><code>_config.yml</code></td>
+<td>更新配置，简化菜单</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-核心修复代码"><a href="#1-3-核心修复代码" class="headerlink" title="1.3 核心修复代码"></a>1.3 核心修复代码</h3><h4 id="scripts-asset-image-js"><a href="#scripts-asset-image-js" class="headerlink" title="scripts&#x2F;asset-image.js"></a>scripts&#x2F;asset-image.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册 &#123;% asset_img %&#125; 标签 </span></span><br><span class="line"><span class="keyword">const</span> &#123; join &#125; = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>); </span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">tag</span>.<span class="title function_">register</span>(<span class="string">&#x27;asset_img&#x27;</span>, <span class="keyword">function</span>(<span class="params">args</span>) &#123; </span><br><span class="line">    <span class="comment">// 解析参数，例如：&#123;% asset_img demo.jpg &quot;图片描述&quot; %&#125; </span></span><br><span class="line">    <span class="keyword">const</span> img = args[<span class="number">0</span>]; </span><br><span class="line">    <span class="keyword">const</span> alt = args.<span class="title function_">slice</span>(<span class="number">1</span>).<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>) || <span class="string">&#x27;&#x27;</span>; <span class="comment">// 支持带空格的描述文字 </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取当前上下文 </span></span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="variable language_">this</span>; </span><br><span class="line">    <span class="keyword">let</span> imgPath = img; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果是绝对路径或外部链接，直接返回 </span></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/^(?:https?:\/\/|\/)/</span>.<span class="title function_">test</span>(img)) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="string">`&lt;img src=&quot;<span class="subst">$&#123;img&#125;</span>&quot; alt=&quot;<span class="subst">$&#123;alt&#125;</span>&quot; class=&quot;article-img&quot;&gt;`</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构建正确的图片路径 </span></span><br><span class="line">    <span class="comment">// 对于文章资源，使用相对路径 </span></span><br><span class="line">    <span class="keyword">const</span> post = ctx.<span class="property">post</span> || ctx.<span class="property">page</span>; </span><br><span class="line">    <span class="keyword">if</span> (post &amp;&amp; post.<span class="property">asset_dir</span>) &#123; </span><br><span class="line">        <span class="comment">// 对于文章内的资源，直接使用文件名即可，Hexo 会自动处理路径 </span></span><br><span class="line">        imgPath = img; </span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 手动构建图片 URL，避免使用可能出现问题的 url_for 辅助函数 </span></span><br><span class="line">    <span class="comment">// 直接使用根路径 + 资源路径 </span></span><br><span class="line">    <span class="keyword">const</span> src = hexo.<span class="property">config</span>.<span class="property">root</span> + imgPath; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回标准的 img HTML 标签 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`&lt;img src=&quot;<span class="subst">$&#123;src&#125;</span>&quot; alt=&quot;<span class="subst">$&#123;alt&#125;</span>&quot; class=&quot;article-img&quot;&gt;`</span>; </span><br><span class="line">&#125;, &#123;<span class="attr">async</span>: <span class="literal">false</span>, <span class="attr">ends</span>: <span class="literal">false</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-修复后的新主题-Ayerr-安装使用"><a href="#2-修复后的新主题-Ayerr-安装使用" class="headerlink" title="2. 修复后的新主题 Ayerr 安装使用"></a>2. 修复后的新主题 Ayerr 安装使用</h2><h3 id="2-1-安装方法"><a href="#2-1-安装方法" class="headerlink" title="2.1 安装方法"></a>2.1 安装方法</h3><h4 id="方法一：直接克隆源代码后移动到theme文件夹中"><a href="#方法一：直接克隆源代码后移动到theme文件夹中" class="headerlink" title="方法一：直接克隆源代码后移动到theme文件夹中"></a>方法一：直接克隆源代码后移动到theme文件夹中</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Morlvoid/hexo-theme-ayerr.git themes/ayerr</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二：手动下载"><a href="#方法二：手动下载" class="headerlink" title="方法二：手动下载"></a>方法二：手动下载</h4><ol>
+<li>从 GitHub 下载主题压缩包</li>
+<li>解压到 <code>themes/hexo-theme-ayerr</code> 目录</li>
+</ol>
+<h3 id="2-2-启用主题"><a href="#2-2-启用主题" class="headerlink" title="2.2 启用主题"></a>2.2 启用主题</h3><p>修改博客根目录的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-ayerr</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-基本配置"><a href="#2-3-基本配置" class="headerlink" title="2.3 基本配置"></a>2.3 基本配置</h3><p><strong>启用文章资源文件夹</strong>：修改博客根目录的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>修改theme文件夹下的<code>hexo-theme-ayerr</code>根目录的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-更新主题"><a href="#2-4-更新主题" class="headerlink" title="2.4 更新主题"></a>2.4 更新主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/hexo-theme-ayerr</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-修复后添加图片的方法"><a href="#3-修复后添加图片的方法" class="headerlink" title="3. 修复后添加图片的方法"></a>3. 修复后添加图片的方法</h2><p>修复图片显示问题后，有两种方法可以为博客添加图片：</p>
+<h3 id="3-1-方法一：使用-asset-img-标签"><a href="#3-1-方法一：使用-asset-img-标签" class="headerlink" title="3.1 方法一：使用 asset_img 标签"></a>3.1 方法一：使用 <code>asset_img</code> 标签</h3><h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片文件名 &quot;图片描述&quot; %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset<span class="emphasis">_img demo.png &quot;这是使用 asset_</span>img 标签的图片&quot; %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>专为文章资源文件夹设计</li>
+<li>自动处理图片路径</li>
+<li>生成带有 <code>article-img</code> 类的图片标签</li>
+<li>支持带空格的描述文字</li>
+<li>无需手动拼接图片路径</li>
+</ul>
+<h3 id="3-2-方法二：使用传统-Markdown-语法"><a href="#3-2-方法二：使用传统-Markdown-语法" class="headerlink" title="3.2 方法二：使用传统 Markdown 语法"></a>3.2 方法二：使用传统 Markdown 语法</h3><h4 id="语法格式-1"><a href="#语法格式-1" class="headerlink" title="语法格式"></a>语法格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片文件名)</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用示例-1"><a href="#使用示例-1" class="headerlink" title="使用示例"></a>使用示例</h4><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">这是使用传统 Markdown 语法的图片</span>](<span class="link">demo.png</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>标准 Markdown 语法，兼容性好</li>
+<li>简洁易记</li>
+<li>自动处理文章资源文件夹中的图片</li>
+<li>支持描述文字</li>
+</ul>
+<h3 id="3-3-图片存放位置"><a href="#3-3-图片存放位置" class="headerlink" title="3.3 图片存放位置"></a>3.3 图片存放位置</h3><p>将图片放在与文章同名的资源文件夹中，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source/_posts/</span><br><span class="line">├── test.md</span><br><span class="line">└── test/</span><br><span class="line">    └── demo.png</span><br></pre></td></tr></table></figure>
+
+<p>如果要在其他页面中存，例如<code>about.html</code>，也需要新建一个与index同名的文件夹，例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source/about/</span><br><span class="line">├── index.md</span><br><span class="line">└── index/</span><br><span class="line">    └── demo.png</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-注意事项"><a href="#3-4-注意事项" class="headerlink" title="3.4 注意事项"></a>3.4 注意事项</h3><ol>
+<li><strong>图片格式</strong>：支持常见的图片格式，如 PNG、JPG、GIF 等</li>
+<li><strong>图片尺寸</strong>：建议使用适当尺寸的图片，避免过大影响加载速度</li>
+<li><strong>图片命名</strong>：避免使用中文和特殊字符，建议使用英文和数字</li>
+<li><strong>启用文章资源文件夹</strong>：确保在博客根目录的 <code>_config.yml</code> 中启用 <code>post_asset_folder: true</code></li>
+</ol>
+<h2 id="4-修复效果验证"><a href="#4-修复效果验证" class="headerlink" title="4. 修复效果验证"></a>4. 修复效果验证</h2><h3 id="4-1-生成测试"><a href="#4-1-生成测试" class="headerlink" title="4.1 生成测试"></a>4.1 生成测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-服务器测试"><a href="#4-2-服务器测试" class="headerlink" title="4.2 服务器测试"></a>4.2 服务器测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-预览效果"><a href="#4-3-预览效果" class="headerlink" title="4.3 预览效果"></a>4.3 预览效果</h3><ul>
+<li>✅ <code>&#123;% asset_img %&#125;</code> 标签正常工作</li>
+<li>✅ 传统 Markdown 语法正常工作</li>
+<li>✅ 图片 URL 格式正确</li>
+<li>✅ 图片显示样式优化</li>
+</ul>
+<h2 id="5-主题特色"><a href="#5-主题特色" class="headerlink" title="5. 主题特色"></a>5. 主题特色</h2><h3 id="5-1-新增功能"><a href="#5-1-新增功能" class="headerlink" title="5.1 新增功能"></a>5.1 新增功能</h3><ul>
+<li>✅ 修复了图片显示问题</li>
+<li>✅ 支持 <code>&#123;% asset_img %&#125;</code> 标签</li>
+<li>✅ 支持传统 Markdown 语法</li>
+<li>✅ 优化了图片显示样式</li>
+<li>✅ 简化了侧边栏菜单</li>
+</ul>
+<h3 id="5-2-主题配置"><a href="#5-2-主题配置" class="headerlink" title="5.2 主题配置"></a>5.2 主题配置</h3><ul>
+<li>支持响应式设计</li>
+<li>支持多语言</li>
+<li>支持黑夜模式</li>
+<li>支持代码复制功能</li>
+<li>支持文章字数统计</li>
+<li>支持多种评论系统</li>
+</ul>
+<h2 id="6-常见问题"><a href="#6-常见问题" class="headerlink" title="6. 常见问题"></a>6. 常见问题</h2><h3 id="6-1-图片不显示怎么办？"><a href="#6-1-图片不显示怎么办？" class="headerlink" title="6.1 图片不显示怎么办？"></a>6.1 图片不显示怎么办？</h3><ol>
+<li>检查文章资源文件夹是否启用</li>
+<li>检查图片是否放在正确的资源文件夹中</li>
+<li>检查图片路径是否正确</li>
+<li>清理缓存并重新生成</li>
+</ol>
+<h3 id="6-2-如何添加多个图片？"><a href="#6-2-如何添加多个图片？" class="headerlink" title="6.2 如何添加多个图片？"></a>6.2 如何添加多个图片？</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset<span class="emphasis">_img demo1.png &quot;图片 1&quot; %&#125;</span></span><br><span class="line"><span class="emphasis">&#123;% asset_</span>img demo2.png &quot;图片 2&quot; %&#125;</span><br><span class="line">&#123;% asset<span class="emphasis">_img demo3.png &quot;图片 3&quot; %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-如何调整图片大小？"><a href="#6-3-如何调整图片大小？" class="headerlink" title="6.3 如何调整图片大小？"></a>6.3 如何调整图片大小？</h3><p>可以在 Markdown 中直接添加 HTML 标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;demo.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 50%;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-贡献与反馈"><a href="#7-贡献与反馈" class="headerlink" title="7. 贡献与反馈"></a>7. 贡献与反馈</h2><ul>
+<li>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/hexo-theme-ayerr">https://github.com/Morlvoid/hexo-theme-ayerr</a></li>
+<li>欢迎提交 Issue 和 Pull Request</li>
+<li>如有问题，可在 GitHub 上创建 Issue 反馈</li>
+</ul>
+<h2 id="8-许可证"><a href="#8-许可证" class="headerlink" title="8. 许可证"></a>8. 许可证</h2><p>本项目基于原作者的 SATA 许可证，在遵守 MIT 许可证的前提下，你应该马不停蹄的给这个开源项目“点个赞”，比如 github 右上角的 star，然后你应该感谢这个开源项目的作者。</p>
+<hr>
+<p><strong>修复人</strong>：Morlvoid<br><strong>修复时间</strong>：2026-01-14</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/01/14/Ayer%E4%B8%BB%E9%A2%98%E4%BF%AE%E5%A4%8D%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ayer%E4%B8%BB%E9%A2%98/" rel="tag">Ayer主题</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Github Page博客搭建
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2026/01/14/ayerr%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E4%BF%AE%E5%A4%8D%E7%A4%BA%E4%BE%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">ayerr图片显示修复示例</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/project">项目</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos.html">画作</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

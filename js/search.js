@@ -118,6 +118,12 @@ var searchFunc = function (path, search_id, content_id) {
         }
         $resultContent.innerHTML = BTN + str;
       });
+    },
+    error: function (xhr, status, error) {
+      // 错误处理，当 XML 文件加载失败时显示友好提示
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = BTN + "<div class=\"search-result-empty\"><p><i class=\"fe fe-warning\"></i> 搜索功能暂时不可用，请稍后再试~<p></div>";
+      console.error("搜索文件加载失败:", error);
     }
   });
   $(document).on('click', '#local-search-close', function () {

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Site Search</title>
+  <link href="https://Morlvoid.github.io" rel="alternate" type="text/html"/>
+  <updated>2026-01-17T00:00:00Z</updated>
+  <id>https://Morlvoid.github.io/search.xml</id>
+  
+  <entry>
+    <title>2025-2026年学习日志——备用存档</title>
+    <content type="html">2025-2026年学习日志——备用存档</content>
+    <url>/2025/12/23/2025-2026年学习日志——备用存档/</url>
+  </entry>
+  
+  <entry>
+    <title>ACG基础知识补完计划</title>
+    <content type="html">ACG基础知识补完计划</content>
+    <url>/2025/05/03/ACG基础知识补完计划/</url>
+  </entry>
+  
+  <entry>
+    <title>Ayer主题修复图片显示</title>
+    <content type="html">Ayer主题修复图片显示</content>
+    <url>/2026/01/14/Ayer主题修复图片显示/</url>
+  </entry>
+  
+  <entry>
+    <title>Electron学习笔记</title>
+    <content type="html">Electron学习笔记</content>
+    <url>/2023/08/03/Electron学习笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>Github-Page博客搭建</title>
+    <content type="html">Github-Page博客搭建</content>
+    <url>/2050/01/01/Github-Page博客搭建/</url>
+  </entry>
+  
+  <entry>
+    <title>HTML学习笔记</title>
+    <content type="html">HTML学习笔记</content>
+    <url>/2021/01/23/HTML学习笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>Hello</title>
+    <content type="html">你好！我是Mor，今天是2020-08-01日，我部署了个人博客。期待日后发布各种内容。</content>
+    <url>/2020/08/01/Hello/</url>
+  </entry>
+  
+  <entry>
+    <title>JavaScript-数据类型转换-JS中的字符串是不是对象</title>
+    <content type="html">JavaScript-数据类型转换-JS中的字符串是不是对象</content>
+    <url>/2025/12/23/JavaScript-数据类型转换-JS中的字符串是不是对象/</url>
+  </entry>
+  
+  <entry>
+    <title>JavaScript对象相关笔记</title>
+    <content type="html">JavaScript对象相关笔记</content>
+    <url>/2025/12/23/JavaScript对象相关笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>Java基础</title>
+    <content type="html">Java基础</content>
+    <url>/2022/02/24/Java基础/</url>
+  </entry>
+  
+  <entry>
+    <title>Java基础语法</title>
+    <content type="html">Java基础语法</content>
+    <url>/2022/03/03/Java基础语法/</url>
+  </entry>
+  
+  <entry>
+    <title>Java对象和类</title>
+    <content type="html">Java对象和类</content>
+    <url>/2022/03/04/Java对象和类/</url>
+  </entry>
+  
+  <entry>
+    <title>SSDSBakery--构成14.4班毕业合绘：十四点四烘焙房</title>
+    <content type="html">SSDSBakery--构成14.4班毕业合绘：十四点四烘焙房</content>
+    <url>/2025/12/23/SSDSBakery--构成14.4班毕业合绘：十四点四烘焙房/</url>
+  </entry>
+  
+  <entry>
+    <title>Ubuntu22.04安装MySQL流程</title>
+    <content type="html">Ubuntu22.04安装MySQL流程</content>
+    <url>/2025/12/23/Ubuntu22.04安装MySQL流程/</url>
+  </entry>
+  
+  <entry>
+    <title>Ubuntu服务器搭建Wordpress个人博客过程</title>
+    <content type="html">Ubuntu服务器搭建Wordpress个人博客过程</content>
+    <url>/2025/12/23/Ubuntu服务器搭建Wordpress个人博客过程/</url>
+  </entry>
+  
+  <entry>
+    <title>Unexpectedly-discovered-galaxy-clusters-resembling-bluewhales-in-shape</title>
+    <content type="html">Unexpectedly-discovered-galaxy-clusters-resembling-bluewhales-in-shape</content>
+    <url>/2025/12/23/Unexpectedly-discovered-galaxy-clusters-resembling-bluewhales-in-shape/</url>
+  </entry>
+  
+  <entry>
+    <title>YAML学习笔记</title>
+    <content type="html">YAML学习笔记</content>
+    <url>/2023/06/19/YAML学习笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>ayerr图片显示修复示例</title>
+    <content type="html">ayerr图片显示修复示例本文详细介绍了 ayerr 主题中可用的图片显示方法，包括两种使用方式和详细的代码范例。使用 asset_img 标签和传统 Markdown 语法。</content>
+    <url>/2026/01/14/ayerr%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E4%BF%AE%E5%A4%8D%E7%A4%BA%E4%BE%8B/</url>
+  </entry>
+  
+  <entry>
+    <title>cropper剪裁插件的用法</title>
+    <content type="html">cropper剪裁插件的用法</content>
+    <url>/2021/05/26/cropper剪裁插件的用法/</url>
+  </entry>
+  
+  <entry>
+    <title>dos命令存档</title>
+    <content type="html">dos命令存档</content>
+    <url>/2020/08/02/dos命令存档/</url>
+  </entry>
+  
+  <entry>
+    <title>hello-world</title>
+    <content type="html">hello-world</content>
+    <url>/2020/08/01/hello-world/</url>
+  </entry>
+  
+  <entry>
+    <title>properties文件或类笔记</title>
+    <content type="html">properties文件或类笔记</content>
+    <url>/2025/12/23/properties文件或类笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>从零入门的MMD学习笔记</title>
+    <content type="html">从零入门的MMD学习笔记</content>
+    <url>/2021/11/20/从零入门的MMD学习笔记/</url>
+  </entry>
+  
+  <entry>
+    <title>从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）</title>
+    <content type="html">从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）</content>
+    <url>/2025/12/23/从零开始的Android APP开发——心迹日记（InnerTrace-XinJiDiary）/</url>
+  </entry>
+  
+  <entry>
+    <title>以【叙事性线构插图】为目的的绘画学习日志</title>
+    <content type="html">以【叙事性线构插图】为目的的绘画学习日志</content>
+    <url>/2025/12/23/以【叙事性线构插图】为目的的绘画学习日志/</url>
+  </entry>
+  
+  <entry>
+    <title>以【叙事性线构插图】为目的的绘画知识库-1</title>
+    <content type="html">以【叙事性线构插图】为目的的绘画知识库-1</content>
+    <url>/2025/12/23/以【叙事性线构插图】为目的的绘画知识库-1/</url>
+  </entry>
+  
+  <entry>
+    <title>以【叙事性线构插图】为目的的绘画知识库-2</title>
+    <content type="html">以【叙事性线构插图】为目的的绘画知识库-2</content>
+    <url>/2025/12/23/以【叙事性线构插图】为目的的绘画知识库-2/</url>
+  </entry>
+  
+  <entry>
+    <title>八芒星：荣格八维可视化图表工具--思路日志</title>
+    <content type="html">八芒星：荣格八维可视化图表工具--思路日志</content>
+    <url>/2025/12/23/八芒星：荣格八维可视化图表工具--思路日志/</url>
+  </entry>
+  
+  <entry>
+    <title>写给自己的启蒙书</title>
+    <content type="html">写给自己的启蒙书</content>
+    <url>/2021/06/03/写给自己的启蒙书/</url>
+  </entry>
+  
+  <entry>
+    <title>前端技术总结</title>
+    <content type="html">前端技术总结</content>
+    <url>/2021/04/20/前端技术总结/</url>
+  </entry>
+  
+  <entry>
+    <title>博客介绍</title>
+    <content type="html">博客介绍</content>
+    <url>/2099/01/15/博客介绍/</url>
+  </entry>
+  
+  <entry>
+    <title>原创OC概念设计网站-游鲸JING17</title>
+    <content type="html">原创OC概念设计网站-游鲸JING17</content>
+    <url>/2025/12/23/原创OC概念设计网站-游鲸JING17/</url>
+  </entry>
+  
+  <entry>
+    <title>存在的天平--心理与哲学的交汇</title>
+    <content type="html">存在的天平--心理与哲学的交汇</content>
+    <url>/2022/03/20/存在的天平--心理与哲学的交汇/</url>
+  </entry>
+  
+  <entry>
+    <title>宜居城市指南</title>
+    <content type="html">宜居城市指南</content>
+    <url>/2020/09/27/宜居城市指南/</url>
+  </entry>
+  
+  <entry>
+    <title>我是谁？我在哪？你是谁？</title>
+    <content type="html">我是谁？我在哪？你是谁？</content>
+    <url>/2020/10/21/我是谁？我在哪？你是谁？/</url>
+  </entry>
+  
+  <entry>
+    <title>我的使用说明书</title>
+    <content type="html">我的使用说明书</content>
+    <url>/2022/05/19/我的使用说明书/</url>
+  </entry>
+  
+  <entry>
+    <title>日记-无法成功的看板娘</title>
+    <content type="html">日记-无法成功的看板娘</content>
+    <url>/2025/09/22/日记-无法成功的看板娘/</url>
+  </entry>
+  
+  <entry>
+    <title>日记角</title>
+    <content type="html">日记角</content>
+    <url>/2025/10/07/日记角/</url>
+  </entry>
+  
+  <entry>
+    <title>纪念教程：Mirai Dice！骰娘搭建</title>
+    <content type="html">纪念教程：Mirai Dice！骰娘搭建</content>
+    <url>/2025/12/23/纪念教程：Mirai Dice！骰娘搭建/</url>
+  </entry>
+  
+  <entry>
+    <title>解决-Failed-to-connect-to-github-com-port-443-的问题</title>
+    <content type="html">解决-Failed-to-connect-to-github-com-port-443-的问题</content>
+    <url>/2025/12/23/解决-Failed-to-connect-to-github-com-port-443-的问题/</url>
+  </entry>
+  
+  <entry>
+    <title>部分项目存档</title>
+    <content type="html">部分项目存档</content>
+    <url>/2025/12/23/部分项目存档/</url>
+  </entry>
+  
+  <entry>
+    <title>随笔</title>
+    <content type="html">随笔</content>
+    <url>/2021/08/01/随笔/</url>
+  </entry>
+  
+  <entry>
+    <title>静态网站托管的N种方式</title>
+    <content type="html">静态网站托管的N种方式</content>
+    <url>/2025/07/09/静态网站托管的N种方式/</url>
+  </entry>
+  
+  <entry>
+    <title>hexo-theme-ayerr 主题文档</title>
+    <content type="html"># hexo-theme-ayerr 主题文档 主题简介 hexo-theme-ayerr 是一款基于 hexo-theme-ayer 开发的 Hexo 博客主题，主要修复了图片显示问题，同时保留了原主题的优雅设计和丰富功能。</content>
+    <url>/2026/01/14/hexo-theme-ayerr%20%E4%B8%BB%E9%A2%98%E6%96%87%E6%A1%A3/</url>
+  </entry>
+  
+</feed>

@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">7.4k</span>
+            <span class="post-count">7.6k</span>
         </span>
     </span>
 
@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">27 分钟</span>
+            <span class="post-count">28 分钟</span>
         </span>
     </span>
 </div>
@@ -822,11 +822,28 @@
 <p>Gatsby：Gatsby 是一个基于 React 的静态网站生成器，使用 GraphQL 查询语言来获取数据。</p>
 <p>Hugo：Hugo 是一个快速的静态网站生成器，使用 Go 编程语言编写。</p>
 <p>感兴趣想尝试的话可以试试这些静态网站生成器</p>
+<h2 id="GitHub-Page自定义域名-阿里云域名"><a href="#GitHub-Page自定义域名-阿里云域名" class="headerlink" title="GitHub Page自定义域名 (阿里云域名)"></a><strong>GitHub Page自定义域名 (阿里云域名)</strong></h2><p>参考文章：<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2142661">GitHub Pages个性化域名配置</a></p>
+<h3 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h3><p>域名购买完成之后，点击右上角 <code>控制台</code>，进入 <code>域名</code> 界面，选择<code>域名列表</code>，在你的域名一栏选择<code>解析</code>，进入 DNS 解析界面</p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-8510781/d8cb4c3905862c66a5e8e4910becf858.webp"></p>
+<p>在 DNS 解析界面添加如下两条记录</p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-8510781/b535aeda1979cf00e8d49e36f3532b58.webp"></p>
+<p>这样无论用户输入 <code>www.emoryhuang.cn</code> 还是只输入 <code>emoryhuang.cn</code> 都可以直接定位到网站了，记录值修改为你自己的 GitHub Pages 地址。</p>
+<h3 id="添加-CNAME-文件"><a href="#添加-CNAME-文件" class="headerlink" title="添加 CNAME 文件"></a>添加 CNAME 文件</h3><p>在 Hexo 本地目录中的 source 文件夹里，添加一个命名为 CNAME 的无后缀文件，文件中的填写你的域名</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emoryhuang.<span class="property">cn</span></span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<h3 id="Github-Pages-添加自定义域名"><a href="#Github-Pages-添加自定义域名" class="headerlink" title="Github Pages 添加自定义域名"></a>Github Pages 添加自定义域名</h3><p>进入你的 GitHub 仓库，选择<code>Setting</code> -&gt; <code>Page</code>，在 <code>Custom domain</code> 处添加你的自定义域名。</p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-8510781/250578d4179b98d50eda059debdb7ff3.webp"></p>
+<p>在完成上述步骤之后，就可以输入你的自定义域名访问你的网站了。</p>
 <h1 id="绮良Github-Page网址"><a href="#绮良Github-Page网址" class="headerlink" title="绮良Github Page网址"></a>绮良Github Page网址</h1><p><a target="_blank" rel="noopener" href="https://kirarakira.github.io/Kirara.github.io/">https://kirarakira.github.io/Kirara.github.io/</a></p>
 <h1 id="值得参考的教程"><a href="#值得参考的教程" class="headerlink" title="值得参考的教程"></a>值得参考的教程</h1><p><a target="_blank" rel="noopener" href="http://www.tanglab.cn/2022/11/24/R&D/2022/GitHub_pages_tutorial/#Part-0-Git%E6%98%AF%E5%95%A5%EF%BC%9FGitHub%E5%8F%88%E6%98%AF%E5%95%A5%EF%BC%9F%E4%B8%BA%E5%95%A5%E8%A6%81%E7%94%A8GitHub%E5%81%9A%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%EF%BC%9F">Tutorial:基于Hexo框架的GitHub个人主页搭建教程（前篇）</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/3427">部署到 git 后 打开 GitHub Pages 为 404</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/350">上传内容以后页面一直是404？</a></p>
-
+<h1 id="网友的补充"><a href="#网友的补充" class="headerlink" title="网友的补充"></a>网友的补充</h1><img src="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/20260122184040965.png" alt="网友补充">
                                                                                     
                                                                                         <!-- reward -->
                                                                                         

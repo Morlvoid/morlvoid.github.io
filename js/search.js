@@ -23,10 +23,16 @@ var searchFunc = function (path, search_id, content_id) {
   var BTN = "<button type='button' class='local-search-close' id='local-search-close'></button>";
   $.ajax({
     url: path,
-    dataType: "json",
-        success: function (jsonResponse) {
-          // get the contents from search data
-          var datas = jsonResponse;
+    dataType: "xml",
+    success: function (xmlResponse) {
+      // get the contents from search data
+      var datas = $("entry", xmlResponse).map(function () {
+        return {
+          title: $("title", this).text(),
+          content: $("content", this).text(),
+          url: $("url", this).text()
+        };
+      }).get();
 
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
@@ -114,7 +120,7 @@ var searchFunc = function (path, search_id, content_id) {
       });
     },
     error: function (xhr, status, error) {
-      // 错误处理，当 JSON 文件加载失败时显示友好提示
+      // 错误处理，当 XML 文件加载失败时显示友好提示
       var $resultContent = document.getElementById(content_id);
       $resultContent.innerHTML = BTN + "<div class=\"search-result-empty\"><p><i class=\"fe fe-warning\"></i> 搜索功能暂时不可用，请稍后再试~<p></div>";
       console.error("搜索文件加载失败:", error);

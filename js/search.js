@@ -23,16 +23,16 @@ var searchFunc = function (path, search_id, content_id) {
   var BTN = "<button type='button' class='local-search-close' id='local-search-close'></button>";
   $.ajax({
     url: path,
-    dataType: "xml",
-    success: function (xmlResponse) {
+    dataType: "json",
+    success: function (jsonResponse) {
       // get the contents from search data
-      var datas = $("entry", xmlResponse).map(function () {
+      var datas = jsonResponse.map(function (item) {
         return {
-          title: $("title", this).text(),
-          content: $("content", this).text(),
-          url: $("url", this).text()
+          title: item.title,
+          content: item.content,
+          url: item.url
         };
-      }).get();
+      });
 
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
@@ -120,10 +120,25 @@ var searchFunc = function (path, search_id, content_id) {
       });
     },
     error: function (xhr, status, error) {
-      // 错误处理，当 XML 文件加载失败时显示友好提示
+      // 错误处理，当 JSON 文件加载失败时显示友好提示
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = BTN + "<div class=\"search-result-empty\"><p><i class=\"fe fe-warning\"></i> 搜索功能暂时不可用，请稍后再试~<p></div>";
-      console.error("搜索文件加载失败:", error);
+      var errorMessage = "搜索功能暂时不可用";
+      
+      // 根据错误类型提供更详细的提示
+      if (status === "404") {
+        errorMessage = "搜索文件不存在，请检查构建是否成功";
+      } else if (status === "parsererror") {
+        errorMessage = "搜索文件格式错误，请检查文件内容";
+      } else if (status === "timeout") {
+        errorMessage = "搜索请求超时，请稍后再试";
+      }
+      
+      $resultContent.innerHTML = BTN + "<div class=\"search-result-empty\"><p><i class=\"fe fe-warning\"></i> " + errorMessage + "~<p></div>";
+      console.error("搜索文件加载失败:", {
+        status: status,
+        error: error,
+        url: path
+      });
     }
   });
   $(document).on('click', '#local-search-close', function () {

@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Web开发模式演进与对比 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  
+
+<article id="post-Web开发模式演进与对比" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <div class="article-inner">
+        
+            <header class="article-header">
+                 
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Web开发模式演进与对比
+</h1>
+ 
+
+                    
+            </header>
+            
+                
+                    <div class="article-meta">
+                        <a href="/2026/01/29/Web%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%AF%B9%E6%AF%94/" class="article-date">
+  <time datetime="2026-01-28T18:57:31.000Z" itemprop="datePublished">2026-01-29</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+
+                                
+                                    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+
+                                        
+                    </div>
+                    
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+                                    
+                                            
+                                                <div class="article-entry " itemprop="articleBody">
+                                                    
+                                                        
+
+                                                            
+                                                                                <p>全面Web开发架构模式对比表</p>
+<p>省流：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">静态 → 服务端动态 → 客户端动态 → 混合渲染 → 构建时渲染</span><br></pre></td></tr></table></figure>
+
+<p><strong>传统静态MPA</strong>、<strong>动态服务端MPA</strong>、<strong>客户端SPA</strong>、<strong>现代同构应用</strong>、<strong>静态生成站点</strong>、<strong>微前端架构</strong>。</p>
+<span id="more"></span>
+
+<h2 id="简易版表格"><a href="#简易版表格" class="headerlink" title="简易版表格"></a>简易版表格</h2><table>
+<thead>
+<tr>
+<th align="left">模式名称</th>
+<th align="left">架构</th>
+<th align="left">代码模式</th>
+<th align="left">开发范式</th>
+<th align="left">渲染方式</th>
+<th align="left">核心特征</th>
+<th align="left"><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>传统静态MPA</strong></td>
+<td align="left">MPA</td>
+<td align="left">独立HTML文件</td>
+<td align="left">无复用结构</td>
+<td align="left">静态直接服务</td>
+<td align="left">每个页面独立，维护成本高</td>
+<td align="left">简单展示页、个人网站</td>
+</tr>
+<tr>
+<td align="left"><strong>动态服务端MPA</strong></td>
+<td align="left">MPA</td>
+<td align="left">模板组合页面</td>
+<td align="left">服务端模板(SST)</td>
+<td align="left">SSR</td>
+<td align="left">服务器拼装，有一定复用</td>
+<td align="left">传统企业官网、早期电商</td>
+</tr>
+<tr>
+<td align="left"><strong>客户端SPA</strong></td>
+<td align="left">SPA</td>
+<td align="left">组件构成应用</td>
+<td align="left">组件化开发(CBD)</td>
+<td align="left">CSR</td>
+<td align="left">单HTML入口，前端路由，体验流畅</td>
+<td align="left">后台管理、工具类Web应用</td>
+</tr>
+<tr>
+<td align="left"><strong>现代同构应用</strong></td>
+<td align="left"><strong>混合</strong></td>
+<td align="left">组件+页面路由</td>
+<td align="left">CBD + 服务端能力</td>
+<td align="left"><strong>SSR + CSR混合</strong></td>
+<td align="left">首屏服务端渲染，后续客户端交互</td>
+<td align="left">电商、社交平台、需要SEO的复杂应用</td>
+</tr>
+<tr>
+<td align="left"><strong>静态生成站点</strong></td>
+<td align="left"><strong>混合</strong></td>
+<td align="left">组件&#x2F;模板构建</td>
+<td align="left">内容驱动开发</td>
+<td align="left"><strong>构建时渲染</strong></td>
+<td align="left">预先生成HTML，性能极致</td>
+<td align="left">博客、文档、营销页面</td>
+</tr>
+<tr>
+<td align="left"><strong>微前端架构</strong></td>
+<td align="left"><strong>分布式</strong></td>
+<td align="left">多个独立子应用</td>
+<td align="left">独立团队协作</td>
+<td align="left">多种渲染策略混合</td>
+<td align="left">大型应用拆解，独立开发部署</td>
+<td align="left">企业级SaaS平台、大型系统</td>
+</tr>
+</tbody></table>
+<h2 id="具体技术栈对应关系"><a href="#具体技术栈对应关系" class="headerlink" title="具体技术栈对应关系"></a>具体技术栈对应关系</h2><table>
+<thead>
+<tr>
+<th align="left">模式</th>
+<th align="left">代表技术</th>
+<th align="left">典型项目</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>传统静态MPA</strong></td>
+<td align="left">纯HTML&#x2F;CSS&#x2F;JS</td>
+<td align="left">个人作品集、简单宣传页</td>
+</tr>
+<tr>
+<td align="left"><strong>动态服务端MPA</strong></td>
+<td align="left">PHP(Laravel)、Python(Django)、Java(Spring)</td>
+<td align="left">传统企业官网、小型电商</td>
+</tr>
+<tr>
+<td align="left"><strong>客户端SPA</strong></td>
+<td align="left">Vue&#x2F;React&#x2F;Angular + 路由库</td>
+<td align="left">后台管理系统、SAAS工具</td>
+</tr>
+<tr>
+<td align="left"><strong>现代同构应用</strong></td>
+<td align="left">Next.js(React)、Nuxt.js(Vue)、Remix</td>
+<td align="left">电商平台、社交应用、内容社区</td>
+</tr>
+<tr>
+<td align="left"><strong>静态生成站点</strong></td>
+<td align="left">Hugo、Jekyll、VuePress、Astro</td>
+<td align="left">技术博客、产品文档、营销网站</td>
+</tr>
+<tr>
+<td align="left"><strong>微前端架构</strong></td>
+<td align="left">Single SPA、Module Federation、qiankun</td>
+<td align="left">大型企业平台、银行系统、复杂SAAS</td>
+</tr>
+</tbody></table>
+<h2 id="复杂版：该表格从许多角度详细区分了Web开发的不同模式"><a href="#复杂版：该表格从许多角度详细区分了Web开发的不同模式" class="headerlink" title="复杂版：该表格从许多角度详细区分了Web开发的不同模式"></a>复杂版：该表格从许多角度详细区分了Web开发的不同模式</h2><table>
+<thead>
+<tr>
+<th align="left">维度</th>
+<th align="left">1. 原始MPA</th>
+<th align="left">2. 服务端MPA</th>
+<th align="left">3. SPA (CSR)</th>
+<th align="left">4. SSR框架</th>
+<th align="left">5. SSG&#x2F;静态生成</th>
+<th align="left">6. 微前端</th>
+<th align="left">7. JAMstack</th>
+<th align="left">8. 岛屿架构</th>
+<th align="left">9. 可恢复架构</th>
+<th align="left">10. 边缘渲染</th>
+<th align="left">11. 渐进增强(HTMX)</th>
+<th align="left">12. Web Components</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>核心架构</strong></td>
+<td align="left">多页面应用</td>
+<td align="left">多页面应用</td>
+<td align="left">单页面应用</td>
+<td align="left">同构应用</td>
+<td align="left">静态站点</td>
+<td align="left">分布式应用</td>
+<td align="left">JavaScript+APIs+Markup</td>
+<td align="left">静态HTML+交互岛屿</td>
+<td align="left">可序列化状态恢复</td>
+<td align="left">边缘计算</td>
+<td align="left">渐进增强</td>
+<td align="left">原生Web组件</td>
+</tr>
+<tr>
+<td align="left"><strong>渲染位置</strong></td>
+<td align="left">无渲染(静态)</td>
+<td align="left">服务端</td>
+<td align="left">客户端</td>
+<td align="left">服务端+客户端</td>
+<td align="left">构建时</td>
+<td align="left">客户端&#x2F;服务端混合</td>
+<td align="left">构建时+客户端</td>
+<td align="left">服务端+按需客户端</td>
+<td align="left">服务端序列化</td>
+<td align="left">边缘节点</td>
+<td align="left">服务端为主</td>
+<td align="left">客户端</td>
+</tr>
+<tr>
+<td align="left"><strong>代码组织</strong></td>
+<td align="left">每个页面独立HTML</td>
+<td align="left">模板继承&#x2F;include</td>
+<td align="left">组件化</td>
+<td align="left">组件化+页面路由</td>
+<td align="left">组件化+模板</td>
+<td align="left">独立子应用</td>
+<td align="left">组件化+API调用</td>
+<td align="left">静态模板+岛屿组件</td>
+<td align="left">组件化(特殊)</td>
+<td align="left">组件化+边缘函数</td>
+<td align="left">传统HTML+AJAX</td>
+<td align="left">自定义元素</td>
+</tr>
+<tr>
+<td align="left"><strong>路由方式</strong></td>
+<td align="left">服务端路由(整页刷新)</td>
+<td align="left">服务端路由</td>
+<td align="left">前端路由(hash&#x2F;history)</td>
+<td align="left">混合路由</td>
+<td align="left">静态文件路由</td>
+<td align="left">前端路由+集成</td>
+<td align="left">静态路由+客户端路由</td>
+<td align="left">静态路由+客户端交互</td>
+<td align="left">前端路由(按需)</td>
+<td align="left">边缘路由</td>
+<td align="left">服务端路由+局部更新</td>
+<td align="left">前端&#x2F;服务端均可</td>
+</tr>
+<tr>
+<td align="left"><strong>状态管理</strong></td>
+<td align="left">无&#x2F;简单全局变量</td>
+<td align="left">服务器Session</td>
+<td align="left">Vuex&#x2F;Pinia&#x2F;Redux</td>
+<td align="left">服务端状态传递+客户端状态</td>
+<td align="left">无&#x2F;静态数据</td>
+<td align="left">独立状态+共享状态</td>
+<td align="left">客户端状态+API状态</td>
+<td align="left">组件状态</td>
+<td align="left">序列化状态</td>
+<td align="left">边缘状态</td>
+<td align="left">服务端状态</td>
+<td align="left">组件内部状态</td>
+</tr>
+<tr>
+<td align="left"><strong>数据获取</strong></td>
+<td align="left">无&#x2F;静态内容</td>
+<td align="left">服务器数据库查询</td>
+<td align="left">AJAX&#x2F;Fetch API</td>
+<td align="left">getServerSideProps等</td>
+<td align="left">构建时获取</td>
+<td align="left">独立数据源</td>
+<td align="left">API调用(GraphQL&#x2F;REST)</td>
+<td align="left">构建时&#x2F;运行时API</td>
+<td align="left">序列化数据传递</td>
+<td align="left">边缘函数调用</td>
+<td align="left">服务器返回HTML片段</td>
+<td align="left">AJAX&#x2F;服务器推送</td>
+</tr>
+<tr>
+<td align="left"><strong>构建工具</strong></td>
+<td align="left">无</td>
+<td align="left">无&#x2F;简单编译</td>
+<td align="left">Webpack&#x2F;Vite</td>
+<td align="left">Next.js&#x2F;Nuxt.js内置</td>
+<td align="left">Hugo&#x2F;Jekyll&#x2F;Gatsby</td>
+<td align="left">Webpack模块联邦</td>
+<td align="left">Vite&#x2F;Webpack+部署平台</td>
+<td align="left">Astro&#x2F;Vite</td>
+<td align="left">Qwik CLI</td>
+<td align="left">边缘平台工具</td>
+<td align="left">无&#x2F;简单构建</td>
+<td align="left">无&#x2F;Vite&#x2F;Webpack</td>
+</tr>
+<tr>
+<td align="left"><strong>部署方式</strong></td>
+<td align="left">静态文件托管</td>
+<td align="left">传统服务器</td>
+<td align="left">静态托管+API服务器</td>
+<td align="left">Node.js服务器&#x2F;Serverless</td>
+<td align="left">静态托管&#x2F;CDN</td>
+<td align="left">独立部署+集成</td>
+<td align="left">静态托管+Serverless函数</td>
+<td align="left">静态托管</td>
+<td align="left">静态托管+边缘</td>
+<td align="left">边缘平台</td>
+<td align="left">传统服务器</td>
+<td align="left">静态&#x2F;服务器均可</td>
+</tr>
+<tr>
+<td align="left"><strong>性能特点</strong></td>
+<td align="left">首屏最快</td>
+<td align="left">首屏快,但TTFB依赖服务器</td>
+<td align="left">首屏慢,后续快</td>
+<td align="left">首屏快,水合后有开销</td>
+<td align="left">最快,纯静态</td>
+<td align="left">独立加载,可能冗余</td>
+<td align="left">静态快,API调用有延迟</td>
+<td align="left">极快,JS按需加载</td>
+<td align="left">即时交互,极低JS</td>
+<td align="left">全球低延迟</td>
+<td align="left">快速初始,渐进增强</td>
+<td align="left">原生性能好</td>
+</tr>
+<tr>
+<td align="left"><strong>SEO支持</strong></td>
+<td align="left">完美</td>
+<td align="left">完美</td>
+<td align="left">差(需额外处理)</td>
+<td align="left">优秀</td>
+<td align="left">完美</td>
+<td align="left">各子应用独立处理</td>
+<td align="left">优秀(预渲染)</td>
+<td align="left">完美</td>
+<td align="left">优秀</td>
+<td align="left">优秀(SSR)</td>
+<td align="left">完美</td>
+<td align="left">一般(需配合SSR)</td>
+</tr>
+<tr>
+<td align="left"><strong>开发体验</strong></td>
+<td align="left">简单但重复</td>
+<td align="left">传统,耦合度高</td>
+<td align="left">现代,热更新好</td>
+<td align="left">优秀,混合体验</td>
+<td align="left">简单但构建慢</td>
+<td align="left">复杂但独立</td>
+<td align="left">优秀,前后端解耦</td>
+<td align="left">极佳,关注点分离</td>
+<td align="left">独特,学习曲线陡</td>
+<td align="left">新兴,工具链发展中</td>
+<td align="left">简单直观</td>
+<td align="left">原生但生态小</td>
+</tr>
+<tr>
+<td align="left"><strong>维护成本</strong></td>
+<td align="left">高(重复代码)</td>
+<td align="left">中高(服务器维护)</td>
+<td align="left">中(依赖管理)</td>
+<td align="left">中(服务器成本)</td>
+<td align="left">低(纯静态)</td>
+<td align="left">高(集成复杂度)</td>
+<td align="left">低(托管服务)</td>
+<td align="left">低(简单清晰)</td>
+<td align="left">中(新颖概念)</td>
+<td align="left">中(平台依赖)</td>
+<td align="left">低(技术简单)</td>
+<td align="left">中(浏览器兼容)</td>
+</tr>
+<tr>
+<td align="left"><strong>学习曲线</strong></td>
+<td align="left">极低</td>
+<td align="left">中(服务器语言)</td>
+<td align="left">中高(框架概念)</td>
+<td align="left">高(服务端+客户端)</td>
+<td align="left">低</td>
+<td align="left">高(架构设计)</td>
+<td align="left">中</td>
+<td align="left">低</td>
+<td align="left">高(新范式)</td>
+<td align="left">中高</td>
+<td align="left">低</td>
+<td align="left">中</td>
+</tr>
+<tr>
+<td align="left"><strong>团队协作</strong></td>
+<td align="left">适合小团队</td>
+<td align="left">前后端紧密协作</td>
+<td align="left">前后端分离</td>
+<td align="left">全栈团队</td>
+<td align="left">内容团队友好</td>
+<td align="left">多团队独立开发</td>
+<td align="left">前后端分离</td>
+<td align="left">设计+开发协作</td>
+<td align="left">需要新思维</td>
+<td align="left">DevOps要求高</td>
+<td align="left">传统团队友好</td>
+<td align="left">跨框架协作</td>
+</tr>
+<tr>
+<td align="left"><strong>适用规模</strong></td>
+<td align="left">极小项目</td>
+<td align="left">中小型</td>
+<td align="left">中小到大型</td>
+<td align="left">中小到大型</td>
+<td align="left">中小型(内容型)</td>
+<td align="left">超大型(企业级)</td>
+<td align="left">中小型</td>
+<td align="left">内容为主网站</td>
+<td align="left">性能敏感应用</td>
+<td align="left">全球分布式应用</td>
+<td align="left">传统网站增强</td>
+<td align="left">跨框架组件</td>
+</tr>
+<tr>
+<td align="left"><strong>典型用例</strong></td>
+<td align="left">简单展示页</td>
+<td align="left">传统企业网站</td>
+<td align="left">Web应用&#x2F;后台管理</td>
+<td align="left">电商&#x2F;社交平台</td>
+<td align="left">博客&#x2F;文档站</td>
+<td align="left">大型SaaS平台</td>
+<td align="left">营销网站&#x2F;博客</td>
+<td align="left">内容网站少量交互</td>
+<td align="left">电商&#x2F;门户</td>
+<td align="left">全球应用&#x2F;API网关</td>
+<td align="left">传统网站现代化</td>
+<td align="left">UI组件库</td>
+</tr>
+</tbody></table>
+<p>详细释义</p>
+<h2 id="核心架构类"><a href="#核心架构类" class="headerlink" title="核心架构类"></a>核心架构类</h2><h3 id="MPA-Multi-Page-Application"><a href="#MPA-Multi-Page-Application" class="headerlink" title="MPA - Multi-Page Application"></a><strong>MPA</strong> - Multi-Page Application</h3><p><strong>中文</strong>：多页面应用<br><strong>详细解释</strong>：</p>
+<ul>
+<li>传统的Web应用架构，每个页面都是独立的HTML文件</li>
+<li>用户每次导航都会从服务器加载新的完整页面</li>
+<li>页面跳转时浏览器会完全刷新</li>
+<li>示例：传统的PHP网站、Java JSP网站、早期企业官网</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<p>优点：</p>
+<ul>
+<li>SEO友好（每个页面都有独立URL和完整内容）</li>
+<li>首屏加载快（服务器直接返回HTML）</li>
+<li>技术成熟，开发简单</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>页面切换慢（需要重新加载整个页面）</li>
+<li>用户体验差（有白屏等待时间）</li>
+<li>代码重复率高（公共部分每个页面都要写）</li>
+</ul>
+<h3 id="SPA-Single-Page-Application"><a href="#SPA-Single-Page-Application" class="headerlink" title="SPA - Single-Page Application"></a><strong>SPA</strong> - Single-Page Application</h3><p><strong>中文</strong>：单页面应用<br><strong>详细解释</strong>：</p>
+<ul>
+<li>现代Web应用架构，整个应用只有一个HTML页面</li>
+<li>通过JavaScript动态更新内容，无需重新加载页面</li>
+<li>使用前端路由（如Vue Router、React Router）管理不同视图</li>
+<li>示例：Gmail、Google Docs、现代后台管理系统</li>
+</ul>
+<p><strong>特点</strong>：</p>
+<p>优点：</p>
+<ul>
+<li>用户体验好（无刷新页面切换）</li>
+<li>类似原生应用的流畅感</li>
+<li>前后端完全分离</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>SEO困难（初始HTML内容为空）</li>
+<li>首屏加载慢（需要先下载所有JS）</li>
+<li>对浏览器性能要求较高</li>
+</ul>
+<h3 id="CSR-Client-Side-Rendering"><a href="#CSR-Client-Side-Rendering" class="headerlink" title="CSR - Client-Side Rendering"></a><strong>CSR</strong> - Client-Side Rendering</h3><p><strong>中文</strong>：客户端渲染<br><strong>详细解释</strong>：</p>
+<ul>
+<li>在用户的浏览器中执行JavaScript来生成和渲染页面内容</li>
+<li>服务器只提供初始的空HTML骨架和JavaScript文件</li>
+<li>是SPA的主要渲染方式</li>
+<li>与SSR相对</li>
+</ul>
+<p><strong>技术流程</strong>：</p>
+<ol>
+<li><p>浏览器请求HTML（空壳）</p>
+</li>
+<li><p>下载并执行JavaScript</p>
+</li>
+<li><p>JavaScript请求数据（API）</p>
+</li>
+<li><p>用数据生成DOM并渲染</p>
+</li>
+</ol>
+<h3 id="SSR-Server-Side-Rendering"><a href="#SSR-Server-Side-Rendering" class="headerlink" title="SSR - Server-Side Rendering"></a><strong>SSR</strong> - Server-Side Rendering</h3><p><strong>中文</strong>：服务器端渲染<br><strong>详细解释</strong>：</p>
+<ul>
+<li>在服务器上生成完整的HTML页面，然后发送给浏览器</li>
+<li>浏览器接收到的是已经渲染好的内容</li>
+<li>传统方式：PHP、JSP；现代方式：Next.js、Nuxt.js</li>
+</ul>
+<p><strong>分类</strong>：</p>
+<ul>
+<li><strong>传统SSR</strong>：PHP的include、JSP标签等</li>
+<li><strong>现代SSR</strong>：Node.js运行React&#x2F;Vue代码生成HTML</li>
+</ul>
+<p><strong>优点</strong>：</p>
+<ol>
+<li><strong>SEO友好</strong>：搜索引擎直接看到完整内容</li>
+<li><strong>首屏快</strong>：用户立即看到内容，无需等待JS执行</li>
+<li><strong>低端设备友好</strong>：不依赖客户端JavaScript性能</li>
+</ol>
+<h3 id="SSG-Static-Site-Generation"><a href="#SSG-Static-Site-Generation" class="headerlink" title="SSG - Static Site Generation"></a><strong>SSG</strong> - Static Site Generation</h3><p><strong>中文</strong>：静态站点生成<br><strong>详细解释</strong>：</p>
+<ul>
+<li>在构建时（build time）预先生成所有HTML页面</li>
+<li>生成的纯静态文件部署到CDN或服务器</li>
+<li>示例：Hugo、Jekyll、VuePress、Gatsby</li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>博客、文档网站、产品官网</li>
+<li>内容不频繁变化的网站</li>
+<li>对性能和安全要求极高的网站</li>
+</ul>
+<p><strong>技术特点</strong>：</p>
+<p>构建时：源代码 → 构建工具 → 静态HTML&#x2F;CSS&#x2F;JS文件<br>运行时：直接提供静态文件，无需服务器渲染</p>
+<h3 id="ISR-Incremental-Static-Regeneration"><a href="#ISR-Incremental-Static-Regeneration" class="headerlink" title="ISR - Incremental Static Regeneration"></a><strong>ISR</strong> - Incremental Static Regeneration</h3><p><strong>中文</strong>：增量静态再生<br><strong>详细解释</strong>：</p>
+<ul>
+<li>SSG的增强版本，支持增量更新</li>
+<li>部分页面静态生成，部分页面动态生成或按需生成</li>
+<li>典型实现：Next.js的getStaticProps + revalidate</li>
+</ul>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li>首次访问：生成静态页面并缓存</li>
+<li>后续访问：直接提供缓存的静态页面</li>
+<li>定时更新：到达指定时间后重新生成</li>
+<li>按需更新：内容变化时触发重新生成</li>
+</ol>
+
+                                                                                    
+                                                                                        <!-- reward -->
+                                                                                        
+                                                </div>
+                                                
+
+                                                    <!-- copyright -->
+                                                    
+                                                        <div class="declare">
+                                                            <ul class="post-copyright">
+                                                                <li>
+                                                                    <i class="ri-copyright-line"></i>
+                                                                    <strong>版权声明： </strong>
+                                                                    
+                                                                                本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+                                                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                            <footer class="article-footer">
+                                                                
+                                                                    
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/01/29/Web%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%AF%B9%E6%AF%94/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+                                                                        
+                                                                            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+                                                            </footer>
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2026/01/30/%E5%89%8D%E7%AB%AF%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE%E2%80%94%E2%80%94%E6%BB%A1%E8%AE%B0%E7%94%9C%E5%93%81%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-2026-1-28/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            前端网站项目——满记甜品更新日志  2026.1.28
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2026/01/19/KK%E9%AD%94%E6%B3%95%E5%AD%A6%E9%99%A2%E5%8E%9F%E5%88%9B%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1%E8%AF%BE%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%8C%AB%E7%8C%AB%E5%A2%99%E4%B8%BB%E8%AE%B2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">KK魔法学院原创角色设计课笔记——猫猫墙主讲</div>
+      </a>
+    
+  </nav>
+
+
+            
+                
+                    
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+
+                        
+                            
+                                
+
+                                    
+                                        
+                                            
+                                                
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      
+
+    <button class="navbar-toggle"></button>
+    <nav class="navbar" style="
+  
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background-color: transparent !important;
+">
+        
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+            </div>
+            
+                <ul class="nav nav-main">
+                    
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/" style="
+        color: #bbb;
+      ">
+                                主页
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/archives" style="
+        color: #bbb;
+      ">
+                                归档
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/categories" style="
+        color: #bbb;
+      ">
+                                分类
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/project" style="
+        color: #bbb;
+      ">
+                                项目
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/photos.html" style="
+        color: #bbb;
+      ">
+                                画作
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/friends" style="
+        color: #bbb;
+      ">
+                                友链
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/about" style="
+        color: #bbb;
+      ">
+                                关于
+                            </a>
+                        </li>
+                        
+                </ul>
+    </nav>
+    <nav class="navbar navbar-bottom" style="
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background-color: transparent !important;
+">
+        <ul class="nav">
+            <li class="nav-item">
+                
+                    <a class="nav-item-link nav-item-search" title="搜索" style="
+        color: #bbb;
+      ">
+                        <i class="ri-search-line"></i>
+                    </a>
+                    
+                        
+            </li>
+        </ul>
+    </nav>
+    <div class="search-form-wrap">
+        <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+    </div>
+
+    <style>
+        .nav-item-link:hover {
+            color: #fff !important;
+        }
+    </style>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

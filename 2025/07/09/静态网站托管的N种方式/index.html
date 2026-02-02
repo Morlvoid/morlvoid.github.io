@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">4.7k</span>
+            <span class="post-count">7.9k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">17 分钟</span>
+            <span class="post-count">28 分钟</span>
         </span>
     </span>
 </div>
@@ -121,9 +121,204 @@
                                                         
 
                                                             
-                                                                                <p>本篇为静态网站托管的多种方法。截止至2025年7月9日可行的托管方式有：<strong>Github</strong> <strong>Pages</strong>、阿里云对象储存<strong>OSS</strong>、<strong>Vercel</strong>。</p>
+                                                                                <p>本篇为静态网站托管的多种方法。截止至2025年7月9日可行的托管方式有：<strong>Github</strong> <strong>Pages</strong>、阿里云对象储存<strong>OSS</strong>、七牛云对象储存Kodo，Canva可画。</p>
 <span id="more"></span>
 
+<h3 id="五种建站方案核心维度对比"><a href="#五种建站方案核心维度对比" class="headerlink" title="五种建站方案核心维度对比"></a><strong>五种建站方案核心维度对比</strong></h3><table>
+<thead>
+<tr>
+<th align="left">方案</th>
+<th align="left">技术门槛</th>
+<th align="left">年化成本估算</th>
+<th align="left">自定义能力</th>
+<th align="left">功能动态性</th>
+<th align="left">最适合的人群</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>A. 可画 (Canva)</strong></td>
+<td align="left"><strong>极低</strong> (平面设计思维)</td>
+<td align="left"><strong>0 - 约￥200</strong></td>
+<td align="left">高 (视觉层)</td>
+<td align="left"><strong>纯静态</strong> (仅展示)</td>
+<td align="left"><strong>绝对萌新</strong>，追求美感、快速上线的<strong>OC创作者、画师</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong>B. GitHub Pages</strong></td>
+<td align="left"><strong>中高</strong> (需学Git&#x2F;命令行)</td>
+<td align="left"><strong>￥0 (仅域名)</strong></td>
+<td align="left">中 (依赖模板)</td>
+<td align="left"><strong>纯静态</strong></td>
+<td align="left"><strong>技术向萌新</strong>，愿意为“零成本”和“极客范”学习工具的学生、程序员。</td>
+</tr>
+<tr>
+<td align="left"><strong>C. 阿里云 OSS</strong></td>
+<td align="left"><strong>高</strong> (需前端代码基础)</td>
+<td align="left">￥60(OSS) + ￥50(域名)</td>
+<td align="left"><strong>极高</strong> (代码级)</td>
+<td align="left">静态为主 (可接入API)</td>
+<td align="left"><strong>准开发者</strong>，想用代码完全控制，并学习云服务的<strong>前端初学者</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong>D. 凡科建站</strong></td>
+<td align="left"><strong>低</strong> (模块化编辑)</td>
+<td align="left">￥500 - ￥2000+</td>
+<td align="left">低 (模板内调整)</td>
+<td align="left"><strong>半动态</strong> (有后台)</td>
+<td align="left"><strong>传统小微企业主</strong>，需要“在线咨询、表单”等现成营销功能。</td>
+</tr>
+<tr>
+<td align="left"><strong>E. WordPress</strong></td>
+<td align="left"><strong>中高</strong> (需部署运维)</td>
+<td align="left">￥500(服务器) + ￥50(域名)</td>
+<td align="left">中高 (主题&#x2F;插件)</td>
+<td align="left"><strong>全动态</strong> (CMS)</td>
+<td align="left"><strong>内容创作者、站长</strong>，需要博客、会员等动态系统，且有一定技术热情。</td>
+</tr>
+<tr>
+<td align="left"><strong>F. 完全自建</strong></td>
+<td align="left"><strong>极高</strong> (全栈技能)</td>
+<td align="left">￥500(服务器)+￥50(域名)</td>
+<td align="left"><strong>无限</strong></td>
+<td align="left"><strong>无限</strong> (自行开发)</td>
+<td align="left"><strong>立志成为开发者</strong>的人，或对技术有极致掌控需求的<strong>独立黑客</strong>。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="详细解读与场景分析"><a href="#详细解读与场景分析" class="headerlink" title="详细解读与场景分析"></a><strong>详细解读与场景分析</strong></h3><h4 id="A-可画-Canva-“视觉优先的快速原型工具”"><a href="#A-可画-Canva-“视觉优先的快速原型工具”" class="headerlink" title="A. 可画 (Canva) - “视觉优先的快速原型工具”"></a><strong>A. 可画 (Canva) - “视觉优先的快速原型工具”</strong></h4><ul>
+<li><strong>核心价值</strong>：将 <strong>“设计即代码”</strong> 的理念做到最极致，路径最短。你的审美就是生产力。</li>
+<li><strong>隐藏优势</strong>：<ol>
+<li><strong>版本管理可视化</strong>：所有修改历史自动保存，可随时回退，无需理解<code>git</code>。</li>
+<li><strong>团队协作友好</strong>：像在线文档一样分享编辑，非常适合<strong>多人共创的OC企划</strong>。</li>
+</ol>
+</li>
+<li><strong>再定义</strong>：它不仅是建站工具，更是一个 <strong>“可交互的数字画册生成器”</strong> 。对于展示世界观、角色画廊、创作历程这类强视觉、弱交互的需求，它是<strong>最优解</strong>。</li>
+</ul>
+<h4 id="B-GitHub-Pages-“技术社群的敲门砖”"><a href="#B-GitHub-Pages-“技术社群的敲门砖”" class="headerlink" title="B. GitHub Pages - “技术社群的敲门砖”"></a><strong>B. GitHub Pages - “技术社群的敲门砖”</strong></h4><ul>
+<li><strong>核心价值</strong>：<strong>零资金成本</strong>，但<strong>时间学习成本不菲</strong>。它是一个完美的“学习触发器”。</li>
+<li><strong>隐藏劣势与机会</strong>：<ol>
+<li><strong>网络问题</strong>：国内访问不稳定，严重影响非技术圈访客的体验。</li>
+<li><strong>工作流绑定</strong>：你必须适应以<code>Git</code>为核心、本地编辑-&gt;提交-&gt;推送的<strong>开发工作流</strong>，这与“随时灵感来了用手机改一下”的设计思维截然不同。</li>
+</ol>
+</li>
+<li><strong>再定义</strong>：它不只是托管，更是一个<strong>开发者简历</strong>。使用它，意味着你向技术社区靠近了一步。适合用来做<strong>技术博客</strong>或<strong>开源项目文档</strong>，但未必适合做面向大众的OC官网。</li>
+</ul>
+<h4 id="C-阿里云-OSS-“代码与云服务的练兵场”"><a href="#C-阿里云-OSS-“代码与云服务的练兵场”" class="headerlink" title="C. 阿里云 OSS - “代码与云服务的练兵场”"></a><strong>C. 阿里云 OSS - “代码与云服务的练兵场”</strong></h4><ul>
+<li><strong>核心价值</strong>：在<strong>完全掌控代码</strong>的前提下，享受企业级云服务的<strong>稳定性、速度和可扩展性</strong>。</li>
+<li><strong>进阶路径</strong>：它是最平滑的“准开发者”升级路径。当你学会了HTML&#x2F;CSS&#x2F;JS，可以：<ol>
+<li>用<code>Vue.js</code>&#x2F;<code>React</code>写一个复杂的SPA应用（如可交互的OC世界地图）。</li>
+<li>通过调用第三方API（如腾讯云OCR、百度翻译API），为你的静态网站增加<strong>智能功能</strong>。</li>
+<li>结合阿里云<strong>函数计算</strong>，以极低成本实现简单的后端逻辑（如表单提交）。</li>
+</ol>
+</li>
+<li><strong>再定义</strong>：它是“<strong>静态网站</strong>”的<strong>专业级归宿</strong>。如果你愿意投资学习前端开发，这是性价比和自由度最高的选择。</li>
+</ul>
+<h4 id="D-凡科建站-“功能导向的商务解决方案”"><a href="#D-凡科建站-“功能导向的商务解决方案”" class="headerlink" title="D. 凡科建站 - “功能导向的商务解决方案”"></a><strong>D. 凡科建站 - “功能导向的商务解决方案”</strong></h4><ul>
+<li><strong>核心价值</strong>：提供<strong>开箱即用的营销功能模块</strong>（预约、支付、会员系统）。</li>
+<li><strong>关键局限</strong>：其“不自由”体现在<strong>数据可迁移性差</strong>（ vendor lock-in严重 ）和<strong>代码封闭性</strong>上。你今天做的网站，未来几乎不可能完整地迁移到其他平台。</li>
+<li><strong>再定义</strong>：它是“<strong>标准化产品</strong>”，不是“<strong>创作工具</strong>”。如果你的OC最终目的是<strong>商业化、卖周边、运营粉丝社群</strong>，它或许有后发优势。但对于纯展示和创作分享，它过于笨重。</li>
+</ul>
+<h4 id="E-WordPress-“内容管理系统的常青树”"><a href="#E-WordPress-“内容管理系统的常青树”" class="headerlink" title="E. WordPress - “内容管理系统的常青树”"></a><strong>E. WordPress - “内容管理系统的常青树”</strong></h4><ul>
+<li><strong>核心价值</strong>：通过海量的<strong>插件和主题</strong>，以模块化方式构建一个<strong>功能强大、可随时更新内容</strong>的动态网站。</li>
+<li><strong>真正的成本</strong>：成本不在首次搭建，而在<strong>长期维护</strong>（ WordPress核心、主题、插件的安全更新，服务器运维，数据备份）。你需要有“站长”的运维意识。</li>
+<li><strong>再定义</strong>：如果你的OC宇宙以<strong>长篇连载小说、频繁更新的日志、粉丝评论互动</strong>为核心，WordPress是经典选择。如果只是“一劳永逸”地展示一套设定，它就显得大材小用。</li>
+</ul>
+<h4 id="F-完全自建-“成为创作者的终极形态”"><a href="#F-完全自建-“成为创作者的终极形态”" class="headerlink" title="F. 完全自建 - “成为创作者的终极形态”"></a><strong>F. 完全自建 - “成为创作者的终极形态”</strong></h4><ul>
+<li><strong>核心价值</strong>：<strong>绝对的掌控力</strong>和<strong>无限的可能性</strong>。你可以打造一个独一无二的、具有游戏化交互的OC世界。</li>
+<li><strong>本质</strong>：这不是一个“建站方案”，而是一条<strong>职业或深度兴趣的发展路径</strong>。你将从一个内容创作者，转变为“<strong>创作者兼开发者</strong>”。</li>
+</ul>
+<p><strong>首推可画 (A)<strong>：</strong>“如果你只想专注创作，马上拥有一个漂亮的官网，现在就关掉这个表格，去用可画。它是为你量身定做的。”</strong></p>
+<p><strong>提供进阶选项</strong>：<strong>“如果你的OC企划涉及小说连载、频繁更新，且你有技术热情，可以了解WordPress (E)。如果你梦想自己写代码创造一切，那么路径是：先学前端，然后用阿里云OSS (C) 托管，最终走向完全自建 (F)。”</strong></p>
+<p><strong>明确不推荐</strong>：<strong>“凡科建站 (D) 更适合开店卖货，GitHub Pages (B) 更适合写技术博客，它们可能都不是展示OC的最优解。”</strong></p>
+<p>开篇点明：建站不是考验技术，而是<strong>匹配需求</strong>。选错工具，要么能力受限，要么浪费精力。本指南将帮你俯瞰全局，一步到位找到最适合你的路径。</p>
+<h4 id="第一部分：五大建站方式全景图（从易到难）"><a href="#第一部分：五大建站方式全景图（从易到难）" class="headerlink" title="第一部分：五大建站方式全景图（从易到难）"></a><strong>第一部分：五大建站方式全景图（从易到难）</strong></h4><p>我们可以把所有建站方式按 <strong>“技术门槛”</strong> 和 <strong>“控制自由度”</strong> 划分为一个光谱，以下是五类核心模式：</p>
+<p><strong>1. 可视化建站平台 (像“搭积木”)</strong></p>
+<ul>
+<li><strong>是什么</strong>：在浏览器里通过拖拽现成模块（文字、图片、按钮等）来组合网站。后台通常和网站绑定。</li>
+<li><strong>核心代表</strong>：<ul>
+<li><strong>国内</strong>：凡科建站、上线了、阿里云·速成美站</li>
+<li><strong>国际</strong>：Wix、Squarespace、<strong>Webflow</strong>（设计自由度极高）</li>
+<li><strong>特殊形态</strong>：<strong>Canva</strong>（以“平面设计”思维搭建静态页）</li>
+</ul>
+</li>
+<li><strong>代价与获得</strong>：用<strong>较高的年费</strong>和<strong>平台锁定</strong>的代价，获得<strong>极低的学习门槛</strong>和<strong>完整的托管、维护服务</strong>。适合“不想碰任何技术”的用户。</li>
+</ul>
+<p><strong>2. 开源内容管理系统 (像“装修精装房”)</strong></p>
+<ul>
+<li><strong>是什么</strong>：需要自己在服务器上安装一个网站程序（如WordPress），然后通过后台管理内容，通过主题和插件来定义外观和功能。</li>
+<li><strong>核心代表</strong>：<strong>WordPress</strong>（占全球网站的40%以上）、Typecho（轻量）、Strapi（API优先）。</li>
+<li><strong>代价与获得</strong>：用<strong>中等的学习成本</strong>（需要部署、维护）和<strong>服务器费用</strong>的代价，获得<strong>极高的功能自由度</strong>（有海量插件）和<strong>数据的完全掌控权</strong>。适合需要动态内容（如博客、商城）且有一定学习意愿的用户。</li>
+</ul>
+<p><strong>3. 静态站点生成器 (像“组装定制家具”)</strong></p>
+<ul>
+<li><strong>是什么</strong>：用简单的标记语言（如Markdown）写内容，通过一个生成器工具，套用主题模板，批量生成纯粹的HTML&#x2F;CSS&#x2F;JS静态网站文件。</li>
+<li><strong>核心代表</strong>：<strong>Hugo</strong>、<strong>Jekyll</strong>、<strong>Next.js</strong>（SSG模式）、VuePress、Hexo。</li>
+<li><strong>托管方式</strong>：生成的文件可托管在 <strong>GitHub Pages、Vercel、Netlify</strong> 等免费平台上。</li>
+<li><strong>代价与获得</strong>：用<strong>较高的技术门槛</strong>（需学习命令行、Git、模板语法）的代价，获得<strong>极致的速度、安全性、免费托管可能和纯代码的灵活性</strong>。适合喜欢写作、有极客精神、追求性能的用户。</li>
+</ul>
+<p><strong>4. 云服务&#x2F;Serverless托管原生代码 (像“自建毛坯房”)</strong></p>
+<ul>
+<li><strong>是什么</strong>：自己编写或委托开发人员编写前端（HTML&#x2F;CSS&#x2F;JS）和后端代码，然后将代码部署到云服务平台。</li>
+<li><strong>核心代表</strong>：<ul>
+<li><strong>前端&#x2F;静态托管</strong>：阿里云OSS、腾讯云COS、Vercel、Netlify。</li>
+<li><strong>全栈&#x2F;Serverless</strong>：Vercel（Again）、阿里云函数计算、腾讯云云开发。</li>
+</ul>
+</li>
+<li><strong>代价与获得</strong>：用<strong>极高的开发成本</strong>（需要专业开发技能或资金）的代价，获得<strong>无限的定制能力、最佳的性能和架构控制</strong>。适合企业、严肃项目或有明确学习目标的准开发者。</li>
+</ul>
+<p><strong>5. 完全自主开发 (像“从烧砖开始盖楼”)</strong></p>
+<ul>
+<li><strong>是什么</strong>：从购买服务器、配置操作系统、搭建运行环境、编写每一行代码、设计数据库，全部亲力亲为。</li>
+<li><strong>核心代表</strong>：无特定工具，是技术的集合。</li>
+<li><strong>代价与获得</strong>：用<strong>极高的时间成本、全面的技术栈要求</strong>的代价，获得<strong>对项目每一个细节的终极理解和控制</strong>。通常是开发者的学习路径或对基础架构有苛刻要求的场景。</li>
+</ul>
+<h4 id="第二部分：如何选择？一个清晰的决策流程"><a href="#第二部分：如何选择？一个清晰的决策流程" class="headerlink" title="第二部分：如何选择？一个清晰的决策流程"></a><strong>第二部分：如何选择？一个清晰的决策流程</strong></h4><p>不要被工具淹没，问自己三个问题，答案会自动浮现：</p>
+<p><strong>1. 你的核心需求是什么？</strong></p>
+<ul>
+<li><strong>纯展示&#x2F;作品集</strong>：可视化平台（Canva）、静态生成器、OSS托管静态页是优选。</li>
+<li><strong>频繁更新内容&#x2F;博客</strong>：WordPress等CMS或静态生成器是核心选择。</li>
+<li><strong>复杂交互&#x2F;电商&#x2F;用户系统</strong>：需要功能强大的可视化平台、成熟的CMS（配合插件）或定制开发。</li>
+</ul>
+<p><strong>2. 你（或你的预算）愿意投入多少学习成本？</strong></p>
+<ul>
+<li><strong>“完全不想学”</strong>：选择<strong>可视化建站平台</strong>，付费购买服务。</li>
+<li><strong>“愿意学一点”</strong>：尝试<strong>WordPress</strong>或 <strong>Canva</strong>，它们有海量教程。</li>
+<li><strong>“享受学习技术”</strong>：从<strong>静态生成器</strong>或<strong>云托管原生代码</strong>开始，这是成为开发者的捷径。</li>
+</ul>
+<p><strong>3. 你对网站的掌控欲有多强？</strong></p>
+<ul>
+<li><strong>“能用就行，别让我操心”</strong>：可视化平台，你放弃部分控制换取省心。</li>
+<li><strong>“数据必须是我的，外观要高度定制”</strong>：WordPress自建或静态生成器。</li>
+<li><strong>“一切都要按我的技术架构来”</strong>：只有云服务托管和完全自主开发能满足你。</li>
+</ul>
+<p><strong>决策流程图：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开始 -&gt; 你的网站是否需要“用户登录、评论、购物”等动态功能？</span><br><span class="line">    -&gt; 是 -&gt; 你是否有技术学习意愿/预算？</span><br><span class="line">        -&gt; 是 -&gt; 选择 **WordPress** 或 **全栈开发**。</span><br><span class="line">        -&gt; 否 -&gt; 选择 **高级可视化平台** (如Wix电商版)。</span><br><span class="line">    -&gt; 否 -&gt; 你是否懂或愿意学基础代码？</span><br><span class="line">        -&gt; 是 -&gt; 选择 **静态站点生成器** 或 **云服务托管原生代码**。</span><br><span class="line">        -&gt; 否 -&gt; 选择 **Canva** 或 **基础可视化平台**。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="第三部分：给不同人群的无痛推荐"><a href="#第三部分：给不同人群的无痛推荐" class="headerlink" title="第三部分：给不同人群的无痛推荐"></a><strong>第三部分：给不同人群的无痛推荐</strong></h4><ul>
+<li><p><strong>二次元OC创作者&#x2F;画师&#x2F;个人作品集</strong>：</p>
+<blockquote>
+<p><strong>首选Canva</strong>。理由：美感控制第一，学习成本为零，免费额度可用。当展示需求超出静态页时，再考虑WordPress。</p>
+</blockquote>
+</li>
+<li><p><strong>技术爱好者&#x2F;学生&#x2F;独立博主</strong>：</p>
+<blockquote>
+<p><strong>首选静态站点生成器</strong>。理由：免费、极速、安全，是学习现代开发工作流的绝佳入口，成果本身就是一份技术简历。</p>
+</blockquote>
+</li>
+<li><p><strong>小微创业者&#x2F;实体店主&#x2F;咨询师</strong>：</p>
+<blockquote>
+<p><strong>首选成熟的可视化平台</strong>。理由：时间最宝贵，需要快速建立包含联系表单、预约等营销功能的可信网站，稳定省心是关键。</p>
+</blockquote>
+</li>
+<li><p><strong>内容创作者&#x2F;深度博主</strong>：</p>
+<blockquote>
+<p><strong>首选WordPress</strong>。理由：经过时间考验的内容管理体验、强大的社区和插件生态，能伴随你的内容事业一起成长。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="结语：没有最好，只有最合适"><a href="#结语：没有最好，只有最合适" class="headerlink" title="结语：没有最好，只有最合适"></a><strong>结语：没有最好，只有最合适</strong></h4><p>建站技术的进化，本质是让每个人都能找到表达自我的工具。<strong>你的需求，才是选择唯一的标准</strong>。</p>
 <h1 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a><strong>Github</strong> <strong>Pages</strong></h1><p><strong>Github</strong> <strong>Pages</strong>的全流程搭建方式在本站已经写过，详情查看：<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Github-Page博客搭建</a></p>
 <h2 id="阿里云对象储存OSS-CDN"><a href="#阿里云对象储存OSS-CDN" class="headerlink" title="阿里云对象储存OSS+CDN"></a>阿里云对象储存<strong>OSS</strong>+CDN</h2><p>本方法的前提是在阿里云购买了且备案了自己的域名。（如果在其他地方购买了域名并在阿里云部署OSS可参考）</p>
 <p>以 <strong>阿里云OSS</strong> 为例，其他云厂商（腾讯云COS, AWS S3+CloudFront等）逻辑类似，界面略有不同</p>
@@ -418,6 +613,8 @@
 </li>
 </ul>
 <h1 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h1><p>因国内网络无法访问，暂不作考虑。</p>
+<h1 id="七牛云对象储存Kodo"><a href="#七牛云对象储存Kodo" class="headerlink" title="七牛云对象储存Kodo"></a>七牛云对象储存Kodo</h1><p>详见<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2026/02/03/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%82%A8%E5%AD%98Kodo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/">七牛云对象储存Kodo部署静态网站</a></p>
+<h1 id="Canva可画"><a href="#Canva可画" class="headerlink" title="Canva可画"></a>Canva可画</h1><p>详见<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2026/02/02/%E5%85%B3%E4%BA%8ECanva%E5%8F%AF%E7%94%BB%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BB%BA%E7%AB%99%E7%9A%84%E5%B0%9D%E8%AF%95%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">关于Canva可画无代码建站的尝试与相关技术研究</a></p>
 
                                                                                     
                                                                                         <!-- reward -->

@@ -28,9 +28,9 @@ var searchFunc = function(path, search_id, content_id) {
             // get the contents from search data
             var datas = jsonResponse.map(function(data) {
                 return {
-                    title: data.title || "",
-                    content: data.content || "",
-                    url: data.url || ""
+                    title: data.title,
+                    content: data.content,
+                    url: data.url
                 };
             });
 

@@ -23,16 +23,16 @@ var searchFunc = function(path, search_id, content_id) {
     var BTN = "<button type='button' class='local-search-close' id='local-search-close'></button>";
     $.ajax({
         url: path,
-        dataType: "json",
-        success: function(jsonResponse) {
+        dataType: "xml",
+        success: function(xmlResponse) {
             // get the contents from search data
-            var datas = jsonResponse.map(function(data) {
+            var datas = $("entry", xmlResponse).map(function() {
                 return {
-                    title: data.title,
-                    content: data.content,
-                    url: data.url
+                    title: $("title", this).text(),
+                    content: $("content", this).text(),
+                    url: $("url", this).text()
                 };
-            });
+            }).get();
 
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);

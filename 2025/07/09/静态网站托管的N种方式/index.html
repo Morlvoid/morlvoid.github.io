@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">7.9k</span>
+            <span class="post-count">10.2k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">28 分钟</span>
+            <span class="post-count">36 分钟</span>
         </span>
     </span>
 </div>
@@ -613,7 +613,320 @@
 </li>
 </ul>
 <h1 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h1><p>因国内网络无法访问，暂不作考虑。</p>
-<h1 id="七牛云对象储存Kodo"><a href="#七牛云对象储存Kodo" class="headerlink" title="七牛云对象储存Kodo"></a>七牛云对象储存Kodo</h1><p>详见<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2026/02/03/%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%82%A8%E5%AD%98Kodo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/">七牛云对象储存Kodo部署静态网站</a></p>
+<h1 id="七牛云对象储存Kodo"><a href="#七牛云对象储存Kodo" class="headerlink" title="七牛云对象储存Kodo"></a>七牛云对象储存Kodo</h1><h2 id="七牛云对象储存部署静态网站操作步骤"><a href="#七牛云对象储存部署静态网站操作步骤" class="headerlink" title="七牛云对象储存部署静态网站操作步骤"></a><strong>七牛云对象储存部署静态网站操作步骤</strong></h2><h3 id="步骤1：七牛云存储空间配置"><a href="#步骤1：七牛云存储空间配置" class="headerlink" title="步骤1：七牛云存储空间配置"></a><strong>步骤1：七牛云存储空间配置</strong></h3><ol>
+<li><p><strong>创建存储空间</strong></p>
+<ul>
+<li><p>登录七牛云控制台 → 对象存储Kodo</p>
+</li>
+<li><p>点击“空间管理</p>
+</li>
+<li><p>创建空间，选择<strong>海外区域</strong>（如：亚太-新加坡（原东南亚））</p>
+</li>
+<li><ul>
+<li>亚太-新加坡（原东南亚）区域尚未支持自定义数据处理服务，空间一旦创建，区域无法修改，请谨慎选择。存储空间名称不允许重复，遇到冲突请更换名称。名称格式为 3 ~ 63 个字符，可以包含小写字母、数字、短划线，且必须以小写字母或者数字开头和结尾。</li>
+</ul>
+</li>
+<li><p>名称使用小写字母、数字和连字符（避免使用点<code>.</code>）</p>
+</li>
+<li><p>访问控制设置为<strong>公开读</strong>。</p>
+</li>
+<li><ul>
+<li><p>公开权限仅对读取空间内的文件生效，写操作需要拥有者的授权。</p>
+<p>公开权限允许不通过身份验证直接读取您空间中的数据，存在流量盗刷风险并可能导致不预期的流量费用。为确保您的数据安全，建议您设置权限为私有。</p>
+</li>
+</ul>
+</li>
+<li><p>创建成功后七牛云将生成一个测试域名</p>
+</li>
+<li><ul>
+<li>七牛融合 CDN 测试域名（以 clouddn.com&#x2F;qiniucdn.com&#x2F;qnssl.com&#x2F;qbox.me 结尾），每个域名每日限回源总流量 10GB，每个测试域名自创建起30个自然日后系统会自动回收，仅供测试使用并且不支持 Https 访问，详情查看<a target="_blank" rel="noopener" href="https://developer.qiniu.com/fusion/kb/1319/test-domain-access-restriction-rules">七牛测试域名使用规范</a>。点击下列域名可查看每个域名剩余回收时间。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>上传网站文件</strong></p>
+<ul>
+<li>点击“文件管理”</li>
+<li>点击“上传文件”</li>
+<li>上传所有网站文件到存储空间</li>
+<li>确保根目录有<code>index.html</code>文件</li>
+</ul>
+</li>
+<li><p><strong>开启静态网站托管</strong></p>
+<ul>
+<li>进入Bucket设置 → 空间设置 → 设置静态页面</li>
+<li>开启默认首页功能，设置为<code>index.html</code></li>
+<li>选择404页面配置（默认或自定义）</li>
+</ul>
+</li>
+<li><p><strong>绑定CDN加速域名</strong></p>
+<ul>
+<li><p>进入域名管理 → 绑定自定义 CDN 加速域名<a target="_blank" rel="noopener" href="https://developer.qiniu.com/kodo/8527/kodo-domain-name-management">域名管理</a></p>
+</li>
+<li><p>输入域名。没有备案的域名会显示“域名未备案，覆盖范围只能选择海外”。</p>
+</li>
+<li><p>IP 协议：IPv4。海外节点暂不支持 IPv6 请求。</p>
+</li>
+<li><p>源站配置：七牛云存储</p>
+</li>
+<li><p>创建完成，需要进行域名所有权验证。</p>
+</li>
+<li><ul>
+<li><h5 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h5>请先完成域名所有权验证，完成后如需启用 CDN 服务，请配置 CNAME</li>
+</ul>
+</li>
+<li><p>点击CNAME下方的“未配置”，将连接复制下来。</p>
+</li>
+<li><p>打开阿里云云解析DNS控制台，点击“添加记录”。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="步骤2：阿里云DNS解析配置"><a href="#步骤2：阿里云DNS解析配置" class="headerlink" title="步骤2：阿里云DNS解析配置"></a><strong>步骤2：阿里云DNS解析配置</strong></h3><ol>
+<li><strong>登录阿里云DNS控制台</strong><ul>
+<li>进入域名解析 → 找到你的域名</li>
+</ul>
+</li>
+<li>主机记录：test<br>记录类型：CNAME<br>记录值：七牛云提供的CNAME地址（如：xxx.qiniudns.com）<br>TTL：10分钟</li>
+<li><strong>重要：确保唯一性</strong><ul>
+<li>同一子域名只能有一条CNAME记录</li>
+<li>删除可能存在的冲突记录</li>
+</ul>
+</li>
+</ol>
+<h3 id="步骤3：验证配置"><a href="#步骤3：验证配置" class="headerlink" title="步骤3：验证配置"></a><strong>步骤3：验证配置</strong></h3><ol>
+<li><strong>等待DNS生效</strong>（5-30分钟）</li>
+<li><strong>测试访问</strong></li>
+</ol>
+<h2 id="二、常见问题与解决方案"><a href="#二、常见问题与解决方案" class="headerlink" title="二、常见问题与解决方案"></a><strong>二、常见问题与解决方案</strong></h2><h3 id="问题1：根目录无法访问（显示XML错误或AccessDenied）"><a href="#问题1：根目录无法访问（显示XML错误或AccessDenied）" class="headerlink" title="问题1：根目录无法访问（显示XML错误或AccessDenied）"></a><strong>问题1：根目录无法访问（显示XML错误或AccessDenied）</strong></h3><ul>
+<li><strong>症状</strong>：<code>/</code>无法访问，但<code>/index.html</code>可以访问</li>
+<li><strong>原因</strong>：CDN没有正确处理默认首页</li>
+<li><strong>解决方案</strong>：<ol>
+<li>确保七牛云存储空间已开启静态网站托管</li>
+<li>创建重定向文件<code>index</code>（无扩展名），内容跳转到<code>/index.html</code></li>
+<li>或在网站<code>index.html</code>中添加JavaScript重定向</li>
+</ol>
+</li>
+</ul>
+<h3 id="问题2：DNS解析冲突"><a href="#问题2：DNS解析冲突" class="headerlink" title="问题2：DNS解析冲突"></a><strong>问题2：DNS解析冲突</strong></h3><ul>
+<li><strong>症状</strong>：随机访问到不同服务商，时好时坏</li>
+<li><strong>原因</strong>：同一子域名有多条CNAME记录</li>
+<li><strong>解决方案</strong>：<ol>
+<li>检查阿里云DNS中的记录，删除所有CNAME记录，只保留一条指向七牛云</li>
+<li>使用<code>nslookup</code>命令验证解析结果</li>
+</ol>
+</li>
+</ul>
+<h3 id="问题3：HTTPS证书问题"><a href="#问题3：HTTPS证书问题" class="headerlink" title="问题3：HTTPS证书问题"></a><strong>问题3：HTTPS证书问题</strong></h3><ul>
+<li><strong>症状</strong>：HTTPS访问显示不安全</li>
+<li><strong>解决方案</strong>：<ol>
+<li>在七牛云CDN配置中开启HTTPS</li>
+<li>使用七牛云免费SSL证书</li>
+<li>或上传自定义SSL证书</li>
+</ol>
+</li>
+</ul>
+<h3 id="问题4：缓存问题"><a href="#问题4：缓存问题" class="headerlink" title="问题4：缓存问题"></a><strong>问题4：缓存问题</strong></h3><ul>
+<li><strong>症状</strong>：更新文件后访问到的仍是旧版本</li>
+<li><strong>解决方案</strong>：<ol>
+<li>在七牛云CDN控制台刷新缓存</li>
+<li>设置合适的缓存时间策略</li>
+<li>使用版本号或时间戳参数绕过缓存</li>
+</ol>
+</li>
+</ul>
+<h3 id="问题5：访问速度慢"><a href="#问题5：访问速度慢" class="headerlink" title="问题5：访问速度慢"></a><strong>问题5：访问速度慢</strong></h3><ul>
+<li><strong>症状</strong>：国内访问海外节点延迟高</li>
+<li><strong>解决方案</strong>：<ol>
+<li>选择离用户更近的存储区域（如香港）</li>
+<li>开启CDN加速</li>
+<li>压缩静态资源（图片、CSS、JS）</li>
+</ol>
+</li>
+</ul>
+<h2 id="三、配置检查清单"><a href="#三、配置检查清单" class="headerlink" title="三、配置检查清单"></a><strong>三、配置检查清单</strong></h2><h3 id="七牛云侧检查"><a href="#七牛云侧检查" class="headerlink" title="七牛云侧检查"></a><strong>七牛云侧检查</strong></h3><ul>
+<li>存储空间为海外区域（无需备案）</li>
+<li>访问权限为”公开读”</li>
+<li>已开启静态网站托管</li>
+<li>默认首页设置为<code>index.html</code></li>
+<li>CDN加速域名已绑定且状态正常</li>
+<li>域名所有权已验证</li>
+</ul>
+<h3 id="阿里云侧检查"><a href="#阿里云侧检查" class="headerlink" title="阿里云侧检查"></a><strong>阿里云侧检查</strong></h3><ul>
+<li>只有一条的CNAME记录</li>
+<li>CNAME值正确指向七牛云</li>
+<li>TTL设置合理（建议10分钟）</li>
+<li>无其他冲突记录（A记录、MX记录等）</li>
+</ul>
+<h3 id="网络侧检查"><a href="#网络侧检查" class="headerlink" title="网络侧检查"></a><strong>网络侧检查</strong></h3><ul>
+<li>DNS已生效（使用<code>nslookup</code>验证）</li>
+<li>无防火墙或网络策略拦截</li>
+<li>域名未在墙内被屏蔽</li>
+</ul>
+<h2 id="四、最佳实践建议"><a href="#四、最佳实践建议" class="headerlink" title="四、最佳实践建议"></a><strong>四、最佳实践建议</strong></h2><h3 id="1-域名管理规范"><a href="#1-域名管理规范" class="headerlink" title="1. 域名管理规范"></a><strong>1. 域名管理规范</strong></h3><ul>
+<li>使用子域名而非主域名，便于管理</li>
+<li>避免在多个服务商之间频繁切换</li>
+<li>重要变更时，先降低TTL值再修改记录</li>
+</ul>
+<h3 id="2-文件命名规范"><a href="#2-文件命名规范" class="headerlink" title="2. 文件命名规范"></a><strong>2. 文件命名规范</strong></h3><ul>
+<li>使用小写字母、数字和连字符</li>
+<li>避免中文和特殊字符</li>
+<li>图片使用WebP格式，CSS&#x2F;JS压缩</li>
+</ul>
+<h3 id="3-备份策略"><a href="#3-备份策略" class="headerlink" title="3. 备份策略"></a><strong>3. 备份策略</strong></h3><ul>
+<li>定期备份网站文件到本地</li>
+<li>使用自动化工具同步到多个存储</li>
+<li>保留旧版本文件以便快速回滚</li>
+</ul>
+<h3 id="4-监控告警"><a href="#4-监控告警" class="headerlink" title="4. 监控告警"></a><strong>4. 监控告警</strong></h3><ul>
+<li>设置网站可用性监控</li>
+<li>配置流量异常告警</li>
+<li>定期检查存储空间使用情况</li>
+</ul>
+<h2 id="五、故障排除流程"><a href="#五、故障排除流程" class="headerlink" title="五、故障排除流程"></a><strong>五、故障排除流程</strong></h2><h3 id="当网站无法访问时："><a href="#当网站无法访问时：" class="headerlink" title="当网站无法访问时："></a><strong>当网站无法访问时：</strong></h3><ol>
+<li><p><strong>第一步：检查DNS</strong></p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nslookup .morlvoid.pro</span><br><span class="line"># 应该只返回一个CNAME记录，指向七牛云</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>第二步：测试直接访问源站</strong></p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -I http://&lt;bucket&gt;.s3-cn-south-1.qiniucs.com/</span><br><span class="line"># 如果源站正常，问题在CDN</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>第三步：检查七牛云CDN状态</strong></p>
+<ul>
+<li>登录控制台查看域名状态</li>
+<li>检查CDN流量是否欠费</li>
+<li>查看错误日志</li>
+</ul>
+</li>
+<li><p><strong>第四步：检查文件权限</strong></p>
+<ul>
+<li>确认文件已上传完成</li>
+<li>确认文件权限为公开读</li>
+<li>确认文件名大小写正确</li>
+</ul>
+</li>
+</ol>
+<h2 id="六、替代方案对比"><a href="#六、替代方案对比" class="headerlink" title="六、替代方案对比"></a><strong>六、替代方案对比</strong></h2><table>
+<thead>
+<tr>
+<th align="left">方案</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left">适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>七牛云海外存储</strong></td>
+<td align="left">国内服务商，中文支持</td>
+<td align="left">海外节点少，配置复杂</td>
+<td align="left">小型静态网站</td>
+</tr>
+<tr>
+<td align="left"><strong>腾讯云COS香港</strong></td>
+<td align="left">配置简单，速度较快</td>
+<td align="left">国际站需单独注册</td>
+<td align="left">需要国内访问的海外站</td>
+</tr>
+<tr>
+<td align="left"><strong>Cloudflare R2</strong></td>
+<td align="left">无出口流量费，全球节点</td>
+<td align="left">英文界面，需要绑卡</td>
+<td align="left">流量大的静态资源</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS S3新加坡</strong></td>
+<td align="left">稳定可靠，功能丰富</td>
+<td align="left">价格较高，配置复杂</td>
+<td align="left">企业级应用</td>
+</tr>
+</tbody></table>
+<h2 id="七、经验教训总结"><a href="#七、经验教训总结" class="headerlink" title="七、经验教训总结"></a><strong>七、经验教训总结</strong></h2><ol>
+<li><strong>单一真相源</strong>：一个子域名只应指向一个服务，避免多路解析</li>
+<li><strong>逐步验证</strong>：每次只做一个变更，验证后再做下一个</li>
+<li><strong>文档记录</strong>：记录所有配置变更，便于问题回溯</li>
+<li><strong>测试环境</strong>：重要变更先在测试域名验证</li>
+<li><strong>监控先行</strong>：上线前先配置好监控告警</li>
+</ol>
+<h2 id="八、推荐工具"><a href="#八、推荐工具" class="headerlink" title="八、推荐工具"></a><strong>八、推荐工具</strong></h2><ol>
+<li><strong>DNS检测</strong>：<ul>
+<li><a target="_blank" rel="noopener" href="https://dnschecker.org/">https://dnschecker.org</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.whatsmydns.net/">https://www.whatsmydns.net</a></li>
+</ul>
+</li>
+<li><strong>网站监控</strong>：<ul>
+<li>UptimeRobot（免费）</li>
+<li>阿里云云监控</li>
+</ul>
+</li>
+<li><strong>文件同步</strong>：<ul>
+<li>rclone（多平台同步）</li>
+<li>qshell（七牛云官方工具）</li>
+</ul>
+</li>
+<li><strong>性能测试</strong>：<ul>
+<li>PageSpeed Insights</li>
+<li>WebPageTest</li>
+</ul>
+</li>
+</ol>
+<h2 id="七牛云Kodo优点"><a href="#七牛云Kodo优点" class="headerlink" title="七牛云Kodo优点"></a><strong>七牛云Kodo优点</strong></h2><ol>
+<li><strong>免备案海外节点</strong><ul>
+<li>香港、新加坡、北美等节点无需备案</li>
+<li>适合快速搭建海外站点</li>
+</ul>
+</li>
+<li><strong>价格相对便宜</strong><ul>
+<li>存储费用：约0.099元&#x2F;GB&#x2F;月（低于阿里云）</li>
+<li>有较多免费额度</li>
+<li>新用户优惠力度大</li>
+</ul>
+</li>
+<li><strong>聚焦存储场景</strong><ul>
+<li>针对图片、音视频存储优化</li>
+<li>内置图片处理（缩放、裁剪、水印）</li>
+<li>简单场景配置相对简单</li>
+</ul>
+</li>
+</ol>
+<h2 id="七牛云Kodo缺点"><a href="#七牛云Kodo缺点" class="headerlink" title="七牛云Kodo缺点"></a>七牛云Kodo缺点</h2><ol>
+<li><strong>稳定性严重不足</strong><ul>
+<li>CDN服务间歇性故障</li>
+<li>错误的路由配置（将请求误转到阿里云）</li>
+<li>缺乏企业级SLA保障</li>
+</ul>
+</li>
+<li><strong>功能不完整</strong><ul>
+<li>静态网站托管功能缺陷（默认首页支持差）</li>
+<li>缺乏URL重写、默认首页等基础配置</li>
+<li>控制台界面功能缺失</li>
+</ul>
+</li>
+<li><strong>技术支持薄弱</strong><ul>
+<li>问题排查困难</li>
+<li>技术文档不完整</li>
+<li>工单响应慢</li>
+</ul>
+</li>
+<li><strong>生态系统有限</strong><ul>
+<li>主要聚焦存储，缺乏计算、数据库等配套</li>
+<li>第三方集成较少</li>
+<li>迁移工具不完善</li>
+</ul>
+</li>
+</ol>
+<h2 id="选择七牛云Kodo的场景："><a href="#选择七牛云Kodo的场景：" class="headerlink" title="选择七牛云Kodo的场景："></a><strong>选择七牛云Kodo的场景：</strong></h2><ol>
+<li><strong>个人实验项目</strong>：低成本试错，对稳定性要求不高</li>
+<li><strong>纯海外用户</strong>：仅面向海外，无需国内加速</li>
+<li><strong>临时存储</strong>：短期文件存储，不需要长期可用性保证</li>
+<li><strong>特定功能需求</strong>：需要七牛云特定的音视频处理功能</li>
+</ol>
+<p><strong>七牛云Kodo</strong>适合<strong>成本敏感、对稳定性要求不高、技术团队能自行解决问题</strong>的场景。其CDN服务的稳定性问题使其不适合生产环境。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>发现七牛云的网络稳定性真的很差，文件无法及时更新，于是放弃了。</p>
 <h1 id="Canva可画"><a href="#Canva可画" class="headerlink" title="Canva可画"></a>Canva可画</h1><p>详见<a target="_blank" rel="noopener" href="https://www.morlvoid.pro/2026/02/02/%E5%85%B3%E4%BA%8ECanva%E5%8F%AF%E7%94%BB%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BB%BA%E7%AB%99%E7%9A%84%E5%B0%9D%E8%AF%95%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/">关于Canva可画无代码建站的尝试与相关技术研究</a></p>
 
                                                                                     

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Cloudflare Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  
+
+<article id="post-Cloudflare-Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <div class="article-inner">
+        
+            <header class="article-header">
+                 
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Cloudflare Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片
+</h1>
+ 
+
+                    
+            </header>
+            
+                
+                    <div class="article-meta">
+                        <a href="/2026/02/20/Cloudflare-Workers%E5%92%8Cimgproxy%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0html2canvas%E6%88%AA%E5%9B%BE%E8%B7%A8%E5%9F%9F%E5%9B%BE%E7%89%87/" class="article-date">
+  <time datetime="2026-02-19T18:18:55.000Z" itemprop="datePublished">2026-02-20</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+
+                                
+                                    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+
+                                        
+                    </div>
+                    
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+                                    
+                                            
+                                                <div class="article-entry " itemprop="articleBody">
+                                                    
+                                                        
+
+                                                            
+                                                                                <p>在开发纯前端的番剧九宫格工具时，我遇到了一个经典问题：<strong>html2canvas 无法截取来自第三方 API（如 AniList、Bangumi）的图片</strong>。原因是这些图片服务器没有设置 <code>Access-Control-Allow-Origin</code> 头，浏览器出于安全策略限制了 canvas 对跨域图片的读取。</p>
+<p>解决方案是用<strong>反向代理</strong>——让图片请求先经过自己的服务器，在响应中手动添加 CORS 头。这里使用了两种方式：<strong>自建 Cloudflare Worker</strong> 和 朋友提供了<strong>公共 imgproxy 服务</strong>。两者可以配合使用，提高成功率。</p>
+<span id="more"></span>
+
+<h2 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h2><ol>
+<li>前端不直接请求图片源站，而是请求代理服务（格式如 <code>https://代理地址/proxy?url=图片原始URL</code>）。</li>
+<li>代理服务收到请求后，用后端（Worker 或 imgproxy）去获取图片，同时可以自定义请求头（如 User-Agent、Referer）以绕过防盗链。</li>
+<li>代理服务将图片返回给前端，并在响应头中强制添加 <code>Access-Control-Allow-Origin: *</code>。</li>
+<li>此时对浏览器来说，图片来源于同源的代理地址，跨域限制消失，html2canvas 就能正常绘制。</li>
+</ol>
+<hr>
+<h2 id="方法一：Cloudflare-Workers（完全可控）"><a href="#方法一：Cloudflare-Workers（完全可控）" class="headerlink" title="方法一：Cloudflare Workers（完全可控）"></a>方法一：Cloudflare Workers（完全可控）</h2><h3 id="1-创建-Worker"><a href="#1-创建-Worker" class="headerlink" title="1. 创建 Worker"></a>1. 创建 Worker</h3><ul>
+<li>登录 Cloudflare Dashboard，进入 <strong>Workers &amp; Pages</strong>。</li>
+<li>点击 <strong>创建应用程序Create application</strong>  选择<strong>Start with Hello World!</strong>  ，或或 “<strong>+Add</strong>“ → <strong>创建 Workers</strong>。 </li>
+<li>命名（例如 <code>anime-image-proxy</code>）</li>
+<li>部署后点击 <strong>编辑代码</strong>，将以下 JavaScript 代码粘贴进去：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">fetch</span>(<span class="params">request</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(request.<span class="property">url</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// --- 1. 测试请求---</span></span><br><span class="line">    <span class="keyword">if</span> (url.<span class="property">searchParams</span>.<span class="title function_">has</span>(<span class="string">&quot;test&quot;</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&#x27;&lt;svg width=&quot;200&quot; height=&quot;200&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;rect width=&quot;200&quot; height=&quot;200&quot; fill=&quot;green&quot;/&gt;&lt;text x=&quot;20&quot; y=&quot;110&quot; fill=&quot;white&quot; font-size=&quot;20&quot;&gt;Worker OK&lt;/text&gt;&lt;/svg&gt;&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">headers</span>: &#123; <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;image/svg+xml&quot;</span>, <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span> &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// --- 2. 获取目标图片地址 ---</span></span><br><span class="line">    <span class="keyword">const</span> imageUrl = url.<span class="property">searchParams</span>.<span class="title function_">get</span>(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!imageUrl) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&quot;Missing &#x27;url&#x27; parameter&quot;</span>, &#123; <span class="attr">status</span>: <span class="number">400</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// --- 3.请求头 ---</span></span><br><span class="line">      <span class="comment">//    模拟 Chrome 浏览器的完整请求头，降低被源站拒绝的概率</span></span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(imageUrl, &#123;</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="comment">// 伪造一个常见的 User-Agent</span></span><br><span class="line">          <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36&quot;</span>,</span><br><span class="line">          <span class="comment">// 设置一个合理的 Referer，对于 Bangumi 图片，可以设为其主站</span></span><br><span class="line">          <span class="string">&quot;Referer&quot;</span>: <span class="string">&quot;https://bangumi.tv/&quot;</span>,</span><br><span class="line">          <span class="comment">// 模拟浏览器接收的格式</span></span><br><span class="line">          <span class="string">&quot;Accept&quot;</span>: <span class="string">&quot;image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8&quot;</span>,</span><br><span class="line">          <span class="string">&quot;Accept-Language&quot;</span>: <span class="string">&quot;zh-CN,zh;q=0.9,en;q=0.8&quot;</span>,</span><br><span class="line">          <span class="comment">// 告诉源站我们支持压缩</span></span><br><span class="line">          <span class="string">&quot;Accept-Encoding&quot;</span>: <span class="string">&quot;gzip, deflate, br&quot;</span>,</span><br><span class="line">          <span class="comment">// 保持连接活跃</span></span><br><span class="line">          <span class="string">&quot;Connection&quot;</span>: <span class="string">&quot;keep-alive&quot;</span>,</span><br><span class="line">          <span class="comment">// 有些源站会检查这个头</span></span><br><span class="line">          <span class="string">&quot;Sec-Fetch-Dest&quot;</span>: <span class="string">&quot;image&quot;</span>,</span><br><span class="line">          <span class="string">&quot;Sec-Fetch-Mode&quot;</span>: <span class="string">&quot;no-cors&quot;</span>,</span><br><span class="line">          <span class="string">&quot;Sec-Fetch-Site&quot;</span>: <span class="string">&quot;cross-site&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// --- 4. 处理源站返回的错误 ---</span></span><br><span class="line">      <span class="keyword">if</span> (!response.<span class="property">ok</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果源站返回404或403，我们也可以返回一个友好的占位图</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">`图片获取失败 (源站返回 <span class="subst">$&#123;response.status&#125;</span>)`</span>, &#123;</span><br><span class="line">          <span class="attr">status</span>: response.<span class="property">status</span>,</span><br><span class="line">          <span class="attr">headers</span>: &#123; <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;text/plain&quot;</span>, <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span> &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// --- 5. 检查内容类型 ---</span></span><br><span class="line">      <span class="keyword">const</span> contentType = response.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&quot;content-type&quot;</span>) || <span class="string">&quot;&quot;</span>;</span><br><span class="line">      <span class="keyword">if</span> (!contentType.<span class="title function_">startsWith</span>(<span class="string">&quot;image/&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&quot;源站返回的内容不是图片&quot;</span>, &#123; <span class="attr">status</span>: <span class="number">400</span> &#125;);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// --- 6. 构建成功响应，添加CORS头并转发图片 ---</span></span><br><span class="line">      <span class="keyword">const</span> modifiedResponse = <span class="keyword">new</span> <span class="title class_">Response</span>(response.<span class="property">body</span>, response);</span><br><span class="line">      modifiedResponse.<span class="property">headers</span>.<span class="title function_">set</span>(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">      <span class="comment">// 可以缓存图片，减少Worker请求次数</span></span><br><span class="line">      modifiedResponse.<span class="property">headers</span>.<span class="title function_">set</span>(<span class="string">&quot;Cache-Control&quot;</span>, <span class="string">&quot;public, max-age=86400&quot;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> modifiedResponse;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="comment">// --- 7. 记录详细错误并返回友好信息 ---</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`代理图片失败: <span class="subst">$&#123;imageUrl&#125;</span>`</span>, error.<span class="property">message</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">`代理失败: <span class="subst">$&#123;error.message&#125;</span>`</span>, &#123;</span><br><span class="line">        <span class="attr">status</span>: <span class="number">500</span>,</span><br><span class="line">        <span class="attr">headers</span>: &#123; <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span> &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-部署与使用"><a href="#2-部署与使用" class="headerlink" title="2. 部署与使用"></a>2. 部署与使用</h3><ul>
+<li><p>部署后获得 Worker 域名：<code>https://anime-image-proxy.你的用户名.workers.dev</code>。</p>
+</li>
+<li><p>在前端中构造代理 URL：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proxyUrl = <span class="string">`https://anime-image-proxy.你的用户名.workers.dev/proxy?url=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(原始图片URL)&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>将 <code>&lt;img&gt;</code> 的 <code>src</code> 或 CSS <code>background-image</code> 设为此 URL。</p>
+</li>
+</ul>
+<hr>
+<h2 id="方法二：imgproxy（专用图片处理服务）"><a href="#方法二：imgproxy（专用图片处理服务）" class="headerlink" title="方法二：imgproxy（专用图片处理服务）"></a>方法二：imgproxy（专用图片处理服务）</h2><p><a target="_blank" rel="noopener" href="https://github.com/imgproxy/imgproxy">imgproxy</a>是一个高性能的图片处理服务器，支持实时调整大小、格式转换，同时也支持简单的代理模式。可以自建，也可以使用公共实例。</p>
+<h3 id="使用公共实例"><a href="#使用公共实例" class="headerlink" title="使用公共实例"></a>使用公共实例</h3><p>这次使用了朋友提供的 imgproxy 地址：</p>
+<p>它已经配置好 CORS 头，可以直接在前端使用。用法与 Worker 完全相同，只需将代理地址替换即可。</p>
+<h3 id="自建-imgproxy（可选）"><a href="#自建-imgproxy（可选）" class="headerlink" title="自建 imgproxy（可选）"></a>自建 imgproxy（可选）</h3><p>如果你有服务器，可以通过 Docker 一键部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 darthsim/imgproxy</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后通过 <code>http://你的服务器:8080/insecure/图片URL</code> 访问（不安全模式），或配置签名密钥增加安全性。详细配置参考<a target="_blank" rel="noopener" href="https://docs.imgproxy.net/">官方文档</a>。</p>
+<hr>
+<h2 id="前端整合：多代理备用策略"><a href="#前端整合：多代理备用策略" class="headerlink" title="前端整合：多代理备用策略"></a>前端整合：多代理备用策略</h2><p>为了提高容错率，在前端维护一个代理列表，当一个代理加载失败时自动切换到下一个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">PROXY_LIST</span> = [</span><br><span class="line">  <span class="string">&#x27;https://你的worker域名/proxy?url=&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;https://imgproxy/api/image-proxy?url=&#x27;</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getProxyUrl</span>(<span class="params">originalUrl, proxyIndex = <span class="number">0</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable constant_">PROXY_LIST</span>[proxyIndex] + <span class="built_in">encodeURIComponent</span>(originalUrl);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 &lt;img&gt; 上使用 onerror 尝试下一个代理</span></span><br><span class="line">img.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> nextIndex = (当前索引 + <span class="number">1</span>) % <span class="variable constant_">PROXY_LIST</span>.<span class="property">length</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">src</span> = <span class="title function_">getProxyUrl</span>(<span class="variable language_">this</span>.<span class="property">dataset</span>.<span class="property">original</span>, nextIndex);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>URL 编码</strong>：原始图片 URL 必须经过 <code>encodeURIComponent</code>，否则参数可能被截断。</li>
+<li><strong>防盗链</strong>：部分图片源检查 <code>Referer</code>，可在代理请求中伪造合适的 <code>Referer</code>（如 <code>https://anilist.co</code> 或 <code>https://bangumi.tv</code>）。</li>
+<li><strong>缓存</strong>：在代理响应中加入 <code>Cache-Control</code> 头可以减轻代理服务器压力。</li>
+<li><strong>稳定性</strong>：公共 imgproxy 可能随时不可用，最好同时维护自建 Worker 作为备选。</li>
+<li><strong>隐私</strong>：使用公共代理时，图片请求会经过第三方服务器，敏感数据请谨慎。</li>
+</ol>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 Cloudflare Workers 和 imgproxy，我们低成本地解决了前端图片跨域问题，让 html2canvas 能够顺利截图来自任何源的图片。Worker 提供完全自控的代理逻辑，imgproxy 则是一个专业、现成的图片处理服务，两者结合可以实现高可用、高性能的图片代理层。这套方案不仅适用于番剧工具，也可以用在任何需要跨域图片渲染的场景（如海报生成、社交卡片等）。</p>
+<p>如果你也想在自己的项目中实现类似功能，不妨从部署一个 Cloudflare Worker 开始，它免费、简单，而且足够强大。</p>
+<h3 id="应用项目"><a href="#应用项目" class="headerlink" title="应用项目"></a>应用项目</h3><p><a target="_blank" rel="noopener" href="https://github.com/Morlvoid/Anime-pick-grid">Anime-pick-grid</a></p>
+<h4 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h4><p>你好请吃我的番剧安利-番剧收集器是一个基于网页的番剧推荐表生成工具，用户可以通过搜索和选择番剧，创建自己的番剧推荐九宫格或更多格子的推荐表。</p>
+
+                                                                                    
+                                                                                        <!-- reward -->
+                                                                                        
+                                                </div>
+                                                
+
+                                                    <!-- copyright -->
+                                                    
+                                                        <div class="declare">
+                                                            <ul class="post-copyright">
+                                                                <li>
+                                                                    <i class="ri-copyright-line"></i>
+                                                                    <strong>版权声明： </strong>
+                                                                    
+                                                                                本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+                                                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                            <footer class="article-footer">
+                                                                
+                                                                    
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/02/20/Cloudflare-Workers%E5%92%8Cimgproxy%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0html2canvas%E6%88%AA%E5%9B%BE%E8%B7%A8%E5%9F%9F%E5%9B%BE%E7%89%87/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+                                                                        
+                                                                            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+                                                            </footer>
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Github Page博客搭建
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2026/01/30/%E6%9C%89%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%88%B0%E4%BB%A3%E7%A0%81%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E5%8F%91%E4%B8%8E%E4%BD%8E%E4%BB%A3%E7%A0%81%E6%88%96%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BB%BA%E7%AB%99%E7%9A%84%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">有关设计到代码、可视化开发与低代码或无代码建站的技术总结</div>
+      </a>
+    
+  </nav>
+
+
+            
+                
+                    
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+
+                        
+                            
+                                
+
+                                    
+                                        
+                                            
+                                                
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      
+
+    <button class="navbar-toggle"></button>
+    <nav class="navbar" style="
+  
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background-color: transparent !important;
+">
+        
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+            </div>
+            
+                <ul class="nav nav-main">
+                    
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/" style="
+        color: #bbb;
+      ">
+                                主页
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/archives" style="
+        color: #bbb;
+      ">
+                                归档
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/categories" style="
+        color: #bbb;
+      ">
+                                分类
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/project" style="
+        color: #bbb;
+      ">
+                                项目
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/photos.html" style="
+        color: #bbb;
+      ">
+                                画作
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/friends" style="
+        color: #bbb;
+      ">
+                                友链
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/about" style="
+        color: #bbb;
+      ">
+                                关于
+                            </a>
+                        </li>
+                        
+                </ul>
+    </nav>
+    <nav class="navbar navbar-bottom" style="
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background-color: transparent !important;
+">
+        <ul class="nav">
+            <li class="nav-item">
+                
+                    <a class="nav-item-link nav-item-search" title="搜索" style="
+        color: #bbb;
+      ">
+                        <i class="ri-search-line"></i>
+                    </a>
+                    
+                        
+            </li>
+        </ul>
+    </nav>
+    <div class="search-form-wrap">
+        <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+    </div>
+
+    <style>
+        .nav-item-link:hover {
+            color: #fff !important;
+        }
+    </style>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

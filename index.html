@@ -284,7 +284,7 @@
                  
 <h2 itemprop="name">
   <a class="article-title" href="/2026/02/20/Cloudflare-Workers%E5%92%8Cimgproxy%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0html2canvas%E6%88%AA%E5%9B%BE%E8%B7%A8%E5%9F%9F%E5%9B%BE%E7%89%87/"
-    >Cloudflare Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片</a> 
+    >Cloudflare Workers和vercel worker实现图片反向代理实现html2canvas截图跨域图片</a> 
 </h2>
  
 
@@ -315,7 +315,7 @@
 
                                                             
                                                                 <p>在开发纯前端的番剧九宫格工具时，我遇到了一个经典问题：<strong>html2canvas 无法截取来自第三方 API（如 AniList、Bangumi）的图片</strong>。原因是这些图片服务器没有设置 <code>Access-Control-Allow-Origin</code> 头，浏览器出于安全策略限制了 canvas 对跨域图片的读取。</p>
-<p>解决方案是用<strong>反向代理</strong>——让图片请求先经过自己的服务器，在响应中手动添加 CORS 头。这里使用了两种方式：<strong>自建 Cloudflare Worker</strong> 和 朋友提供了<strong>公共 imgproxy 服务</strong>。两者可以配合使用，提高成功率。</p>
+<p>解决方案是用<strong>反向代理</strong>——让图片请求先经过自己的服务器，在响应中手动添加 CORS 头。这里使用了两种方式：<strong>自建 Cloudflare Worker</strong> 和 朋友提供了 <strong>vercel worker</strong> 来做反向代理。两者可以配合使用，提高成功率。</p>
 
                                                                     
                                                                         <a class="article-more-link" href="/2026/02/20/Cloudflare-Workers%E5%92%8Cimgproxy%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0html2canvas%E6%88%AA%E5%9B%BE%E8%B7%A8%E5%9F%9F%E5%9B%BE%E7%89%87/">

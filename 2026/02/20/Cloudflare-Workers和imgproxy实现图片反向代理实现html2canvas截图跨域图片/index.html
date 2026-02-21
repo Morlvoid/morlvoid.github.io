@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Cloudflare Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片 |  Mor | void</title>
+      <title>Cloudflare Workers和vercel worker实现图片反向代理实现html2canvas截图跨域图片 |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -64,7 +64,7 @@
             <header class="article-header">
                  
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Cloudflare Workers和imgproxy实现图片反向代理实现html2canvas截图跨域图片
+  Cloudflare Workers和vercel worker实现图片反向代理实现html2canvas截图跨域图片
 </h1>
  
 
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -122,17 +122,16 @@
 
                                                             
                                                                                 <p>在开发纯前端的番剧九宫格工具时，我遇到了一个经典问题：<strong>html2canvas 无法截取来自第三方 API（如 AniList、Bangumi）的图片</strong>。原因是这些图片服务器没有设置 <code>Access-Control-Allow-Origin</code> 头，浏览器出于安全策略限制了 canvas 对跨域图片的读取。</p>
-<p>解决方案是用<strong>反向代理</strong>——让图片请求先经过自己的服务器，在响应中手动添加 CORS 头。这里使用了两种方式：<strong>自建 Cloudflare Worker</strong> 和 朋友提供了<strong>公共 imgproxy 服务</strong>。两者可以配合使用，提高成功率。</p>
+<p>解决方案是用<strong>反向代理</strong>——让图片请求先经过自己的服务器，在响应中手动添加 CORS 头。这里使用了两种方式：<strong>自建 Cloudflare Worker</strong> 和 朋友提供了 <strong>vercel worker</strong> 来做反向代理。两者可以配合使用，提高成功率。</p>
 <span id="more"></span>
 
 <h2 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h2><ol>
 <li>前端不直接请求图片源站，而是请求代理服务（格式如 <code>https://代理地址/proxy?url=图片原始URL</code>）。</li>
-<li>代理服务收到请求后，用后端（Worker 或 imgproxy）去获取图片，同时可以自定义请求头（如 User-Agent、Referer）以绕过防盗链。</li>
+<li>代理服务收到请求后，用后端（Worker）去获取图片，同时可以自定义请求头（如 User-Agent、Referer）以绕过防盗链。</li>
 <li>代理服务将图片返回给前端，并在响应头中强制添加 <code>Access-Control-Allow-Origin: *</code>。</li>
 <li>此时对浏览器来说，图片来源于同源的代理地址，跨域限制消失，html2canvas 就能正常绘制。</li>
 </ol>
-<hr>
-<h2 id="方法一：Cloudflare-Workers（完全可控）"><a href="#方法一：Cloudflare-Workers（完全可控）" class="headerlink" title="方法一：Cloudflare Workers（完全可控）"></a>方法一：Cloudflare Workers（完全可控）</h2><h3 id="1-创建-Worker"><a href="#1-创建-Worker" class="headerlink" title="1. 创建 Worker"></a>1. 创建 Worker</h3><ul>
+<h2 id="Cloudflare-Workers"><a href="#Cloudflare-Workers" class="headerlink" title="Cloudflare Workers"></a>Cloudflare Workers</h2><h3 id="1-创建-Worker"><a href="#1-创建-Worker" class="headerlink" title="1. 创建 Worker"></a>1. 创建 Worker</h3><ul>
 <li>登录 Cloudflare Dashboard，进入 <strong>Workers &amp; Pages</strong>。</li>
 <li>点击 <strong>创建应用程序Create application</strong>  选择<strong>Start with Hello World!</strong>  ，或或 “<strong>+Add</strong>“ → <strong>创建 Workers</strong>。 </li>
 <li>命名（例如 <code>anime-image-proxy</code>）</li>
@@ -152,32 +151,15 @@
 </li>
 </ul>
 <hr>
-<h2 id="方法二：imgproxy（专用图片处理服务）"><a href="#方法二：imgproxy（专用图片处理服务）" class="headerlink" title="方法二：imgproxy（专用图片处理服务）"></a>方法二：imgproxy（专用图片处理服务）</h2><p><a target="_blank" rel="noopener" href="https://github.com/imgproxy/imgproxy">imgproxy</a>是一个高性能的图片处理服务器，支持实时调整大小、格式转换，同时也支持简单的代理模式。可以自建，也可以使用公共实例。</p>
-<h3 id="使用公共实例"><a href="#使用公共实例" class="headerlink" title="使用公共实例"></a>使用公共实例</h3><p>这次使用了朋友提供的 imgproxy 地址：</p>
-<p>它已经配置好 CORS 头，可以直接在前端使用。用法与 Worker 完全相同，只需将代理地址替换即可。</p>
-<h3 id="自建-imgproxy（可选）"><a href="#自建-imgproxy（可选）" class="headerlink" title="自建 imgproxy（可选）"></a>自建 imgproxy（可选）</h3><p>如果你有服务器，可以通过 Docker 一键部署：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 darthsim/imgproxy</span><br></pre></td></tr></table></figure>
-
-
-
-<p>然后通过 <code>http://你的服务器:8080/insecure/图片URL</code> 访问（不安全模式），或配置签名密钥增加安全性。详细配置参考<a target="_blank" rel="noopener" href="https://docs.imgproxy.net/">官方文档</a>。</p>
-<hr>
-<h2 id="前端整合：多代理备用策略"><a href="#前端整合：多代理备用策略" class="headerlink" title="前端整合：多代理备用策略"></a>前端整合：多代理备用策略</h2><p>为了提高容错率，在前端维护一个代理列表，当一个代理加载失败时自动切换到下一个。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">PROXY_LIST</span> = [</span><br><span class="line">  <span class="string">&#x27;https://你的worker域名/proxy?url=&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;https://imgproxy/api/image-proxy?url=&#x27;</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getProxyUrl</span>(<span class="params">originalUrl, proxyIndex = <span class="number">0</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable constant_">PROXY_LIST</span>[proxyIndex] + <span class="built_in">encodeURIComponent</span>(originalUrl);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 &lt;img&gt; 上使用 onerror 尝试下一个代理</span></span><br><span class="line">img.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> nextIndex = (当前索引 + <span class="number">1</span>) % <span class="variable constant_">PROXY_LIST</span>.<span class="property">length</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">src</span> = <span class="title function_">getProxyUrl</span>(<span class="variable language_">this</span>.<span class="property">dataset</span>.<span class="property">original</span>, nextIndex);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
+<h2 id="vercel-worker"><a href="#vercel-worker" class="headerlink" title="vercel worker"></a>vercel worker</h2><hr>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li><strong>URL 编码</strong>：原始图片 URL 必须经过 <code>encodeURIComponent</code>，否则参数可能被截断。</li>
 <li><strong>防盗链</strong>：部分图片源检查 <code>Referer</code>，可在代理请求中伪造合适的 <code>Referer</code>（如 <code>https://anilist.co</code> 或 <code>https://bangumi.tv</code>）。</li>
 <li><strong>缓存</strong>：在代理响应中加入 <code>Cache-Control</code> 头可以减轻代理服务器压力。</li>
-<li><strong>稳定性</strong>：公共 imgproxy 可能随时不可用，最好同时维护自建 Worker 作为备选。</li>
 <li><strong>隐私</strong>：使用公共代理时，图片请求会经过第三方服务器，敏感数据请谨慎。</li>
 </ol>
 <hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 Cloudflare Workers 和 imgproxy，我们低成本地解决了前端图片跨域问题，让 html2canvas 能够顺利截图来自任何源的图片。Worker 提供完全自控的代理逻辑，imgproxy 则是一个专业、现成的图片处理服务，两者结合可以实现高可用、高性能的图片代理层。这套方案不仅适用于番剧工具，也可以用在任何需要跨域图片渲染的场景（如海报生成、社交卡片等）。</p>
-<p>如果你也想在自己的项目中实现类似功能，不妨从部署一个 Cloudflare Worker 开始，它免费、简单，而且足够强大。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 Cloudflare Workers 和 vercel worker，我们低成本地解决了前端图片跨域问题，让 html2canvas 能够顺利截图来自任何源的图片。Worker 提供完全自控的代理逻辑。</p>
 <h3 id="应用项目"><a href="#应用项目" class="headerlink" title="应用项目"></a>应用项目</h3><p><a target="_blank" rel="noopener" href="https://github.com/Morlvoid/Anime-pick-grid">Anime-pick-grid</a></p>
 <h4 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h4><p>你好请吃我的番剧安利-番剧收集器是一个基于网页的番剧推荐表生成工具，用户可以通过搜索和选择番剧，创建自己的番剧推荐九宫格或更多格子的推荐表。</p>
 

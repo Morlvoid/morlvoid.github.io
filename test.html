@@ -162,6 +162,92 @@
             font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
         }
         
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap');
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            /* 浅灰背景，衬托透明感 */
+        }
+        /* 画布层 */
+        
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        /* 内容层 - 玻璃拟态卡片 */
+        
+        .glass-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            z-index: 10;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards 0.5s;
+        }
+        
+        .glass-card h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+        
+        .glass-card p {
+            color: #4b5563;
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+        /* 简单的淡入动画 */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* 角落装饰文字 */
+        
+        .corner-text {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 20;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
         body {
             background-color: var(--bg-white);
             background-image: var(--paper-texture);
@@ -257,32 +343,36 @@
         .star::after {
             transform: translateY(-50%) rotate(-45deg);
         }
-        /* 简约线条导航栏 */
+        /* 玻璃拟态导航栏 */
         
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 5%;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(5px);
         }
         
         .logo {
             font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--line-dark);
+            font-weight: 600;
+            color: #4b5563;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
         
         .logo span {
-            color: var(--accent-purple);
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
@@ -297,7 +387,7 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--line-dark);
+            color: #4b5563;
             font-weight: 400;
             font-size: 1.1rem;
             position: relative;
@@ -306,7 +396,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--accent-purple);
+            color: #6366f1;
         }
         /* 波浪下划线特效 */
         
@@ -317,7 +407,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-purple);
+            background: linear-gradient(135deg, #6366f1, #ec4899);
             transition: all 0.3s ease;
         }
         
@@ -331,25 +421,31 @@
             width: 80%;
             height: 1px;
             margin: 5rem auto;
-            background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+            background: linear-gradient(90deg, transparent, #6366f1, transparent);
             position: relative;
         }
-        /* 作品集部分 - 简约风格 */
+        /* 作品集部分 - 玻璃拟态风格 */
         
         .portfolio {
             padding: 0rem 0%;
-            /* background: var(--neutral-gray); */
             position: relative;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.4rem;
+            font-size: 3rem;
             margin-bottom: 4rem;
-            color: var(--line-dark);
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             position: relative;
-            font-weight: 300;
         }
         
         .section-title::after {
@@ -360,7 +456,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 2px;
-            background: var(--accent-purple);
+            background: linear-gradient(135deg, #6366f1, #ec4899);
             animation: waveLine 1.5s infinite linear;
         }
         /* 散列画廊样式 */
@@ -388,11 +484,11 @@
         
         .wrap {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
             margin: 0 auto;
             background-color: transparent;
-            overflow: hidden;
+            overflow: visible;
             perspective: 800px;
             -webkit-perspective: 800px;
         }
@@ -551,19 +647,33 @@
         [cloak] {
             opacity: 0 !important;
         }
-        /* 联系部分 */
+        /* 联系部分 - 玻璃拟态风格 */
         
         .contact {
             padding: 6rem 10%;
             text-align: center;
             position: relative;
+            margin-top: 2rem;
+            z-index: 10;
+        }
+        
+        .contact-content {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .contact p {
             max-width: 600px;
             margin: 2rem auto;
             font-size: 1.1rem;
-            color: var(--line-dark);
+            color: #4b5563;
             line-height: 1.8;
         }
         
@@ -579,39 +689,22 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            border-radius: 0;
-            background: transparent;
-            color: var(--line-dark);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            color: #4b5563;
             margin: 0 1rem;
             font-size: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
-            border: 1px solid var(--accent-purple);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.1);
         }
         
         .social-links a:hover {
-            background: var(--accent-purple);
-            color: var(--bg-white);
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
             transform: translateY(-5px);
-        }
-        
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-purple);
-            transform: translateY(100%);
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover::after {
-            animation: waveLine 0.8s linear infinite;
-            transform: translateY(0);
+            box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.2);
         }
         /* 页脚 */
         
@@ -776,8 +869,10 @@
         </div>
     </div>
 
-    <!-- 悬空星星背景 -->
-    <div class="floating-stars" id="stars-container"></div>
+    <!-- Canvas 用于绘制几何背景 -->
+    <div id="canvas-container">
+        <canvas id="artCanvas"></canvas>
+    </div>
 
     <!-- 导航栏 -->
     <nav>
@@ -823,18 +918,20 @@
 
     <!-- 联系部分 -->
     <section class="contact" id="contact">
-        <h2 class="section-title">与我联系</h2>
-        <p></p>
+        <div class="contact-content">
+            <h2 class="section-title">与我联系</h2>
+            <p></p>
 
-        <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="far fa-envelope"></i></a>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="far fa-envelope"></i></a>
+            </div>
+
+            <p>或发送邮件至: <a href="mailto:morlvoid@163.com">morlvoid@163.com</a></p>
         </div>
-
-        <p>或发送邮件至: <a href="mailto:morlvoid@163.com">morlvoid@163.com</a></p>
     </section>
 
     <!-- 页脚 -->
@@ -843,15 +940,233 @@
     </footer> -->
 
     <script>
+        // Canvas 背景动画
+        const canvas = document.getElementById('artCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let shapes = [];
+        let mouse = {
+            x: 0,
+            y: 0
+        };
+        let targetMouse = {
+            x: 0,
+            y: 0
+        };
+
+        // 配色方案：粉彩霓虹色
+        const colors = [{
+                fill: 'rgba(255, 99, 132, 0.6)',
+                stroke: '#ff6384'
+            }, // 粉红
+            {
+                fill: 'rgba(54, 162, 235, 0.6)',
+                stroke: '#36a2eb'
+            }, // 蓝色
+            {
+                fill: 'rgba(255, 206, 86, 0.6)',
+                stroke: '#ffce56'
+            }, // 黄色
+            {
+                fill: 'rgba(75, 192, 192, 0.6)',
+                stroke: '#4bc0c0'
+            }, // 青色
+            {
+                fill: 'rgba(153, 102, 255, 0.6)',
+                stroke: '#9966ff'
+            }, // 紫色
+            {
+                fill: 'rgba(255, 159, 64, 0.6)',
+                stroke: '#ff9f40'
+            } // 橙色
+        ];
+
+        // 初始化画布尺寸
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initShapes();
+        }
+
+        // 生成随机三角形
+        class Triangle {
+            constructor(x, y, size, colorSet, speedFactor) {
+                this.originX = x;
+                this.originY = y;
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = colorSet;
+                this.angle = Math.random() * Math.PI * 2;
+                this.speed = speedFactor;
+
+                // 随机生成三角形的三个顶点（相对于中心点）
+                this.points = [];
+                for (let i = 0; i < 3; i++) {
+                    // 稍微不规则一点，不要太像等边三角形
+                    const r = this.size * (0.8 + Math.random() * 0.4);
+                    const a = this.angle + (i * 2 * Math.PI / 3);
+                    this.points.push({
+                        dx: Math.cos(a) * r,
+                        dy: Math.sin(a) * r
+                    });
+                }
+            }
+
+            update(mouseX, mouseY) {
+                // 视差效果计算
+                // 距离鼠标越近，移动幅度越大，方向相反
+                const dx = mouseX - width / 2;
+                const dy = mouseY - height / 2;
+
+                // 限制移动范围
+                this.x = this.originX - dx * this.speed * 0.05;
+                this.y = this.originY - dy * this.speed * 0.05;
+            }
+
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.moveTo(this.x + this.points[0].dx, this.y + this.points[0].dy);
+                ctx.lineTo(this.x + this.points[1].dx, this.y + this.points[1].dy);
+                ctx.lineTo(this.x + this.points[2].dx, this.y + this.points[2].dy);
+                ctx.closePath();
+
+                // 填充
+                ctx.fillStyle = this.color.fill;
+                ctx.fill();
+
+                // 描边（白色细线，模仿原图的线条感）
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.stroke();
+
+                // 内部高光线条（增加立体感）
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + this.points[0].dx, this.y + this.points[0].dy);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        function initShapes() {
+            shapes = [];
+            // 定义四个角落的生成区域
+            const zones = [{
+                    x: 0,
+                    y: 0,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 左上
+                {
+                    x: width * 0.4,
+                    y: 0,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 右上
+                {
+                    x: 0,
+                    y: height * 0.4,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 左下
+                {
+                    x: width * 0.4,
+                    y: height * 0.4,
+                    w: width * 0.6,
+                    h: height * 0.6
+                } // 右下
+            ];
+
+            // 在中间留出一个空白区域，不生成三角形
+            const centerPadding = Math.min(width, height) * 0.25;
+            const centerRect = {
+                x: width / 2 - centerPadding,
+                y: height / 2 - centerPadding,
+                w: centerPadding * 2,
+                h: centerPadding * 2
+            };
+
+            zones.forEach(zone => {
+                // 每个区域生成的三角形数量
+                const count = 25;
+                for (let i = 0; i < count; i++) {
+                    let x, y;
+                    let safe = false;
+                    let attempts = 0;
+
+                    // 尝试随机位置，确保不在中间空白区
+                    while (!safe && attempts < 10) {
+                        x = zone.x + Math.random() * zone.w;
+                        y = zone.y + Math.random() * zone.h;
+
+                        // 检查是否在中间矩形之外
+                        if (x < centerRect.x || x > centerRect.x + centerRect.w ||
+                            y < centerRect.y || y > centerRect.y + centerRect.h) {
+                            safe = true;
+                        }
+                        attempts++;
+                    }
+
+                    if (safe) {
+                        const size = 40 + Math.random() * 100; // 随机大小
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        // 越靠近边缘移动越快，增加深度感
+                        const distFromCenter = Math.sqrt(Math.pow(x - width / 2, 2) + Math.pow(y - height / 2, 2));
+                        const speedFactor = distFromCenter / (width / 2);
+
+                        shapes.push(new Triangle(x, y, size, color, speedFactor));
+                    }
+                }
+            });
+        }
+
+        // 动画循环
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // 平滑鼠标移动
+            mouse.x += (targetMouse.x - mouse.x) * 0.1;
+            mouse.y += (targetMouse.y - mouse.y) * 0.1;
+
+            shapes.forEach(shape => {
+                shape.update(mouse.x, mouse.y);
+                shape.draw(ctx);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // 事件监听
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            targetMouse.x = e.clientX;
+            targetMouse.y = e.clientY;
+        });
+
+        // 触摸设备支持
+        window.addEventListener('touchmove', (e) => {
+            targetMouse.x = e.touches[0].clientX;
+            targetMouse.y = e.touches[0].clientY;
+        });
+
+        // 启动
+        resize();
+        animate();
+
         // 图片数据
         const data = [{
-            img: "Apairofbirds.jpg",
-            caption: "比翼鸟",
-            desc: "双翼的比翼鸟"
+            img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='800' height='600' fill='%23F5F7FA'/><path d='M400,200 Q500,100 600,200 Q500,300 400,200' stroke='%23FF6384' stroke-width='3' fill='none'/><path d='M200,400 Q300,300 400,400' stroke='%2336A2EB' stroke-width='3' fill='none'/><circle cx='400' cy='300' r='80' stroke='%23FFCE56' stroke-width='3' fill='none'/></svg>",
+            caption: "飞鸟",
+            desc: "自由飞翔的鸟儿，象征着无限可能。"
         }, {
-            img: "momo.png",
-            caption: "我",
-            desc: "镜子后的我"
+            img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='800' height='600' fill='%23F5F7FA'/><circle cx='400' cy='250' r='60' stroke='%239966FF' stroke-width='3' fill='none'/><path d='M340,400 L400,320 L460,400' stroke='%234BC0C0' stroke-width='3' fill='none'/><line x1='400' y1='310' x2='400' y2='400' stroke='%23FF9F40' stroke-width='3'/></svg>",
+            caption: "人像",
+            desc: "简约线条勾勒的人像，展现独特个性。"
         }, {
             img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'><rect width='800' height='600' fill='%23F5F7FA'/><path d='M240,400 Q360,160 520,400' stroke='%238A2BE2' stroke-width='3' fill='none'/><circle cx='360' cy='280' r='40' stroke='%238A2BE2' stroke-width='3' fill='none'/><circle cx='440' cy='280' r='40' stroke='%238A2BE2' stroke-width='3' fill='none'/></svg>",
             caption: "微笑",
@@ -1071,8 +1386,6 @@
 
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            createFloatingStars();
-
             // 等待所有图片加载完成
             waitForImages().then(() => {
                 // 隐藏加载屏幕

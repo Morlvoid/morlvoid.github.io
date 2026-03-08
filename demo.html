@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Geometric Art</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap');
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            /* 浅灰背景，衬托透明感 */
+        }
+        /* 画布层 */
+        
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        /* 内容层 - 玻璃拟态卡片 */
+        
+        .glass-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            z-index: 10;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards 0.5s;
+        }
+        
+        .glass-card h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+        
+        .glass-card p {
+            color: #4b5563;
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+        /* 简单的淡入动画 */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* 角落装饰文字 */
+        
+        .corner-text {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 20;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Canvas 用于绘制几何背景 -->
+    <div id="canvas-container">
+        <canvas id="artCanvas"></canvas>
+    </div>
+
+    <!-- 中间内容区域 -->
+    <div class="glass-card">
+        <h1>GEOMETRIC</h1>
+        <p>探索色彩与形状的无限可能。这是一个基于 Canvas 生成的动态低多边形艺术背景，结合 CSS 玻璃拟态效果。</p>
+    </div>
+
+    <div class="corner-text">Abstract Design 2024</div>
+
+    <script>
+        const canvas = document.getElementById('artCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let shapes = [];
+        let mouse = {
+            x: 0,
+            y: 0
+        };
+        let targetMouse = {
+            x: 0,
+            y: 0
+        };
+
+        // 配色方案：粉彩霓虹色
+        const colors = [{
+                fill: 'rgba(255, 99, 132, 0.6)',
+                stroke: '#ff6384'
+            }, // 粉红
+            {
+                fill: 'rgba(54, 162, 235, 0.6)',
+                stroke: '#36a2eb'
+            }, // 蓝色
+            {
+                fill: 'rgba(255, 206, 86, 0.6)',
+                stroke: '#ffce56'
+            }, // 黄色
+            {
+                fill: 'rgba(75, 192, 192, 0.6)',
+                stroke: '#4bc0c0'
+            }, // 青色
+            {
+                fill: 'rgba(153, 102, 255, 0.6)',
+                stroke: '#9966ff'
+            }, // 紫色
+            {
+                fill: 'rgba(255, 159, 64, 0.6)',
+                stroke: '#ff9f40'
+            } // 橙色
+        ];
+
+        // 初始化画布尺寸
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            initShapes();
+        }
+
+        // 生成随机三角形
+        class Triangle {
+            constructor(x, y, size, colorSet, speedFactor) {
+                this.originX = x;
+                this.originY = y;
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = colorSet;
+                this.angle = Math.random() * Math.PI * 2;
+                this.speed = speedFactor;
+
+                // 随机生成三角形的三个顶点（相对于中心点）
+                this.points = [];
+                for (let i = 0; i < 3; i++) {
+                    // 稍微不规则一点，不要太像等边三角形
+                    const r = this.size * (0.8 + Math.random() * 0.4);
+                    const a = this.angle + (i * 2 * Math.PI / 3);
+                    this.points.push({
+                        dx: Math.cos(a) * r,
+                        dy: Math.sin(a) * r
+                    });
+                }
+            }
+
+            update(mouseX, mouseY) {
+                // 视差效果计算
+                // 距离鼠标越近，移动幅度越大，方向相反
+                const dx = mouseX - width / 2;
+                const dy = mouseY - height / 2;
+
+                // 限制移动范围
+                this.x = this.originX - dx * this.speed * 0.05;
+                this.y = this.originY - dy * this.speed * 0.05;
+            }
+
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.moveTo(this.x + this.points[0].dx, this.y + this.points[0].dy);
+                ctx.lineTo(this.x + this.points[1].dx, this.y + this.points[1].dy);
+                ctx.lineTo(this.x + this.points[2].dx, this.y + this.points[2].dy);
+                ctx.closePath();
+
+                // 填充
+                ctx.fillStyle = this.color.fill;
+                ctx.fill();
+
+                // 描边（白色细线，模仿原图的线条感）
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.stroke();
+
+                // 内部高光线条（增加立体感）
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + this.points[0].dx, this.y + this.points[0].dy);
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        function initShapes() {
+            shapes = [];
+            // 定义四个角落的生成区域
+            const zones = [{
+                    x: 0,
+                    y: 0,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 左上
+                {
+                    x: width * 0.4,
+                    y: 0,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 右上
+                {
+                    x: 0,
+                    y: height * 0.4,
+                    w: width * 0.6,
+                    h: height * 0.6
+                }, // 左下
+                {
+                    x: width * 0.4,
+                    y: height * 0.4,
+                    w: width * 0.6,
+                    h: height * 0.6
+                } // 右下
+            ];
+
+            // 在中间留出一个空白区域，不生成三角形
+            const centerPadding = Math.min(width, height) * 0.25;
+            const centerRect = {
+                x: width / 2 - centerPadding,
+                y: height / 2 - centerPadding,
+                w: centerPadding * 2,
+                h: centerPadding * 2
+            };
+
+            zones.forEach(zone => {
+                // 每个区域生成的三角形数量
+                const count = 25;
+                for (let i = 0; i < count; i++) {
+                    let x, y;
+                    let safe = false;
+                    let attempts = 0;
+
+                    // 尝试随机位置，确保不在中间空白区
+                    while (!safe && attempts < 10) {
+                        x = zone.x + Math.random() * zone.w;
+                        y = zone.y + Math.random() * zone.h;
+
+                        // 检查是否在中间矩形之外
+                        if (x < centerRect.x || x > centerRect.x + centerRect.w ||
+                            y < centerRect.y || y > centerRect.y + centerRect.h) {
+                            safe = true;
+                        }
+                        attempts++;
+                    }
+
+                    if (safe) {
+                        const size = 40 + Math.random() * 100; // 随机大小
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        // 越靠近边缘移动越快，增加深度感
+                        const distFromCenter = Math.sqrt(Math.pow(x - width / 2, 2) + Math.pow(y - height / 2, 2));
+                        const speedFactor = distFromCenter / (width / 2);
+
+                        shapes.push(new Triangle(x, y, size, color, speedFactor));
+                    }
+                }
+            });
+        }
+
+        // 动画循环
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // 平滑鼠标移动
+            mouse.x += (targetMouse.x - mouse.x) * 0.1;
+            mouse.y += (targetMouse.y - mouse.y) * 0.1;
+
+            shapes.forEach(shape => {
+                shape.update(mouse.x, mouse.y);
+                shape.draw(ctx);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // 事件监听
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            targetMouse.x = e.clientX;
+            targetMouse.y = e.clientY;
+        });
+
+        // 触摸设备支持
+        window.addEventListener('touchmove', (e) => {
+            targetMouse.x = e.touches[0].clientX;
+            targetMouse.y = e.touches[0].clientY;
+        });
+
+        // 启动
+        resize();
+        animate();
+    </script>
+</body>
+
+</html>

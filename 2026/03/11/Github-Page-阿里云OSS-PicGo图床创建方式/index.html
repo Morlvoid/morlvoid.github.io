@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">2.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
@@ -107,6 +107,8 @@
                     
                         
                             
+    <div class="tocbot"></div>
+
 
 
 
@@ -119,7 +121,146 @@
                                                         
 
                                                             
-                                                                                <p><img src="https://www.blog-image.morlvoid.pro/blog/20260311222437533.png"></p>
+                                                                                <p>在GitHub Pages + Hexo 个人博客上，使用自己搭建的阿里云OSS图床PicGo来展示图片，降低GitHub Pages的储存压力。</p>
+<p><img src="https://www.blog-image.morlvoid.pro/blog/20260311222837780.png" alt="测试图片"></p>
+<span id="more"></span>
+
+<p>简单来说，<strong>在阿里云OSS上创建一个公共读的存储空间（Bucket），然后将图片上传至该空间并获得图片的访问链接，最后在你的Hexo文章中用这个链接即可。</strong>配合 <strong>PicGo</strong> 这样的图片上传工具使用效果更佳。</p>
+<table>
+<thead>
+<tr>
+<th align="left">对比维度</th>
+<th align="left">方案 A：手动上传与管理</th>
+<th align="left">方案 B：配合 PicGo 工具 (推荐)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>操作方式</strong></td>
+<td align="left">1. 登录阿里云OSS控制台，手动上传图片。 2. 上传后，在控制台复制图片的“文件URL”。 3. 回到你的Markdown编辑器，用 <code>![](复制的图片URL)</code> 格式插入。</td>
+<td align="left">1. 在 Typora 等Markdown编辑器中，直接将图片拖拽或截图粘贴。 2. PicGo 在后台自动将图片上传至你的OSS图床。 3. 编辑器中的图片链接被自动替换为OSS上的图片URL 。</td>
+</tr>
+<tr>
+<td align="left"><strong>优点</strong></td>
+<td align="left">无需额外安装工具，适合极偶尔插入图片的场景。</td>
+<td align="left"><strong>流程丝滑</strong>，写文章时几乎无感，极大地提升了写作体验和效率。</td>
+</tr>
+<tr>
+<td align="left"><strong>缺点</strong></td>
+<td align="left">操作繁琐，频繁上传图片会严重影响写作流。</td>
+<td align="left">需要额外安装和配置 PicGo 以及 Typora（或其他支持 PicGo 的编辑器）。</td>
+</tr>
+</tbody></table>
+<h3 id="阿里云OSS-PicGo"><a href="#阿里云OSS-PicGo" class="headerlink" title="阿里云OSS + PicGo"></a>阿里云OSS + PicGo</h3><ul>
+<li><strong>阿里云OSS</strong>：作为图片的云端“仓库”，为每张图片提供一个可以在互联网上访问的固定地址 。</li>
+<li><strong>PicGo</strong>：一款强大的开源图床管理工具，可以简化图片上传的步骤。它支持包括阿里云OSS在内的几乎所有主流图床，能帮你自动完成上传并将图片链接复制到剪贴板 。</li>
+</ul>
+<blockquote>
+<p>创建Bucket → 设置公共读 → 新建文件夹blog → 设置自定义域名 → 配置域名云解析DNS → 购买0元个人测试免费SSL证书确保网站为Https → 创建AccessKey→ 下载PicGo → 配置AccessKey和Bucket→ 测试使用</p>
+</blockquote>
+<ul>
+<li>建议<strong>先绑定自定义域名、配置DNS，再配置SSL证书</strong>，因为证书验证需要域名解析生效。</li>
+<li><strong>SSL证书</strong>：可以0元购买90天免费版。</li>
+</ul>
+<h4 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h4><ul>
+<li>一个阿里云账号（已实名认证）</li>
+<li>一个已备案（如果需要）的域名，例如 <code>your-blog-image.yourdomain.com</code></li>
+<li>本地安装好 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a>（图床管理工具），在【可国内下载链接】中下载.exe。</li>
+</ul>
+<h4 id="二：创建OSS-Bucket并配置基础权限"><a href="#二：创建OSS-Bucket并配置基础权限" class="headerlink" title="二：创建OSS Bucket并配置基础权限"></a>二：创建OSS Bucket并配置基础权限</h4><ol>
+<li><p><strong>创建 Bucket</strong></p>
+<ul>
+<li>登录阿里云控制台，进入<code>对象存储 OSS</code> 服务，点击「创建 Bucket」。</li>
+<li><strong>关键设置</strong>：<ul>
+<li><strong>Bucket 名称</strong>：自定义一个全局唯一的名称，例如 <code>your-blog-image</code>。</li>
+<li><strong>地域</strong>：建议选择<strong>中国香港</strong>。如果域名未备案，选择香港节点可以免备案，且访问速度相对较快 。</li>
+<li><strong>存储类型</strong>：选择「标准存储」即可 。</li>
+<li>确认创建。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>读写权限</strong>：<strong>设置为「公共读」</strong>。</li>
+<li>防盗链不开启或开启防盗链<strong>（Referer）允许空 Referer</strong>。左侧「权限管理」菜单中，点击「防盗链」，确保「<strong>Referer 是否允许为空</strong>」的选项是<strong>勾选状态</strong>（即为“允许”）。PicGo 上传时可能不携带 Referer，如果不允许空，请求会被拒绝。<em>注意：如果已经设置了白名单，请确保 <code>\*.yourblog.com</code> 等域名在列表中</em>。</li>
+<li>打开【文件管理】，【文件列表】，点击「新建目录」，输入名称如 <code>blog</code>（后续所有博客图片都上传至此目录，便于管理）。</li>
+</ol>
+</li>
+<li><p><strong>绑定自定义域名并开启HTTPS</strong></p>
+<ul>
+<li><p>这一步让图片可以使用自己的域名，并且支持HTTPS，避免被GitHub Pages屏蔽。</p>
+</li>
+<li><ol>
+<li>在OSS中绑定域名</li>
+</ol>
+<ul>
+<li>在Bucket左侧菜单，点击「传输管理」→「域名管理」。</li>
+<li>点击「绑定域名」，输入你的自定义域名，例如 &#96;your-blog-image.yourdomain.com&#96;&#96;。</li>
+<li><strong>重要</strong>：暂时不要勾选“自动添加CNAME”，因为稍后要手动去DNS服务商处添加解析。</li>
+<li>点击「提交」，此时域名状态显示“待绑定”或“CNAME未配置”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>在域名DNS服务商处添加CNAME记录</strong></p>
+<p>登录域名管理后台（阿里云云解析DNS、DNSPod），添加一条记录：</p>
+<ul>
+<li><strong>记录类型</strong>：<code>CNAME</code></li>
+<li><strong>主机记录</strong>：例如 <code>your-blog-image</code></li>
+<li><strong>记录值</strong>：填写在OSS Bucket概览页看到的 <strong>Bucket域名</strong>，例如 <code>your-blog-image.oss-cn-hongkong.aliyuncs.com</code></li>
+<li><strong>TTL</strong>：默认即可</li>
+</ul>
+<p>等待DNS解析生效（通常几分钟）。</p>
+</li>
+<li><p><strong>回到OSS控制台，完成绑定并配置HTTPS</strong></p>
+<ul>
+<li>在OSS中【Bucket配置】中的<strong>「域名管理」</strong>页面，刷新后应该看到域名状态变为“已绑定”。</li>
+<li>点击该域名右侧的「<strong>证书托管</strong>」。</li>
+<li><strong>选择SSL证书</strong>：<ul>
+<li>如果没有证书，搜索<strong>数字证书管理服务（原SSL证书)<strong>，点击</strong>SSL证书管理V2.0</strong>，找到**个人测试证书（原免费证书)**，0元购买供90天期免费证书，可续签。点击购买证书。</li>
+<li>购买成功后找到“申请证书”，按提示绑定域名，完成域名验证即可。</li>
+<li>申请大约10分钟，已有证书后显示“已签发”，点击下载，选择“其他”分类中的“PEM&#x2F;KEY”格式，这个格式兼容性比较强，后续配置OSS或者Web服务都可以使用。回到OSS<strong>「域名管理」</strong>页面，可选择「自定义上传」。</li>
+</ul>
+</li>
+<li>证书上传&#x2F;申请成功后，回到「域名管理」，再次点击「证书托管」，点击该域名右侧的「<strong>证书托管</strong>」，在证书名称下拉列表选择刚才的证书并提交，确保公钥和私钥粘贴完整。</li>
+<li>配置完成后，自定义域名就支持HTTPS了。</li>
+</ul>
+</li>
+<li><p><strong>可选：强制HTTPS访问</strong></p>
+<ul>
+<li><p>在Bucket的「权限控制」→「Bucket 授权策略」中添加如下策略，按语法策略添加，拒绝所有HTTP请求：点击编辑。</p>
+</li>
+<li><pre><code class="json">&#123;
+  &quot;Version&quot;: &quot;1&quot;,
+  &quot;Statement&quot;: [&#123;
+      &quot;Effect&quot;: &quot;Deny&quot;,
+      &quot;Action&quot;: [&quot;oss:*&quot;],
+      &quot;Principal&quot;: [&quot;*&quot;],
+      &quot;Resource&quot;: [
+        &quot;acs:oss:*:*:your-blog-image&quot;,
+        &quot;acs:oss:*:*:your-blog-image/*&quot;
+      ],
+      &quot;Condition&quot;: &#123;
+        &quot;Bool&quot;: &#123;
+          &quot;acs:SecureTransport&quot;: [&quot;false&quot;]
+        &#125;
+      &#125;
+  &#125;]
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - 点击保存。</span><br><span class="line"></span><br><span class="line">#### 三、创建阿里云AccessKey（用于PicGo）</span><br><span class="line"></span><br><span class="line">1. 鼠标悬停在阿里云右上角头像，点击【权限与安全】中的「**AccessKey**」。</span><br><span class="line">2. 选择「创建AccessKey」：</span><br><span class="line">   - 保存好生成的 **AccessKey ID** 和 **AccessKey Secret**。</span><br><span class="line">3. 确保状态为【启用】</span><br><span class="line"></span><br><span class="line">#### 四、配置PicGo</span><br><span class="line"></span><br><span class="line">1. 打开PicGo，点击左侧「图床设置」，选择「阿里云OSS」。</span><br><span class="line">2. 填写以下信息：</span><br><span class="line">   - **图床配置名**：自定义，如 `MyBlog`</span><br><span class="line">   - **设定KeyId**：粘贴刚才保存的AccessKey ID</span><br><span class="line">   - **设定KeySecret**：粘贴AccessKey Secret</span><br><span class="line">   - **设定Bucket**：你的Bucket名称，例如 `your-blog-image`</span><br><span class="line">   - **设定存储区域**：你的Bucket地域代码，如 `oss-cn-hongkong`（可在Bucket概览页找到）</span><br><span class="line">   - **设定存储路径**：你创建的文件夹名 + `/`，例如 `blog/`（这样图片会自动上传到该文件夹内）</span><br><span class="line">   - **设定自定义域名**：填写你绑定的HTTPS域名，例如 `https://your-blog-image.yourdomain.com`（**注意：必须以 `https://` 开头，结尾不要加`/`**）</span><br><span class="line">   - 最终效果：</span><br><span class="line">     - `MyBlog`</span><br><span class="line">     - AccessKey ID</span><br><span class="line">     - AccessKey Secret</span><br><span class="line">     - `your-blog-image`</span><br><span class="line">     - `oss-cn-hongkong`</span><br><span class="line">     - `blog/`</span><br><span class="line">     - `https://your-blog-image.yourdomain.com`</span><br><span class="line">3. 点击「确定」保存。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 五、测试上传</span><br><span class="line"></span><br><span class="line">1. 在PicGo主界面上传一张图片，如果配置正确，会显示上传成功。</span><br><span class="line">2. 点击图片右侧的「复制链接」，得到形如 `https://your-blog-image.yourdomain.com/blog/png.png` 的链接。</span><br><span class="line">3. 在浏览器中打开该链接，确认图片能正常显示。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 六、在Hexo博客中使用</span><br><span class="line"></span><br><span class="line">在写Markdown文章时，直接粘贴PicGo复制的图片链接即可：</span><br><span class="line"></span><br><span class="line">markdown</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://your-blog-image.yourdomain.com`/blog/png.png" alt="图片描述"></p>
+<pre><code>
+- **关于 PicGo 与 Typora 的集成**：
+
+  &gt; **💡 进阶技巧**：如果你使用 Typora 作为 Markdown 编辑器，可以在 Typora 的「偏好设置」-「图像」中，将“上传服务”选择为“PicGo(app)”，并指定 PicGo 的安装路径。此后，你在 Typora 中直接拖拽或粘贴图片，就会自动调用 PicGo 上传到 OSS 并将链接插入文章，实现真正的“无感”写图。
+
+- **关于图片处理（可选）**：
+
+  &gt; **💡 进阶技巧**：阿里云 OSS 提供了丰富的图片处理功能（如缩放、裁剪、加水印）。你可以在图片 URL 后面加上参数来实现，例如 `?x-oss-process=image/resize,w_600` 可以将图片宽度缩放至 600px。这非常适合在博客中根据不同场景动态调整图片尺寸。
+</code></pre>
 
                                                                                     
                                                                                         <!-- reward -->

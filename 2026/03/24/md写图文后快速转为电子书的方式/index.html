@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>杂谈：一人+AI开发产品完全不够！ |  Mor | void</title>
+      <title>md写图文后快速转为电子书的方式 |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -58,13 +58,13 @@
       <section class="outer">
   
 
-<article id="post-杂谈：一人-AI开发产品完全不够！" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-md写图文后快速转为电子书的方式" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
     <div class="article-inner">
         
             <header class="article-header">
                  
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  杂谈：一人+AI开发产品完全不够！
+  md写图文后快速转为电子书的方式
 </h1>
  
 
@@ -73,8 +73,8 @@
             
                 
                     <div class="article-meta">
-                        <a href="/2026/03/16/%E6%9D%82%E8%B0%88%EF%BC%9A%E4%B8%80%E4%BA%BA-AI%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E5%AE%8C%E5%85%A8%E4%B8%8D%E5%A4%9F%EF%BC%81/" class="article-date">
-  <time datetime="2026-03-16T10:36:06.000Z" itemprop="datePublished">2026-03-16</time>
+                        <a href="/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time datetime="2026-03-23T18:40:14.000Z" itemprop="datePublished">2026-03-24</time>
 </a>
                             
   <div class="article-category">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.8k</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">9 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -121,99 +121,87 @@
                                                         
 
                                                             
-                                                                                <p>杂谈内容：一人+AI开发产品完全不够！你还需要知道这8件事</p>
+                                                                                <p>大概算一篇随笔，在寻找用Markdown写图文内容可以快速转换成电子书的方式。对程序员来说还是md最好用了。粗略研究了一下ghmdlib、<strong>mark-deco</strong>、<strong>Pandoc</strong> 、**MkDocs **、md2html。</p>
 <span id="more"></span>
 
-<h2 id="一人-AI开发产品完全不够！你还需要知道这8件事"><a href="#一人-AI开发产品完全不够！你还需要知道这8件事" class="headerlink" title="一人+AI开发产品完全不够！你还需要知道这8件事"></a>一人+AI开发产品完全不够！你还需要知道这8件事</h2><p>最近身边的朋友都在借助AI开发网站&#x2F;APP。好哥们也有用AI做的记账App，用AI生成了代码和界面，给传统的记账软件增加了很多新奇的东西。</p>
-<p>最主要的测试用户就是我了。我试用了10分钟就发现了很严重的问题：</p>
-<ul>
-<li>没有多账户分开管理</li>
-<li>基本功能缺失</li>
-<li>新的记账功能概念奇怪</li>
+<h2 id="ghmdlib"><a href="#ghmdlib" class="headerlink" title="ghmdlib"></a>ghmdlib</h2><p>ghmdlib是个挺单纯冷门的小工具，很少看到有人使用。<strong>生成的 HTML 在视觉和语法渲染上完全复刻了 GitHub 的样式</strong>，能<strong>离线使用</strong>，主要适合需要<strong>离线、可移植的文档输出</strong>作者。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://pypi.org/project/ghmdlib/#description">https://pypi.org/project/ghmdlib/#description</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">ghmdlib&gt;ghmd --<span class="built_in">help</span></span><br><span class="line">usage: ghmdlib [--dark] [--light] [--download] [--embed-css] [--no-gfm] [--offline] [--preview] [-d] [-h] [-V]</span><br><span class="line">               PATH [PATH ...]</span><br><span class="line"></span><br><span class="line">A Markdown to GitHub-style HTML file conversion utility.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  PATH           Path(s) to the Markdown files to be converted.</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  --dark         Use a dark HTML theme. (Default)</span><br><span class="line">  --light        Use a light HTML theme.</span><br><span class="line"></span><br><span class="line">  --download     Download the latest CSS files from GitHub. These files are used <span class="keyword">for</span> offline mode.</span><br><span class="line">  --embed-css    Embed the CSS into the HTML file instead of using the &lt;<span class="built_in">link</span>&gt; tag.</span><br><span class="line">  --no-gfm       Use plain Markdown mode instead of GitHub Flavored Markdown (gfm).</span><br><span class="line">  --offline      Keep offline.</span><br><span class="line">                 - Uses cached CSS files and <span class="built_in">local</span> libraries <span class="keyword">for</span> the HTML conversion</span><br><span class="line">                   rather than the GitHub API.</span><br><span class="line">  --preview      Auto-open each converted HTML file <span class="keyword">in</span> a web browser <span class="keyword">for</span> viewing.</span><br><span class="line"></span><br><span class="line">  -d, --debug    Display debugging output to the terminal.</span><br><span class="line">  -h, --<span class="built_in">help</span>     Display this <span class="built_in">help</span> and usage, <span class="keyword">then</span> <span class="built_in">exit</span>.</span><br><span class="line">  -V, --version  Display the version, <span class="keyword">then</span> <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">ghmdlib v0.1.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-指定要转换的文件（必填）"><a href="#1-指定要转换的文件（必填）" class="headerlink" title="1. 指定要转换的文件（必填）"></a>1. 指定要转换的文件（必填）</h4><ul>
+<li><strong><code>PATH [PATH ...]</code></strong><br>你需要在这里填写要转换的 Markdown 文件的路径（可以同时指定多个文件，用空格隔开）。<br>例如：<code>ghmd README.md docs/guide.md</code></li>
 </ul>
-<p>我说：“你这不对。”好哥们不服气，打电话掰头三个小时。我扮演的是产品经理的角色，他扮演的是开发者的角色。</p>
-<p>掰头过后我发现：有AI的强力辅助，也不等于能做产品。一个人+AI，完全不够。</p>
-<p>如果你也想一个人用AI做产品，有几件事，你最好在开始做之前就知道。</p>
-<h3 id="1-灵感不是灵机一动，是你在市场发现了缺口，而你有办法填补这个缺口"><a href="#1-灵感不是灵机一动，是你在市场发现了缺口，而你有办法填补这个缺口" class="headerlink" title="1. 灵感不是灵机一动，是你在市场发现了缺口，而你有办法填补这个缺口"></a>1. 灵感不是灵机一动，是你在市场发现了缺口，而你有办法填补这个缺口</h3><p>我的朋友总问我：“你好像一直在写新东西，你怎么总有做东西的灵感？”</p>
-<p>我的回答是：别等灵感，去用产品，去发现“为什么这个功能这么难用”，去问“为什么没人做这个”。</p>
-<p>我发现好哥们只调研了微信和支付宝两个“记账”软件——其实它们根本不是记账软件，只是支付工具。</p>
-<p>真正的记账软件是有多账户、转账、预算、利息。他没有用过所以不知道。</p>
-<p>灵感不是天上掉下来的，是你比别人多看了两眼，然后说：“这个缺口，我能填。”</p>
-<h3 id="2-同类型产品的竞争力不是标新立异，是“人有我优，人无我有”"><a href="#2-同类型产品的竞争力不是标新立异，是“人有我优，人无我有”" class="headerlink" title="2. 同类型产品的竞争力不是标新立异，是“人有我优，人无我有”"></a>2. 同类型产品的竞争力不是标新立异，是“人有我优，人无我有”</h3><p>好哥们的记账App，做了“日式游戏RPG皮肤”——收入是增益，支出是受击，负载是诅咒，能看到自己的“冒险装备”，很有亮点，也非常有趣。</p>
-<p>但他丢了转账、负债、月固定支出——这些基本功能没了。仅此一个问题就掰头了两个小时。</p>
-<p>基本功能是入场券，亮点才是加分项。没有入场券，加分项毫无意义。</p>
-<p>你的产品可以不一样，但前提是：别人有的，你都有；别人没有的，你再加，这样才是产品的核心亮点和卖点。如果没有基本的功能只专注于“独特”和“与众不同”，反而是画地为牢。</p>
-<h3 id="3-流程不是写完代码即可上线，是从市场中来到为用户设计到进入市场中去验证的完整闭环"><a href="#3-流程不是写完代码即可上线，是从市场中来到为用户设计到进入市场中去验证的完整闭环" class="headerlink" title="3. 流程不是写完代码即可上线，是从市场中来到为用户设计到进入市场中去验证的完整闭环"></a>3. 流程不是写完代码即可上线，是从市场中来到为用户设计到进入市场中去验证的完整闭环</h3><p>几年前曾经加入过为爱发电的OC世界观APP的开发团队，有美工、有程序、有世界观设计。按理说人多力量大。</p>
-<p>但项目卡住了——因为大家都在讨论“自己想要什么”。OC时间轴、OC关系网、OC画廊、印象曲背景、OC捡手机等等等等，却没人能穿一条线“每个想要的功能如何用程序在页面上呈现能让用户的使用体验最完整”。</p>
-<p>美术组懂得好看的排版，但不清楚页面对用户来说除了好看，还需要好的功能使用动线。</p>
-<p>世界观组懂得通过文字、图片、视频、音乐将OC做得更加生动和贴近生活，但不知道用户如何在复杂多样的内容中理清思路。</p>
-<p>开发组懂得功能的邻近可以增加用户体验，但又急需美术组和世界观组给出丰富的内容设计。</p>
-<p>大家的专业都是各自的内容，在自己的领域设计自己的想法，给出的设计程序组却没法用——最终APP以失败告终。</p>
-<p>解决方法是团队的大家都能懂这样一条线：<br>发现痛点（用户缺什么和需要什么）→ </p>
-<p>调研市场（别人在提升用户体验这方面怎么做）→ </p>
-<p>确认需求（到底做什么可以既保证用户的习惯又能新增内容亮点）→ </p>
-<p>设计UI&#x2F;UX（什么样的美术设计和动效设计可以让用户使用便利和心情愉悦）→ </p>
-<p>开发代码（怎么实现完整的功能并优化用户体验）→ </p>
-<p>内部测试（有没有bug和合适的提示）→ </p>
-<p>部署上线（让用户试用，重点关注用户的使用体验）→ </p>
-<p>收集反馈（哪些方面用户不便，怎么改进）</p>
-<p>从市场中来到市场中去，了解需求也懂得代码功能结构的呈现，在满足用户各方面需求的条件下再进行市场验证，才是完整的闭环。如果团队不理解这样一条线就会卡住。</p>
-<h3 id="4-用户需要情绪价值，不只是好看，是“用户看着舒服，用着舒服”，这比代码还重要"><a href="#4-用户需要情绪价值，不只是好看，是“用户看着舒服，用着舒服”，这比代码还重要" class="headerlink" title="4. 用户需要情绪价值，不只是好看，是“用户看着舒服，用着舒服”，这比代码还重要"></a>4. 用户需要情绪价值，不只是好看，是“用户看着舒服，用着舒服”，这比代码还重要</h3><p>好哥们的App界面：上半屏白，下半屏黑，字体颜色彩色很多，动态图也很抢眼。我问：“你让用户第一眼看哪儿？”<br>他说：“看功能啊。”<br>我说：“用户根本看不到功能，眼睛被这么大的gif动态图抓走了。”</p>
-<p>情绪价值不是“我觉得酷”，是“用户觉得顺”。</p>
-<p>重要的功能，放在用户眼睛最舒服的位置；颜色引导视线，而不是分散注意力；动线设计让用户下意识知道下一步点哪儿。</p>
-<p>代码能让功能跑起来，但只有好的动线设计能让用户留下来。</p>
-<h3 id="5-用户多样性不是意外，是必须提前预设的，做好所有基础功能才能接好大多用户的需求"><a href="#5-用户多样性不是意外，是必须提前预设的，做好所有基础功能才能接好大多用户的需求" class="headerlink" title="5. 用户多样性不是意外，是必须提前预设的，做好所有基础功能才能接好大多用户的需求"></a>5. 用户多样性不是意外，是必须提前预设的，做好所有基础功能才能接好大多用户的需求</h3><p>我跟我好哥们说了一句话，他到现在都不服气：</p>
-<p>“你的记账App，很多词语用的太难懂太专业性了，不是所有用户都知道金融学里的各种资金的概念，也不是所有人都会很在乎地去全部查一遍什么意思，要给各种各样的用户预留能看懂的文本。”</p>
-<p>用户永远超出开发者的想象。 他们会用你的销售人脉App做小说人物关系剧情梳理，会用你的记账App记周边谷子演唱会门票物料市场价值，会用你的养育植物百科教程APP做为画画的参考……用记账软件的用户未必是想要记账。</p>
-<p>所以，基础功能必须完整。</p>
-<p>不是为了“预设场景”，而是为了给用户留出“自由挪用”的空间。</p>
-<h3 id="6-技术选型不是越牛越好，也不是只有固定的一种，是越合适越好"><a href="#6-技术选型不是越牛越好，也不是只有固定的一种，是越合适越好" class="headerlink" title="6. 技术选型不是越牛越好，也不是只有固定的一种，是越合适越好"></a>6. 技术选型不是越牛越好，也不是只有固定的一种，是越合适越好</h3><p>很多人一上来就想：“我要用最牛的技术栈！前后端分离！多平台全适配！微服务！分布式！……”</p>
-<p>我问：你做的是什么？一个静态博客？一个小程序？一个工具网站？考虑了一个人管理微服务的服务器和维护成本吗？</p>
-<p>杀鸡用牛刀，刀会累，你也会累。</p>
-<p>我一般这样选：</p>
-<p>先考虑要做什么功能?面相的用户群体是哪些?一定要动态的理由?有什么内容?有多少人力?</p>
-<p>要不要考虑SEO?需不需要多平台?多平台是哪几个平台……</p>
-<p>技术是手段，不是目的。</p>
-<p>用户关心的是好不好用，开发者也应切记以用户的使用体验为主。</p>
-<h3 id="7-单纯的代码没有走入人心的能力，无论是市场需求还是舒心的配色排版美术，都必须“略懂”才能驾驭"><a href="#7-单纯的代码没有走入人心的能力，无论是市场需求还是舒心的配色排版美术，都必须“略懂”才能驾驭" class="headerlink" title="7. 单纯的代码没有走入人心的能力，无论是市场需求还是舒心的配色排版美术，都必须“略懂”才能驾驭"></a>7. 单纯的代码没有走入人心的能力，无论是市场需求还是舒心的配色排版美术，都必须“略懂”才能驾驭</h3><p>有人问：“我什么都不懂，全交给AI行吗？”</p>
-<p>我的回答是：不行。</p>
-<p>你可以把代码交给AI，但你不能把“判断”交给AI。</p>
-<ul>
-<li><p>你懂一点市场需求，才能让DeepSeek帮你做竞品分析，才知道它给的数据对不对。</p>
-</li>
-<li><p>你懂一点UI设计，才能让豆包生成你想要的风格，才知道哪个配色用户看着舒服。</p>
-</li>
-<li><p>你懂一点技术选型，才能让Gemini写靠谱的代码，才知道哪个技术栈未来能扩展。</p>
-</li>
+<hr>
+<h4 id="2-控制生成的-HTML-外观（主题）"><a href="#2-控制生成的-HTML-外观（主题）" class="headerlink" title="2. 控制生成的 HTML 外观（主题）"></a>2. 控制生成的 HTML 外观（主题）</h4><ul>
+<li><strong><code>--dark</code></strong><br>使用深色主题（这是默认选项，不写也会是深色）。</li>
+<li><strong><code>--light</code></strong><br>使用浅色主题。<br>两者互斥，只能选一个。</li>
 </ul>
-<p>AI是你的实习生，不是你的老板。你得懂，才能管。</p>
-<h3 id="8-AI不是万能的主人，他们也需要各司其职和专业看护"><a href="#8-AI不是万能的主人，他们也需要各司其职和专业看护" class="headerlink" title="8. AI不是万能的主人，他们也需要各司其职和专业看护"></a>8. AI不是万能的主人，他们也需要各司其职和专业看护</h3><p>有人最近问我：“我用Open Claw这种全能AI，让它全权接管所有工作，可以吗？”</p>
-<p>我说：绝对不行。</p>
-<p>Open Claw确实能操控电脑、操作软件、写代码。但问题是：</p>
-<ul>
-<li>它不擅长发现市场痛点（它没当过用户）</li>
-<li>它不擅长UI设计（它不懂“看着舒服”是什么感觉）</li>
-<li>它不擅长模拟用户测试（它不是人）</li>
+<hr>
+<h4 id="3-网络与转换方式"><a href="#3-网络与转换方式" class="headerlink" title="3. 网络与转换方式"></a>3. 网络与转换方式</h4><ul>
+<li><strong><code>--offline</code></strong><br><strong>离线模式</strong>：不调用 GitHub API，而是使用本地缓存的 CSS 和内置转换器生成 HTML。<br>👉 这是你之前遇到 API 错误时最推荐的选项，可以完全避免网络问题。</li>
+<li><strong><code>--no-gfm</code></strong><br>不使用 GitHub Flavored Markdown（GFM），即仅用普通 Markdown 语法（不支持表格、任务列表等 GFM 扩展）。默认是启用 GFM 的。</li>
+<li><strong><code>--download</code></strong><br>下载最新的 GitHub CSS 文件到本地（供离线模式使用）。通常你只需要在初次使用离线模式前执行一次，之后就能一直用本地样式。</li>
 </ul>
-<p>更危险的是：给它电脑权限，等于把家门钥匙交给一个你并不完全了解的陌生人。 </p>
-<p>它可能为了“优化用户体验、提高代码速度”，擅自砍掉了能提升用户使用体验的反馈动效——当你醒来时，发现产品变成了硬邦邦的工具箱。</p>
-<p>真正的AI协作，不是找一个“全能管家”，而是组建一个“专家团队”：</p>
-<ul>
-<li>DeepSeek做市场调研（它擅长分析）</li>
-<li>豆包生图（它懂视觉）</li>
-<li>Kimi生成CSS（它能理解美术设计稿）</li>
-<li>Gemini写代码（它擅长编程）</li>
-<li>你需要全都懂，全都能看得出错在哪，不合理在哪，负责指挥、判断、兜底</li>
+<h4 id="4-生成-HTML-文件的处理"><a href="#4-生成-HTML-文件的处理" class="headerlink" title="4. 生成 HTML 文件的处理"></a>4. 生成 HTML 文件的处理</h4><ul>
+<li><strong><code>--embed-css</code></strong><br>将 CSS 样式直接嵌入 HTML 文件内部，而不是通过 <code>&lt;link&gt;</code> 标签外链。<br>这样生成的 HTML 是一个独立的单文件，方便分享（但文件体积会稍大）。</li>
+<li><strong><code>--preview</code></strong><br>转换完成后自动用默认浏览器打开生成的 HTML 文件。</li>
 </ul>
-<p>AI需要各司其职，更需要专业看护。你是那个看护人。</p>
-<h3 id="最后，给你三件今天就能做的事"><a href="#最后，给你三件今天就能做的事" class="headerlink" title="最后，给你三件今天就能做的事"></a>最后，给你三件今天就能做的事</h3><p>如果你也想一个人+AI做产品，从今天开始：</p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ghmd README.md --light          <span class="comment"># 转换单个文件，使用浅色主题</span></span><br><span class="line">ghmd file1.md file2.md --dark   <span class="comment"># 转换多个文件，使用深色主题（默认）</span></span><br><span class="line">ghmd docs/*.md --offline        <span class="comment"># 使用通配符转换 docs 下所有 md 文件，离线模式</span></span><br></pre></td></tr></table></figure>
+
+<p>假设希望用 Markdown 写教程，最终输出一个 <strong>独立的、GitHub 风格的单文件 HTML</strong>（带目录），可以：</p>
 <ol>
-<li>拆一个你常用的App：找出它的“基本功能”和“亮点功能”。想想如果去掉亮点，它还完整吗？看一看资深投资者的访谈，了解他们看中一个APP的原因。不必真的化身产品经理和互联网投资经理，至少应该知道什么样的功能经过了市场的验证已经成为了必需品。</li>
-<li>用AI生一个界面，然后问自己：如果我是用户，我第一眼看哪儿？我想点哪儿？哪个颜色让我舒服？然后找一找UI设计的教学视频，不必真的学会用Figma做完整的产品原型图，至少应该知道什么样的设计用户喜欢。</li>
-<li>尝试手写一个界面设计，尝试寻找自己需要用的功能是否方便，哪几个功能放在一个页面使用更加流畅？哪几个功能放在同一位置更加整体？</li>
+<li><p><strong>使用 Markdown 扩展生成目录</strong><br>在 Markdown 文件中加入 <code>[TOC]</code>（某些渲染器支持），或使用 <code>pandoc</code> 生成目录。</p>
+</li>
+<li><p><strong>将多个 Markdown 文件合并</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc chapter1.md chapter2.md appendix.md -o full.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>用 ghmdlib 转换为 HTML</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ghmd full.md --embed-css --light --preview</span><br></pre></td></tr></table></figure>
+
+<p>这样得到的是一个完整的、带有 GitHub 样式的 HTML 文件，适合在线阅读或分发。</p>
+</li>
 </ol>
-<p>借助AI开发产品稀缺的不是技术，是判断力。</p>
-<p>判断力，需要你对从市场到美术到开发所有的东西都“略懂”。</p>
+<h2 id="mark-deco"><a href="#mark-deco" class="headerlink" title="mark-deco"></a><strong>mark-deco</strong></h2><p><strong>mark-deco</strong> 是一个用 TypeScript 编写的、灵活的 Markdown 转 HTML 库，可以理解为之前提到的 <code>ghmdlib</code> 的“增强版”或“功能更全的同类工具”。都是将 Markdown 转换为 HTML，但 mark-deco 的功能更丰富，定制性也更强。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/mark-deco">https://www.npmjs.com/package/mark-deco</a></p>
+<p>mark-deco 的出现，其实是为了满足比 <code>ghmdlib</code> 更复杂的定制需求。如果遇到以下情况，可以考虑用它来替代 <code>ghmdlib</code>：</p>
+<ol>
+<li><strong>需要处理文档元数据</strong>：你的 Markdown 文件开头有 <code>--- title: ... ---</code> 这样的 Frontmatter 信息，需要在转换时提取出来。</li>
+<li><strong>需要嵌入图表或外部内容</strong>：文档里包含流程图（Mermaid）、需要自动解析的链接（oEmbed），希望这些能自动变成可交互的 HTML 元素。</li>
+<li><strong>需要将转换功能集成到自己的项目里</strong>：你想在自己写的 Node.js 脚本或网页应用里，实现 Markdown 转 HTML 的功能，并且希望对转换过程进行编程控制。</li>
+</ol>
+<h2 id="Pandoc"><a href="#Pandoc" class="headerlink" title="Pandoc"></a><strong>Pandoc</strong></h2><p><strong>Pandoc</strong>适合<strong>单篇文档需要多种输出格式</strong>（PDF、EPUB、Word）。它的核心功能是在几十种格式之间相互转换，比如 Markdown → HTML、Markdown → PDF、Markdown → EPUB、Markdown → Word 等等。对于需要跨格式转换文档的开发者、作者或学者来说，Pandoc 提供了一种简便且强大的解决方案。</p>
+<p>它支持：</p>
+<ul>
+<li><strong>文本格式</strong>：如 Markdown、LaTeX、reStructuredText、HTML。</li>
+<li><strong>办公文档格式</strong>：如 Microsoft Word (.docx)、OpenDocument 格式（.odt）。</li>
+<li><strong>电子书格式</strong>：如 EPUB 和 MOBI。</li>
+<li><strong>PDF</strong>：通过与 LaTeX 配合使用，可以输出高质量的 PDF 文档。</li>
+</ul>
+<p>官网：<a target="_blank" rel="noopener" href="https://pandoc.org/">https://pandoc.org/</a></p>
+<p>中文官网：<a target="_blank" rel="noopener" href="https://pandoc.cn/">https://pandoc.cn/</a></p>
+<p>在线尝试：<a target="_blank" rel="noopener" href="https://pandoc.org/try/">https://pandoc.org/try/</a></p>
+<p>官方下载：<a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a></p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown → HTML（独立完整文档）</span></span><br><span class="line">pandoc input.md -s -o output.html</span><br><span class="line"></span><br><span class="line"><span class="comment"># Markdown → PDF</span></span><br><span class="line">pandoc input.md -o output.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并多个文件 → EPUB 电子书</span></span><br><span class="line">pandoc chapter1.md chapter2.md -o book.epub</span><br><span class="line"></span><br><span class="line"><span class="comment"># LaTeX → Word</span></span><br><span class="line">pandoc paper.tex -o paper.docx</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winget install --<span class="built_in">source</span> winget --exact --<span class="built_in">id</span> JohnMacFarlane.Pandoc</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install rsvg-convert python miktex</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>具体的使用还是挺麻烦的，github已有的css主题样式不够好看或有些许配置问题。推荐自定义css。</p>
+<p>具体的电子书使用，需要文件目录结构为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-intro.md</span><br><span class="line">02-chapter1.md</span><br><span class="line">03-chapter2.md</span><br><span class="line">04-appendix.md</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MkDocs"><a href="#MkDocs" class="headerlink" title="**MkDocs **"></a>**MkDocs **</h2><p>MkDocs倒是一个比较热门的 <strong>静态站点生成器</strong>，属于静态站点生成器（SSG）的生态了，与依赖 Node.js 环境的 Hexo 以及借助 Go 语言编译的 Hugo 不同，Mkdocs 仅需基础的 Python 环境即可运行，被很多知名开源项目选中，用于搭建和项目相关的文档网站。它的优势是快速构建一个结构清晰、便于阅读的静态网站（或者说在线电子书）。</p>
+<p><a target="_blank" rel="noopener" href="https://www.mkdocs.org/">官网</a>  <a target="_blank" rel="noopener" href="https://mkdocs.pythonlang.cn/">中文文档</a>  <a target="_blank" rel="noopener" href="https://mkdocs-like-code.readthedocs.io/zh-cn/latest/">教程文档</a></p>
+<p>如果使用 Markdown 来写作或记录，且不想花费过多时间和精力在琐碎的站点设计上，MkDocs 是个不错的选择。网络上有关MkDocs的教程有很多，这里就不介绍了。</p>
+<h2 id="md2html"><a href="#md2html" class="headerlink" title="md2html"></a>md2html</h2><p>md2html是”预览优先的实时转换器”。最突出的特点是<strong>实时预览</strong>功能。运行后它会启动一个本地服务器，你修改 Markdown 文件，浏览器会自动刷新。这对于边写边看的场景非常友好。</p>
+<p>比较知名可以直接搜得到，官网也可直接试用，这里不过多赘述。使用需要先安装go环境。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://md2html.com/">https://md2html.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pkg.go.dev/github.com/tmc/misc/md2html">https://pkg.go.dev/github.com/tmc/misc/md2html</a></p>
 
                                                                                     
                                                                                         <!-- reward -->
@@ -280,7 +268,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/03/16/%E6%9D%82%E8%B0%88%EF%BC%9A%E4%B8%80%E4%BA%BA-AI%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E5%AE%8C%E5%85%A8%E4%B8%8D%E5%A4%9F%EF%BC%81/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,19 +284,19 @@
         
   <nav class="article-nav">
     
-      <a href="/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" class="article-nav-link">
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            md写图文后快速转为电子书的方式
+            Github Page博客搭建
           
         </div>
       </a>
     
     
-      <a href="/2026/03/15/OC%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%E3%80%90%E5%B0%8F%E7%94%BB%E5%AE%B6%E5%B7%A5%E5%9D%8A%E3%80%91/" class="article-nav-link">
+      <a href="/2026/03/16/%E6%9D%82%E8%B0%88%EF%BC%9A%E4%B8%80%E4%BA%BA-AI%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E5%AE%8C%E5%85%A8%E4%B8%8D%E5%A4%9F%EF%BC%81/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">OC独立游戏【小画家工坊】</div>
+        <div class="article-nav-title">杂谈：一人+AI开发产品完全不够！</div>
       </a>
     
   </nav>

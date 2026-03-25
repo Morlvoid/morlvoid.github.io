@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>md写图文后快速转为电子书的方式 |  Mor | void</title>
+      <title>Pandoc实现自制小说实体书 |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -58,13 +58,13 @@
       <section class="outer">
   
 
-<article id="post-md写图文后快速转为电子书的方式" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-Pandoc实现自制小说实体书" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
     <div class="article-inner">
         
             <header class="article-header">
                  
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  md写图文后快速转为电子书的方式
+  Pandoc实现自制小说实体书
 </h1>
  
 
@@ -73,12 +73,12 @@
             
                 
                     <div class="article-meta">
-                        <a href="/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time datetime="2026-03-23T18:40:14.000Z" itemprop="datePublished">2026-03-24</time>
+                        <a href="/2026/03/25/Pandoc%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%88%B6%E5%B0%8F%E8%AF%B4%E5%AE%9E%E4%BD%93%E4%B9%A6/" class="article-date">
+  <time datetime="2026-03-25T12:18:48.000Z" itemprop="datePublished">2026-03-25</time>
 </a>
                             
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%84%91%E5%86%85BUG%E5%AE%9E%E5%BD%95/">脑内BUG实录</a>
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
   </div>
 
                                 
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.8k</span>
+            <span class="post-count">613</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -107,8 +107,6 @@
                     
                         
                             
-    <div class="tocbot"></div>
-
 
 
 
@@ -121,95 +119,114 @@
                                                         
 
                                                             
-                                                                                <p>大概算一篇随笔，在寻找用Markdown写图文内容可以快速转换成电子书的方式。对程序员来说还是md最好用了。粗略研究了一下ghmdlib、<strong>mark-deco</strong>、<strong>Pandoc</strong> 、**MkDocs **、md2html。</p>
+                                                                                <p>试了下Pandoc自制主题然后一键出书，效果很好，自己做了一个小说实体书样式主题：</p>
+<p>开源：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/Pandoc-Literary-novel-Theme">Pandoc-Literary-novel-Theme</a></p>
 <span id="more"></span>
 
-<h2 id="ghmdlib"><a href="#ghmdlib" class="headerlink" title="ghmdlib"></a>ghmdlib</h2><p>ghmdlib是个挺单纯冷门的小工具，很少看到有人使用。<strong>生成的 HTML 在视觉和语法渲染上完全复刻了 GitHub 的样式</strong>，能<strong>离线使用</strong>，主要适合需要<strong>离线、可移植的文档输出</strong>作者。</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://pypi.org/project/ghmdlib/#description">https://pypi.org/project/ghmdlib/#description</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">ghmdlib&gt;ghmd --<span class="built_in">help</span></span><br><span class="line">usage: ghmdlib [--dark] [--light] [--download] [--embed-css] [--no-gfm] [--offline] [--preview] [-d] [-h] [-V]</span><br><span class="line">               PATH [PATH ...]</span><br><span class="line"></span><br><span class="line">A Markdown to GitHub-style HTML file conversion utility.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  PATH           Path(s) to the Markdown files to be converted.</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  --dark         Use a dark HTML theme. (Default)</span><br><span class="line">  --light        Use a light HTML theme.</span><br><span class="line"></span><br><span class="line">  --download     Download the latest CSS files from GitHub. These files are used <span class="keyword">for</span> offline mode.</span><br><span class="line">  --embed-css    Embed the CSS into the HTML file instead of using the &lt;<span class="built_in">link</span>&gt; tag.</span><br><span class="line">  --no-gfm       Use plain Markdown mode instead of GitHub Flavored Markdown (gfm).</span><br><span class="line">  --offline      Keep offline.</span><br><span class="line">                 - Uses cached CSS files and <span class="built_in">local</span> libraries <span class="keyword">for</span> the HTML conversion</span><br><span class="line">                   rather than the GitHub API.</span><br><span class="line">  --preview      Auto-open each converted HTML file <span class="keyword">in</span> a web browser <span class="keyword">for</span> viewing.</span><br><span class="line"></span><br><span class="line">  -d, --debug    Display debugging output to the terminal.</span><br><span class="line">  -h, --<span class="built_in">help</span>     Display this <span class="built_in">help</span> and usage, <span class="keyword">then</span> <span class="built_in">exit</span>.</span><br><span class="line">  -V, --version  Display the version, <span class="keyword">then</span> <span class="built_in">exit</span>.</span><br><span class="line"></span><br><span class="line">ghmdlib v0.1.0</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-指定要转换的文件（必填）"><a href="#1-指定要转换的文件（必填）" class="headerlink" title="1. 指定要转换的文件（必填）"></a>1. 指定要转换的文件（必填）</h4><ul>
-<li><strong><code>PATH [PATH ...]</code></strong><br>你需要在这里填写要转换的 Markdown 文件的路径（可以同时指定多个文件，用空格隔开）。<br>例如：<code>ghmd README.md docs/guide.md</code></li>
-</ul>
-<hr>
-<h4 id="2-控制生成的-HTML-外观（主题）"><a href="#2-控制生成的-HTML-外观（主题）" class="headerlink" title="2. 控制生成的 HTML 外观（主题）"></a>2. 控制生成的 HTML 外观（主题）</h4><ul>
-<li><strong><code>--dark</code></strong><br>使用深色主题（这是默认选项，不写也会是深色）。</li>
-<li><strong><code>--light</code></strong><br>使用浅色主题。<br>两者互斥，只能选一个。</li>
-</ul>
-<hr>
-<h4 id="3-网络与转换方式"><a href="#3-网络与转换方式" class="headerlink" title="3. 网络与转换方式"></a>3. 网络与转换方式</h4><ul>
-<li><strong><code>--offline</code></strong><br><strong>离线模式</strong>：不调用 GitHub API，而是使用本地缓存的 CSS 和内置转换器生成 HTML。<br>👉 这是你之前遇到 API 错误时最推荐的选项，可以完全避免网络问题。</li>
-<li><strong><code>--no-gfm</code></strong><br>不使用 GitHub Flavored Markdown（GFM），即仅用普通 Markdown 语法（不支持表格、任务列表等 GFM 扩展）。默认是启用 GFM 的。</li>
-<li><strong><code>--download</code></strong><br>下载最新的 GitHub CSS 文件到本地（供离线模式使用）。通常你只需要在初次使用离线模式前执行一次，之后就能一直用本地样式。</li>
-</ul>
-<h4 id="4-生成-HTML-文件的处理"><a href="#4-生成-HTML-文件的处理" class="headerlink" title="4. 生成 HTML 文件的处理"></a>4. 生成 HTML 文件的处理</h4><ul>
-<li><strong><code>--embed-css</code></strong><br>将 CSS 样式直接嵌入 HTML 文件内部，而不是通过 <code>&lt;link&gt;</code> 标签外链。<br>这样生成的 HTML 是一个独立的单文件，方便分享（但文件体积会稍大）。</li>
-<li><strong><code>--preview</code></strong><br>转换完成后自动用默认浏览器打开生成的 HTML 文件。</li>
-</ul>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ghmd README.md --light          <span class="comment"># 转换单个文件，使用浅色主题</span></span><br><span class="line">ghmd file1.md file2.md --dark   <span class="comment"># 转换多个文件，使用深色主题（默认）</span></span><br><span class="line">ghmd docs/*.md --offline        <span class="comment"># 使用通配符转换 docs 下所有 md 文件，离线模式</span></span><br></pre></td></tr></table></figure>
-
-<p>假设希望用 Markdown 写教程，最终输出一个 <strong>独立的、GitHub 风格的单文件 HTML</strong>（带目录），可以：</p>
-<ol>
-<li><p><strong>使用 Markdown 扩展生成目录</strong><br>在 Markdown 文件中加入 <code>[TOC]</code>（某些渲染器支持），或使用 <code>pandoc</code> 生成目录。</p>
-</li>
-<li><p><strong>将多个 Markdown 文件合并</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc chapter1.md chapter2.md appendix.md -o full.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>用 ghmdlib 转换为 HTML</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ghmd full.md --embed-css --light --preview</span><br></pre></td></tr></table></figure>
-
-<p>这样得到的是一个完整的、带有 GitHub 样式的 HTML 文件，适合在线阅读或分发。</p>
-</li>
-</ol>
-<h2 id="mark-deco"><a href="#mark-deco" class="headerlink" title="mark-deco"></a><strong>mark-deco</strong></h2><p><strong>mark-deco</strong> 是一个用 TypeScript 编写的、灵活的 Markdown 转 HTML 库，可以理解为之前提到的 <code>ghmdlib</code> 的“增强版”或“功能更全的同类工具”。都是将 Markdown 转换为 HTML，但 mark-deco 的功能更丰富，定制性也更强。</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/mark-deco">https://www.npmjs.com/package/mark-deco</a></p>
-<p>mark-deco 的出现，其实是为了满足比 <code>ghmdlib</code> 更复杂的定制需求。如果遇到以下情况，可以考虑用它来替代 <code>ghmdlib</code>：</p>
-<ol>
-<li><strong>需要处理文档元数据</strong>：你的 Markdown 文件开头有 <code>--- title: ... ---</code> 这样的 Frontmatter 信息，需要在转换时提取出来。</li>
-<li><strong>需要嵌入图表或外部内容</strong>：文档里包含流程图（Mermaid）、需要自动解析的链接（oEmbed），希望这些能自动变成可交互的 HTML 元素。</li>
-<li><strong>需要将转换功能集成到自己的项目里</strong>：你想在自己写的 Node.js 脚本或网页应用里，实现 Markdown 转 HTML 的功能，并且希望对转换过程进行编程控制。</li>
-</ol>
-<h2 id="Pandoc"><a href="#Pandoc" class="headerlink" title="Pandoc"></a><strong>Pandoc</strong></h2><p><strong>Pandoc</strong>适合<strong>单篇文档需要多种输出格式</strong>（PDF、EPUB、Word）。它的核心功能是在几十种格式之间相互转换，比如 Markdown → HTML、Markdown → PDF、Markdown → EPUB、Markdown → Word 等等。对于需要跨格式转换文档的开发者、作者或学者来说，Pandoc 提供了一种简便且强大的解决方案。</p>
-<p>它支持：</p>
+<p>这里列一下使用方法</p>
 <ul>
-<li><strong>文本格式</strong>：如 Markdown、LaTeX、reStructuredText、HTML。</li>
-<li><strong>办公文档格式</strong>：如 Microsoft Word (.docx)、OpenDocument 格式（.odt）。</li>
-<li><strong>电子书格式</strong>：如 EPUB 和 MOBI。</li>
-<li><strong>PDF</strong>：通过与 LaTeX 配合使用，可以输出高质量的 PDF 文档。</li>
+<li>封面（手动）	</li>
+<li>扉页（自动&#x2F;手动） </li>
+<li>版权页	 </li>
+<li>献词&#x2F;题词页	</li>
+<li>目录页	 </li>
+<li>前言&#x2F;序（可选）</li>
+<li>正文（含篇章页）</li>
+<li>后记&#x2F;尾声	</li>
+<li>致谢	</li>
+<li>末页&#x2F;封底	 </li>
+<li>空白页（可选）</li>
 </ul>
-<p>官网：<a target="_blank" rel="noopener" href="https://pandoc.org/">https://pandoc.org/</a></p>
-<p>中文官网：<a target="_blank" rel="noopener" href="https://pandoc.cn/">https://pandoc.cn/</a></p>
-<p>在线尝试：<a target="_blank" rel="noopener" href="https://pandoc.org/try/">https://pandoc.org/try/</a></p>
-<p>官方下载：<a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a></p>
-<p>示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown → HTML（独立完整文档）</span></span><br><span class="line">pandoc input.md -s -o output.html</span><br><span class="line"></span><br><span class="line"><span class="comment"># Markdown → PDF</span></span><br><span class="line">pandoc input.md -o output.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并多个文件 → EPUB 电子书</span></span><br><span class="line">pandoc chapter1.md chapter2.md -o book.epub</span><br><span class="line"></span><br><span class="line"><span class="comment"># LaTeX → Word</span></span><br><span class="line">pandoc paper.tex -o paper.docx</span><br></pre></td></tr></table></figure>
-
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winget install --<span class="built_in">source</span> winget --exact --<span class="built_in">id</span> JohnMacFarlane.Pandoc</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install rsvg-convert python miktex</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>具体的使用还是挺麻烦的，github已有的css主题样式不够好看或有些许配置问题。</p>
-<h4 id="单文件"><a href="#单文件" class="headerlink" title="单文件"></a>单文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc example.md -s --toc --embed-resources --standalone -c theme.css -o example.html</span><br></pre></td></tr></table></figure>
-
-<h4 id="多文件"><a href="#多文件" class="headerlink" title="多文件"></a>多文件</h4><p>推荐自定义css。</p>
-<p>具体的电子书使用，需要文件目录结构为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-intro.md</span><br><span class="line">02-chapter1.md</span><br><span class="line">03-chapter2.md</span><br><span class="line">04-appendix.md</span><br></pre></td></tr></table></figure>
-
-<p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pandoc 01-序.md 02-第一章.md 03-第二章.md 04-尾声.md \</span><br><span class="line">  -s --toc --embed-resources --standalone \</span><br><span class="line">  -c theme.css \</span><br><span class="line">  -o mybook.html</span><br></pre></td></tr></table></figure>
-
-<h4 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 EPUB 电子书</span></span><br><span class="line">pandoc 小说.md -o 小说.epub --css=theme.css --toc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 PDF（需要 LaTeX 环境，或用 --pdf-engine=xelatex）</span></span><br><span class="line">pandoc 小说.md -o 小说.pdf --pdf-engine=xelatex</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 Word 文档</span></span><br><span class="line">pandoc 小说.md -o 小说.docx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成普通 HTML（无主题）</span></span><br><span class="line">pandoc 小说.md -o 小说.html</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从 EPUB 转成 HTML</span></span><br><span class="line">pandoc 小说.epub -o 小说.html</span><br></pre></td></tr></table></figure>
-
-<h4 id="自制主题"><a href="#自制主题" class="headerlink" title="自制主题"></a>自制主题</h4><p>自己做了一套仿纸质小说的主题：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/Pandoc-Literary-novel-Theme">【Pandoc-Literary-novel-Theme】</a> 开源到Github</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">页面名称</th>
+<th align="left">CSS 类名（class）</th>
+<th align="left">在 Markdown 中的定义方式（示例）</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">封面（手动）</td>
+<td align="left"><code>.title-page</code></td>
+<td align="left">书名<code>&lt;div class=&quot;title-page&quot;&gt;</code><br>序号<code>&lt;div class=&quot;subtitle&quot;&gt;</code><br>大标题<code>&lt;h1 class=&quot;title&quot;&gt;</code><br>作者名<code>&lt;div class=&quot;author&quot;&gt;</code></td>
+<td align="left">页面名称黑色背景，白色文字。若需浅色版，可自行修改 CSS。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">扉页（自动）</td>
+<td align="left"><code>#title-block-header</code></td>
+<td align="left">由 Pandoc 根据 YAML 元数据自动生成</td>
+<td align="left">自动生成，无需手动添加 HTML。若与手动封面并存，可选择一个隐藏。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">版权页</td>
+<td align="left"><code>.copyright-page</code></td>
+<td align="left"><code>&lt;div class=&quot;copyright-page&quot;&gt;</code><br>出版社名称<code>&lt;div class=&quot;publisher&quot;&gt;</code><br>版权名<code>&lt;div class=&quot;info&quot;&gt;© 2025 作者名</code><br>ISBN<code>ISBN 978-7-xxxx-xxxx-x</code><br><code>&lt;div class=&quot;isbn&quot;&gt;本书版权受法律保护</code></td>
+<td align="left">需自行填写出版信息。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">献词&#x2F;题词页</td>
+<td align="left"><code>.dedication</code></td>
+<td align="left"><code>&lt;div class=&quot;dedication&quot;&gt; 献词内容&lt;/div&gt;</code></td>
+<td align="left">已有样式，默认浅色背景。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">目录页</td>
+<td align="left"><code>#TOC</code>（自动生成）</td>
+<td align="left">由 <code>--toc</code> 参数自动生成，无需手动添加。</td>
+<td align="left">可通过 CSS 控制样式。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">前言&#x2F;序（可选）</td>
+<td align="left">普通标题（如 <code># 序言</code>）</td>
+<td align="left">使用 Markdown 标题即可，无特殊类名。可自行添加 <code>&lt;div class=&quot;preface&quot;&gt;</code> 增强样式。</td>
+<td align="left">如需特殊样式，可参照后记类自行扩展。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">正文（含篇章页）</td>
+<td align="left">普通标题（<code>#</code>、<code>##</code> 等）</td>
+<td align="left">直接使用 Markdown 标题，<code>h1</code> 自动分页。</td>
+<td align="left">章节标题默认居中，带装饰线。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">后记&#x2F;尾声</td>
+<td align="left"><code>.epilogue</code></td>
+<td align="left"><code>&lt;div class=&quot;epilogue&quot;&gt;</code><br><code>&lt;div class=&quot;epilogue-title&quot;&gt;</code></td>
+<td align="left">可自定义标题与内容。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">致谢</td>
+<td align="left"><code>.acknowledgments</code></td>
+<td align="left"><code>&lt;div class=&quot;acknowledgments&quot;&gt;</code><br><code>&lt;div class=&quot;ack-title&quot;&gt;</code></td>
+<td align="left">一般位于后记之后。</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">末页&#x2F;封底</td>
+<td align="left"><code>.end-page</code></td>
+<td align="left"><code>&lt;div class=&quot;end-page&quot;&gt;</code><br><code>&lt;div class=&quot;ending-text&quot;&gt;全书完&lt;/div&gt;</code><br><code> &lt;div class=&quot;copyright&quot;&gt;© 2025 作者名</code></td>
+<td align="left">黑色背景，白色文字，与封面风格统一。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">空白页（可选）</td>
+<td align="left"><code>.blank-page</code></td>
+<td align="left"><code>html&lt;br&gt;&lt;div class=&quot;blank-page&quot;&gt;&lt;/div&gt;</code></td>
+<td align="left">用于需要强制留白的场合。</td>
+</tr>
+</tbody></table>
+<hr>
 <p><img src="https://www.blog-image.morlvoid.pro/blog/20260325200921791.png"></p>
-<h2 id="MkDocs"><a href="#MkDocs" class="headerlink" title="**MkDocs **"></a>**MkDocs **</h2><p>MkDocs倒是一个比较热门的 <strong>静态站点生成器</strong>，属于静态站点生成器（SSG）的生态了，与依赖 Node.js 环境的 Hexo 以及借助 Go 语言编译的 Hugo 不同，Mkdocs 仅需基础的 Python 环境即可运行，被很多知名开源项目选中，用于搭建和项目相关的文档网站。它的优势是快速构建一个结构清晰、便于阅读的静态网站（或者说在线电子书）。</p>
-<p><a target="_blank" rel="noopener" href="https://www.mkdocs.org/">官网</a>  <a target="_blank" rel="noopener" href="https://mkdocs.pythonlang.cn/">中文文档</a>  <a target="_blank" rel="noopener" href="https://mkdocs-like-code.readthedocs.io/zh-cn/latest/">教程文档</a></p>
-<p>如果使用 Markdown 来写作或记录，且不想花费过多时间和精力在琐碎的站点设计上，MkDocs 是个不错的选择。网络上有关MkDocs的教程有很多，这里就不介绍了。</p>
-<h2 id="md2html"><a href="#md2html" class="headerlink" title="md2html"></a>md2html</h2><p>md2html是”预览优先的实时转换器”。最突出的特点是<strong>实时预览</strong>功能。运行后它会启动一个本地服务器，你修改 Markdown 文件，浏览器会自动刷新。这对于边写边看的场景非常友好。</p>
-<p>比较知名可以直接搜得到，官网也可直接试用，这里不过多赘述。使用需要先安装go环境。</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://md2html.com/">https://md2html.com/</a></p>
-<p><a target="_blank" rel="noopener" href="https://pkg.go.dev/github.com/tmc/misc/md2html">https://pkg.go.dev/github.com/tmc/misc/md2html</a></p>
 
                                                                                     
                                                                                         <!-- reward -->
@@ -276,14 +293,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/03/25/Pandoc%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%88%B6%E5%B0%8F%E8%AF%B4%E5%AE%9E%E4%BD%93%E4%B9%A6/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
                                                                         
                                                                             
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
 
                                                             </footer>
     </div>
@@ -292,19 +309,19 @@
         
   <nav class="article-nav">
     
-      <a href="/2026/03/25/Pandoc%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%88%B6%E5%B0%8F%E8%AF%B4%E5%AE%9E%E4%BD%93%E4%B9%A6/" class="article-nav-link">
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Pandoc实现自制小说实体书
+            Github Page博客搭建
           
         </div>
       </a>
     
     
-      <a href="/2026/03/16/%E6%9D%82%E8%B0%88%EF%BC%9A%E4%B8%80%E4%BA%BA-AI%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E5%AE%8C%E5%85%A8%E4%B8%8D%E5%A4%9F%EF%BC%81/" class="article-nav-link">
+      <a href="/2026/03/24/md%E5%86%99%E5%9B%BE%E6%96%87%E5%90%8E%E5%BF%AB%E9%80%9F%E8%BD%AC%E4%B8%BA%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E5%BC%8F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">杂谈：一人+AI开发产品完全不够！</div>
+        <div class="article-nav-title">md写图文后快速转为电子书的方式</div>
       </a>
     
   </nav>

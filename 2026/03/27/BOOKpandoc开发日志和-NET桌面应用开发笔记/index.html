@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>BOOKpandoc开发日志和.NET桌面应用开发笔记 |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  
+
+<article id="post-BOOKpandoc开发日志和-NET桌面应用开发笔记" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <div class="article-inner">
+        
+            <header class="article-header">
+                 
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  BOOKpandoc开发日志和.NET桌面应用开发笔记
+</h1>
+ 
+
+                    
+            </header>
+            
+                
+                    <div class="article-meta">
+                        <a href="/2026/03/27/BOOKpandoc%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E5%92%8C-NET%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2026-03-27T06:15:19.000Z" itemprop="datePublished">2026-03-27</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+
+                                
+                                    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+
+                                        
+                    </div>
+                    
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+                                    
+                                            
+                                                <div class="article-entry " itemprop="articleBody">
+                                                    
+                                                        
+
+                                                            
+                                                                                <p>起因只是在我小红书分享了一个用 CSS 为 OC 小说制作“纸质书”风格主题的Pandoc教程，意外走红。许多用户留言表示想学且希望能有一个图形化工具。于是我做了一个基于Pandoc的将 Markdown 文件一键转换成带精美排版的电子书（EPUB、HTML 等）的Windows桌面应用BOOKpandoc——假装出书。</p>
+<p>仓库地址：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/BOOKpandoc">Morlvoid&#x2F;BOOKpandoc</a></p>
+<span id="more"></span>
+
+<h4 id="附录：开发资源"><a href="#附录：开发资源" class="headerlink" title="附录：开发资源"></a>附录：开发资源</h4><ul>
+<li>主仓库：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/BOOKpandoc">https://github.com/Morlvoid/BOOKpandoc</a></li>
+<li>主题仓库：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/BOOKpandoc-themes">https://github.com/Morlvoid/BOOKpandoc-themes</a></li>
+<li>官网：<a target="_blank" rel="noopener" href="http://bookpandoc.morlvoid.pro/">http://bookpandoc.morlvoid.pro/</a></li>
+<li>内测群：QQ 1085968983</li>
+<li>安装包下载：<a target="_blank" rel="noopener" href="https://github.com/Morlvoid/BOOKpandoc/releases">https://github.com/Morlvoid/BOOKpandoc/releases</a></li>
+</ul>
+<p>（嗯对附录就是放在最前面）</p>
+<h2 id="BOOKpandoc——假装出书"><a href="#BOOKpandoc——假装出书" class="headerlink" title="BOOKpandoc——假装出书"></a>BOOKpandoc——假装出书</h2><table>
+<thead>
+<tr>
+<th align="left">项目信息</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">中文名</td>
+<td align="left">假装出书</td>
+</tr>
+<tr>
+<td align="left">英文名</td>
+<td align="left">BOOKpandoc</td>
+</tr>
+<tr>
+<td align="left">核心功能</td>
+<td align="left">将多章节 Markdown 文件一键生成 EPUB&#x2F;Word&#x2F;HTML 电子书，支持拖拽排序、自定义主题</td>
+</tr>
+<tr>
+<td align="left">目标用户</td>
+<td align="left">OC 创作者、同人写手、小说爱好者（非技术背景）</td>
+</tr>
+<tr>
+<td align="left">开发平台</td>
+<td align="left">Windows 10&#x2F;11</td>
+</tr>
+<tr>
+<td align="left">开发工具</td>
+<td align="left">Visual Studio 2022 Community</td>
+</tr>
+</tbody></table>
+<h4 id="核心需求"><a href="#核心需求" class="headerlink" title="核心需求"></a><strong>核心需求</strong></h4><h5 id="基础功能（v1-0）"><a href="#基础功能（v1-0）" class="headerlink" title="基础功能（v1.0）"></a>基础功能（v1.0）</h5><ul>
+<li>支持拖拽添加 .md 文件</li>
+<li>书名&#x2F;作者输入</li>
+<li>章节列表支持拖拽排序</li>
+<li>支持从列表移除章节</li>
+<li>封面图片选择</li>
+<li>选择导出格式（EPUB, DOCX, HTML, PDF）</li>
+<li>选择输出目录（默认桌面或文档）</li>
+<li>选择 CSS 主题（内置的小说主题）</li>
+<li>支持拖拽导入 .css 文件作为新主题</li>
+<li>点击“生成书籍”，异步执行 pandoc，显示进度&#x2F;结果</li>
+<li>检测 PDF 导出时是否安装 LaTeX，未安装则友好提示</li>
+<li>错误信息清晰易懂（不显示技术报错）</li>
+<li>最近使用主题记忆</li>
+<li>转换历史记录</li>
+</ul>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>略懂一点C++，Java 后端背景，桌面开发零经验。经过一番调研，我选择了：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">选型</th>
+<th align="left">理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">界面框架</td>
+<td align="left">WPF</td>
+<td align="left">数据绑定方便，适合桌面应用</td>
+</tr>
+<tr>
+<td align="left">编程语言</td>
+<td align="left">C#</td>
+<td align="left">语法与 Java 接近，上手快</td>
+</tr>
+<tr>
+<td align="left">目标框架</td>
+<td align="left">.NET 6.0 (LTS)</td>
+<td align="left">独立发布后可自带运行时，用户无需安装 .NET</td>
+</tr>
+<tr>
+<td align="left">文档转换引擎</td>
+<td align="left">Pandoc</td>
+<td align="left">开源、强大，支持多种格式</td>
+</tr>
+<tr>
+<td align="left">拖拽排序</td>
+<td align="left">GongSolutions.Wpf.DragDrop</td>
+<td align="left">免费、简单，一行代码实现拖拽</td>
+</tr>
+<tr>
+<td align="left">安装包制作</td>
+<td align="left">Inno Setup</td>
+<td align="left">免费，可创建桌面快捷方式、开始菜单</td>
+</tr>
+<tr>
+<td align="left">版本控制</td>
+<td align="left">Git + GitHub</td>
+<td align="left">开源托管，Releases 分发安装包</td>
+</tr>
+<tr>
+<td align="left">官网</td>
+<td align="left">静态 HTML&#x2F;CSS</td>
+<td align="left">展示功能、下载链接</td>
+</tr>
+<tr>
+<td align="left">主题管理</td>
+<td align="left">独立 GitHub 仓库 + PR</td>
+<td align="left">低成本社区共建</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><h3 id="1-需求细化与界面设计"><a href="#1-需求细化与界面设计" class="headerlink" title="1. 需求细化与界面设计"></a>1. 需求细化与界面设计</h3><ul>
+<li><p>用Canva可画设计出主要界面：左侧下载列表、中间文件预览区域、右侧设置区域、上方书名&#x2F;作者、下方格式&#x2F;主题&#x2F;封面&#x2F;输出目录、底部导出按钮。</p>
+</li>
+<li><p>列出需要实现的功能点。</p>
+</li>
+<li><p>确定了基本功能：文件拖拽添加、拖拽排序、EPUB&#x2F;HTML 导出、主题选择、PDF 检测、日志记录。</p>
+</li>
+</ul>
+<p><img src="https://www.blog-image.morlvoid.pro/blog/20260326231514432.png"></p>
+<h3 id="2-搭建环境"><a href="#2-搭建环境" class="headerlink" title="2. 搭建环境"></a>2. 搭建环境</h3><ul>
+<li>安装 Visual Studio 2022 Community，选择“.NET 桌面开发”。</li>
+<li>新建 WPF 项目，目标 .NET 6.0。</li>
+<li>通过 NuGet 安装 <code>GongSolutions.WPF.DragDrop</code>。</li>
+<li>在项目根目录创建 <code>themes</code> 文件夹，放入自己写的小说主题 <code>default.css</code>。</li>
+<li>下载 <code>pandoc.exe</code> 用于本地测试。</li>
+</ul>
+<h3 id="3-核心功能实现"><a href="#3-核心功能实现" class="headerlink" title="3. 核心功能实现"></a>3. 核心功能实现</h3><h4 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Chapter</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> FilePath &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> FileName =&gt; System.IO.Path.GetFileName(FilePath);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Pandoc-调用服务"><a href="#Pandoc-调用服务" class="headerlink" title="Pandoc 调用服务"></a>Pandoc 调用服务</h4><p>封装了 <code>PandocService.ConvertAsync</code>，根据不同格式动态构建参数：</p>
+<ul>
+<li>HTML 添加 <code>--self-contained</code> 将 CSS 内嵌；</li>
+<li>EPUB 使用 <code>--css</code>；</li>
+<li>DOCX 检测 <code>rsvg-convert</code> 是否存在；</li>
+<li>PDF 检测 LaTeX 环境。</li>
+</ul>
+<h4 id="拖拽添加与排序"><a href="#拖拽添加与排序" class="headerlink" title="拖拽添加与排序"></a>拖拽添加与排序</h4><ul>
+<li>在 <code>ListBox</code> 上处理 <code>DragOver</code> 和 <code>Drop</code>，实现文件拖入添加。</li>
+<li>使用 <code>GongSolutions.Wpf.DragDrop</code> 实现内部拖拽排序（只需绑定 <code>IDropTarget</code> 接口）。</li>
+</ul>
+<h4 id="主题管理"><a href="#主题管理" class="headerlink" title="主题管理"></a>主题管理</h4><p><code>ThemeService</code> 扫描 <code>themes</code> 文件夹，支持拖入 CSS 文件自动复制并刷新下拉框。</p>
+<h4 id="日志服务"><a href="#日志服务" class="headerlink" title="日志服务"></a>日志服务</h4><p>自写 <code>LogService</code>，记录运行信息，便于调试和用户反馈。</p>
+<h3 id="4-踩坑实录"><a href="#4-踩坑实录" class="headerlink" title="4. 踩坑实录"></a>4. 踩坑实录</h3><h4 id="坑-1：HTML-封面无法显示"><a href="#坑-1：HTML-封面无法显示" class="headerlink" title="坑 1：HTML 封面无法显示"></a>坑 1：HTML 封面无法显示</h4><p>我想把用户选择的封面图片作为 <code>#title-block-header</code> 的背景图，但用 <code>--include-before-body</code> 插入的 <code>&lt;div&gt;</code> 跑到了正文前面，破坏了结构。<br><strong>解决</strong>：改用 <code>--include-in-header</code> 动态生成内联样式，设置背景图。</p>
+<h4 id="坑-2：EPUB-样式参数过时"><a href="#坑-2：EPUB-样式参数过时" class="headerlink" title="坑 2：EPUB 样式参数过时"></a>坑 2：EPUB 样式参数过时</h4><p>报错：<code>--epub-stylesheet has been removed. Use --css instead.</code><br><strong>解决</strong>：统一使用 <code>--css</code> 参数，EPUB 也能正常应用样式。</p>
+<h4 id="坑-3：DOCX-导出-SVG-失败"><a href="#坑-3：DOCX-导出-SVG-失败" class="headerlink" title="坑 3：DOCX 导出 SVG 失败"></a>坑 3：DOCX 导出 SVG 失败</h4><p>用户文档里如果有 SVG 图片，Pandoc 需要 <code>rsvg-convert</code> 工具。<br><strong>解决</strong>：增加检测，提示用户安装 librsvg 或手动下载。</p>
+<h4 id="坑-4：朋友反馈“无法运行，缺少-NET”"><a href="#坑-4：朋友反馈“无法运行，缺少-NET”" class="headerlink" title="坑 4：朋友反馈“无法运行，缺少 .NET”"></a>坑 4：朋友反馈“无法运行，缺少 .NET”</h4><p>第一次发布时采用了<strong>框架依赖部署</strong>（Framework-Dependent），朋友双击后报错“缺少 .NET 6.0 运行时”。原来用户需要自己安装 .NET，这显然不符合“开箱即用”的预期。<br><strong>解决</strong>：改用<strong>独立部署</strong>（Self-Contained）模式，将 .NET 运行时一起打包进去。虽然安装包体积从 20MB 涨到 70MB，但终于能双击直接运行了。</p>
+<h4 id="坑-5：标题栏按钮时灵时不灵"><a href="#坑-5：标题栏按钮时灵时不灵" class="headerlink" title="坑 5：标题栏按钮时灵时不灵"></a>坑 5：标题栏按钮时灵时不灵</h4><p>最小化、最大化、关闭按钮经常无效，查了半天才发现 XAML 里忘了绑定 <code>Click</code> 事件。<br><strong>解决</strong>：给三个按钮加上 <code>Click=&quot;MinimizeButton_Click&quot;</code> 等，事件立马生效。</p>
+<h4 id="坑-6：Pandoc-检测总是失败"><a href="#坑-6：Pandoc-检测总是失败" class="headerlink" title="坑 6：Pandoc 检测总是失败"></a>坑 6：Pandoc 检测总是失败</h4><p>电脑明明装了 Pandoc，但 <code>IsPandocInstalled()</code> 总是返回 false。<br><strong>解决</strong>：改进检测逻辑，先尝试从 PATH 执行 <code>pandoc --version</code>，再检查常见安装路径（<code>C:\Program Files\Pandoc</code> 等），并加入日志输出定位问题。</p>
+<h2 id="打包与发布"><a href="#打包与发布" class="headerlink" title="打包与发布"></a>打包与发布</h2><h3 id="1-生成独立发布文件夹"><a href="#1-生成独立发布文件夹" class="headerlink" title="1. 生成独立发布文件夹"></a>1. 生成独立发布文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet publish -c Release -r win-x64 --self-contained <span class="literal">true</span> -p:PublishSingleFile=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-编写-Inno-Setup-脚本"><a href="#2-编写-Inno-Setup-脚本" class="headerlink" title="2. 编写 Inno Setup 脚本"></a>2. 编写 Inno Setup 脚本</h3><p>指定要打包的文件（exe、dll、pandoc.exe、themes 等），创建桌面快捷方式和开始菜单项。</p>
+<h3 id="3-编译安装包"><a href="#3-编译安装包" class="headerlink" title="3. 编译安装包"></a>3. 编译安装包</h3><p>在 Inno Setup 中打开脚本编译，得到 <code>BOOKpandoc_Setup.exe</code>。</p>
+<h3 id="4-上传到-GitHub-Releases"><a href="#4-上传到-GitHub-Releases" class="headerlink" title="4. 上传到 GitHub Releases"></a>4. 上传到 GitHub Releases</h3><ul>
+<li>创建新 Release，版本号 <code>v1.0.0</code>。</li>
+<li>上传安装包，附更新日志。</li>
+<li>发布后，用户即可在 Releases 页面下载。</li>
+</ul>
+<hr>
+<h2 id="社区与开源"><a href="#社区与开源" class="headerlink" title="社区与开源"></a>社区与开源</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p>建立了简洁的官网：<a target="_blank" rel="noopener" href="http://bookpandoc.morlvoid.pro/">bookpandoc.morlvoid.pro&#x2F;</a>，展示功能、截图、下载链接。</p>
+<h3 id="主题仓库"><a href="#主题仓库" class="headerlink" title="主题仓库"></a>主题仓库</h3><p>创建了独立的 GitHub 仓库 <a target="_blank" rel="noopener" href="https://github.com/Morlvoid/BOOKpandoc-themes">BOOKpandoc-themes</a>，鼓励社区提交 CSS 主题和设计稿，通过 PR 审核合并。</p>
+<p>目前的测试内置主题：</p>
+<p><img src="https://www.blog-image.morlvoid.pro/blog/20260325200921791.png"></p>
+<h3 id="内测群"><a href="#内测群" class="headerlink" title="内测群"></a>内测群</h3><p>建立了 QQ 群（群号 1085968983），邀请小红书粉丝内测，收集反馈。</p>
+<hr>
+<h2 id="后续更新"><a href="#后续更新" class="headerlink" title="后续更新"></a>后续更新</h2><p>v1.0 已经实现了：</p>
+<ul>
+<li>✅ 拖拽添加 .md 文件</li>
+<li>✅ 章节拖拽排序</li>
+<li>✅ 书名&#x2F;作者输入</li>
+<li>✅ 封面图片（HTML&#x2F;EPUB）</li>
+<li>✅ 输出格式（EPUB、HTML、PDF、DOCX 基础支持）</li>
+<li>✅ 自定义 CSS 主题（内置小说主题）</li>
+<li>✅ 日志记录</li>
+</ul>
+<p>但还有很多不足：</p>
+<ul>
+<li>DOCX 样式依赖参考文档模板，需要用户自己准备；</li>
+<li>PDF 导出需要 LaTeX 环境，目前只做检测提示；</li>
+<li>应用内主题市场尚未开发；</li>
+<li>内置编辑器暂不支持。</li>
+</ul>
+<p>.NET小白抛砖引玉一下qwq希望社区的大佬们能一起来完善这些功能。如果对 C#&#x2F;WPF 熟悉，欢迎提 PR；如果擅长 CSS，欢迎贡献主题。</p>
+<h2 id="学习日志"><a href="#学习日志" class="headerlink" title="学习日志"></a>学习日志</h2><p>这次最大的收货是跑通了从设计到编写到发布部署开源的完整流程：</p>
+<p><strong>C# &#x2F; .NET 桌面应用开发与交付流程</strong>（大概）</p>
+<ol>
+<li>需求与设计阶段</li>
+<li>版本控制初始化（建立仓库，设置.gitignore）</li>
+<li>开发阶段（编码，同时实现异常处理和日志记录）</li>
+<li>本地测试与调试</li>
+<li>跨环境测试与发布准备</li>
+<li>打包与安装包制作</li>
+<li>部署与发布</li>
+</ol>
+<h3 id="1-需求分析与设计"><a href="#1-需求分析与设计" class="headerlink" title="1. 需求分析与设计"></a>1. 需求分析与设计</h3><ul>
+<li><strong>明确功能</strong>：梳理核心功能、用户场景，必要时画流程图。</li>
+<li><strong>技术选型</strong>：选择 WPF &#x2F; WinForms，确定 .NET 版本（ .NET 6.0）。</li>
+<li><strong>界面设计</strong>：绘制页面草图或使用原型工具，规划交互逻辑。</li>
+</ul>
+<h3 id="2-版本控制初始化（建立仓库）"><a href="#2-版本控制初始化（建立仓库）" class="headerlink" title="2. 版本控制初始化（建立仓库）"></a>2. 版本控制初始化（建立仓库）</h3><ul>
+<li><strong>创建远程仓库</strong>：在 GitHub新建空仓库。</li>
+<li><strong>本地初始化</strong>：<ul>
+<li>在项目根目录执行 <code>git init</code></li>
+<li>添加 <code>.gitignore</code>（使用 C# 模板，排除 <code>bin/</code>, <code>obj/</code>, <code>packages/</code>, <code>.vs/</code> 等）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-开发（含异常处理与日志）"><a href="#3-开发（含异常处理与日志）" class="headerlink" title="3. 开发（含异常处理与日志）"></a>3. 开发（含异常处理与日志）</h3><ul>
+<li><strong>编码实现</strong>：按模块或功能逐步实现。</li>
+<li><strong>异常处理</strong>：<ul>
+<li>在关键操作（文件读写、网络请求、数据库连接）处使用 <code>try-catch</code>，捕获异常后向用户提示友好信息。</li>
+<li>避免“吞掉”异常，应记录日志或抛出到上层统一处理。</li>
+</ul>
+</li>
+<li><strong>日志记录</strong>：<ul>
+<li>引入日志库（如 <strong>Serilog</strong>、<strong>NLog</strong> 或 <strong>Microsoft.Extensions.Logging</strong>）。</li>
+<li>记录关键节点（启动、关闭、重要操作成功&#x2F;失败）和异常详情。</li>
+<li>日志可输出到文件、控制台或系统事件日志。</li>
+</ul>
+</li>
+<li><strong>配置管理</strong>：<ul>
+<li>使用配置文件（<code>appsettings.json</code> 或 <code>App.config</code>）存放环境相关参数。</li>
+<li>区分开发&#x2F;生产配置，避免硬编码密码等敏感信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-本地测试与调试"><a href="#4-本地测试与调试" class="headerlink" title="4. 本地测试与调试"></a>4. 本地测试与调试</h3><ul>
+<li><strong>Debug 模式测试</strong>：在开发环境中运行，验证功能是否符合预期。</li>
+<li><strong>单元测试（可选）</strong>：对核心逻辑编写测试项目，提高代码可靠性。</li>
+<li><strong>异常和日志验证</strong>：触发错误场景，检查日志是否正常记录，异常处理是否符合预期。</li>
+</ul>
+<h3 id="5-跨环境测试（准备发布）"><a href="#5-跨环境测试（准备发布）" class="headerlink" title="5. 跨环境测试（准备发布）"></a>5. 跨环境测试（准备发布）</h3><ul>
+<li><strong>切换 Release 模式</strong>：在 Visual Studio 中将解决方案配置改为 <code>Release</code>。</li>
+<li><strong>独立发布测试</strong>：<ul>
+<li>使用 <strong>dotnet publish</strong> 或 VS 发布功能，选择“独立”部署（<code>--self-contained true</code>）并指定目标平台（如 win-x64）。</li>
+<li>将发布后的文件夹复制到一台 <strong>未安装 .NET 开发环境</strong> 的虚拟机或备用电脑上运行，验证依赖是否齐全，界面和功能是否正常。</li>
+</ul>
+</li>
+<li><strong>兼容性测试</strong>：如果目标用户可能使用不同 Windows 版本，尽可能多测试几个环境（如 Win10、Win11）。</li>
+</ul>
+<h3 id="6-打包与制作安装包"><a href="#6-打包与制作安装包" class="headerlink" title="6. 打包与制作安装包"></a>6. 打包与制作安装包</h3><ul>
+<li><strong>清理</strong>：删除发布文件夹中不必要的调试文件（发布时选择 Release 会自动排除）。</li>
+<li><strong>选择安装包工具</strong>：<ul>
+<li><strong>Inno Setup &#x2F; InstallShield</strong>：功能强大，可定制安装过程（创建桌面快捷方式、注册表操作等）。</li>
+</ul>
+</li>
+<li><strong>生成安装包</strong>：将发布输出打包成一个 <code>.exe</code> 安装文件。</li>
+</ul>
+<p><img src="https://www.blog-image.morlvoid.pro/blog/20260327184636403.png"></p>
+<h3 id="7-部署与发布"><a href="#7-部署与发布" class="headerlink" title="7. 部署与发布"></a>7. 部署与发布</h3><ul>
+<li><strong>交付安装包</strong>：将安装包上传到网盘、官网下载页或企业内部共享位置。</li>
+<li><strong>用户安装</strong>：提供简单的安装说明（如有特殊依赖，提前告知）。</li>
+<li><strong>后续维护</strong>：<ul>
+<li>保留源码和安装包版本记录。</li>
+<li>若使用 ClickOnce 或 MSIX，可配置更新地址实现自动升级。</li>
+<li>根据用户反馈修复 Bug，通过 Git 分支管理新版本开发。</li>
+</ul>
+</li>
+</ul>
+<h2 id="流程示意图（文字版）"><a href="#流程示意图（文字版）" class="headerlink" title="流程示意图（文字版）"></a>流程示意图（文字版）</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">需求设计 → 版本控制（初始化仓库）→ 编码开发（含异常处理+日志）→ 本地Debug测试</span><br><span class="line">    ↓</span><br><span class="line">跨环境Release测试（干净虚拟机）→ 制作安装包 → 部署发布 → 维护迭代</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">步骤</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. 需求与设计</strong></td>
+<td align="left">明确功能，设计界面（WPF&#x2F;WinForms），确定依赖（Pandoc、LaTeX 等）。</td>
+</tr>
+<tr>
+<td align="left"><strong>2. 编写源码</strong></td>
+<td align="left">在 Visual Studio 中开发，使用 .NET 6&#x2F;8，本地调试运行。</td>
+</tr>
+<tr>
+<td align="left"><strong>3. 异常处理与日志</strong></td>
+<td align="left">添加 try-catch，记录日志（便于用户反馈时定位问题）。</td>
+</tr>
+<tr>
+<td align="left"><strong>4. 本地测试</strong></td>
+<td align="left">在自己电脑上反复测试各种场景（正常流程、异常输入、路径含空格等）。</td>
+</tr>
+<tr>
+<td align="left"><strong>5. 多环境测试</strong></td>
+<td align="left"><strong>非常重要</strong>：找几台配置不同的电脑（如未装 .NET、未装 Pandoc、Win10&#x2F;Win11 等）测试，确保“我的电脑能跑，别人也能跑”。</td>
+</tr>
+<tr>
+<td align="left"><strong>6. 清理与归档源码</strong></td>
+<td align="left">提交到 GitHub（开源）</td>
+</tr>
+<tr>
+<td align="left"><strong>7. 制作发布包</strong></td>
+<td align="left">使用 <code>dotnet publish --self-contained true</code> 生成独立程序包（自带 .NET 运行时），然后打包成安装程序（Inno Setup）或便携版 zip。</td>
+</tr>
+<tr>
+<td align="left"><strong>8. 分发与更新</strong></td>
+<td align="left">将安装包上传到 GitHub Releases，用户下载安装即可。后续通过 Release 更新版本。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>独立发布</strong>：必须用 <code>--self-contained true</code>，否则用户需要自己装 .NET 运行时。这样生成的程序体积虽大（约 70-100 MB），但用户双击即用，体验最好。</li>
+<li><strong>Pandoc 处理</strong>：可以选择在安装包里附带 <code>pandoc.exe</code>（增加体积但省心），或者让程序首次运行时自动下载（已实现 <code>winget</code> 方式）。建议优先用自动下载，减少安装包体积。</li>
+<li><strong>测试环境</strong>：务必在 <strong>未安装 .NET 6、未安装 Pandoc</strong> 的干净系统上测试独立发布版，确保不报错。</li>
+<li><strong>安装包</strong>：用 Inno Setup 制作，可自动创建桌面快捷方式、开始菜单项，并可选择将 <code>pandoc.exe</code> 一同打包。</li>
+<li><strong>开源规范</strong>：源码仓库只放代码和文档，不放编译产物、不放大的二进制文件（如 <code>pandoc.exe</code>）。发布包放在 Releases 页面，供普通用户下载。</li>
+</ul>
+
+                                                                                    
+                                                                                        <!-- reward -->
+                                                                                        
+                                                </div>
+                                                
+
+                                                    <!-- copyright -->
+                                                    
+                                                        <div class="declare">
+                                                            <ul class="post-copyright">
+                                                                <li>
+                                                                    <i class="ri-copyright-line"></i>
+                                                                    <strong>版权声明： </strong>
+                                                                    
+                                                                                本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+                                                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                            <footer class="article-footer">
+                                                                
+                                                                    
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/03/27/BOOKpandoc%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E5%92%8C-NET%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+                                                                        
+                                                                            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NET/" rel="tag">.NET</a></li></ul>
+
+                                                            </footer>
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2050/01/01/Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Github Page博客搭建
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2026/03/25/Pandoc%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%88%B6%E5%B0%8F%E8%AF%B4%E5%AE%9E%E4%BD%93%E4%B9%A6/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Pandoc实现自制小说实体书</div>
+      </a>
+    
+  </nav>
+
+
+            
+                
+                    
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+
+                        
+                            
+                                
+
+                                    
+                                        
+                                            
+                                                
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      
+
+    <button class="navbar-toggle"></button>
+    <nav class="navbar" style="
+  
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background-color: transparent !important;
+">
+        
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+            </div>
+            
+                <ul class="nav nav-main">
+                    
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/" style="
+        color: #bbb;
+      ">
+                                主页
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/archives" style="
+        color: #bbb;
+      ">
+                                归档
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/categories" style="
+        color: #bbb;
+      ">
+                                分类
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/project" style="
+        color: #bbb;
+      ">
+                                项目
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/photos" style="
+        color: #bbb;
+      ">
+                                画作
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/friends" style="
+        color: #bbb;
+      ">
+                                友链
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/about" style="
+        color: #bbb;
+      ">
+                                关于
+                            </a>
+                        </li>
+                        
+                </ul>
+    </nav>
+    <nav class="navbar navbar-bottom" style="
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background-color: transparent !important;
+">
+        <ul class="nav">
+            <li class="nav-item">
+                
+                    <a class="nav-item-link nav-item-search" title="搜索" style="
+        color: #bbb;
+      ">
+                        <i class="ri-search-line"></i>
+                    </a>
+                    
+                        
+            </li>
+        </ul>
+    </nav>
+    <div class="search-form-wrap">
+        <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+    </div>
+
+    <style>
+        .nav-item-link:hover {
+            color: #fff !important;
+        }
+    </style>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

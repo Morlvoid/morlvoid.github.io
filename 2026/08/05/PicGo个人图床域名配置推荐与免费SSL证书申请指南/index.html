@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Hello, 赛博世界 |  Mor | void</title>
+      <title>PicGo个人图床域名配置推荐与免费SSL证书申请指南 |  Mor | void</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/logo.png" />
@@ -57,316 +57,280 @@
     <main class="content on">
       <section class="outer">
   
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">Hello, 赛博世界</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+
+<article id="post-PicGo个人图床域名配置推荐与免费SSL证书申请指南" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <div class="article-inner">
+        
+            <header class="article-header">
+                 
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  PicGo个人图床域名配置推荐与免费SSL证书申请指南
+</h1>
+ 
+
+                    
+            </header>
+            
+                
+                    <div class="article-meta">
+                        <a href="/2026/08/05/PicGo%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E6%8E%A8%E8%8D%90%E4%B8%8E%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7%E6%8C%87%E5%8D%97/" class="article-date">
+  <time datetime="2026-08-04T23:02:01.000Z" itemprop="datePublished">2026-08-05</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+
+                                
+                                    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">750</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+
+                                        
+                    </div>
+                    
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+                                    
+                                            
+                                                <div class="article-entry " itemprop="articleBody">
+                                                    
+                                                        
+
+                                                            
+                                                                                <p>在使用PicGo + 阿里云OSS搭建个人图床的过程中，我遇到了图片间歇性无法加载的问题。排查发现，根本原因在于<strong>图床的自定义域名</strong>：在PicGo中设置自定义域名后，图床默认使用<code>https://</code>协议，无论有无SSL证书，浏览器都会直接拦截并报错“非安全链接”，导致图片无法显示。</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th align="left">方案</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>方案一：使用OSS官方域名</strong></td>
+<td align="left">SSL证书由阿里云自动管理，永久有效，无需续费</td>
+<td align="left">域名较长，品牌一致性稍弱</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>方案二：绑定自定义域名 + 手动续SSL证书</strong></td>
+<td align="left">域名个性化，品牌一致性好</td>
+<td align="left">每90天需手动申请和部署一次证书</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="方案一：图床链接使用OSS官方域名"><a href="#方案一：图床链接使用OSS官方域名" class="headerlink" title="方案一：图床链接使用OSS官方域名"></a>方案一：图床链接使用OSS官方域名</h4><p>在PicGo图床设置中，将“自定义域名”字段<strong>留空</strong>，PicGo会自动使用阿里云OSS的官方域名（格式如：<code>&lt;bucket-name&gt;.oss-&lt;region-id&gt;.aliyuncs.com</code>）。</p>
+<p>OSS官方域名<strong>原生支持HTTPS</strong>，SSL证书由阿里云统一管理，无需任何额外配置。这是最省心、零维护成本的方案。</p>
+<h4 id="方案二：为自定义域名配置SSL证书以启用HTTPS"><a href="#方案二：为自定义域名配置SSL证书以启用HTTPS" class="headerlink" title="方案二：为自定义域名配置SSL证书以启用HTTPS"></a>方案二：为自定义域名配置SSL证书以启用HTTPS</h4><p>如果坚持使用自己的域名，需要完成以下三步：</p>
+<ol>
+<li><strong>绑定域名</strong>：在OSS控制台 → Bucket → 传输管理 → 域名管理 → 绑定域名</li>
+<li><strong>配置CNAME解析</strong>：在域名DNS服务商处添加CNAME记录，指向OSS的Bucket域名</li>
+<li><strong>配置SSL证书</strong>：为自定义域名配置SSL证书以启用HTTPS</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>重要提醒</strong>：自2025年3月20日起，新开通OSS服务的用户，若通过OSS默认公网Endpoint访问中国内地地域Bucket的数据类API，请求将被拒绝。如果你的Bucket位于中国内地且是新用户，<strong>必须使用自定义域名</strong>才能正常访问。</p>
+</blockquote>
+<h3 id="图床自定义域名免费SSL证书申请步骤"><a href="#图床自定义域名免费SSL证书申请步骤" class="headerlink" title="图床自定义域名免费SSL证书申请步骤"></a>图床自定义域名免费SSL证书申请步骤</h3><p>阿里云免费SSL证书（个人测试证书）有效期为<strong>90天</strong>，每个阿里云账号每个自然年可免费申请<strong>20张</strong>。</p>
+<h4 id="一：购买免费证书"><a href="#一：购买免费证书" class="headerlink" title="一：购买免费证书"></a>一：购买免费证书</h4><ol>
+<li>在阿里云OSS的Bucket列表找到图床Bucket</li>
+<li>点击“域名管理”，点击“证书托管”</li>
+<li>若没有证书，则进入<strong>数字证书管理服务（原SSL证书)</strong></li>
+<li>点击“个人测试证书”的“去购买“</li>
+</ol>
+<h4 id="二：申请证书"><a href="#二：申请证书" class="headerlink" title="二：申请证书"></a>二：申请证书</h4><h4 id="二：创建证书"><a href="#二：创建证书" class="headerlink" title="二：创建证书"></a>二：创建证书</h4><ol>
+<li>确保已在[<strong>数字证书管理服务控制台</strong>]购买或上传所需证书。</li>
+<li>在<strong>数字证书管理服务（原SSL证书)<strong>中，点击</strong>证书管理</strong>，找到<strong>个人测试证书（原免费证书）</strong></li>
+<li>找到想要申请的证书，需要横向拖动进度条，找到并点击”申请证书“，填入自定义图床的域名，域名验证方式可为<em>手动DNS验证</em>，点击“提交审核”。</li>
+<li>等证书签发成功后，回到阿里云OSS的Bucket列表找到图床Bucket</li>
+<li>“证书名称”中可点击下拉列表，找到证书，点击上传即可</li>
+</ol>
+
+                                                                                    
+                                                                                        <!-- reward -->
+                                                                                        
+                                                </div>
+                                                
+
+                                                    <!-- copyright -->
+                                                    
+                                                        <div class="declare">
+                                                            <ul class="post-copyright">
+                                                                <li>
+                                                                    <i class="ri-copyright-line"></i>
+                                                                    <strong>版权声明： </strong>
+                                                                    
+                                                                                本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+                                                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                            <footer class="article-footer">
+                                                                
+                                                                    
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/08/05/PicGo%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE%E6%8E%A8%E8%8D%90%E4%B8%8E%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
     </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/23/%E7%BA%AA%E5%BF%B5%E6%95%99%E7%A8%8B%EF%BC%9AMirai%20Dice%EF%BC%81%E9%AA%B0%E5%A8%98%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  <time datetime="2022-06-23T06:43:04.000Z" itemprop="datePublished">06/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/23/%E7%BA%AA%E5%BF%B5%E6%95%99%E7%A8%8B%EF%BC%9AMirai%20Dice%EF%BC%81%E9%AA%B0%E5%A8%98%E6%90%AD%E5%BB%BA/"
-    >纪念教程：Mirai Dice！骰娘搭建</a> 
-</h2>
- 
+</div>
 
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
+<div id="share-mask"></div>
+                                                                        
+                                                                            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a></li></ul>
 
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/06/22/%E5%89%8D%E7%AB%AF%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE%E2%80%94%E2%80%94%E6%BB%A1%E8%AE%B0%E7%94%9C%E5%93%81%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" class="archive-article-date">
-  <time datetime="2022-06-22T10:25:51.000Z" itemprop="datePublished">06/22</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/06/22/%E5%89%8D%E7%AB%AF%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE%E2%80%94%E2%80%94%E6%BB%A1%E8%AE%B0%E7%94%9C%E5%93%81%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"
-    >前端网站项目——满记甜品开发日志</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/04/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/" class="archive-article-date">
-  <time datetime="2022-03-04T02:40:32.000Z" itemprop="datePublished">03/04</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/03/04/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/"
-    >Java对象和类</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  <time datetime="2022-03-03T01:38:48.000Z" itemprop="datePublished">03/03</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/03/03/Java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"
-    >Java基础语法</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  <time datetime="2022-02-24T02:00:24.000Z" itemprop="datePublished">02/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/02/24/Java%E5%9F%BA%E7%A1%80/"
-    >Java基础</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-  
-  </div>
-  </div>
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2021" class="archive-year">2021</a>
+                                                            </footer>
     </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/06/24/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAWordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B/" class="archive-article-date">
-  <time datetime="2021-06-24T00:42:46.000Z" itemprop="datePublished">06/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/06/24/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAWordpress%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B/"
-    >Ubuntu服务器搭建Wordpress个人博客过程</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
 
     
+        
+  <nav class="article-nav">
     
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  <time datetime="2021-05-26T04:46:42.000Z" itemprop="datePublished">05/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/05/26/cropper%E5%89%AA%E8%A3%81%E6%8F%92%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/"
-    >cropper剪裁插件的用法</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
+      <a href="/2026/12/31/2026%E5%B9%B4%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            2026年新项目开发计划
+          
+        </div>
+      </a>
     
     
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  <time datetime="2021-05-24T01:44:12.000Z" itemprop="datePublished">05/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/05/24/JavaScript%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/"
-    >JavaScript对象相关笔记</a> 
-</h2>
- 
-
-    </header>
+      <a href="/2026/04/09/%E6%9D%82%E8%B0%88%EF%BC%9A%E9%80%82%E5%90%88%E6%99%AE%E9%80%9A%E4%BA%BA%E5%B0%8F%E7%94%BB%E5%B8%88%E5%88%9B%E4%BD%9C%E8%80%85%E7%9A%84%E6%8F%90%E9%AB%98%E7%9F%A5%E5%90%8D%E5%BA%A6%E6%96%B9%E5%BC%8F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">杂谈：适合普通人小画师创作者的提高知名度方式</div>
+      </a>
     
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/20/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  <time datetime="2021-04-20T10:49:27.000Z" itemprop="datePublished">04/20</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/04/20/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"
-    >前端技术总结</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  <time datetime="2021-01-23T11:28:36.000Z" itemprop="datePublished">01/23</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2021/01/23/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >HTML学习笔记</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-      
-    </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/page/3/">上一页</a><a class="page-number" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">1</a><a class="page-number" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/page/2/">2</a><a class="page-number" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/page/5/">5</a><a class="extend next" rel="next" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/page/5/">下一页</a>
   </nav>
-  
+
+
+            
+                
+                    
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+
+                        
+                            
+                                
+
+                                    
+                                        
+                                            
+                                                
+</article>
 </section>
       <footer class="footer">
   <div class="outer">
@@ -556,6 +520,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

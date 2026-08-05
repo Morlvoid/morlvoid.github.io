@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">745</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -146,9 +146,14 @@
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h4 id="方案一：图床链接使用OSS官方域名"><a href="#方案一：图床链接使用OSS官方域名" class="headerlink" title="方案一：图床链接使用OSS官方域名"></a>方案一：图床链接使用OSS官方域名</h4><p>在PicGo图床设置中，将“自定义域名”字段<strong>留空</strong>，PicGo会自动使用阿里云OSS的官方域名（格式如：<code>&lt;bucket-name&gt;.oss-&lt;region-id&gt;.aliyuncs.com</code>）。</p>
+<h3 id="方案一（推荐）：图床链接使用OSS官方域名"><a href="#方案一（推荐）：图床链接使用OSS官方域名" class="headerlink" title="方案一（推荐）：图床链接使用OSS官方域名"></a>方案一（推荐）：图床链接使用OSS官方域名</h3><p>在PicGo图床设置中，将“自定义域名”字段<strong>留空</strong>，PicGo会自动使用阿里云OSS的官方域名（格式如：<code>&lt;bucket-name&gt;.oss-&lt;region-id&gt;.aliyuncs.com</code>）。</p>
 <p>OSS官方域名<strong>原生支持HTTPS</strong>，SSL证书由阿里云统一管理，无需任何额外配置。这是最省心、零维护成本的方案。</p>
-<h4 id="方案二：为自定义域名配置SSL证书以启用HTTPS"><a href="#方案二：为自定义域名配置SSL证书以启用HTTPS" class="headerlink" title="方案二：为自定义域名配置SSL证书以启用HTTPS"></a>方案二：为自定义域名配置SSL证书以启用HTTPS</h4><p>如果坚持使用自己的域名，需要完成以下三步：</p>
+<h4 id="Edge浏览器混合内容警告"><a href="#Edge浏览器混合内容警告" class="headerlink" title="Edge浏览器混合内容警告"></a>Edge浏览器混合内容警告</h4><p>Edge浏览器有更严格的<strong>混合内容（Mixed Content）安全策略</strong>。</p>
+<p>简单来说，如果博客主站是 <code>https://</code>，但图片链接是 <code>http://</code> 的，Edge认为这种“混合”不安全，所以默认拦截了图片。不同浏览器对“被动混合内容”（如图片）的处理方式略有不同，有时候Chrome和手机能显示，而Edge不行。</p>
+<p>若博客主站和图片链接都改为 <code>https://</code>对<strong>SEO友好</strong>，搜索引擎更偏好全站HTTPS资源。</p>
+<h4 id="CDN（如阿里云全站加速）"><a href="#CDN（如阿里云全站加速）" class="headerlink" title="CDN（如阿里云全站加速）"></a>CDN（如阿里云全站加速）</h4><p>如果启用CDN（如阿里云全站加速）且绑定了自定义域名，用官方域名会绕过CDN回源，纯走OSS流量（OSS外网流出流量需付费，但图片量小基本可以忽略）</p>
+<p>如果<strong>没有配置CDN</strong>直接用方案一OSS官方域名（HTTPS）就是<strong>最干净、最正确</strong>的方案。这样既没有额外流量费用，也不用操心证书续期。</p>
+<h3 id="方案二：为自定义域名配置SSL证书以启用HTTPS"><a href="#方案二：为自定义域名配置SSL证书以启用HTTPS" class="headerlink" title="方案二：为自定义域名配置SSL证书以启用HTTPS"></a>方案二：为自定义域名配置SSL证书以启用HTTPS</h3><p>如果坚持使用自己的域名，需要完成以下三步：</p>
 <ol>
 <li><strong>绑定域名</strong>：在OSS控制台 → Bucket → 传输管理 → 域名管理 → 绑定域名</li>
 <li><strong>配置CNAME解析</strong>：在域名DNS服务商处添加CNAME记录，指向OSS的Bucket域名</li>
@@ -157,20 +162,21 @@
 <blockquote>
 <p>⚠️ <strong>重要提醒</strong>：自2025年3月20日起，新开通OSS服务的用户，若通过OSS默认公网Endpoint访问中国内地地域Bucket的数据类API，请求将被拒绝。如果你的Bucket位于中国内地且是新用户，<strong>必须使用自定义域名</strong>才能正常访问。</p>
 </blockquote>
-<h3 id="图床自定义域名免费SSL证书申请步骤"><a href="#图床自定义域名免费SSL证书申请步骤" class="headerlink" title="图床自定义域名免费SSL证书申请步骤"></a>图床自定义域名免费SSL证书申请步骤</h3><p>阿里云免费SSL证书（个人测试证书）有效期为<strong>90天</strong>，每个阿里云账号每个自然年可免费申请<strong>20张</strong>。</p>
-<h4 id="一：购买免费证书"><a href="#一：购买免费证书" class="headerlink" title="一：购买免费证书"></a>一：购买免费证书</h4><ol>
+<h4 id="图床自定义域名免费SSL证书申请步骤"><a href="#图床自定义域名免费SSL证书申请步骤" class="headerlink" title="图床自定义域名免费SSL证书申请步骤"></a>图床自定义域名免费SSL证书申请步骤</h4><p>阿里云免费SSL证书（个人测试证书）有效期为<strong>90天</strong>，每个阿里云账号每个自然年可免费申请<strong>20张</strong>。</p>
+<h5 id="一：购买免费证书"><a href="#一：购买免费证书" class="headerlink" title="一：购买免费证书"></a>一：购买免费证书</h5><ol>
 <li>在阿里云OSS的Bucket列表找到图床Bucket</li>
 <li>点击“域名管理”，点击“证书托管”</li>
 <li>若没有证书，则进入<strong>数字证书管理服务（原SSL证书)</strong></li>
 <li>点击“个人测试证书”的“去购买“</li>
 </ol>
-<h4 id="二：申请证书"><a href="#二：申请证书" class="headerlink" title="二：申请证书"></a>二：申请证书</h4><ol>
+<h5 id="二：申请证书"><a href="#二：申请证书" class="headerlink" title="二：申请证书"></a>二：申请证书</h5><ol>
 <li>确保已在[<strong>数字证书管理服务控制台</strong>]购买或上传所需证书。</li>
 <li>在<strong>数字证书管理服务（原SSL证书)<strong>中，点击</strong>证书管理</strong>，找到<strong>个人测试证书（原免费证书）</strong></li>
 <li>找到想要申请的证书，需要横向拖动进度条，找到并点击”申请证书“，填入自定义图床的域名，域名验证方式可为<em>手动DNS验证</em>，点击“提交审核”。</li>
 <li>等证书签发成功后，回到阿里云OSS的Bucket列表找到图床Bucket</li>
 <li>“证书名称”中可点击下拉列表，找到证书，点击上传即可</li>
 </ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总的来说，若没有配置阿里云CDN且希望SEO友好，更推荐方案一：图床链接使用OSS官方域名。</p>
 
                                                                                     
                                                                                         <!-- reward -->

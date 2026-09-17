@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="Mor" />
+       
+      <meta name="description" content="Empty spaces,fill the pages." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>杂谈：计算机知识补盲① |  Mor | void</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/logo.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  
+
+<article id="post-杂谈：计算机知识补盲①" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <div class="article-inner">
+        
+            <header class="article-header">
+                 
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  杂谈：计算机知识补盲①
+</h1>
+ 
+
+                    
+            </header>
+            
+                
+                    <div class="article-meta">
+                        <a href="/2026/09/17/%E6%9D%82%E8%B0%88%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A1%A5%E7%9B%B2%E2%91%A0/" class="article-date">
+  <time datetime="2026-09-17T10:14:09.000Z" itemprop="datePublished">2026-09-17</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hello-%E8%B5%9B%E5%8D%9A%E4%B8%96%E7%95%8C/">Hello, 赛博世界</a>
+  </div>
+
+                                
+                                    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">9.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">33 分钟</span>
+        </span>
+    </span>
+</div>
+
+                                        
+                    </div>
+                    
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+                                    
+                                            
+                                                <div class="article-entry " itemprop="articleBody">
+                                                    
+                                                        
+
+                                                            
+                                                                                <p>杂谈：计算机知识补盲①——写给自己的笔记</p>
+<p>总有人说，计算机其实很简单，本质上就是0和1。<br>不对。</p>
+<span id="more"></span>
+
+<p>至少截至2026年，计算机早已不只是一门学科，而是一个横跨半导体、通信、软件、互联网、制造等多个产业，又包含硬件、固件、操作系统、编译器、网络、数据库、安全、应用等多个层次的庞大技术生态。</p>
+<p>用两种状态传递信息，确实是信息编码的朴素雏形。烽火、旗语、灯语、手电筒的亮灭，都说明“可区分状态+约定规则”可以传消息。但这不是计算机的起点，更不是计算机的全部。</p>
+<p>计算机采用二进制，是因为开关电路容易可靠实现两种状态，再配合布尔代数、逻辑门、存储器和指令系统，才一步步长成今天的样子。</p>
+<p>如果有人告诉你“学会0和1就精通计算机”，那他至少是在偷换概念。</p>
+<p>知道字母表，不等于会写文章，更不等于会造纸、造印刷机、建邮政系统，也不代表能写出各种用途的信件。</p>
+<p>想真正理解计算机，先要放下“0和1很简单”的幻觉，看清“计算机”三个字背后有多少层抽象、多少人的协作，以及多少专利、标准、工具链和产业生态：</p>
+<p>若你想学远距离信息传递，或许该去通信行业；若你想学晶体管和芯片制造，或许该去半导体、微电子行业；若你想做一个能语音识别的智能台灯，可能需要同时接触硬件、嵌入式、传感器、语音识别和无线通信；若你想做沉浸式电脑游戏，可以选择软件开发、游戏引擎或图形学方向。想学数据库、操作系统、编译器、网络安全、人工智能，又各自是不同赛道。计算机从来不是一个专业，而是一群专业的集合。</p>
+<p>这行分工有多细？举个不太严谨但很真实的例子：</p>
+<p>你拿一台“某个软件一打开就闪退”的电脑去电脑城，店员很可能说：“软件的问题我不会看，重装软件或者重装系统试试。”</p>
+<p>你抱着一台开不了机的电脑去找一个天天跟报错日志打交道的程序员，他很可能一脸真诚地说：“我不会修电脑。”</p>
+<p>不是谁水平低，而是技能树点在了不同分支：一个可能偏装机、系统和硬件排查，一个偏代码、逻辑和软件栈。所谓“懂计算机”，在这里根本不够用。</p>
+<p>这里要泼一盆冷水：你没办法从“把沙子变成晶体管”一路学到“自己造出 CPU”，也没办法自己写一个操作系统去启动自己亲手做的电脑，再在上面玩游戏。</p>
+<p>不是这些知识不能学，而是现代计算机产业是高度分工、层层授权、全球协作的结果。先进制程、EDA、IP 核、签名密钥、供应链和生态兼容，不是一个人能独立复现的。</p>
+<p>但这并不意味着普通人只能停在表面。相反，几乎所有你想要的底层内容，都能找到开源实现、公开课程、手册和模拟器。你可以在 FPGA 上跑 RISC-V，可以用 QEMU 模拟硬件，可以读 Linux 内核，可以写玩具编译器，可以画简单的板子，可以刷开源固件。只要不做大规模商业复制，独立研究、学习原理、做原型，是完全可行的。</p>
+<p>换句话说：<strong>你无法独自掌控整条产业链，但可以站在巨人的肩膀上，把其中某一层学到很深。</strong> 这不是“人人都能精通计算机”，而是“人人都能入门，少数人能深入某一层，没人能独自精通全部”。</p>
+<p>那么先从【如何买一台电脑】开始学习吧。</p>
+<h4 id="如何买一台电脑"><a href="#如何买一台电脑" class="headerlink" title="如何买一台电脑"></a>如何买一台电脑</h4><p>普通人买电脑，路径大致两条：买现成的笔记本，或者自己组装台式机。</p>
+<p>买笔记本首先看品牌。华硕、联想、戴尔、惠普、微星这些是常见的整机品牌商。但这里有一层普通人不太注意的关系：品牌商未必自己生产全部零件，这其中有十分庞大且复杂的产业链和十分明确的分工合作。</p>
+<p>笔记本的代工通常交给广达、仁宝、纬创等代工厂，屏幕可能来自京东方、LG Display或三星，内存和固态硬盘可能来自三星、SK海力士、美光或长江存储。</p>
+<p>品牌商做的事，是提出设计规格、采购零件、组装成品、贴上自己的牌子并提供售后。同一款笔记本在不同批次里换了内存品牌或固态硬盘型号，是常有的事，性能表现也可能略有差别。所以看品牌商之外，也要看那批货的代工厂和物料口碑。</p>
+<p>就像你去糕点房里点单一份蓝莓蛋挞，烘焙师要做的是根据菜谱调配面粉和水和鸡蛋的比例和面，然后放在烤箱里根据菜谱烤制到相应的时间，放上蓝莓出餐。但其实，这背后还有种植小麦的人、种植蓝莓的人、养鸡的人、写制菜谱的人、定价和订彩蛋出售的人。</p>
+<ul>
+<li><strong>原料供应商（面粉厂、养鸡场、蓝莓园）</strong>：<strong>Intel、AMD、NVIDIA、三星、SK海力士、美光</strong>。他们提供最核心的“食材”——CPU、GPU芯片、内存颗粒、闪存颗粒。</li>
+<li><strong>菜谱&#x2F;酱料供应商（预拌粉、蛋挞液配方）</strong>：<strong>AMI、Phoenix、Insyde</strong>（BIOS&#x2F;UEFI固件供应商），以及<strong>微软</strong>（Windows系统）。他们提供让硬件能跑起来的“基础配方”和“操作系统”这个“酱料”。</li>
+<li><strong>中央厨房&#x2F;代工厂（和面、调蛋液、烤制）</strong>：<strong>广达、仁宝、纬创、联宝、华勤</strong>等ODM（原始设计制造商）。他们负责把原料按菜谱加工成“半成品”甚至“成品”。</li>
+<li><strong>品牌商&#x2F;餐厅老板（贴牌、定菜单、卖给你）</strong>：<strong>华硕、联想、戴尔、惠普</strong>。他们提出“我要一个蓝莓蛋挞”的需求，采购原料和代工服务，最后贴上自己的牌子，提供售后。<strong>华硕的设计师更像一个产品经理和总厨</strong>，他定义这款“蛋挞”的规格、成本和定位，但面粉不是他种的，烤箱也不是他造的。</li>
+</ul>
+<p>明白了笔记本电脑的产业链，我们再来看那些参数。它们直接决定了你跑软件时的体验。</p>
+<h4 id="电脑参数"><a href="#电脑参数" class="headerlink" title="电脑参数"></a>电脑参数</h4><p>核心性能</p>
+<ul>
+<li>**CPU (中央处理器)**：电脑的“大脑”，负责绝大部分逻辑运算。<ul>
+<li><strong>型号与定位</strong>：Intel的酷睿 (Core) 和 AMD的锐龙 (Ryzen) 是两大主流。系列内的数字（如i5, i7, i9或Ryzen 5, 7, 9）代表定位，数字越大性能越强。后缀也很关键，<strong>H</strong>或<strong>HX</strong>代表高性能（常见于游戏本），<strong>U</strong>或<strong>P</strong>代表低功耗（常见于轻薄本）。选购时，不能只看i7或i9，不同代际的i5可能比老款i7更强，最好参考天梯图或实际评测。</li>
+<li><strong>核心&#x2F;线程数</strong>：可以理解为“大脑”里有多少个能同时干活的“小脑”。核心数越多，同时处理多任务（如视频剪辑、代码编译）的能力越强。</li>
+<li>**频率 (GHz)**：代表“大脑”的运转速度。基础频率是保底速度，睿频是全力冲刺时的最高速度。对于游戏等需要快速响应的任务，高频率很重要。</li>
+</ul>
+</li>
+<li><strong>GPU (显卡)<strong>：负责所有图形相关的计算，比如游戏画面、视频渲染。分为</strong>集显</strong>和<strong>独显</strong>。<ul>
+<li>**集显 (集成显卡)**：集成在CPU内部，共享系统内存。优点是功耗低、发热小，适合日常办公、看视频和轻度游戏。</li>
+<li><strong>独显 (独立显卡)<strong>：独立的芯片，自带</strong>显存 (VRAM)<strong>。性能远超集显，是玩大型3D游戏、做3D建模、视频渲染和本地AI推理的必需品。NVIDIA的GeForce RTX系列（如4060, 4090）是主流。</strong>显存</strong>：独显专用的高速内存，用来存放游戏贴图等图形数据。<strong>8GB显存</strong>和<strong>16GB系统内存</strong>是两个独立的存储空间，各自分工。如果显存不够，系统会借用慢得多的内存，导致严重卡顿。</li>
+</ul>
+</li>
+<li>**内存 (RAM)**：电脑的“工作台”，所有正在运行的程序和数据都放在这里。<ul>
+<li><strong>容量</strong>：<strong>16GB</strong>是目前的主流和推荐起点，能保证系统流畅运行和大部分软件的使用。如果要做大型项目、跑虚拟机或多开很多程序，<strong>32GB</strong>会更从容。</li>
+<li><strong>代数与频率</strong>：DDR5是新一代内存，频率（如5600MHz）更高，速度更快，但需要主板支持。DDR4则更成熟，成本更低。</li>
+<li><strong>扩展性</strong>：注意笔记本是<strong>板载内存</strong>（焊死，无法升级）还是有<strong>SO-DIMM插槽</strong>（可更换&#x2F;加装）。有插槽的机型未来升级空间更大。</li>
+</ul>
+</li>
+<li>**硬盘 (存储)**：电脑的“仓库”，用来长期存放系统、软件、文件等。<ul>
+<li><strong>容量</strong>：<strong>512GB</strong>是当前的主流起步容量，<strong>1TB</strong>会更宽裕，能装下更多游戏和素材。</li>
+<li><strong>类型</strong>：<strong>SSD (固态硬盘)</strong> 是绝对主流，速度远超老式HDD (机械硬盘)。系统盘必须是SSD，否则开机和加载软件会非常慢。M.2 NVMe接口的SSD速度最快。</li>
+<li><strong>扩展性</strong>：留意笔记本是否有<strong>额外的M.2硬盘位</strong>，这决定了你未来是否能方便地加装硬盘。</li>
+</ul>
+</li>
+</ul>
+<p>显示交互</p>
+<ul>
+<li><strong>屏幕</strong>：参数直接影响观感。<ul>
+<li><strong>分辨率</strong>：如1920x1080 (FHD)、2560x1600 (2.5K)。分辨率越高，画面越细腻。</li>
+<li><strong>刷新率 (Hz)<strong>：屏幕每秒刷新的次数。</strong>60Hz</strong>是基础，<strong>120Hz</strong>或<strong>144Hz</strong>以上会让系统动画和游戏画面看起来流畅得多。</li>
+<li><strong>色域</strong>：如100% sRGB。色域越广，色彩显示越丰富准确，对设计、修图很重要。</li>
+<li><strong>面板类型</strong>：IPS可视角度好，色彩准；OLED对比度极高，色彩艳丽，但可能有烧屏风险。</li>
+</ul>
+</li>
+<li><strong>键盘与触控板</strong>：直接影响输入体验。键程、反馈力度和触控板材质、尺寸都是体验的关键。</li>
+</ul>
+<p>连接扩展</p>
+<ul>
+<li><strong>接口</strong>：<ul>
+<li><strong>USB-C &#x2F; Thunderbolt (雷电)<strong>：目前最全能的接口，支持数据传输、视频输出和充电。</strong>Thunderbolt 4</strong>带宽高达40Gbps，<strong>Thunderbolt 5</strong>更是达到80Gbps，非常强大。</li>
+<li><strong>USB-A</strong>：传统的USB大口，插U盘、鼠标接收器都靠它，非常实用。</li>
+<li><strong>HDMI</strong>：外接显示器或投影仪的标准接口。<strong>HDMI 2.1</strong>支持4K 120Hz输出，比HDMI 2.0更强。</li>
+<li><strong>RJ45网口</strong>：有线网络接口。无线再快，有线网络在稳定性和延迟上依然有优势。</li>
+<li><strong>SD&#x2F;TF读卡器</strong>：摄影爱好者和内容创作者的必备接口。</li>
+<li><strong>3.5mm音频口</strong>：插有线耳机用的。</li>
+</ul>
+</li>
+<li><strong>网络</strong>：<ul>
+<li><strong>无线网卡</strong>：<strong>WiFi 6</strong>或<strong>WiFi 7</strong>能提供更快、更稳定的无线连接。</li>
+<li><strong>有线网卡</strong>：千兆网口是标配，部分高端机型会有2.5G网口。</li>
+<li><strong>蓝牙</strong>：用于连接蓝牙鼠标、键盘、耳机等外设。</li>
+</ul>
+</li>
+</ul>
+<p>便携与续航</p>
+<ul>
+<li><strong>重量</strong>：轻薄本可以做到1kg左右甚至更轻（如华为MateBook Pro S仅798g），而高性能游戏本可能重达2.5kg以上。如果你需要经常背着电脑出门，重量是需要重点考虑的。</li>
+<li><strong>尺寸与厚度</strong>：屏幕尺寸（如14寸、16寸）和机身厚度共同决定了便携性。大屏幕通常意味着更大的机身。</li>
+<li><strong>电池续航</strong>：厂商宣传的续航时间通常是在理想条件下测得的。实际续航会因使用场景（如玩游戏、看视频）而大幅缩短。<strong>60Wh</strong>左右的电池容量是轻薄本的常见配置。</li>
+</ul>
+<h5 id="总结：如何看懂一台电脑"><a href="#总结：如何看懂一台电脑" class="headerlink" title="总结：如何看懂一台电脑"></a>总结：如何看懂一台电脑</h5><ul>
+<li><strong>CPU</strong> 和 <strong>内存</strong> 决定了你日常操作和后台多任务的<strong>流畅度</strong>。</li>
+<li><strong>GPU (独显)</strong> 和 <strong>显存</strong> 决定了你玩3A大作、做3D渲染的<strong>性能上限</strong>。</li>
+<li><strong>屏幕</strong> 决定了你每天看到的<strong>画面质量</strong>。</li>
+<li><strong>接口</strong> 决定了你外接各种设备的<strong>便利程度</strong>。</li>
+<li><strong>重量、尺寸和续航</strong> 决定了你带它出门的<strong>便携体验</strong>。</li>
+</ul>
+<p>老师这些我还是不懂怎么办。下面是实战案例。</p>
+<h5 id="问：为什么剪视频要更多核的电脑比如10核甚至以上，打游戏6核就够了？"><a href="#问：为什么剪视频要更多核的电脑比如10核甚至以上，打游戏6核就够了？" class="headerlink" title="问：为什么剪视频要更多核的电脑比如10核甚至以上，打游戏6核就够了？"></a>问：为什么剪视频要更多核的电脑比如10核甚至以上，打游戏6核就够了？</h5><p>答：</p>
+<ul>
+<li><strong>打游戏（实时交互）</strong>：游戏逻辑是一个<strong>串行的主线任务</strong>，很多计算必须等上一步算完才能下一步，所以<strong>单核频率（速度）</strong>比核数更重要。6个强核足够喂饱显卡。</li>
+<li><strong>剪视频（渲染导出）</strong>：视频是由<strong>成千上万张独立的图片（帧）</strong>组成的。把每一帧调色、加特效，这之间<strong>互不干扰</strong>。10个核心可以同时处理10帧，速度翻倍，这叫<strong>并行计算</strong>。且素材存在内存里，动辄几十GB，所以<strong>内存容量（32G+）</strong>需求极高。</li>
+</ul>
+<h5 id="问：开机速度快慢取决于谁？软件打开快慢取决于谁？"><a href="#问：开机速度快慢取决于谁？软件打开快慢取决于谁？" class="headerlink" title="问：开机速度快慢取决于谁？软件打开快慢取决于谁？"></a>问：开机速度快慢取决于谁？软件打开快慢取决于谁？</h5><p>答： </p>
+<p>电脑开机速度取决于 <strong>硬盘</strong>（SSD）<strong>（读取Windows系统文件的速度）</strong> + <strong>BIOS&#x2F;UEFI（自检速度）</strong>。软件打开快慢取决于硬盘的读取速度。现在的UEFI自检只需几秒，大头全在硬盘把Windows文件读到内存里的速度。所以换了固态硬盘，开机从1分钟变10秒，就是这个原理。</p>
+<p>内存里的数据断电即失。每次开机，软件（如Word）都是“躺”在<strong>硬盘（仓库）</strong>里的。<strong>“打开软件”</strong> 实际是操作系统按需分页，只把当前需要的代码页从硬盘映射&#x2F;载入内存。如果硬盘速度慢（机械硬盘），搬运就要等半分钟；如果硬盘快（固态），秒搬完。<strong>内存只负责“搬过来之后”运行得卡不卡</strong>。</p>
+<h5 id="问：想要买电脑跑AI，需要买特定的配置吗？"><a href="#问：想要买电脑跑AI，需要买特定的配置吗？" class="headerlink" title="问：想要买电脑跑AI，需要买特定的配置吗？"></a>问：想要买电脑跑AI，需要买特定的配置吗？</h5><p>答：</p>
+<p>可以考虑。<strong>向量寄存器跑AI更好</strong>。因为AI计算是<strong>矩阵乘法</strong>（一堆数字同时乘加）。普通寄存器一次算一对数，<strong>向量寄存器（如AVX-512）</strong>AVX-512 是 512 位向量，单精度浮点可一次处理 16 个 float，双精度 8 个 double；如果做 16-bit 整数，可到 32 个。这叫<strong>SIMD（单指令多数据流）</strong>。好比搬砖，普通寄存器一次搬一块，向量寄存器一次推一车。</p>
+<h5 id="台式组装电脑"><a href="#台式组装电脑" class="headerlink" title="台式组装电脑"></a>台式组装电脑</h5><p>台式机自己组装的话，需要考虑的就多了。这时候你会直面一堆公司名字，而它们各自干的事情完全不同。</p>
+<p><strong>CPU：Intel 和 AMD</strong></p>
+<p>CPU（中央处理器）是电脑的运算核心。目前消费级市场上主要是Intel和AMD两家竞争。</p>
+<p>Intel的酷睿系列和AMD的锐龙系列是面向普通消费者的产品线；面向服务器和数据中心，Intel有至强，AMD有EPYC。</p>
+<p>Intel还自己做芯片制造（晶圆代工），AMD则主要做芯片设计，制造交给台积电。</p>
+<p>所以看到“Intel”和“AMD”这两个名字，你面对的其实是两家业务模式不同的公司。</p>
+<p><strong>显卡：NVIDIA 和 AMD，还有 Intel</strong></p>
+<p>显卡负责图形渲染和并行计算。独立显卡市场上，NVIDIA占据主导地位。</p>
+<p>NVIDIA的游戏显卡是GeForce RTX系列，数据中心GPU是它的主要收入来源；AMD的显卡叫Radeon RX系列，同时AMD也做CPU，所以它是一家同时供应CPU和GPU的公司，NVIDIA 以 GPU 和加速计算为核心同时也做 DPU、Grace CPU、Tegra SoC 和 AI 软件栈。</p>
+<p>Intel近几年也重新进入了独显市场，推出了Arc系列，定位中端。</p>
+<p><strong>主板：华硕、技嘉、微星、华擎</strong></p>
+<p>主板是把CPU、内存、显卡、硬盘等所有零件连在一起的平台。全球消费级主板市场主要由四家台系厂商主导：华硕、技嘉、微星、华擎。</p>
+<p>这些厂商除了卖自有品牌主板，也会给联想、NEC等品牌做代工。大陆品牌里七彩虹的市场占比也在追赶微星。</p>
+<p><strong>内存和固态硬盘：三星、SK海力士、美光、长江存储</strong></p>
+<p>内存（RAM）和固态硬盘（SSD）的闪存颗粒，全球主要由几家巨头供应。</p>
+<p>DRAM内存市场由三星、SK海力士、美光三家主导；NAND闪存（用于SSD）市场，三星、SK 海力士、美光、长江存储、铠侠是主要玩家。</p>
+<p>长江存储是一家中国厂商，凭借自研的Xtacking架构在消费级SSD市场上已经具备了与国际巨头竞争的能力。</p>
+<p>这些名字你不用全部记住。但有一个意识很重要：<strong>你买的每一台电脑，背后是几十家不同行业的公司在各自环节上分工协作的结果。</strong> 品牌商只是站在最前面面对消费者的那一个。</p>
+<p>自己组装时，那些参数到底在说什么？</p>
+<p><strong>CPU的核心参数</strong></p>
+<p>核心数和线程数决定并行处理能力。物理核心是真正独立运算的单元，超线程技术让一个物理核心可以同时处理两个线程。</p>
+<p>剪视频、跑编译、做数据分析这类多线程任务，核心数越多越有优势；但打游戏往往更吃单核性能和高主频。</p>
+<p>主频（时钟速度）是CPU每秒运行的时钟周期数，通常看基础频率和睿频上限。</p>
+<p>缓存是CPU内部的高速存储，L3缓存越大，CPU访问常用数据时等待越少。</p>
+<p>制程工艺（比如5nm、3nm）影响功耗和发热，更先进的制程通常意味着同性能下更省电。</p>
+<p><strong>显卡的核心参数</strong></p>
+<p>流处理器（NVIDIA叫CUDA核心，AMD叫流处理器）是图形计算的主力，同代产品中数量越多，并行处理能力越强。</p>
+<p>显存容量决定能同时处理多少数据，12GB已经成为4K游戏和AI绘图的实用门槛。</p>
+<p>显存位宽决定数据吞吐的通道宽度，256bit及以上配合GDDR6X或GDDR7显存，才能充分释放带宽。</p>
+<p>但要注意跨代比较没有意义：新一代架构的单位核心效率可能远高于旧架构，所以不能只看流处理器数量来判断强弱。</p>
+<p><strong>主板的板型和接口</strong></p>
+<p>主板尺寸主要分三种：ATX是标准大板，约30.5×24.4厘米，扩展槽最多；M-ATX是紧凑型，约24.4×24.4厘米，是目前装机市场的主流；ITX是迷你型，只有17×17厘米，扩展性受限但适合小机箱。</p>
+<p>CPU接口决定了你能用哪一代CPU，Intel和AMD的接口不通用，同一家不同代也可能换接口。</p>
+<p>内存代数（DDR4还是DDR5）决定了你买的内存条能不能插上去。</p>
+<p>M.2接口用于安装NVMe固态硬盘，数量和版本影响你能装几块高速硬盘。</p>
+<p><strong>电源功率</strong></p>
+<p>所有零件的供电都来自电源。CPU和显卡是耗电大户，电源功率要留出余量。</p>
+<p>如果电源功率不够，轻则高负载时死机重启，重则损坏硬件。</p>
+<p>总结一份清单：清单帮你按“主机”和“外设”分好，照着买就不会漏。</p>
+<p>主机内部零件</p>
+<p>这是决定电脑性能的核心，也是预算的大头。</p>
+<ul>
+<li><strong>CPU（中央处理器）</strong>：电脑的“大脑”。目前只有<strong>Intel</strong>和<strong>AMD</strong>可选。游戏&#x2F;设计推荐i5&#x2F;R5及以上，13&#x2F;14 代部分型号曾有稳定性问题，Intel 已通过微码更新和延长保修处理；买二手或旧批次时，确认 BIOS 已更新，并查清是否在延保范围。</li>
+<li><strong>主板</strong>：连接所有零件的“躯干”。一线品牌有<strong>华硕、微星、技嘉</strong>。<strong>重中之重是接口必须和CPU匹配</strong>（如Intel 12-14代配LGA1700，AMD新CPU配AM5）。</li>
+<li><strong>内存（RAM）</strong>：电脑的“工作台”。主流品牌<strong>金士顿、芝奇、英睿达</strong>等。游戏&#x2F;设计<strong>16GB起步（2x8GB双通道）</strong>，预算足直接上32GB。</li>
+<li><strong>显卡（GPU）</strong>：负责“画面输出”。芯片主要是<strong>NVIDIA（N卡）</strong> 和<strong>AMD（A卡）</strong>，品牌有<strong>华硕、七彩虹、微星</strong>等。玩3A大作或AI绘图必须配独立显卡。</li>
+<li><strong>硬盘（Storage）</strong>：电脑的“仓库”。品牌有<strong>三星、西部数据、铠侠、致态</strong>等。<strong>必须选固态硬盘（SSD）</strong>，<strong>512GB起步，1TB更佳</strong>。</li>
+<li><strong>电源</strong>：给所有零件“供电”。推荐<strong>海韵、振华、长城、航嘉</strong>等。功率看CPU+显卡功耗之和，再留出<strong>150W-200W</strong>的余量。</li>
+</ul>
+<p>主机辅助配件（2小件及其他）</p>
+<ul>
+<li><strong>机箱</strong>：装所有零件的“盒子”。<strong>必须能装下你选的主板尺寸</strong>（ATX、M-ATX等）。</li>
+<li><strong>CPU散热器</strong>：给CPU“降温”。普通CPU用盒装自带的就够了；高端CPU建议另购百元级风冷或水冷。注意<strong>散热器高度要在机箱支持范围内</strong>。</li>
+<li><strong>机箱风扇</strong>：构建机箱风道，辅助散热。</li>
+</ul>
+<p>外设与附件（你用得到的）</p>
+<ul>
+<li><strong>显示器</strong>：推荐<strong>AOC、优派、华硕</strong>等。尺寸、分辨率和刷新率是核心参数。</li>
+<li><strong>键盘 &amp; 鼠标</strong>：主流品牌有<strong>罗技、雷蛇</strong>等。键盘分薄膜和机械，鼠标分有线和无线，按手感和预算选。</li>
+<li><strong>数位屏&#x2F;板</strong>（如需要）：<strong>Wacom</strong>是行业标杆。</li>
+<li><strong>操作系统</strong>：<strong>Windows</strong>或<strong>Linux</strong>。需要单独准备一个<strong>8GB以上的U盘</strong>来做系统安装盘。</li>
+<li><strong>视频连接线</strong>：<strong>HDMI</strong>或<strong>DP</strong>线。</li>
+<li><strong>装机工具</strong>：一把<strong>十字螺丝刀</strong>足矣，最好带点磁性。</li>
+</ul>
+<p>核心避坑指南</p>
+<ol>
+<li><strong>CPU与主板必须匹配</strong>：这是最关键的，买之前务必确认CPU插槽（如LGA1700）和主板芯片组（如B760）对应。</li>
+<li><strong>电源功率要足额</strong>：额定功率要大于整机满载功耗并留足余量。<strong>警惕“最大功率”文字游戏，认准“额定功率”</strong>。</li>
+<li><strong>机箱尺寸要兼容</strong>：确认机箱能装下你的<strong>主板版型</strong>（如ATX）、<strong>CPU散热器高度</strong>和<strong>显卡长度</strong>。</li>
+<li><strong>内存优先组双通道</strong>：插两根同样规格的内存（如8Gx2），性能优于单根16G。</li>
+<li><strong>硬盘首选固态</strong>：除非有海量冷数据存储需求，否则系统盘和常用软件盘<strong>必须用SSD</strong>。</li>
+</ol>
+<p>我在学习的时候，脑海里冒出这样一个问题：上面这一条所有要买的零件里，哪些是只能买我自己不能造的？哪些是我自己也能手搓一个出来的？</p>
+<p><strong>结论很残酷：清单里99%的零件，个人都“造”不了，只能买。</strong><br><strong>真正能让你“手搓”的，只有两样东西：机箱壳子和机械键盘。</strong></p>
+<ol>
+<li>绝对造不了（需要“光刻机”和“无尘室”）</li>
+</ol>
+<ul>
+<li><strong>CPU、内存颗粒、显卡核心（GPU）、固态硬盘颗粒</strong>：这些都是<strong>纳米级</strong>的硅基半导体。你需要ASML的光刻机（几亿美金一台），在绝对无尘的环境里，雕刻出比头发丝细上千倍的电路。<strong>在家手搓等于把沙子扔进微波炉，只能得到玻璃渣。</strong></li>
+<li>主板芯片组属于半导体工业；电源变压器属于磁性元件，个人可以绕制，但安规、效率和可靠性很难达到厂货水平。</li>
+</ul>
+<ol start="2">
+<li>给你设备你也造不好（高频电路&#x2F;化学污染）</li>
+</ol>
+<ul>
+<li><strong>主板（PCB）、显卡的电路板、内存条（PCB）</strong>：虽然电路板可以腐蚀铜箔，但现代主板是常见 6-10 层，高端更多，内部埋着电容和复杂的等长走线。个人做两层板都容易断线，做多层板需要昂贵的压合设备，而且<strong>高频信号（GHz级）</strong> 下，手搓的板子插上CPU直接冒烟或不识别。</li>
+<li><strong>显示器&#x2F;数位屏面板</strong>：这是液晶化学和精密玻璃工艺，个人连玻璃基板都切不平整。</li>
+</ul>
+<ol start="3">
+<li>能“手搓”但纯属自虐（且性能极差）</li>
+</ol>
+<ul>
+<li><strong>HDMI&#x2F;DP数据线</strong>：虽然可以买接头和线材自己焊接，但高频信号线要求<strong>屏蔽和阻抗匹配</strong>，手搓的线大概率屏幕闪屏或者上不了高刷新率（144Hz变60Hz）。</li>
+<li><strong>CPU风冷散热器（热管）</strong>：热管内部是真空和相变液体，个人没法抽真空灌液。但你可以<strong>用一块纯铜&#x2F;铝锭，用车床铣出一个“下压式散热片”</strong>，没有热管，散热效率只有工厂货的十分之一。</li>
+</ul>
+<ol start="4">
+<li>真正可以“手搓”的两大神器（DIY玩家的快乐源泉）</li>
+</ol>
+<ul>
+<li><strong>① 机箱（主机壳子）—— 绝对可以！</strong><br>电脑机箱本质上就是个<strong>“带螺丝孔的金属&#x2F;塑料盒子”</strong>。只要你有<strong>亚克力板、木板甚至乐高积木</strong>，加上电钻和钢尺，完全可以自己做。<br><em>注意</em>：你唯一要确保的是 <strong>“IO挡板尺寸”</strong> （主板屁股那一块）和 <strong>“铜柱螺孔位置”</strong> （ATX标准是固定的）。只要把主板放进去比划一下钻孔，你就拥有了“全球唯一孤品机箱”。</li>
+<li><strong>② 机械键盘 —— 甚至可以搓得比量产更好！</strong>可以手搓外壳、定位板、键线、焊接、润轴和固件，不过轴体本身是精密模具和弹片，个人很难从零造。</li>
+<li>这是客制化（Custom Keyboard）圈子最热衷的事。你可以：<ul>
+<li><strong>买PCB空板</strong>（自己画也行，但比ESP32复杂点）焊接<strong>轴体</strong>（每个按键都是一个独立开关）。</li>
+<li>自己<strong>润轴</strong>（给轴体内部涂润滑脂）。</li>
+<li>自己<strong>编键盘线</strong>（航空插头线缆）。<br>在这个圈子里，<strong>“手搓一把键盘”</strong>是基操，手感能吊打几百块的成品。</li>
+</ul>
+</li>
+</ul>
+<p><strong>彩蛋：U盘也能搓</strong><br>买一个<strong>“IS903主控板”</strong>（空板） + 一颗<strong>“闪存颗粒（NAND）”</strong>，用电烙铁焊上去，量产工具开卡，你就拥有了一块私人订制U盘。不过这属于“组装半成品”，不算完全自造。</p>
+<p><strong>总结一句话</strong>：<strong>半导体（CPU&#x2F;内存）你绝对造不了；电路板（主板&#x2F;显卡）你造不好；但金工（机箱）和机械结构（键盘轴体），你完全可以用电钻和烙铁跟工厂掰掰手腕！</strong></p>
+<p>不过，虽然不能手搓电脑，但可以搓别的单片机或者树莓派：<br>硬件开发的两条经典路线：</p>
+<ul>
+<li><strong>路径A（硬核玩家&#x2F;硬件工程师）</strong>：买<strong>芯片（MCU）</strong> → 自己画PCB → 焊接元器件 → 自己做出一块<strong>开发板</strong> → 再写代码。这条路涵盖了<strong>硬件设计</strong>。</li>
+<li><strong>路径B（软件开发者&#x2F;创客）</strong>：直接买别人做好的<strong>成品开发板</strong> → 插上USB线 → 只写代码。这条路专注于<strong>软件应用</strong>。</li>
+</ul>
+<p>如何购买或购买后组装一台电脑就讲到这里。现在你已经拥有一台可以使用的电脑了，来学习电脑是如何开机的吧。</p>
+<p>简单来说，按下开机键，电源通电后，经过电压调节模组，电流先启动芯片组（现在通常叫 PCH，以前分南北桥），芯片组完成复位，时钟发生器开始输出时钟脉冲。CPU 复位后从固定地址取指令，开始执行主板上的固件程序——传统上叫 BIOS，现在基本是 UEFI 固件。</p>
+<p>BIOS&#x2F;UEFI 先做 POST 自检，检测 CPU、内存、显卡等关键硬件，然后根据启动顺序找到可引导设备，把控制权交给硬盘上的引导程序，再由引导程序加载 Windows 的系统文件。</p>
+<p>系统启动后，鼠标键盘等外设输入的内容，经过 USB 控制器（传统上连接到南桥&#x2F;PCH，现在很多直接连到 CPU）传到 CPU，CPU 执行操作系统和驱动程序的指令来处理这些输入。</p>
+<p>CPU 需要的数据，先看能不能从缓存中拿到；拿不到就从内存中读。程序使用的地址是虚拟地址，经过 CPU 内的 MMU 翻译成物理地址，再访问真实的内存条。</p>
+<p>如果数据不在内存里，操作系统会从硬盘上的页面文件中把它换回来。计算完成后，结果再传回内存或通过外设显示在屏幕上。</p>
+<p>详细来说，按下开机键，并不是简单地“来电了”。现代ATX电源和主板之间有一套严格的时序协议，像多米诺骨牌一样环环相扣。</p>
+<p>在按下开机键之前，电脑其实已经处于<strong>待机状态</strong>。只要电源线插着，ATX电源就会输出一路 <strong>+5VSB（待机电压）</strong> ，为主板上的开机电路、BIOS芯片、网络唤醒功能等供电。此时主板处于休眠待机模式，等待触发信号。</p>
+<p>当你按下开机键，信号通过机箱上的 <strong>PWR_SW</strong> 针脚传递到PCH（平台控制器中枢，即传统意义上的南桥）。PCH收到信号后，会拉低ATX电源的 <strong>PS_ON#</strong> 引脚，主电源这才开始输出+12V、+5V、+3.3V等主要电压。</p>
+<p><strong>核心电压的建立有严格的先后顺序</strong>。通常是<strong>内存供电</strong>最先启动（DDR5 主供电约 1.1V），然后是<strong>CPU核心供电（Vcore）</strong> ，由多相PWM电路生成，接着是<strong>PCH供电</strong>，最后是<strong>PCIe&#x2F;SATA&#x2F;USB等外设供电</strong>。这个顺序不能乱，因为如果CPU先于内存上电，CPU在初始化时可能无法正常访问内存控制器。</p>
+<p>每一路电压稳定之后，对应的电路会发出 <strong>PG（Power Good）信号</strong>，比如 <strong>MEM_PWRGD</strong>（内存供电正常）、<strong>VRM_PWRGD</strong>（CPU核心供电正常），这些信号汇总到PCH。只有当PCH确认所有关键电压都稳定后，才会进入下一步。</p>
+<p>时钟与复位：给CPU一个“起跑信号”：电压稳定后，<strong>时钟发生器</strong>开始工作。它先产生一个基准时钟（通常是14.318MHz），然后分频或倍频输出给CPU、内存、PCIe总线等各个部件。时钟信号是CPU一切操作的节拍器，没有稳定的时钟，CPU就是一堆静止的晶体管。</p>
+<p>时钟稳定后，PCH发出 <strong>PLTRST#（平台全局复位）</strong> 信号，初始化PCIe、USB等外围设备，然后向CPU发出 <strong>CPURST#</strong> 信号。CPU收到这个复位信号后，正式解除复位状态，准备执行第一条指令。</p>
+<p>这个过程有个关键点：<strong>CPU并不是被动等待的</strong>。它在复位后会执行内部的 <strong>BIST（内建自检）</strong> ，检查自身的运算单元、缓存等是否正常。BIST的结果会放在 <strong>EAX寄存器</strong> 中，0表示没有错误。</p>
+<p>CPU的第一条指令：0xFFFFFFF0。CPU复位后，进入 <strong>实模式</strong>，所有段寄存器、缓存、TLB都被清空或初始化为特定值。此时 <strong>CS寄存器的基址被设置为0xFFFF0000</strong>，<strong>EIP（指令指针）被设置为0xFFF0</strong>。</p>
+<p>所以CPU执行的第一条指令的物理地址是：</p>
+<blockquote>
+<p><strong>0xFFFF0000 + 0xFFF0 &#x3D; 0xFFFFFFF0</strong></p>
+</blockquote>
+<p>这是<strong>4GB地址空间最后16个字节的位置</strong>。此时内存还远远没有初始化，这个地址并不指向真正的RAM，而是通过PCH内部的 <strong>SPI控制器</strong> 映射到主板上的<strong>固件芯片（BIOS&#x2F;UEFI芯片）</strong> 。</p>
+<p>CPU从这里取到的第一条指令，就是固件程序（UEFI）的入口代码。</p>
+<p>UEFI固件的多阶段启动。UEFI固件并不是一个单一的程序，它从启动到交出控制权分为多个阶段：</p>
+<p><strong>SEC阶段（安全校验）</strong> ：CPU执行固件的第一段代码，完成最基本的硬件初始化，验证固件本身的完整性。</p>
+<p><strong>PEI阶段（EFI预初始化）</strong> ：初始化内存控制器（DDR Training），让内存变得可用。这是整个启动过程中最耗时的阶段之一，因为内存时序需要反复校准。</p>
+<p><strong>DXE阶段（驱动执行环境）</strong> ：加载各种硬件的驱动程序，初始化显卡、USB控制器、硬盘控制器等。</p>
+<p><strong>BDS阶段（启动设备选择）</strong> ：根据启动顺序，找到可引导设备，把控制权交给引导程序。</p>
+<p>在DXE阶段，固件会执行 <strong>POST（加电自检）</strong> 。完整的POST包括对CPU、640K基本内存、1M以上的扩展内存、ROM、主板、CMOS、串并口、显示卡、软硬盘子系统及外接设备的测试。如果POST发现问题，主板会通过蜂鸣声或屏幕提示报错，停止启动。</p>
+<p>引导程序：UEFI把接力棒交给谁。UEFI并不直接加载Windows。它做的是：<strong>找到可引导设备上的引导程序，把控制权交出去</strong>。</p>
+<p>在UEFI模式下，Windows的引导程序存放在一个 <strong>FAT格式的EFI系统分区</strong> 中，具体路径是：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\efi\Microsoft\boot\bootmgfw.efi</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>UEFI找到这个文件后执行它，<code>bootmgfw.efi</code> 再去读取同一分区下的 <strong>BCD（启动配置数据）</strong> 文件，然后加载：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统盘:\windows\system32\winload.efi</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>至此，Windows内核才真正开始加载。</p>
+<p>作为对比，传统BIOS的路径是：BIOS → 活动主分区 → <code>\bootmgr</code> → <code>\Boot\BCD</code> → <code>\Windows\system32\winload.exe</code>。UEFI和BIOS在这个环节的结构差异，也解释了为什么UEFI启动更快、更安全。</p>
+<p>键盘输入：从物理按键到屏幕字符。你按下键盘上的“A”键，这个动作到屏幕上出现字符，经过了一条完整的链路。</p>
+<p><strong>硬件扫描</strong>：键盘内部的微控制器检测到A键被按下，生成一个<strong>扫描码</strong>（比如0x04），存入内部缓冲区。</p>
+<p><strong>USB传输</strong>：USB协议采用<strong>主从轮询机制</strong>。PC主机每1毫秒通过USB控制器发送一个 <strong>IN令牌包</strong>全速设备典型 1ms，高速设备用 125μs 微帧，键盘收到后通过<strong>中断传输</strong>上报一个 <strong>HID报告</strong>。单个报告最多包含6个按键（Boot Keyboard 协议下，NKRO 键盘可以更多）的状态。</p>
+<p><strong>中断处理</strong>：USB主机控制器收到报告后，USB 主机控制器通过 MSI&#x2F;MSI-X（或传统 IO-APIC 引脚）向 CPU 发出硬件中断；中断服务程序把数据存入内核缓冲区。中断服务程序把数据存入内核缓冲区，唤醒输入子系统的工作线程。</p>
+<p><strong>驱动解析</strong>：Windows的HID驱动做三步处理：解析原始字节流、维护按键状态表、把扫描码映射为<strong>虚拟键码</strong>（比如VK_A，值为0x41）。</p>
+<p><strong>消息投递</strong>：驱动把 <strong>WM_KEYDOWN</strong> 消息放入窗口站的消息队列，应用程序通过 <code>GetMessage()</code> 获取，然后调用 <code>TextOut()</code> 等函数。GDI引擎把字符轮廓数据转换为位图，最终通过显卡驱动写入帧缓冲区。</p>
+<p>整个过程，从你按下按键到屏幕上出现字符，通常在<strong>几十毫秒</strong>内完成。</p>
+<p>虚拟地址与MMU：程序看不到真实的内存。CPU执行程序时，程序使用的地址是<strong>虚拟地址</strong>，不是真实的内存条地址。CPU内部的 <strong>MMU（内存管理单元）</strong> 负责把虚拟地址翻译成物理地址。</p>
+<p>翻译的依据是<strong>页表</strong>。操作系统为每个进程维护一套页表，页表的基地址存放在CPU的寄存器中（x86上是 <strong>CR3</strong>，ARM上是 <strong>TTBRx_EL1</strong>）。MMU查表的过程是硬件自动完成的，程序完全感知不到。</p>
+<p>虚拟内存的作用是：<strong>让每个进程以为自己独占全部内存</strong>，互不干扰；同时方便做内存保护，一个进程乱写不会把整个系统写挂。</p>
+<p>页面文件：当内存不够用时。如果CPU需要的数据既不在缓存里，也不在物理内存里，就会触发 <strong>缺页中断</strong>。操作系统此时会从硬盘上的<strong>页面文件</strong>中把所需的数据换回来。</p>
+<p>Windows的页面文件是 **<code>pagefile.sys</code>**，默认放在系统盘根目录，系统自动调整大小。Linux则使用 <strong>Swap分区</strong> 或 <strong>Swap文件</strong>。</p>
+<p>换页的基本思想是：当物理内存不够时，操作系统把一些暂时不用的内存页写到磁盘上，腾出物理内存给当前需要的程序。磁盘上记录着这些页被换到了什么位置，需要时再换回来。</p>
+<p>这个过程对程序是透明的，程序不知道自己访问的数据曾经被挪到硬盘上过。但如果频繁换页（称为<strong>抖动</strong>），系统会变得非常卡顿，因为硬盘的速度比内存慢了几个数量级。</p>
+<p>显示输出：帧缓冲与垂直同步：CPU计算好的显示内容提交给GPU。GPU完成渲染后，把结果写入<strong>帧缓冲区</strong>。视频控制器按照 <strong>VSync（垂直同步）信号</strong> 逐行读取帧缓冲区的数据，经过数字接口编码（如 HDMI 的 TMDS、DP 的 8b&#x2F;10b 或 128b&#x2F;132b 等）后，通过线缆传给显示器。</p>
+<p>为了避免画面撕裂，显示系统通常采用<strong>双缓冲机制</strong>：GPU渲染下一帧到第二个缓冲区，完成后把视频控制器的指针切换过去。开启垂直同步后，GPU会等待显示器的VSync信号发出后，才进行新一帧的渲染和缓冲区更新。</p>
+<p>如果在一个VSync周期内，CPU或GPU没有完成内容提交，那一帧就会被丢弃，等待下一次机会再显示，屏幕上保留之前的内容——这就是<strong>掉帧</strong>的物理原因。</p>
+<p>总结：</p>
+<p>从按下开机键到屏幕上出现画面，这条链路上经过了：</p>
+<p>电源时序 → 时钟与复位 → CPU取指 → UEFI多阶段启动 → POST自检 → 引导程序 → Windows内核加载 → 驱动初始化 → 输入处理 → 虚拟地址翻译 → 缓存与内存访问 → 缺页中断与换页 → GPU渲染 → 帧缓冲 → 屏幕显示</p>
+
+                                                                                    
+                                                                                        <!-- reward -->
+                                                                                        
+                                                </div>
+                                                
+
+                                                    <!-- copyright -->
+                                                    
+                                                        <div class="declare">
+                                                            <ul class="post-copyright">
+                                                                <li>
+                                                                    <i class="ri-copyright-line"></i>
+                                                                    <strong>版权声明： </strong>
+                                                                    
+                                                                                本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+                                                                                    
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        
+                                                            <footer class="article-footer">
+                                                                
+                                                                    
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://morlvoid.github.io/2026/09/17/%E6%9D%82%E8%B0%88%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9F%A5%E8%AF%86%E8%A1%A5%E7%9B%B2%E2%91%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+                                                                        
+                                                                            
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E8%B0%88/" rel="tag">杂谈</a></li></ul>
+
+                                                            </footer>
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/2026/12/31/2026%E5%B9%B4%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            2026年新项目开发计划
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2026/09/10/%E5%87%86%E7%BA%BF-%E7%94%BB%E7%94%BB%E6%8A%A5%E7%8F%AD%E6%8C%87%E5%8D%97-%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">准线--画画报班指南--网站开发计划</div>
+      </a>
+    
+  </nav>
+
+
+            
+                
+                    
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "465Xt3hWy29KpuUcHws0eKzz-gzGzoHsz",
+    app_key: "nEjCygT4tx2acvUryFONakfK",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "欢迎评论！",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+
+                        
+                            
+                                
+
+                                    
+                                        
+                                            
+                                                
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2026
+        <i class="ri-heart-fill heart_icon"></i> Morlvoid
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="https://beian.miit.gov.cn/" target="_black" rel="nofollow">鲁ICP备2021025942号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      
+
+    <button class="navbar-toggle"></button>
+    <nav class="navbar" style="
+  
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background-color: transparent !important;
+">
+        
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="Mor | void"></a>
+            </div>
+            
+                <ul class="nav nav-main">
+                    
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/" style="
+        color: #bbb;
+      ">
+                                主页
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/archives" style="
+        color: #bbb;
+      ">
+                                归档
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/categories" style="
+        color: #bbb;
+      ">
+                                分类
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/project" style="
+        color: #bbb;
+      ">
+                                项目
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/photos" style="
+        color: #bbb;
+      ">
+                                画作
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/friends" style="
+        color: #bbb;
+      ">
+                                友链
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-item-link" href="/about" style="
+        color: #bbb;
+      ">
+                                关于
+                            </a>
+                        </li>
+                        
+                </ul>
+    </nav>
+    <nav class="navbar navbar-bottom" style="
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background-color: transparent !important;
+">
+        <ul class="nav">
+            <li class="nav-item">
+                
+                    <a class="nav-item-link nav-item-search" title="搜索" style="
+        color: #bbb;
+      ">
+                        <i class="ri-search-line"></i>
+                    </a>
+                    
+                        
+            </li>
+        </ul>
+    </nav>
+    <div class="search-form-wrap">
+        <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+    </div>
+
+    <style>
+        .nav-item-link:hover {
+            color: #fff !important;
+        }
+    </style>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>You Found Me.</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">764</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -127,7 +127,7 @@
 
 
 
-<h3 id="组成原理——Cache"><a href="#组成原理——Cache" class="headerlink" title="组成原理——Cache"></a>组成原理——Cache</h3><p>Q：为什么在  寄存器→<strong>Cache</strong>→主存→外存  这个储存上写一个英文名字？Cache是什么？写中文名不行吗？为什么考题中计算Cache未命中需要去主存查找的损耗时间叫做“缺失代价”？为什么不能叫“缺失时间”或者“损耗时间”？</p>
+<h3 id="组成原理——Cache"><a href="#组成原理——Cache" class="headerlink" title="组成原理——Cache"></a>组成原理——Cache</h3><p>Q：为什么在  寄存器→<strong>Cache</strong>→主存→外存  这个储存上写一个英文名字？Cache是什么？写中文名不行吗？为什么考题中计算Cache未命中需要去主存查找的损耗时间叫做“缺失代价”？为什么不能叫“缺失时间”或者“损耗时间”？平均访问时间<strong>AMAT</strong>的计算公式：命中时间+缺失率×缺失代价是什么意思？为什么不能是命中率×命中时间+缺失率×(命中时间+缺失代价)？</p>
 <p>A：<strong>Cache（高速缓存）</strong></p>
 <p><strong>Cache</strong> 来自法语 <strong>cacher</strong>，意思是“隐藏、藏起来”。</p>
 <p>早期计算机里，它就是一个“藏起来的快速小仓库”，所以叫 Cache。</p>
@@ -160,6 +160,16 @@
 <blockquote>
 <p><strong>缺失代价 &#x3D; 缺失时额外花的时间。</strong><br>考试时叫它“额外时间”也没问题，意思一样。非考试时需要记得还有其他损耗</p>
 </blockquote>
+<p>平均访问时间<strong>AMAT</strong>的计算公式：</p>
+<p><mark>标准公式：AMAT&#x3D;命中时间+缺失率×缺失代价</mark></p>
+<ul>
+<li>每次都要花 1ns 查 Cache。</li>
+<li>20% 的情况，再多花 50ns 去主存。</li>
+</ul>
+<p>我觉得记忆起来很奇怪。</p>
+<p>根据Cache的原理：访问数据时先访问Cache，假设消耗2ns，找到后（俗称命中后）即可使用，而找到的概率是80%。若没有找到（俗称未命中），就需要去主存寻找，去主存寻找较慢，假设在主存消耗的时间为50ns，这50ns叫做缺失代价，没有找到的概率也就是20%，这20%叫做缺失率，那么平均访问时间也就是80%的只花了2ns和20%的花了52ns，也就是：</p>
+<p><mark>我自己理解的计算公式：AMAT&#x3D;命中率×命中时间+缺失率×(命中时间+缺失代价)</mark></p>
+<p>标准公式更简洁，但我理解的公式计算出来也没有错误，可以按自己理解的来。</p>
 <h3 id="组成原理：I-O中断"><a href="#组成原理：I-O中断" class="headerlink" title="组成原理：I&#x2F;O中断"></a>组成原理：I&#x2F;O中断</h3><p>Q：I&#x2F;O代表的是输入输出，中断是中断，I&#x2F;O不一定产生中断，中断也不全是I&#x2F;O产生的，也会有别的产生原因，那I&#x2F;O和中断是什么关系？</p>
 <p>A：<strong>“中断”是一个大机制，“I&#x2F;O 中断”只是这个机制里的一种具体来源</strong></p>
 <p>不是只学 I&#x2F;O 中断，也不是中断只由I&#x2F;O造成，只是 <mark><strong>输入&#x2F;输出（I&#x2F;O）所造成的</strong>中断是考试重点</mark>，所以经常提到还会单独拿出来说，其他的较为少考，提到较少，并不代表没有其他中断</p>
@@ -271,9 +281,9 @@
       </a>
     
     
-      <a href="/2026/09/25/%E4%BB%8E%E4%B9%B0%E7%94%B5%E8%84%91%E5%88%B0408%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9C%B0%E5%9B%BE/" class="article-nav-link">
+      <a href="/2026/10/08/%E7%BD%91%E8%AF%BE%E7%8F%AD%E5%AD%A6%E7%94%BB%E7%94%BB2%E5%B9%B4%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">从买电脑到408的知识地图</div>
+        <div class="article-nav-title">网课班学画画2年经验总结</div>
       </a>
     
   </nav>

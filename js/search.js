@@ -23,16 +23,10 @@ var searchFunc = function(path, search_id, content_id) {
     var BTN = "<button type='button' class='local-search-close' id='local-search-close'></button>";
     $.ajax({
         url: path,
-        dataType: "xml",
-        success: function(xmlResponse) {
-            // get the contents from search data
-            var datas = $("entry", xmlResponse).map(function() {
-                return {
-                    title: $("title", this).text(),
-                    content: $("content", this).text(),
-                    url: $("url", this).text()
-                };
-            }).get();
+        dataType: "json",
+        success: function(jsonResponse) {
+            // hexo-generator-searchdb 生成的 search.json 就是一个数组
+            var datas = jsonResponse || [];
 
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);
